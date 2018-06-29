@@ -2,11 +2,7 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = True
 SECRET_KEY = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
-
-
-# DATABASE_URL = "mysql://root:youxia@192.168.1.174/flask"
 
 
 class Config:
@@ -16,7 +12,6 @@ class Config:
     FLASKY_MAIL_SENDER = 'Flasky Admin <flasky@example.com>'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
-    # SQLALCHEMY_TRACH_MODIFICATIONS = False
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     #
@@ -41,15 +36,15 @@ class DevelopmentConfig(Config):  # 开发环境
         Config.init_app(app)
 
 
-# class TestingConfig(Config):  # 测试环境
-#     TESTING = True
-#     SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
-#                               'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
-#
-#
-# class ProductionConfig(Config):  # 生产环境
-#     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-#                               'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+class TestingConfig(Config):  # 测试环境
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
+                              'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
+
+
+class ProductionConfig(Config):  # 生产环境
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+                              'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
 
 config = {
