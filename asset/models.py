@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
+
 from sqlalchemy import Table, Column, Integer, ForeignKey, String, DateTime, Boolean
 from flask_login import UserMixin
 from . import login_manager
@@ -20,16 +22,29 @@ class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     username = Column(String(255), unique=True, index=True)
-    password = Column(String(255))
+    password_hash = Column(String(255))
     email = Column(String(255), unique=True)
     # role_id = Column(Integer, ForeignKey('roles.id'))
 
-    def __init__(self, username):
-        self.username = username
+    # def __init__(self, username):
+    #     self.username = username
+    #     self.username = username
+    #     self.username = username
+    @property
+    def password(self):
+        raise AttributeError('password is not a readable attribute/ password 不是一个可读属性。')
+
+    @password.setter
+    def password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
 
     def __repr__(self):
         """Define the string format for instance of User."""
-        return "<Model User `{}`>".format(self.username)
+        return '<User %r>' % self.username
 
 
 class Asset(db.Model):

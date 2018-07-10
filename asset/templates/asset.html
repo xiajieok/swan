@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+{#{% load custom %}#}
+{% block page_header %}
+    <h1>
+        资产列表
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+    </ol>
+{% endblock %}
+{% block content %}
+    <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">主机详情</h3>
+                </div>
+                <div class="modal-body detail" style="margin: 10px">
+                    <span>
+                        主机名:
+                        <a id="host"></a>
+                    </span>
+                    <hr>
+                    <p>
+                        型号:
+                        <a id="product"></a>
+                    </p>
+                    <hr>
+                    <p>
+                        SN:
+                        <a id="sn"></a>
+                    </p>
+                    <hr>
+
+                    <p>
+                        CPU型号:
+                        <a id="cpu_version"></a>
+                    </p>
+                    <hr>
+                    <p>
+                        内存:
+                        <a id="mem"></a>
+                    </p>
+                    <hr>
+                    <p>
+                        磁盘:
+                        <a id="disk"></a>
+                    </p>
+                    <hr>
+                    <p>
+                        磁盘使用率:
+                        <a id="used"></a>
+                    </p>
+                    <hr>
+                    <p>
+                        机房:
+                        {#                        <select id="city" >#}
+                        {#                            <option selected = "selected">请选择主机</option>#}
+                        {#                        </select>#}
+                        <a id="idc"></a>
+                    </p>
+                    <hr>
+                    <p>
+                        更新时间:
+                        <a id="time"></a>
+                    </p>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+
+        <div class="row">
+            <div class="col-sm-12">
+                {#                <div class="col-md-4">#}
+                <span class="btn btn-default"><a href="/asset/category/all/"> 所有</a></span>
+                <span class="btn btn-default"><a href="/asset/category/server/"> 服务器</a></span>
+                <span class="btn btn-default"><a href="/asset/category/route/">网络设备</a></span>
+                <span class="btn btn-default"><a href="/asset/category/storagedevice/">存储设备</a></span>
+                <select id="idc-select">
+                    <option selected="selected" class="form-control m-b input-sm">请选择机房</option>
+                    <option>-----</option>
+                </select>
+                <table id="example2" class="table table-bordered table-hover dataTable"
+                       role="grid"
+                       aria-describedby="example2_info">
+
+                    <thead>
+                    <tr role="row">
+                        <th>ID</th>
+                        <th>主机名</th>
+                        <th>业务线</th>
+                        <th>管理员</th>
+                        <th>IDC</th>
+                        <th>状态</th>
+                        <th>更新时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+{#                    {% for i in assets.data %}#}
+{#                        <tr role="row" class="even">#}
+{#                            <td>{{ i.id }}</td>#}
+{#                            <td><a href="/asset/list/{{ i.id }}">{{ i.name }}</a></td>#}
+                            {#                            <td>{{ i.sn }}</td>#}
+                            {#                            <td>{{ i.asset_type }}</td>#}
+{#                            <td>{{ i.business_unit }}</td>#}
+{##}
+{#                            <td>{{ i.name }}</td>#}
+                            {#                            <td>{{ i.name }}</td>#}
+{#                            <td>{{ i.idc }}</td>#}
+                            {#                                    <td>{{ i.manufactory }}</td>#}
+{#                            <td>#}
+{#                                {% if i.status == '在线' %}#}
+{#                                    <span class="label label-success">运行中</span>#}
+{#                                {% elif i.status == '已下线' %}#}
+{#                                    <span class="label label-primary">已下线</span>#}
+{#                                {% elif i.status == '未知' %}#}
+{#                                    <span class="label label-default">未知</span>#}
+{#                                {% elif i.status == '故障' %}#}
+{#                                    <span class="label label-danger">故障</span>#}
+{#                                {% elif i.status == '备用' %}#}
+{#                                    <span class="label label-info">备用</span>#}
+{##}
+{#                                {% endif %}#}
+{#                            </td>#}
+{#                            <td>{{ i.update_date |date:"m-d H:i:s" }}</td>#}
+{#                            <td>#}
+{#                                <a class="fa fa-edit" id={{ i.id }} onclick="Edit(this)" style="margin: 3px"#}
+{#                                   data-toggle="modal"#}
+{#                                   data-target="#modal-edit" type="button"></a>#}
+{#                                <a class="fa fa-refresh" style="margin: 3px"></a>#}
+{#                                <a class="fa fa-remove" style="margin: 3px"></a>#}
+{#                            </td>#}
+{##}
+{#                        </tr>#}
+{#                    {% endfor %}#}
+
+                    </tbody>
+
+                </table>
+                <div class="col-sm-5">
+                    <div class="dataTables_info" id="example2_info" role="status"
+                         aria-live="polite">Showing 1 to
+{#                        {% if assets.data|length < 10 %}#}
+{#                            {{ assets.data|length }}#}
+{#                        {% else %}#}
+{#                            10#}
+{#                        {% endif %}#}
+{#                        of {{ assets.data|length }} entries#}
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="nav-divider">
+                        <nav style="float: right">
+                            <ul class="pagination">
+{#                                {% if posts.has_previous %}#}
+{#                                    <li class="">#}
+{#                                        <a href="?page={{ posts.previous_page_number }}"#}
+{#                                           aria-label="Previous">#}
+{#                                            <span aria-hidden="true">&laquo;</span>#}
+{#                                        </a>#}
+{#                                    </li>#}
+{#                                {% endif %}#}
+{#                                {% for page_num in posts.paginator.page_range %}#}
+{#                                    {% guess_page posts.number page_num %}#}
+{#                                {% endfor %}#}
+{#                                {% if posts.has_next %}#}
+{#                                    <li class="">#}
+{#                                        <a href="?page={{ posts.next_page_number }}"#}
+{#                                           aria-label="Next">#}
+{#                                            <span aria-hidden="true">&raquo;</span>#}
+{#                                        </a>#}
+{#                                    </li>#}
+{#                                {% endif %}#}
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- nav-tabs-custom -->
+    </div>
+
+
+
+{% endblock %}
+{#{% block bottom-js %}#}
+{#    <script>#}
+{#        $(document).ready(function () {#}
+{#            $.getJSON("http://ant.91jyy.com/api/idcs/?format=json", function (callback) {#}
+{#                for (var item in callback) {#}
+{#                    tmp = "<option>" + callback[item]['name'] + "</option>";#}
+{#                    $('#idc-select').append(tmp)#}
+{#                }#}
+{#            })#}
+{##}
+{#        });#}
+{##}
+{#        function Edit(obj) {#}
+{#            var id = $(obj).attr('id')#}
+{#            $.ajax({#}
+{#                url: "http://ant.91jyy.com/api/assets/" + id + "/?format=json",#}
+{#                type: 'GET',#}
+{#                success: function (data) {#}
+{#                    $("#modal-edit").modal();#}
+{#                    var obj = data#}
+{#                    $('#host').text(obj.name);#}
+{#                    $('#ip').text(obj.server.ip);#}
+{#                    $('#mem').text(obj.server.ram_capacity + ' G');#}
+{#                    $('#disk').text(obj.server.disk_total);#}
+{#                    $('#used').text(obj.used + ' %');#}
+{#                    $('#idc').text(obj.server.assets.idc.name)#}
+{#                    $('#time').text(obj.server.update_date);#}
+{#                    $('#sn').text(obj.sn);#}
+{#                    $('#product').text(obj.server.model);#}
+{#                    $('#cpu_version').text(obj.server.cpu);#}
+{##}
+{#                }#}
+{#            })#}
+{##}
+{#        }#}
+{##}
+{##}
+{#    </script>#}
+    {#    <script>#}
+    {#        function New() {#}
+    {#            window.location.href = '/asset/category/networkdevice/';#}
+    {#        }#}
+    {#    </script>#}
+{#{% endblock %}#}
