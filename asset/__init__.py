@@ -5,6 +5,9 @@ from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_restful import Api,Resource
+from asset.apis import views as apis
+
 from config import config
 
 bootstrap = Bootstrap()
@@ -14,6 +17,8 @@ db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
+
+
 
 
 def create_app(config_name):
@@ -31,5 +36,9 @@ def create_app(config_name):
 
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
+
+    api = Api(app)
+    api.add_resource(api.HelloWorld, '/api')
+
 
     return app
