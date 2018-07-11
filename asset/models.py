@@ -21,16 +21,13 @@ class User(UserMixin, db.Model):
 
     # Set the name for table
     __tablename__ = 'user'
-    id = Column(Integer, primary_key=True)
+    id = Column(String(45), primary_key=True)
     username = Column(String(255), unique=True, index=True)
     password_hash = Column(String(255))
     email = Column(String(255), unique=True)
     # role_id = Column(Integer, ForeignKey('roles.id'))
 
-    # def __init__(self, username):
-    #     self.username = username
-    #     self.username = username
-    #     self.username = username
+
     @property
     def password(self):
         raise AttributeError('password is not a readable attribute/ password 不是一个可读属性。')
@@ -43,9 +40,9 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
 
-    def __repr__(self):
-        """Define the string format for instance of User."""
-        return '<User %r>' % self.username
+    # def __repr__(self):
+    #     """Define the string format for instance of User."""
+    #     return '<User %r>' % self.username
 
 
 class Asset(db.Model):
@@ -81,9 +78,9 @@ class IDC(db.Model):
     name = Column(String(64), default='阿里云')
     memo = Column(String(256))
 
-    def __init__(self, name, memo):
-        self.name = name
-        self.memo = memo
+    # def __init__(self, name, memo):
+    #     self.name = name
+    #     self.memo = memo
 
 
 class Manufactory(db.Model):
@@ -94,9 +91,9 @@ class Manufactory(db.Model):
     support_num = Column(String(30))
     memo = Column(String(256))
 
-    def __init__(self, manufactory, memo):
-        self.name = manufactory
-        self.memo = memo
+    # def __init__(self, manufactory, memo):
+    #     self.name = manufactory
+    #     self.memo = memo
 
 
 class BusinessUnit(db.Model):
@@ -106,6 +103,6 @@ class BusinessUnit(db.Model):
     name = Column(String(64), default='健康')
     memo = Column(String(256))
 
-    def __init__(self, name, memo):
-        self.name = name
-        self.memo = memo
+    # def __init__(self, name, memo):
+    #     self.name = name
+    #     self.memo = memo

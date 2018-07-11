@@ -189,51 +189,21 @@
             </div>
         </div>        <!-- nav-tabs-custom -->
     </div>
+{% endblock %}
 
 
+{% block js %}
+        $(document).ready(function () {
+            console.log('hahahha')
+            $.getJSON("http://127.0.0.1:5000/api/idc", function (callback) {
+                console.log(callback)
+                for (var item in callback) {
+                    tmp = "<option>" + callback[item]['name'] + "</option>";
+                    $('#idc-select').append(tmp)
+
+                }
+            })
+
+        });
 
 {% endblock %}
-{#{% block bottom-js %}#}
-{#    <script>#}
-{#        $(document).ready(function () {#}
-{#            $.getJSON("http://ant.91jyy.com/api/idcs/?format=json", function (callback) {#}
-{#                for (var item in callback) {#}
-{#                    tmp = "<option>" + callback[item]['name'] + "</option>";#}
-{#                    $('#idc-select').append(tmp)#}
-{#                }#}
-{#            })#}
-{##}
-{#        });#}
-{##}
-{#        function Edit(obj) {#}
-{#            var id = $(obj).attr('id')#}
-{#            $.ajax({#}
-{#                url: "http://ant.91jyy.com/api/assets/" + id + "/?format=json",#}
-{#                type: 'GET',#}
-{#                success: function (data) {#}
-{#                    $("#modal-edit").modal();#}
-{#                    var obj = data#}
-{#                    $('#host').text(obj.name);#}
-{#                    $('#ip').text(obj.server.ip);#}
-{#                    $('#mem').text(obj.server.ram_capacity + ' G');#}
-{#                    $('#disk').text(obj.server.disk_total);#}
-{#                    $('#used').text(obj.used + ' %');#}
-{#                    $('#idc').text(obj.server.assets.idc.name)#}
-{#                    $('#time').text(obj.server.update_date);#}
-{#                    $('#sn').text(obj.sn);#}
-{#                    $('#product').text(obj.server.model);#}
-{#                    $('#cpu_version').text(obj.server.cpu);#}
-{##}
-{#                }#}
-{#            })#}
-{##}
-{#        }#}
-{##}
-{##}
-{#    </script>#}
-    {#    <script>#}
-    {#        function New() {#}
-    {#            window.location.href = '/asset/category/networkdevice/';#}
-    {#        }#}
-    {#    </script>#}
-{#{% endblock %}#}

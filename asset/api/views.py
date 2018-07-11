@@ -7,12 +7,7 @@ from asset.ext import db
 parser = reqparse.RequestParser()
 
 
-class HelloWorld(Resource):
-    def get(self):
-        return {'hello': 'world'}
-
-
-class User(Resource):
+class UserList(Resource):
     def get(self):
         user = models.User.query.all()
         res = {}
@@ -20,15 +15,138 @@ class User(Resource):
             res[i.id] = {'username': i.username, 'email': i.email}
         return jsonify(res)
 
-
-class IDC(Resource):
+    def post(self):
+        json_data = request.get_json(force=True)
+        try:
+            idc_id = models.User.query.order_by(models.User.id.desc()).first().id
+            new_id = int(idc_id) + 1
+        except:
+            new_id = 1
+        print(json_data)
+        res = models.User(id=new_id, username=json_data['username'], email=json_data['email'],password=json_data['password'])
+        db.session.add(res)
+        db.session.commit()
+        db.session.close()
+        return json_data, 200
+class User(Resource):
     def get(self):
-        user = models.IDC.query.all()
+        user = models.User.query.all()
         res = {}
         for i in user:
+            res[i.id] = {'name': i.name, 'memo': i.memo,'email':i.emil}
+        return jsonify(res)
+
+    def put(self, user_id):
+        json_data = request.get_json(force=True)
+        for i in json_data:
+            models.User.query.filter_by(id=user_id).update({i: json_data[i]})
+        db.session.commit()
+        db.session.close()
+        return 200
+
+    def delete(self, user_id):
+        try:
+            user = models.User.query.filter_by(id=user_id).delete()
+            db.session.commit()
+            db.session.close()
+        except:
+            return "Not exists"
+        return 200
+
+
+
+
+class IDCList(Resource):
+    def get(self):
+        idc = models.IDC.query.all()
+        res = {}
+        for i in idc:
+            res[i.id] = {'name': i.name, 'memo': i.memo}
+        return jsonify(res)
+    def post(self):
+        json_data = request.get_json(force=True)
+        try:
+            idc_id = models.IDC.query.order_by(models.IDC.id.desc()).first().id
+            new_id = int(idc_id) + 1
+        except:
+            new_id = 1
+        print(new_id)
+        res = models.IDC(id=new_id, name=json_data['name'], memo=json_data['memo'])
+        db.session.add(res)
+        db.session.commit()
+        db.session.close()
+        return json_data, 200
+class IDC(Resource):
+    def get(self):
+        idc = models.IDC.query.all()
+        res = {}
+        for i in idc:
             res[i.id] = {'name': i.name, 'memo': i.memo}
         return jsonify(res)
 
+    def put(self, idc_id):
+        json_data = request.get_json(force=True)
+        for i in json_data:
+            models.IDC.query.filter_by(id=idc_id).update({i: json_data[i]})
+        db.session.commit()
+        db.session.close()
+        return 200
+
+    def delete(self, idc_id):
+        try:
+            idc = models.IDC.query.filter_by(id=idc_id).delete()
+            print(idc)
+            db.session.commit()
+            db.session.close()
+        except:
+            return "Not exists"
+        return 200
+
+class BusinessUnitList(Resource):
+    def get(self):
+        idc = models.BusinessUnit.query.all()
+        res = {}
+        for i in idc:
+            res[i.id] = {'name': i.name, 'memo': i.memo}
+        return jsonify(res)
+    def post(self):
+        json_data = request.get_json(force=True)
+        try:
+            idc_id = models.BusinessUnit.query.order_by(models.IDC.id.desc()).first().id
+            new_id = int(idc_id) + 1
+        except:
+            new_id = 1
+        print(new_id)
+        res = models.BusinessUnit(id=new_id, name=json_data['name'], memo=json_data['memo'])
+        db.session.add(res)
+        db.session.commit()
+        db.session.close()
+        return json_data, 200
+class BusinessUnit(Resource):
+    def get(self):
+        idc = models.BusinessUnit.query.all()
+        res = {}
+        for i in idc:
+            res[i.id] = {'name': i.name, 'memo': i.memo}
+        return jsonify(res)
+
+    def put(self, business_id):
+        json_data = request.get_json(force=True)
+        for i in json_data:
+            models.BusinessUnit.query.filter_by(id=business_id).update({i: json_data[i]})
+        db.session.commit()
+        db.session.close()
+        return 200
+
+    def delete(self, business_id):
+        try:
+            idc = models.BusinessUnit.query.filter_by(id=idc_id).delete()
+            print(idc)
+            db.session.commit()
+            db.session.close()
+        except:
+            return "Not exists"
+        return 200
 
 class AssetList(Resource):
     def get(self):
@@ -42,14 +160,15 @@ class AssetList(Resource):
                          'approved': i.approved, 'memo': i.memo}
 
         return jsonify(res)
-
     def post(self):
-        print(request.method)
         json_data = request.get_json(force=True)
-        asset_id = models.Asset.query.order_by(models.Asset.id.desc()).first().id
-        new_id = int(asset_id) + 1
+        try:
+            asset_id = models.Asset.query.order_by(models.Asset.id.desc()).first().id
+            new_id = int(asset_id) + 1
+        except:
+            new_id = 1
         res = models.Asset(id=new_id, name=json_data['name'], sn=json_data['sn'], type=json_data['type'],
-                           idc=json_data['idc'], create_date=datetime.now(), status=json_data['status'])
+                           idc=json_data['idc'], create_date=datetime.now(),update_date=datetime.now(), status=json_data['status'])
         db.session.add(res)
         db.session.commit()
         db.session.close()
@@ -70,14 +189,18 @@ class Asset(Resource):
 
     def put(self, asset_id):
         json_data = request.get_json(force=True)
-        asset = models.Asset.query.filter_by(id=asset_id).first()
         for i in json_data:
-            print(i)
-            # asset.i = json_data[i]
-            models.Asset.query.filter_by(id=asset_id).update(i=json_data[i])
-        # asset.status = json_data['status']
-        # # db.session.add(asset)
-        args = parser.parse_args()
+            models.Asset.query.filter_by(id=asset_id).update({i:json_data[i],"update_date":datetime.now()})
         db.session.commit()
         db.session.close()
         return 200
+    def delete(self,asset_id):
+        try:
+            asset = models.Asset.query.filter_by(id=asset_id).delete()
+            print(asset)
+            db.session.commit()
+            db.session.close()
+        except:
+            return "Not exists"
+        return 200
+
