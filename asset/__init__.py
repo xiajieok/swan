@@ -3,20 +3,18 @@ import os
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
-from flask_restful import Api,Resource
-from asset.apis import views as apis
+# from flask_sqlalchemy import SQLAlchemy
+from asset.utils import login_manager
+from flask_restful import Api
+from asset.api.urls  import restful_api
 
 from config import config
-
+from .ext import db
 bootstrap = Bootstrap()
 moment = Moment()
-db = SQLAlchemy()
+# db = SQLAlchemy()
 
-login_manager = LoginManager()
-login_manager.session_protection = 'strong'
-login_manager.login_view = 'auth.login'
+
 
 
 
@@ -37,8 +35,7 @@ def create_app(config_name):
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
 
-    api = Api(app)
-    api.add_resource(api.HelloWorld, '/api')
+    app.register_blueprint(restful_api)
 
 
     return app
