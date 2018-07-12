@@ -159,16 +159,37 @@ class BusinessUnit(Resource):
 
 class AssetList(Resource):
     def get(self):
-        asset = models.Asset.query.all()
-        res = {}
-        for i in asset:
-            res[i.id] = {'name': i.name, 'type': i.type, 'sn': i.sn, 'management_ip': i.management_ip,
-                         'status': i.status, 'idc': i.idc, 'business_unit': i.business_unit,
-                         'expire_date': i.expire_date, 'create_date': i.create_date,
-                         'update_date': i.update_date,
-                         'approved': i.approved, 'memo': i.memo}
+        # print(request.args)
 
-        return jsonify(res)
+        try:
+            data = request.args.to_dict()
+            for k,v in data.items():
+                if k == 'idc':
+                    asset = models.Asset.query.filter_by(idc=v)
+                elif k == 'business_unit':
+                    asset = models.Asset.query.filter_by(business_unit=v)
+                else:
+                    asset = models.Asset.query.filter_by(type=v)
+            res = {}
+            for i in asset:
+                res[i.id] = {'name': i.name, 'type': i.type, 'sn': i.sn, 'management_ip': i.management_ip,
+                             'status': i.status, 'idc': i.idc, 'business_unit': i.business_unit,
+                             'expire_date': i.expire_date, 'create_date': i.create_date,
+                             'update_date': i.update_date,
+                             'approved': i.approved, 'memo': i.memo}
+
+            return jsonify(res)
+        except:
+            asset = models.Asset.query.all()
+            res = {}
+            for i in asset:
+                res[i.id] = {'name': i.name, 'type': i.type, 'sn': i.sn, 'management_ip': i.management_ip,
+                             'status': i.status, 'idc': i.idc, 'business_unit': i.business_unit,
+                             'expire_date': i.expire_date, 'create_date': i.create_date,
+                             'update_date': i.update_date,
+                             'approved': i.approved, 'memo': i.memo}
+
+            return jsonify(res)
 
     def post(self):
         json_data = request.get_json(force=True)
