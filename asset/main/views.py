@@ -13,6 +13,10 @@ def index():
 @main.route('/asset')
 def asset():
     return render_template('asset.html')
+
+@main.route('/asset/add')
+def asset_add():
+    return render_template('asset_add.html')
 @main.route('/secret')
 def secret():
     return 'Only authenticated users ar allowed!'

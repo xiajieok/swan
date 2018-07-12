@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% block page_header %}
+    <h1>
+        增加设备
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+    </ol>
+{% endblock %}
+{% block content %}
+    <div class="box">
+        <div class="box-body">
+            <div class="alert alert-success alert-dismissible hidden" id="success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Success!</h4>
+                添加设备成功,5s后自动返回!!!
+            </div>
+            <div style="margin: 10px">
+                <p>
+                    <label for="id_hostname">主机名:</label>
+                    <input type="text" name="hostname" style="width:500px;height: 20px"
+                           maxlength="50" required="" placeholder="必填项"
+                           class="form-control" id="id_hostname">
+                </p>
+                <p>
+                    <label for="id_type">设备类型:</label>
+                    <select name="asset_type" style="width:530px;" class="form-control" id="id_type">
+                        <option value="" selected="">---------</option>
+                        <option value="server">server</option>
+                        <option value="route">route</option>
+                        <option value="swtich">swtich</option>
+                        <option value="other">other</option>
+                    </select>
+
+                </p>
+                <p>
+                    <label for="id_hostname">SN:</label>
+                    <input type="text" name="hostname" style="width:500px;height: 20px"
+                           maxlength="50" required="" placeholder="必填项"
+                           class="form-control" id="id_sn">
+                </p>
+                <p>
+                    <label for="id_business">产品线:</label>
+                    <select name="asset_type" style="width:530px;" class="form-control" id="id_business">
+                        <option value="" selected="">---------</option>
+                    </select>
+
+                </p>
+                <p>
+                    <label for="id_idc">IDC:</label>
+                    <select name="asset_type" style="width:530px;" class="form-control" id="id_idc">
+                        <option value="" selected="">---------</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="id_model">型号:</label>
+                    <input type="text" name="hostname" style="width:500px;height: 20px"
+                           maxlength="50" required="" placeholder="必填项"
+                           class="form-control" id="id_model">
+                </p>
+                <p>
+                    <label for="id_status">状态:</label>
+                    <select name="asset_type" style="width:530px;" class="form-control" id="id_status">
+                        <option value="" selected="">---------</option>
+                        <option value="running">running</option>
+                        <option value="stop">stop</option>
+                        <option value="backup">backup</option>
+                        <option value="faild">faild</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="id_hostname">磁盘:</label>
+                    <input type="text" name="hostname" style="width:500px;height: 20px"
+                           maxlength="50" required="" placeholder=""
+                           class="form-control" id="id_hostname">
+                </p>
+                <p>
+                    <label for="id_hostname">内存:</label>
+                    <input type="text" name="hostname" style="width:500px;height: 20px"
+                           maxlength="50" required="" placeholder=""
+                           class="form-control" id="id_hostname">
+                </p>
+                <p>
+                    <label for="id_hostname">CPU:</label>
+                    <input type="text" name="hostname" style="width:500px;height: 20px"
+                           maxlength="50" required="" placeholder=""
+                           class="form-control" id="id_hostname">
+                </p>
+                <p>
+                    <label for="id_hostname">更新时间:</label>
+                    <input type="text" name="hostname" style="width:500px;height: 20px"
+                           maxlength="50" required="" placeholder=""
+                           class="form-control" id="id_hostname">
+                </p>
+                <p>
+                    <label>备注:</label>
+                    <textarea class="form-control" rows="3" style="width:500px;height: 60px"
+                              placeholder="Enter ..."></textarea>
+
+                </p>
+                <button type="submit" class="btn btn-primary" style="width: 60pt" onclick="Add(this)">提交</button>
+                <button type="submit" class="btn btn-primary" style="width: 60pt">返回</button>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://127.0.0.1:5000/api/idc", function (callback) {
+                for (var item in callback) {
+                    console.log(callback[item]['name']);
+                    tmp = "<option>" + callback[item]['name'] + "</option>";
+                    $('#id_idc').append(tmp)
+                }
+            });
+            $.getJSON("http://127.0.0.1:5000/api/business", function (callback) {
+                for (var item in callback) {
+                    console.log(callback[item]['name']);
+                    tmp = "<option>" + callback[item]['name'] + "</option>";
+                    $('#id_business').append(tmp)
+                }
+            });
+        });
+        function Add(obj) {
+            console.log('新增机器');
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/assets",
+                type: "POST",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "name": $('#id_hostname').val(),
+                    "type": $('#id_type').val(),
+                    "sn": $('#id_sn').val(),
+                    "business_unit": $('#id_business').val(),
+                    "idc": $('#id_idc').val(),
+                    "status": $('#id_status').val()
+                }),
+                success: function (data) {
+                    $('#success').removeClass('hidden');
+
+                }
+            })
+        }
+    </script>
+{% endblock %}

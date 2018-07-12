@@ -23,17 +23,20 @@ class UserList(Resource):
         except:
             new_id = 1
         print(json_data)
-        res = models.User(id=new_id, username=json_data['username'], email=json_data['email'],password=json_data['password'])
+        res = models.User(id=new_id, username=json_data['username'], email=json_data['email'],
+                          password=json_data['password'])
         db.session.add(res)
         db.session.commit()
         db.session.close()
         return json_data, 200
+
+
 class User(Resource):
-    def get(self):
-        user = models.User.query.all()
+    def get(self, user_id):
+        user = models.User.query.filter_by(id=user_id)
         res = {}
         for i in user:
-            res[i.id] = {'name': i.name, 'memo': i.memo,'email':i.emil}
+            res[i.id] = {'username': i.username, 'email': i.email}
         return jsonify(res)
 
     def put(self, user_id):
@@ -54,8 +57,6 @@ class User(Resource):
         return 200
 
 
-
-
 class IDCList(Resource):
     def get(self):
         idc = models.IDC.query.all()
@@ -63,6 +64,7 @@ class IDCList(Resource):
         for i in idc:
             res[i.id] = {'name': i.name, 'memo': i.memo}
         return jsonify(res)
+
     def post(self):
         json_data = request.get_json(force=True)
         try:
@@ -76,9 +78,11 @@ class IDCList(Resource):
         db.session.commit()
         db.session.close()
         return json_data, 200
+
+
 class IDC(Resource):
-    def get(self):
-        idc = models.IDC.query.all()
+    def get(self, idc_id):
+        idc = models.IDC.query.filter_by(id=idc_id)
         res = {}
         for i in idc:
             res[i.id] = {'name': i.name, 'memo': i.memo}
@@ -102,6 +106,7 @@ class IDC(Resource):
             return "Not exists"
         return 200
 
+
 class BusinessUnitList(Resource):
     def get(self):
         idc = models.BusinessUnit.query.all()
@@ -109,6 +114,7 @@ class BusinessUnitList(Resource):
         for i in idc:
             res[i.id] = {'name': i.name, 'memo': i.memo}
         return jsonify(res)
+
     def post(self):
         json_data = request.get_json(force=True)
         try:
@@ -122,6 +128,8 @@ class BusinessUnitList(Resource):
         db.session.commit()
         db.session.close()
         return json_data, 200
+
+
 class BusinessUnit(Resource):
     def get(self):
         idc = models.BusinessUnit.query.all()
@@ -148,6 +156,7 @@ class BusinessUnit(Resource):
             return "Not exists"
         return 200
 
+
 class AssetList(Resource):
     def get(self):
         asset = models.Asset.query.all()
@@ -160,15 +169,18 @@ class AssetList(Resource):
                          'approved': i.approved, 'memo': i.memo}
 
         return jsonify(res)
+
     def post(self):
         json_data = request.get_json(force=True)
+        print('提交到的数据',json_data)
         try:
             asset_id = models.Asset.query.order_by(models.Asset.id.desc()).first().id
             new_id = int(asset_id) + 1
         except:
             new_id = 1
         res = models.Asset(id=new_id, name=json_data['name'], sn=json_data['sn'], type=json_data['type'],
-                           idc=json_data['idc'], create_date=datetime.now(),update_date=datetime.now(), status=json_data['status'])
+                           idc=json_data['idc'], create_date=datetime.now(), update_date=datetime.now(),
+                           status=json_data['status'])
         db.session.add(res)
         db.session.commit()
         db.session.close()
@@ -190,11 +202,12 @@ class Asset(Resource):
     def put(self, asset_id):
         json_data = request.get_json(force=True)
         for i in json_data:
-            models.Asset.query.filter_by(id=asset_id).update({i:json_data[i],"update_date":datetime.now()})
+            models.Asset.query.filter_by(id=asset_id).update({i: json_data[i], "update_date": datetime.now()})
         db.session.commit()
         db.session.close()
         return 200
-    def delete(self,asset_id):
+
+    def delete(self, asset_id):
         try:
             asset = models.Asset.query.filter_by(id=asset_id).delete()
             print(asset)
@@ -203,4 +216,3 @@ class Asset(Resource):
         except:
             return "Not exists"
         return 200
-
