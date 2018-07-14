@@ -11,7 +11,7 @@ def login():
     form = LoginFrom()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        print(user)
+        print('登录用户',user)
 
         if user is not None and user.verify_password(form.password.data):
             login_user(user, form.remember_me.data)
@@ -37,7 +37,8 @@ def register():
         if user is None:
             user = User(email=form.email.data,
                         username=form.username.data,
-                        password=form.password.data)
+                        password=form.password.data,
+                        id='1')
             db.session.add(user)
             flash('You can now login.')
         return redirect(url_for('auth.login'))

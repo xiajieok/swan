@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{#{% load custom %}#}
 {% block page_header %}
     <h1>
         资产列表
@@ -9,6 +8,17 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
     </ol>
+{% endblock %}
+
+{% block menu %}
+    <li>
+
+        <a href="{{ url_for('main.asset') }}" class="btn btn-default">设备管理</a>
+    </li>
+    <li>
+        <a href="{{ url_for('main.idc') }}" class="btn btn-default">机房管理</a>
+
+    </li>
 {% endblock %}
 {% block content %}
     <div class="alert alert-danger alert-dismissible hidden" id="del_asset">
@@ -90,14 +100,16 @@
                     </div>
 
                     <label>
-                        <select type="idc" class="form-control m-b input-sm" id="idc" style="width: 100px"  onchange="Search(this)">
+                        <select type="idc" class="form-control m-b input-sm" id="idc" style="width: 100px"
+                                onchange="Search(this)">
                             <option value="default" selected="">机房</option>
                             <option value="default">-----</option>
                         </select>
 
                     </label>
                     <label>
-                        <select name="type" class="form-control m-b input-sm" id="type-select" style="width: 100px" onchange="Search(this)">
+                        <select name="type" class="form-control m-b input-sm" id="type-select" style="width: 100px"
+                                onchange="Search(this)">
                             <option value="default" selected="">设备类型</option>
                             <option value="default">-----</option>
                             <option value="server">server</option>
@@ -108,7 +120,8 @@
 
                     </label>
                     <label>
-                        <select class="form-control m-b input-sm" id="busniss-select" style="width: 100px" onchange="Search(this)">
+                        <select class="form-control m-b input-sm" id="busniss-select" style="width: 100px"
+                                onchange="Search(this)">
                             <option value="default" selected="">产品线</option>
                             <option value="default">-----</option>
                         </select>
@@ -156,7 +169,7 @@
 
                 }
             });
-             $.getJSON("http://127.0.0.1:5000/api/business", function (callback) {
+            $.getJSON("http://127.0.0.1:5000/api/business", function (callback) {
                 for (var item in callback) {
                     tmp = "<option>" + callback[item]['name'] + "</option>";
                     $('#busniss-select').append(tmp)
@@ -174,8 +187,10 @@
                     var status = obj[item].status;
                     var update_date = obj[item].update_date;
 
-                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + name + "</td>" + "<td>" + business + "</td>"
-                            + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + "<td>" + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
+                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + '<a href="#"><li style="list-style-type:none" onclick="return Detail(this)"' + "value=" + item +">" + name+ "</li></a>" + "</td>"
+
+                        + "<td>" + business + "</td>"
+                        + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + "<td>" + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
                     $("tbody").append(html)
 
                 }
@@ -183,6 +198,24 @@
 
         });
 
+        function Detail(obj) {
+            var id = $(obj).val()
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/assets/" + id,
+                type: 'GET',
+                success: function (data) {
+                    $("#modal-edit").modal();
+                    var obj = data[id]
+                    console.log(obj)
+                    $('#host').text(obj.name);
+                    $('#ip').text(obj.management_ip);
+                    $('#idc_info').text(obj.idc)
+                    $('#time').text(obj.update_date);
+                    $('#sn').text(obj.sn);
+                }
+            })
+
+        }
         function Edit(obj) {
             var id = $(obj).parent().attr('id')
             $.ajax({
@@ -201,6 +234,7 @@
             })
 
         }
+
         function Del(obj) {
             if (confirm("确定删除?")) {
                 var id = $(obj).parent().attr('id')
@@ -216,30 +250,31 @@
                 })
             }
         }
-        function Search(obj) {
-                var data = $(obj).val();
-                var name = $(obj).attr('id')
-                if(data=='default'){
-                     var url = "http://127.0.0.1:5000/api/assets"
-                }else
-                    var url = "http://127.0.0.1:5000/api/assets" +"?"+name + "="+data
-                $('table tbody').empty();
-                $.getJSON(url, function (callback) {
-                    var obj = callback
-                    for (var item in obj) {
-                        var name = obj[item].name;
-                        var type = obj[item].type;
-                        var sn = obj[item].sn;
-                        var idc = obj[item].idc;
-                        var business = obj[item].business_unit;
-                        var status = obj[item].status;
-                        var update_date = obj[item].update_date;
-                        var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + name + "</td>" + "<td>" + business + "</td>"
-                            + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + "<td>" + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
-                        $("tbody").append(html)
 
-                    }
-                })
+        function Search(obj) {
+            var data = $(obj).val();
+            var name = $(obj).attr('id')
+            if (data == 'default') {
+                var url = "http://127.0.0.1:5000/api/assets"
+            } else
+                var url = "http://127.0.0.1:5000/api/assets" + "?" + name + "=" + data
+            $('table tbody').empty();
+            $.getJSON(url, function (callback) {
+                var obj = callback
+                for (var item in obj) {
+                    var name = obj[item].name;
+                    var type = obj[item].type;
+                    var sn = obj[item].sn;
+                    var idc = obj[item].idc;
+                    var business = obj[item].business_unit;
+                    var status = obj[item].status;
+                    var update_date = obj[item].update_date;
+                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + name + "</td>" + "<td>" + business + "</td>"
+                        + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + "<td>" + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
+                    $("tbody").append(html)
+
+                }
+            })
         }
     </script>
 {% endblock %}

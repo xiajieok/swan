@@ -1,7 +1,8 @@
-{% extends 'asset.html' %}
+{% extends 'base.html' %}
+{#{% load custom %}#}
 {% block page_header %}
     <h1>
-        IDC管理
+        用户管理
         <small>Optional description</small>
     </h1>
     <ol class="breadcrumb">
@@ -24,20 +25,26 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                            <h3 class="modal-title" id="myModalLabel">添加机房</h3>
+                            <h3 class="modal-title" id="myModalLabel">添加用户</h3>
                         </div>
                         <div class="modal-body detail" style="margin: 10px">
                             <p>
-                                <label for="id_hostname">机房名:</label>
+                                <label for="id_hostname">用户名:</label>
                                 <input type="text" name="hostname" style="width:500px;height: 20px"
                                        maxlength="50" required="" placeholder="必填项"
-                                       class="form-control" id="name">
+                                       class="form-control" id="username">
                             </p>
                             <p>
-                                <label for="id_hostname">备注:</label>
+                                <label for="id_hostname">邮箱:</label>
+                                <input type="text" name="emil" style="width:500px;height: 20px"
+                                       maxlength="50" required="" placeholder="必填项"
+                                       class="form-control" id="email">
+                            </p>
+                            <p>
+                                <label for="id_hostname">密码:</label>
                                 <input type="text" name="hostname" style="width:500px;height: 20px"
                                        maxlength="50" required="" placeholder="必填项"
-                                       class="form-control" id="memo">
+                                       class="form-control" id="password">
                             </p>
                         </div>
                         <div class="modal-footer">
@@ -53,7 +60,7 @@
                 <div style="margin: 10px 0px 10px 0">
                     <div class="col-sm-2" style="padding-left: 0">
                         <a>
-                            <button class="btn btn-success" data-toggle="modal" data-target="#modal-edit">添加机房</button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#modal-edit">添加用户</button>
 
                         </a>
                     </div>
@@ -66,8 +73,8 @@
                     <thead>
                     <tr role="row">
                         <th>ID</th>
-                        <th>机房名称</th>
-                        <th>备注</th>
+                        <th>用户名</th>
+                        <th>邮箱</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -87,10 +94,10 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $.getJSON("http://127.0.0.1:5000/api/idc", function (callback) {
+            $.getJSON("http://127.0.0.1:5000/api/user", function (callback) {
                 for (var item in callback) {
-                    var name = callback[item].name;
-                    var memo = callback[item].memo;
+                    var name = callback[item].username;
+                    var memo = callback[item].email;
                     var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + name + "</td>" + "<td>" + memo + "</td>" +
                         "<td id=" + item + ">" + '<a  class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
                     $("tbody").append(html)
@@ -121,14 +128,14 @@
         }
 
         function Add(obj) {
-            {#$("#modal-edit").modal();#}
             $.ajax({
-                url: "http://127.0.0.1:5000/api/idc",
+                url: "http://127.0.0.1:5000/api/user",
                 type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({
-                    "name": $('#name').val(),
-                    "memo": $('#memo').val()
+                    "username": $('#username').val(),
+                    "email": $('#email').val(),
+                    "password": $('#password').val()
                 }),
                 success: function (data) {
                     $('#success').removeClass('hidden');

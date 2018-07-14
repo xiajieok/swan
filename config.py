@@ -29,7 +29,7 @@ class DevelopmentConfig(Config):  # 开发环境
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     '''
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:youxia@127.0.0.1/swan?charset=utf8"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:haha@127.0.0.1/swan?charset=utf8"
 
     @staticmethod  # 此注释可表明使用类名可以直接调用该方法
     def init_app(app):  # 执行当前需要的环境的初始化

@@ -55,14 +55,14 @@ class Asset(db.Model):
     buy_time = Column(DateTime)
     expire_date = Column(DateTime)
     management_ip = Column(Integer)
-    # model = CharField(max_length=100, blank=True, null=True, verbose_name='资产型号')
+    model = Column(String(45))
     # put_zone = SmallIntegerField(blank=True, null=True, verbose_name='放置区域')
     business_unit = Column(String(45))
     # tags = Column('')
     # admin = ForeignKey('UserProfile', verbose_name=u'资产管理员', null=True, blank=True,on_delete=SET_NULL)
     idc = Column(String(45))
 
-    status = Column(Integer, default='0')
+    status = Column(String(45), default='running')
     # Configuration = OneToOneField('Configuration',verbose_name='配置管理',blank=True,null=True)
 
     memo = Column(String(255))

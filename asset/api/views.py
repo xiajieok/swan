@@ -18,11 +18,11 @@ class UserList(Resource):
     def post(self):
         json_data = request.get_json(force=True)
         try:
-            idc_id = models.User.query.order_by(models.User.id.desc()).first().id
-            new_id = int(idc_id) + 1
+            id = models.User.query.order_by(models.User.id.desc()).first().id
+            new_id = int(id) + 1
         except:
             new_id = 1
-        print(json_data)
+        print('new_id',new_id)
         res = models.User(id=new_id, username=json_data['username'], email=json_data['email'],
                           password=json_data['password'])
         db.session.add(res)
