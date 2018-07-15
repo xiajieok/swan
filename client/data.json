@@ -1,0 +1,15 @@
+{
+  "cpu_physical": 1,
+  "vendor": "QEMU",
+  "cpu_num": 1,
+  "ip": "127.0.0.1",
+  "hostname": "vultr.guest",
+  "cpu_model": "Virtual CPU a7769a6388d5",
+  "product": "pc-i440fx-2.10",
+  "token": "HPcWR7l4NJNJ",
+  "osver": "CentOS Linux 7.3.1611 x86_64",
+  "sn": "Not Specified",
+  "memory": 1,
+  "disk": "[]",
+  "agent_version": "1.0"
+}

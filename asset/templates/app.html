@@ -12,7 +12,7 @@
 {% block menu %}
     <li>
 
-        <a href="{{ url_for("main.app") }}" class="btn btn-default">产品线管理</a>
+        <a href="{{ url_for('main.app') }}" class="btn btn-default">产品线管理</a>
     </li>
     <li>
         <a href="#" class="btn btn-default">项目管理</a>
@@ -23,10 +23,37 @@
 
     <div class="box">
         <div class="row">
-                <div class="alert alert-success alert-dismissible hidden" id="success">
+            <div class="alert alert-success alert-dismissible hidden" id="success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <h4><i class="icon fa fa-check"></i> Success!</h4>
                 添加设备成功,5s后自动返回!!!
+            </div>
+            <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="detail">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h3 class="modal-title" id="detail">产品详情</h3>
+                        </div>
+                        <div class="modal-body detail" style="margin: 10px">
+                            <p>
+                                <label for="id_name">产品线名:</label>
+                                <span id="id_name"></span>
+                            </p>
+                            <hr>
+                            <p>
+                                <label for="id_memo">备注:</label>
+                                <span id="id_memo"></span>
+
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-default" style="width: 60pt" data-dismiss="modal">返回
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -34,26 +61,64 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                            <h3 class="modal-title" id="myModalLabel">添加产品线</h3>
+                            <h3 class="modal-title" id="myModalLabel">编辑详情</h3>
                         </div>
                         <div class="modal-body detail" style="margin: 10px">
                             <p>
-                                <label for="id_hostname">产品线名称:</label>
-                                <input type="text" name="name" style="width:500px;height: 20px"
+                                <label for="id_business">ID:</label>
+                                <a id="id_business"></a>
+                            </p>
+                            <p>
+                                <label for="id_hostname">产品线名:</label>
+                                <input type="text" name="hostname" style="width:500px;height: 20px"
                                        maxlength="50" required="" placeholder="必填项"
                                        class="form-control" id="name">
                             </p>
                             <p>
                                 <label for="id_hostname">备注:</label>
-                                <input type="text" name="memo" style="width:500px;height: 20px"
+                                <input type="text" name="hostname" style="width:500px;height: 20px"
                                        maxlength="50" required="" placeholder="必填项"
                                        class="form-control" id="memo">
                             </p>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" style="width: 60pt" data-dismiss="modal" onclick="Add(this)">提交
+                            <button type="submit" class="btn btn-primary" style="width: 60pt" data-dismiss="modal"
+                                    onclick="Update(this)">提交
                             </button>
-                            <button type="submit" class="btn btn-default" style="width: 60pt" data-dismiss="modal">返回</button>
+                            <button type="submit" class="btn btn-default" style="width: 60pt" data-dismiss="modal">返回
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-labelledby="add">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h3 class="modal-title" id="add">添加产品线</h3>
+                        </div>
+                        <div class="modal-body detail" style="margin: 10px">
+                            <p>
+                                <label for="id_hostname">产品线名:</label>
+                                <input type="text" name="hostname" style="width:500px;height: 20px"
+                                       maxlength="50" required="" placeholder="必填项"
+                                       class="form-control" id="new_name">
+                            </p>
+                            <p>
+                                <label for="id_hostname">备注:</label>
+                                <input type="text" name="hostname" style="width:500px;height: 20px"
+                                       maxlength="50" required="" placeholder="必填项"
+                                       class="form-control" id="new_memo">
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" style="width: 60pt" data-dismiss="modal"
+                                    onclick="Add(this)">提交
+                            </button>
+                            <button type="submit" class="btn btn-default" style="width: 60pt" data-dismiss="modal">返回
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -63,7 +128,7 @@
                 <div style="margin: 10px 0px 10px 0">
                     <div class="col-sm-2" style="padding-left: 0">
                         <a>
-                            <button class="btn btn-success" data-toggle="modal" data-target="#modal-edit">添加产品线</button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#modal-add">添加产品线</button>
 
                         </a>
                     </div>
@@ -76,7 +141,7 @@
                     <thead>
                     <tr role="row">
                         <th>ID</th>
-                        <th>机房名称</th>
+                        <th>产品线名称</th>
                         <th>备注</th>
                         <th>操作</th>
                     </tr>
@@ -101,8 +166,8 @@
                 for (var item in callback) {
                     var name = callback[item].name;
                     var memo = callback[item].memo;
-                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + name + "</td>" + "<td>" + memo + "</td>" +
-                        "<td id=" + item + ">" + '<a  class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
+                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + '<a href="#"><li style="list-style-type:none" onclick="Detail(this)"' + "value=" + item + ">" + name + "</li></a>" + "</td>" + "<td>" + memo + "</td>" +
+                        "<td id=" + item + ">" +  " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)"  style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
                     $("tbody").append(html)
 
                 }
@@ -111,24 +176,57 @@
 
         });
 
-        function Edit(obj) {
-            var id = $(obj).parent().attr('id')
+        function Detail(obj) {
+            var id = $(obj).val()
             $.ajax({
-                url: "http://127.0.0.1:5000/api/assets/" + id,
+                url: "http://127.0.0.1:5000/api/business/" + id,
                 type: 'GET',
                 success: function (data) {
-                    $("#modal-edit").modal();
+                    $("#modal-detail").modal();
                     var obj = data[id]
                     console.log(obj)
-                    $('#host').text(obj.name);
-                    $('#ip').text(obj.management_ip);
-                    $('#idc_info').text(obj.idc)
-                    $('#time').text(obj.update_date);
-                    $('#sn').text(obj.sn);
+                    $('#id_name').text(obj.name);
+                    $('#id_memo').text(obj.memo);
                 }
             })
 
         }
+
+        function Edit(obj) {
+            var id = $(obj).attr('id')
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/business/" + id,
+                type: 'GET',
+                success: function (data) {
+                    var obj = data[id]
+                    console.log(obj)
+                    $('#id_business').text(id);
+                    $('#name').val(obj.name);
+                    $('#memo').val(obj.memo);
+                }
+            })
+
+        }
+        function Update(obj) {
+            var id = $("#id_business").text()
+            console.log('put' + id)
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/business/" + id,
+                type: 'PUT',
+                data: JSON.stringify({
+                    "name": $('#name').val(),
+                    "memo": $('#memo').val(),
+
+                }),
+                success: function (data) {
+                    console.log('ok')
+                    window.location.reload()
+                }
+            })
+
+
+        }
+
 
         function Add(obj) {
             {#$("#modal-edit").modal();#}
@@ -137,8 +235,8 @@
                 type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({
-                    "name": $('#name').val(),
-                    "memo": $('#memo').val()
+                    "name": $('#new_name').val(),
+                    "memo": $('#new_memo').val()
                 }),
                 success: function (data) {
                     $('#success').removeClass('hidden');
@@ -164,30 +262,5 @@
             }
         }
 
-        function Search(obj) {
-            var data = $(obj).val();
-            var name = $(obj).attr('id')
-            if (data == 'default') {
-                var url = "http://127.0.0.1:5000/api/assets"
-            } else
-                var url = "http://127.0.0.1:5000/api/assets" + "?" + name + "=" + data
-            $('table tbody').empty();
-            $.getJSON(url, function (callback) {
-                var obj = callback
-                for (var item in obj) {
-                    var name = obj[item].name;
-                    var type = obj[item].type;
-                    var sn = obj[item].sn;
-                    var idc = obj[item].idc;
-                    var business = obj[item].business_unit;
-                    var status = obj[item].status;
-                    var update_date = obj[item].update_date;
-                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + name + "</td>" + "<td>" + business + "</td>"
-                        + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + "<td>" + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
-                    $("tbody").append(html)
-
-                }
-            })
-        }
     </script>
 {% endblock %}

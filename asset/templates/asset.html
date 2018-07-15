@@ -26,23 +26,23 @@
         <h4><i class="icon fa fa-check"></i> Success!</h4>
         删除设备成功,5s后自动返回!!!
     </div>
-    <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="detail">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h3 class="modal-title" id="myModalLabel">主机详情</h3>
+                    <h3 class="modal-title" id="detail">主机详情</h3>
                 </div>
                 <div class="modal-body detail" style="margin: 10px">
                     <span>
                         主机名:
-                        <a id="host"></a>
+                        <a id="hostname"></a>
                     </span>
                     <hr>
                     <p>
                         型号:
-                        <a id="product"></a>
+                        <a id="model"></a>
                     </p>
                     <hr>
                     <p>
@@ -52,13 +52,21 @@
                     <hr>
 
                     <p>
-                        CPU型号:
-                        <a id="cpu_version"></a>
+                        CPU:
+                    <li>
+                        <a id="cpu_model"></a>
+                    </li>
+                    <li>
+                        <a id="cpu_physical"></a> 颗 *
+                        <a id="cpu_cores"></a> 核 *
+                        <a id="cpu_num"></a>逻辑核数
+
+                    </li>
                     </p>
                     <hr>
                     <p>
                         内存:
-                        <a id="mem"></a>
+                        <a id="memory"></a>
                     </p>
                     <hr>
                     <p>
@@ -66,11 +74,11 @@
                         <a id="disk"></a>
                     </p>
                     <hr>
-                    <p>
-                        磁盘使用率:
-                        <a id="used"></a>
-                    </p>
-                    <hr>
+{#                    <p>#}
+{#                        磁盘使用率:#}
+{#                        <a id="used"></a>#}
+{#                    </p>#}
+{#                    <hr>#}
                     <p>
                         机房:
                         <a id="idc_info"></a>
@@ -83,6 +91,88 @@
                 </div>
                 <div class="modal-footer">
 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="edit">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="edit">详情管理</h3>
+                </div>
+                <div class="modal-body detail" style="margin: 10px">
+                    <p>
+                        <label for="id_asset">ID:</label>
+                        <a id="id_asset"></a>
+                    </p>
+                    <p>
+                        <label for="id_hostname">主机名:</label>
+                        <input type="text" name="hostname" style="width:500px;height: 20px"
+                               maxlength="50" required="" placeholder="必填项"
+                               class="form-control" id="id_hostname">
+                    </p>
+                    <p>
+                        <label for="id_type">设备类型:</label>
+                        <select name="asset_type" style="width:530px;" class="form-control" id="id_type">
+                            <option value="" selected="">---------</option>
+                            <option value="server">server</option>
+                            <option value="route">route</option>
+                            <option value="swtich">swtich</option>
+                            <option value="other">other</option>
+                        </select>
+
+                    </p>
+{#                    <p>#}
+{#                        <label for="id_hostname">SN:</label>#}
+{#                        <input type="text" name="hostname" style="width:500px;height: 20px"#}
+{#                               maxlength="50" required="" placeholder="必填项"#}
+{#                               class="form-control" id="id_sn">#}
+{#                    </p>#}
+                    <p>
+                        <label for="id_business">产品线:</label>
+                        <select name="asset_type" style="width:530px;" class="form-control" id="id_business">
+                            <option value="" selected="">---------</option>
+                        </select>
+
+                    </p>
+                    <p>
+                        <label for="id_idc">IDC:</label>
+                        <select name="asset_type" style="width:530px;" class="form-control" id="id_idc">
+                            <option value="" selected="">---------</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="id_model">型号:</label>
+                        <input type="text" name="id_model" style="width:500px;height: 20px"
+                               maxlength="50" required="" placeholder="必填项"
+                               class="form-control" id="id_model">
+                    </p>
+                    <p>
+                        <label for="id_status">状态:</label>
+                        <select name="asset_type" style="width:530px;" class="form-control" id="id_status">
+                            <option value="" selected="">---------</option>
+                            <option value="running">running</option>
+                            <option value="stop">stop</option>
+                            <option value="backup">backup</option>
+                            <option value="faild">faild</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label>备注:</label>
+                        <textarea class="form-control" rows="3" style="width:500px;height: 60px"
+                                  placeholder="Enter ..."></textarea>
+
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" style="width: 60pt" data-dismiss="modal"
+                            onclick="Update(this)">提交
+                    </button>
+                    <button type="submit" class="btn btn-primary" style="width: 60pt" data-dismiss="modal">返回</button>
                 </div>
             </div>
         </div>
@@ -179,7 +269,7 @@
             $.getJSON("http://127.0.0.1:5000/api/assets", function (data) {
                 var obj = data
                 for (var item in obj) {
-                    var name = obj[item].name;
+                    var hostname = obj[item].hostname;
                     var type = obj[item].type;
                     var sn = obj[item].sn;
                     var idc = obj[item].idc;
@@ -187,7 +277,7 @@
                     var status = obj[item].status;
                     var update_date = obj[item].update_date;
 
-                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + '<a href="#"><li style="list-style-type:none" onclick="return Detail(this)"' + "value=" + item +">" + name+ "</li></a>" + "</td>"
+                    var html = "<tr>" + "<td>" + item + "</td>" + "<td id=" + item + ">" + '<a href="#"><li style="list-style-type:none" onclick="return Detail(this)"' + "value=" + item + ">" + hostname + "</li></a>" + "</td>"
 
                         + "<td>" + business + "</td>"
                         + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + "<td>" + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
@@ -204,10 +294,17 @@
                 url: "http://127.0.0.1:5000/api/assets/" + id,
                 type: 'GET',
                 success: function (data) {
-                    $("#modal-edit").modal();
+                    $("#modal-detail").modal();
                     var obj = data[id]
                     console.log(obj)
-                    $('#host').text(obj.name);
+                    $('#hostname').text(obj.hostname);
+                    $('#model').text(obj.model);
+                    $('#cpu_cores').text(obj.cpu_cores);
+                    $('#cpu_model').text(obj.cpu_model);
+                    $('#cpu_num').text(obj.cpu_num);
+                    $('#cpu_physical').text(obj.cpu_physical);
+                    $('#memory').text(obj.memory);
+                    $('#disk').text(obj.disk);
                     $('#ip').text(obj.management_ip);
                     $('#idc_info').text(obj.idc)
                     $('#time').text(obj.update_date);
@@ -216,24 +313,67 @@
             })
 
         }
+
         function Edit(obj) {
-            var id = $(obj).parent().attr('id')
+            $.getJSON("http://127.0.0.1:5000/api/idc", function (callback) {
+                for (var item in callback) {
+                    console.log(callback[item]['name']);
+                    tmp = "<option>" + callback[item]['name'] + "</option>";
+                    $('#id_idc').append(tmp)
+                }
+            });
+            $.getJSON("http://127.0.0.1:5000/api/business", function (callback) {
+                for (var item in callback) {
+                    console.log(callback[item]['name']);
+                    tmp = "<option>" + callback[item]['name'] + "</option>";
+                    $('#id_business').append(tmp)
+                }
+            });
+            var id = $(obj).attr('id')
+            console.log('edit' + id)
             $.ajax({
                 url: "http://127.0.0.1:5000/api/assets/" + id,
                 type: 'GET',
                 success: function (data) {
-                    $("#modal-edit").modal();
                     var obj = data[id]
                     console.log(obj)
-                    $('#host').text(obj.name);
-                    $('#ip').text(obj.management_ip);
-                    $('#idc_info').text(obj.idc)
-                    $('#time').text(obj.update_date);
-                    $('#sn').text(obj.sn);
+                    $('#id_asset').text(id);
+                    $('#id_hostname').val(obj.hostname);
+                    $('#id_type').val(obj.type);
+                    $('#id_model').val(obj.model);
+                    $('#id_idc').val(obj.idc)
+                    $('#id_business').val(obj.business_unit);
+                    $('#id_sn').val(obj.sn);
+                    $('#id_status').val(obj.status)
+                }
+            });
+
+        }
+
+        function Update(obj) {
+            var id = $("#id_asset").text()
+            console.log('put' + id)
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/assets/" + id,
+                type: 'PUT',
+                data: JSON.stringify({
+                    "hostname": $('#id_hostname').val(),
+                    "type": $('#id_type').val(),
+                    "sn": $('#id_sn').val(),
+                    "model": $('#id_model').val(),
+                    "business_unit": $('#id_business').val(),
+                    "idc": $('#id_idc').val(),
+                    "status": $('#id_status').val()
+                }),
+                success: function (data) {
+                    console.log('ok')
+                    window.location.reload()
                 }
             })
 
+
         }
+
 
         function Del(obj) {
             if (confirm("确定删除?")) {
@@ -262,14 +402,16 @@
             $.getJSON(url, function (callback) {
                 var obj = callback
                 for (var item in obj) {
-                    var name = obj[item].name;
+                    var hostname = obj[item].hostname;
                     var type = obj[item].type;
                     var sn = obj[item].sn;
                     var idc = obj[item].idc;
                     var business = obj[item].business_unit;
                     var status = obj[item].status;
                     var update_date = obj[item].update_date;
-                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + name + "</td>" + "<td>" + business + "</td>"
+                     var html = "<tr>" + "<td>" + item + "</td>" + "<td id=" + item + ">" + '<a href="#"><li style="list-style-type:none" onclick="return Detail(this)"' + "value=" + item + ">" + hostname + "</li></a>" + "</td>"
+
+                        + "<td>" + business + "</td>"
                         + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + "<td>" + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
                     $("tbody").append(html)
 
