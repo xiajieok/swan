@@ -60,7 +60,7 @@ class Asset(db.Model):
 
 	memory = Column(Integer)
 	cpu_model = Column(String(128))
-	cpu_cores = Column(String(32))
+	cpu_processor = Column(String(32))
 	cpu_num = Column(String(32))
 	cpu_physical = Column(String(32))
 	# put_zone = SmallIntegerField(blank=True, null=True, verbose_name='放置区域')

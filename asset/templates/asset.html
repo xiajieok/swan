@@ -252,21 +252,21 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $.getJSON("http://192.168.1.191:5000/api/idc", function (callback) {
+            $.getJSON("http://127.0.0.1:5000/api/idc", function (callback) {
                 for (var item in callback) {
                     tmp = "<option>" + callback[item]['name'] + "</option>";
                     $('#idc').append(tmp)
 
                 }
             });
-            $.getJSON("http://192.168.1.191:5000/api/business", function (callback) {
+            $.getJSON("http://127.0.0.1:5000/api/business", function (callback) {
                 for (var item in callback) {
                     tmp = "<option>" + callback[item]['name'] + "</option>";
                     $('#busniss-select').append(tmp)
 
                 }
             });
-            $.getJSON("http://192.168.1.191:5000/api/assets", function (data) {
+            $.getJSON("http://127.0.0.1:5000/api/assets", function (data) {
                 var obj = data
                 for (var item in obj) {
                     var hostname = obj[item].hostname;
@@ -291,7 +291,7 @@
         function Detail(obj) {
             var id = $(obj).val()
             $.ajax({
-                url: "http://192.168.1.191:5000/api/assets/" + id,
+                url: "http://127.0.0.1:5000/api/assets/" + id,
                 type: 'GET',
                 success: function (data) {
                     $("#modal-detail").modal();
@@ -315,14 +315,14 @@
         }
 
         function Edit(obj) {
-            $.getJSON("http://192.168.1.191:5000/api/idc", function (callback) {
+            $.getJSON("http://127.0.0.1:5000/api/idc", function (callback) {
                 for (var item in callback) {
                     console.log(callback[item]['name']);
                     tmp = "<option>" + callback[item]['name'] + "</option>";
                     $('#id_idc').append(tmp)
                 }
             });
-            $.getJSON("http://192.168.1.191:5000/api/business", function (callback) {
+            $.getJSON("http://127.0.0.1:5000/api/business", function (callback) {
                 for (var item in callback) {
                     console.log(callback[item]['name']);
                     tmp = "<option>" + callback[item]['name'] + "</option>";
@@ -332,7 +332,7 @@
             var id = $(obj).attr('id')
             console.log('edit' + id)
             $.ajax({
-                url: "http://192.168.1.191:5000/api/assets/" + id,
+                url: "http://127.0.0.1:5000/api/assets/" + id,
                 type: 'GET',
                 success: function (data) {
                     var obj = data[id]
@@ -354,7 +354,7 @@
             var id = $("#id_asset").text()
             console.log('put' + id)
             $.ajax({
-                url: "http://192.168.1.191:5000/api/assets/" + id,
+                url: "http://127.0.0.1:5000/api/assets/" + id,
                 type: 'PUT',
                 data: JSON.stringify({
                     "hostname": $('#id_hostname').val(),
@@ -380,7 +380,7 @@
                 var id = $(obj).parent().attr('id')
                 $('#del_asset').removeClass('hidden');
                 $.ajax({
-                    url: "http://192.168.1.191:5000/api/assets/" + id,
+                    url: "http://127.0.0.1:5000/api/assets/" + id,
                     type: 'DELETE',
                     success: function (data) {
                         console.log('ok')
@@ -395,9 +395,9 @@
             var data = $(obj).val();
             var name = $(obj).attr('id')
             if (data == 'default') {
-                var url = "http://192.168.1.191:5000/api/assets"
+                var url = "http://127.0.0.1:5000/api/assets"
             } else
-                var url = "http://192.168.1.191:5000/api/assets" + "?" + name + "=" + data
+                var url = "http://127.0.0.1:5000/api/assets" + "?" + name + "=" + data
             $('table tbody').empty();
             $.getJSON(url, function (callback) {
                 var obj = callback
