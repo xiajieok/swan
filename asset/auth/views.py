@@ -1,5 +1,7 @@
-from flask import render_template, redirect, request, url_for, flash,request
-from flask_login import login_user,logout_user, login_required
+from flask import render_template, redirect, request, url_for, flash, request, jsonify, g
+from flask_httpauth import HTTPTokenAuth
+
+from flask_login import login_user, logout_user, login_required, current_user
 from . import auth
 from ..models import User
 from .forms import LoginFrom, RegistrationForm
@@ -11,7 +13,7 @@ def login():
     form = LoginFrom()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        print('登录用户',user)
+        print('登录用户', user)
 
         if user is not None and user.verify_password(form.password.data):
             login_user(user, form.remember_me.data)
@@ -43,3 +45,27 @@ def register():
             flash('You can now login.')
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', form=form)
+
+
+# @auth.route('/api/token')
+# @auth.login_required
+# def get_auth_token():
+#     token = g.user.generate_auth_token()
+#     return jsonify({'token': token.decode('ascii')})
+
+from flask_httpauth import HTTPBasicAuth
+
+oauth = HTTPBasicAuth()
+
+
+@auth.route('/api/resource')
+@oauth.login_required
+def get_resource():
+    return jsonify({'data': 'Hello, %s!' % g.user.username})
+
+
+@auth.route('/api/token')
+@oauth.login_required
+def get_auth_token():
+    token = g.user.generate_auth_token(600)
+    return jsonify({'token': token.decode('ascii'), 'duration': 600})
