@@ -8,12 +8,7 @@ from config import SECRET_KEY
 from itsdangerous import (TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired)
 from flask_httpauth import HTTPBasicAuth
 
-
 auth = HTTPBasicAuth()
-
-
-# app = Flask(__name__)
-# db = SQLAlchemy(app)
 
 
 @login_manager.user_loader
@@ -43,6 +38,11 @@ class User(UserMixin, db.Model):
 
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
+        # user = User.query.filter_by(username = username).first()
+        # if not user or not user.verify_password(password):
+        #     return False
+        # g.user = user
+        # return True
 
     def generate_auth_token(self, expiration=600):
         s = Serializer(SECRET_KEY, expires_in=expiration)
@@ -51,18 +51,15 @@ class User(UserMixin, db.Model):
         return data
 
     @staticmethod
-    def verify_auth_token(token):
-        s = Serializer(SECRET_KEY)
+    def verify_auth_token(token, expiration=600):
+        s = Serializer(SECRET_KEY, expires_in=expiration)
         try:
             data = s.loads(token)
         except SignatureExpired:
-            print('no')
             return None  # valid token, but expired
         except BadSignature:
-            print('ni')
             return None  # invalid token
         user = User.query.get(data['id'])
-        print(user)
         return user
 
 

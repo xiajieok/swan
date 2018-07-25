@@ -4,6 +4,7 @@ from asset.api import views
 restful_api = Blueprint('restful_api', __name__,url_prefix='/api')
 resource = Api(restful_api)
 
+# resource.add_resource(views.Token,"/token")
 resource.add_resource(views.User,"/user/<int:user_id>")
 resource.add_resource(views.UserList,"/user")
 resource.add_resource(views.IDCList,"/idc")

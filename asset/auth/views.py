@@ -1,11 +1,13 @@
 from flask import render_template, redirect, request, url_for, flash, request, jsonify, g
-from flask_httpauth import HTTPTokenAuth
+from flask_httpauth import HTTPTokenAuth, HTTPBasicAuth
 
 from flask_login import login_user, logout_user, login_required, current_user
 from . import auth
 from ..models import User
 from .forms import LoginFrom, RegistrationForm
 from asset import db
+
+oauth = HTTPTokenAuth(scheme='Bearer')
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -47,14 +49,6 @@ def register():
     return render_template('auth/register.html', form=form)
 
 
-# @auth.route('/api/token')
-# @auth.login_required
-# def get_auth_token():
-#     token = g.user.generate_auth_token()
-#     return jsonify({'token': token.decode('ascii')})
-
-from flask_httpauth import HTTPBasicAuth
-
 oauth = HTTPBasicAuth()
 
 
@@ -62,6 +56,17 @@ oauth = HTTPBasicAuth()
 @oauth.login_required
 def get_resource():
     return jsonify({'data': 'Hello, %s!' % g.user.username})
+
+
+@oauth.verify_password
+def verify_password(username_or_token, password):
+    user = User.verify_auth_token(username_or_token)
+    if not user:
+        user = User.query.filter_by(username=username_or_token).first()
+        if not user or not user.verify_password(password):
+            return False
+    g.user = user
+    return True
 
 
 @auth.route('/api/token')

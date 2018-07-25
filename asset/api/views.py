@@ -1,12 +1,14 @@
 from flask_restful import reqparse, abort, Api, Resource
-from flask_moment import datetime
-from asset import models
-from flask import jsonify, request
-from asset.ext import db
 from flask_httpauth import HTTPBasicAuth
 
-auth = HTTPBasicAuth()
+from flask_moment import datetime
+from asset import models
+from flask import jsonify, request, g
+from asset.ext import db
+
 parser = reqparse.RequestParser()
+
+auth = HTTPBasicAuth()
 
 
 class UserList(Resource):
@@ -177,7 +179,7 @@ class AssetList(Resource):
             for i in asset:
                 res[i.id] = {'hostname': i.hostname, 'type': i.type, 'sn': i.sn, 'ip': i.ip,
                              'model': i.model, "cpu_processor": i.cpu_processor, "cpu_model": i.cpu_model,
-                             "cpu_num": i.cpu_num,"vendor":i.vendor,"os":i.os,
+                             "cpu_num": i.cpu_num, "vendor": i.vendor, "os": i.os,
                              "cpu_physical": i.cpu_physical, "disk": i.disk, "memory": i.memory,
                              'status': i.status, 'idc': i.idc, 'business_unit': i.business_unit,
                              'expire_date': i.expire_date, 'create_date': i.create_date,
@@ -191,7 +193,7 @@ class AssetList(Resource):
             for i in asset:
                 res[i.id] = {'hostname': i.hostname, 'type': i.type, 'sn': i.sn, 'ip': i.ip,
                              'model': i.model, "cpu_processor": i.cpu_processor, "cpu_model": i.cpu_model,
-                             "cpu_num": i.cpu_num,"vendor":i.vendor,"os":i.os,
+                             "cpu_num": i.cpu_num, "vendor": i.vendor, "os": i.os,
                              "cpu_physical": i.cpu_physical, "disk": i.disk, "memory": i.memory,
                              'status': i.status, 'idc': i.idc, 'business_unit': i.business_unit,
                              'expire_date': i.expire_date, 'create_date': i.create_date,
@@ -209,7 +211,7 @@ class AssetList(Resource):
         except:
             new_id = 1
         res = models.Asset(id=new_id, hostname=json_data['hostname'], sn=json_data['sn'], type=json_data['type'],
-                           os=json_data['os'],vendor=json_data['vendor'],
+                           os=json_data['os'], vendor=json_data['vendor'],
                            model=json_data['model'], cpu_processor=json_data['cpu_processor'],
                            cpu_model=json_data['cpu_model'],
                            cpu_num=json_data['cpu_num'], cpu_physical=json_data['cpu_physical'],
@@ -228,7 +230,7 @@ class Asset(Resource):
         res = {}
         res[asset.id] = {'hostname': asset.hostname, 'type': asset.type, 'sn': asset.sn, 'model': asset.model,
                          'ip': asset.ip, "cpu_processor": asset.cpu_processor, "cpu_model": asset.cpu_model,
-                         "cpu_num": asset.cpu_num,"os":asset.os,"vendor":asset.vendor,
+                         "cpu_num": asset.cpu_num, "os": asset.os, "vendor": asset.vendor,
                          "cpu_physical": asset.cpu_physical, "disk": asset.disk, "memory": asset.memory,
                          'status': asset.status, 'idc': asset.idc, 'business_unit': asset.business_unit,
                          'expire_date': asset.expire_date, 'create_date': asset.create_date,
@@ -255,3 +257,5 @@ class Asset(Resource):
         except:
             return "Not exists"
         return 200
+
+
