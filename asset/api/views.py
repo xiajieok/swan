@@ -1,5 +1,5 @@
 from flask_restful import reqparse, abort, Api, Resource
-from flask_httpauth import HTTPBasicAuth
+from flask_httpauth import HTTPTokenAuth
 
 from flask_moment import datetime
 from asset import models
@@ -8,7 +8,7 @@ from asset.ext import db
 
 parser = reqparse.RequestParser()
 
-auth = HTTPBasicAuth()
+auth = HTTPTokenAuth(scheme='Bearer')
 
 
 class UserList(Resource):
@@ -62,6 +62,7 @@ class User(Resource):
 
 
 class IDCList(Resource):
+    decorators = [auth.login_required]
     def get(self):
         idc = models.IDC.query.all()
         res = {}

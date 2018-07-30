@@ -1,14 +1,15 @@
-from flask import render_template, redirect, request, url_for, flash, request, jsonify, g
-from flask_httpauth import HTTPTokenAuth, HTTPBasicAuth
-
+from flask import render_template, redirect, request, url_for, flash, request, jsonify, g,make_response
+from flask_httpauth import HTTPBasicAuth, HTTPTokenAuth, MultiAuth
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_login import login_user, logout_user, login_required, current_user
 from . import auth
 from ..models import User
 from .forms import LoginFrom, RegistrationForm
 from asset import db
-
-oauth = HTTPTokenAuth(scheme='Bearer')
-
+from config import SECRET_KEY
+basic_auth = HTTPBasicAuth()
+token_auth = HTTPTokenAuth(scheme='Bearer')
+multi_auth = MultiAuth(basic_auth,token_auth)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -49,16 +50,8 @@ def register():
     return render_template('auth/register.html', form=form)
 
 
-oauth = HTTPBasicAuth()
 
-
-@auth.route('/api/resource')
-@oauth.login_required
-def get_resource():
-    return jsonify({'data': 'Hello, %s!' % g.user.username})
-
-
-@oauth.verify_password
+@basic_auth.verify_password
 def verify_password(username_or_token, password):
     user = User.verify_auth_token(username_or_token)
     if not user:
@@ -67,10 +60,38 @@ def verify_password(username_or_token, password):
             return False
     g.user = user
     return True
+@basic_auth.error_handler
+def unauthorized():
+    return make_response(jsonify({'error': 'Unauthorized access !!!'}), 403)
+
+serializer = Serializer(SECRET_KEY, expires_in=600)
+@token_auth.verify_token
+def verify_token(token):
+    g.user = None
+    try:
+        data = serializer.loads(token)
+    except:
+        return False
+    if 'username' in data:
+        g.user = data['username']
+        return True
+    return False
+@token_auth.error_handler
+def unauthorized():
+    return make_response(jsonify({'error': 'Unauthorized access !!!'}), 403)
+
 
 
 @auth.route('/api/token')
-@oauth.login_required
+@multi_auth.login_required
 def get_auth_token():
     token = g.user.generate_auth_token(600)
+    g.token = token
     return jsonify({'token': token.decode('ascii'), 'duration': 600})
+
+
+
+@auth.route('/api/resource')
+@multi_auth.login_required
+def get_resource():
+    return jsonify({'data': 'Hello, %s!' % g.user.username})
