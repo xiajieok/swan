@@ -1,4 +1,4 @@
-from flask import request
+from flask import request,make_response,jsonify
 from flask_login import LoginManager
 from flask_httpauth import HTTPTokenAuth
 
@@ -12,9 +12,10 @@ auth = HTTPTokenAuth(scheme='Bearer')
 
 @auth.verify_token
 def get_password(username):
-    data = request.cookies
-    print(data)
     res = request.cookies.get('Authorization')
-    print('res',res)
     return res
+@auth.error_handler
+def unauthorized():
+    return make_response(jsonify({'error': 'Unauthorized access !!!'}), 403)
+
 

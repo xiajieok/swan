@@ -10,6 +10,7 @@ parser = reqparse.RequestParser()
 
 
 class UserList(Resource):
+    decorators = [auth.login_required]
     def get(self):
         user = models.User.query.all()
         res = {}
@@ -34,6 +35,7 @@ class UserList(Resource):
 
 
 class User(Resource):
+    decorators = [auth.login_required]
     def get(self, user_id):
         user = models.User.query.filter_by(id=user_id)
         res = {}
@@ -60,7 +62,7 @@ class User(Resource):
 
 
 class IDCList(Resource):
-    @auth.login_required
+    decorators = [auth.login_required]
     def get(self):
         idc = models.IDC.query.all()
         res = {}
@@ -84,6 +86,7 @@ class IDCList(Resource):
 
 
 class IDC(Resource):
+    decorators = [auth.login_required]
     def get(self, idc_id):
         idc = models.IDC.query.filter_by(id=idc_id)
         res = {}
@@ -111,6 +114,7 @@ class IDC(Resource):
 
 
 class BusinessUnitList(Resource):
+    decorators = [auth.login_required]
     def get(self):
         business = models.BusinessUnit.query.all()
         res = {}
@@ -134,6 +138,7 @@ class BusinessUnitList(Resource):
 
 
 class BusinessUnit(Resource):
+    decorators = [auth.login_required]
     def get(self, business_id):
         business = models.BusinessUnit.query.filter_by(id=business_id)
         res = {}
@@ -161,7 +166,7 @@ class BusinessUnit(Resource):
 
 
 class AssetList(Resource):
-    # decorators = [auth.login_required]
+    decorators = [auth.login_required]
     def get(self):
         # print(request.args)
 
@@ -224,6 +229,7 @@ class AssetList(Resource):
 
 
 class Asset(Resource):
+    decorators = [auth.login_required]
     def get(self, asset_id):
         asset = models.Asset.query.filter_by(id=asset_id).first()
         res = {}

@@ -1,0 +1,164 @@
+{% extends 'asset.html' %}
+{% block page_header %}
+    <h1>
+        Ansible 管理
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+    </ol>
+{% endblock %}
+{% block content %}
+
+    <div class="box">
+        <div class="row">
+
+
+            <div class="col-sm-12">
+                <div style="margin: 10px 0px 10px 0">
+                    <div class="col-sm-2" style="padding-left: 0">
+                        <a>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#modal-add">添加机房</button>
+
+                        </a>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>        <!-- nav-tabs-custom -->
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://127.0.0.1:5000/api/idc", function (callback) {
+                for (var item in callback) {
+                    var name = callback[item].name;
+                    var memo = callback[item].memo;
+                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + '<a href="#"><li style="list-style-type:none" onclick="return Detail(this)"' + "value=" + item + ">" + name + "</li></a>" + "</td>" + "<td>" + memo + "</td>" +
+                        "<td id=" + item + ">" +  " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)"  style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
+                    $("tbody").append(html)
+
+                }
+            });
+
+
+        });
+
+        function Detail(obj) {
+            var id = $(obj).val()
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/idc/" + id,
+                type: 'GET',
+                success: function (data) {
+                    $("#modal-detail").modal();
+                    var obj = data[id]
+                    console.log(obj)
+                    $('#id_name').text(obj.name);
+                    $('#id_memo').text(obj.memo);
+                }
+            })
+
+        }
+
+        function Edit(obj) {
+            var id = $(obj).attr('id')
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/idc/" + id,
+                type: 'GET',
+                success: function (data) {
+                    var obj = data[id]
+                    console.log(obj)
+                    $('#id_idc').text(id);
+                    $('#name').val(obj.name);
+                    $('#memo').val(obj.memo);
+                }
+            })
+
+        }
+        function Update(obj) {
+            var id = $("#id_idc").text()
+            console.log('put' + id)
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/idc/" + id,
+                type: 'PUT',
+                data: JSON.stringify({
+                    "name": $('#name').val(),
+                    "memo": $('#memo').val(),
+
+                }),
+                success: function (data) {
+                    console.log('ok')
+                    window.location.reload()
+                }
+            })
+
+
+        }
+
+
+        function Add(obj) {
+            {#$("#modal-edit").modal();#}
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/idc",
+                type: "POST",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "name": $('#new_name').val(),
+                    "memo": $('#new_memo').val()
+                }),
+                success: function (data) {
+                    $('#success').removeClass('hidden');
+                    location.reload();
+
+                }
+            })
+        }
+
+        function Del(obj) {
+            if (confirm("确定删除?")) {
+                var id = $(obj).parent().attr('id')
+                $('#del_asset').removeClass('hidden');
+                $.ajax({
+                    url: "http://127.0.0.1:5000/api/idc/" + id,
+                    type: 'DELETE',
+                    success: function (data) {
+                        console.log('ok')
+                        location.reload()
+
+                    }
+                })
+            }
+        }
+
+        function Search(obj) {
+            var data = $(obj).val();
+            var name = $(obj).attr('id')
+            if (data == 'default') {
+                var url = "http://127.0.0.1:5000/api/assets"
+            } else
+                var url = "http://127.0.0.1:5000/api/assets" + "?" + name + "=" + data
+            $('table tbody').empty();
+            $.getJSON(url, function (callback) {
+                var obj = callback
+                for (var item in obj) {
+                    var name = obj[item].name;
+                    var type = obj[item].type;
+                    var sn = obj[item].sn;
+                    var idc = obj[item].idc;
+                    var business = obj[item].business_unit;
+                    var status = obj[item].status;
+                    var update_date = obj[item].update_date;
+                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + name + "</td>" + "<td>" + business + "</td>"
+                        + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + "<td>" + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
+                    $("tbody").append(html)
+
+                }
+            })
+        }
+    </script>
+{% endblock %}
