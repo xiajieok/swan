@@ -173,7 +173,7 @@ def asset_info():
 #     print('----------------------------------------------------------')
 #     if status == "new":
 #         # print(new_asset_info())
-#         url = "http://127.0.0.1:5000/api/assets"
+#         url = "http://192.168.1.191:5000/api/assets"
 #         data = new_asset_info()
 #         data['id'] = id
 #         print(data)
@@ -184,7 +184,7 @@ def asset_info():
 #         # 	os.environ["LANG"] = osenv
 #         return True
 #     else:
-#         url = "http://127.0.0.1:5000/api/assets/" + str(id)
+#         url = "http://192.168.1.191:5000/api/assets/" + str(id)
 #         res = requests.put(url, json.dumps(new_asset_info()))
 #         print(res)
 #         # if not pv:
@@ -287,7 +287,7 @@ def info_post():
         with open('.id', 'r') as f:
             id = f.read()
         # return 'old',id
-        url = "http://127.0.0.1:5000/api/assets/" + str(id)
+        url = "http://192.168.1.191:5000/api/assets/" + str(id)
 
         data = json.loads(asset_info())
         data.pop('sn')
@@ -298,7 +298,7 @@ def info_post():
         # 	os.environ["LANG"] = osenv
         return True
     else:
-        url = "http://127.0.0.1:5000/api/assets"
+        url = "http://192.168.1.191:5000/api/assets"
         res = requests.get(url).text
         id_list = json.loads(res)
         # print(type(msg),msg.keys())

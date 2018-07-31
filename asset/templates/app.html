@@ -162,7 +162,7 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $.getJSON("http://127.0.0.1:5000/api/business", function (callback) {
+            $.getJSON("http://192.168.1.191:5000/api/business", function (callback) {
                 for (var item in callback) {
                     var name = callback[item].name;
                     var memo = callback[item].memo;
@@ -179,7 +179,7 @@
         function Detail(obj) {
             var id = $(obj).val()
             $.ajax({
-                url: "http://127.0.0.1:5000/api/business/" + id,
+                url: "http://192.168.1.191:5000/api/business/" + id,
                 type: 'GET',
                 success: function (data) {
                     $("#modal-detail").modal();
@@ -195,7 +195,7 @@
         function Edit(obj) {
             var id = $(obj).attr('id')
             $.ajax({
-                url: "http://127.0.0.1:5000/api/business/" + id,
+                url: "http://192.168.1.191:5000/api/business/" + id,
                 type: 'GET',
                 success: function (data) {
                     var obj = data[id]
@@ -211,7 +211,7 @@
             var id = $("#id_business").text()
             console.log('put' + id)
             $.ajax({
-                url: "http://127.0.0.1:5000/api/business/" + id,
+                url: "http://192.168.1.191:5000/api/business/" + id,
                 type: 'PUT',
                 data: JSON.stringify({
                     "name": $('#name').val(),
@@ -231,7 +231,7 @@
         function Add(obj) {
             {#$("#modal-edit").modal();#}
             $.ajax({
-                url: "http://127.0.0.1:5000/api/business",
+                url: "http://192.168.1.191:5000/api/business",
                 type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -251,7 +251,7 @@
                 var id = $(obj).parent().attr('id')
                 $('#del_asset').removeClass('hidden');
                 $.ajax({
-                    url: "http://127.0.0.1:5000/api/business/" + id,
+                    url: "http://192.168.1.191:5000/api/business/" + id,
                     type: 'DELETE',
                     success: function (data) {
                         console.log('ok')
