@@ -282,6 +282,8 @@ def get_net_info():
 
 
 def info_post():
+    ss = asset_info()
+    print(ss)
     # 判断是否存在pid文件
     if os.path.isfile('.id'):
         with open('.id', 'r') as f:
