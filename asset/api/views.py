@@ -1,16 +1,23 @@
+import os
 from flask_restful import reqparse, abort, Api, Resource
 from flask_moment import datetime
 from asset import models
-from flask import jsonify, request, g
+from flask import jsonify, request, render_template
 from asset.ext import db
 from asset.utils import auth
+from asset.utils import get_dir
+from asset.AnsibleAPI import AnsibleApi
+from asset.utils import get_dir
+
+ansible_dir = get_dir('a_path')
+playbook_dir = get_dir('play_book_path')
 
 parser = reqparse.RequestParser()
 
 
-
 class UserList(Resource):
     decorators = [auth.login_required]
+
     def get(self):
         user = models.User.query.all()
         res = {}
@@ -36,6 +43,7 @@ class UserList(Resource):
 
 class User(Resource):
     decorators = [auth.login_required]
+
     def get(self, user_id):
         user = models.User.query.filter_by(id=user_id)
         res = {}
@@ -63,6 +71,7 @@ class User(Resource):
 
 class IDCList(Resource):
     decorators = [auth.login_required]
+
     def get(self):
         idc = models.IDC.query.all()
         res = {}
@@ -87,6 +96,7 @@ class IDCList(Resource):
 
 class IDC(Resource):
     decorators = [auth.login_required]
+
     def get(self, idc_id):
         idc = models.IDC.query.filter_by(id=idc_id)
         res = {}
@@ -115,6 +125,7 @@ class IDC(Resource):
 
 class BusinessUnitList(Resource):
     decorators = [auth.login_required]
+
     def get(self):
         business = models.BusinessUnit.query.all()
         res = {}
@@ -139,6 +150,7 @@ class BusinessUnitList(Resource):
 
 class BusinessUnit(Resource):
     decorators = [auth.login_required]
+
     def get(self, business_id):
         business = models.BusinessUnit.query.filter_by(id=business_id)
         res = {}
@@ -167,6 +179,7 @@ class BusinessUnit(Resource):
 
 class AssetList(Resource):
     decorators = [auth.login_required]
+
     def get(self):
         # print(request.args)
 
@@ -230,6 +243,7 @@ class AssetList(Resource):
 
 class Asset(Resource):
     decorators = [auth.login_required]
+
     def get(self, asset_id):
         asset = models.Asset.query.filter_by(id=asset_id).first()
         res = {}
@@ -264,3 +278,30 @@ class Asset(Resource):
         return 200
 
 
+class Ansible(Resource):
+    def get(self):
+        # 获取yaml文件
+        playbook_dir = get_dir('play_book_path')
+        list = os.listdir(playbook_dir)
+        books = {}
+        for i in list:
+            name = i[:-4]
+            value = i
+            books[name] = value
+        return jsonify(books)
+
+    def post(self):
+        # 根据获取到 主机名/playbook 执行操作
+        json_data = request.get_json(force=True)
+        print('提交到的数据', json_data)
+        print(json_data['hostname'])
+        desc = models.Asset.query.filter_by(hostname=json_data['hostname']).first()
+        print(desc.ip)
+        ansible = AnsibleApi()
+        test = playbook_dir + 'test.yml'
+        try:
+            s = ansible.playbookrun(playbook_path=[test])
+            print(s)
+        except:
+            return 500
+        return 200

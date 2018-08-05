@@ -21,41 +21,24 @@ migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
 server = Server(host="0.0.0.0", port=5000)
 manager.add_command("runserver", server)
-# @manager.shell
-# def make_shell_context():
-#     """Create a python CLI.
-#
-#     return: Default import object
-#     type: # `Dict`
-#     """
-#         pass
-# return dict(app=app,
-#             db=models.db,
-#             IDC=models.IDC,
-#             Asset=models.Asset,
-#             Manufactory=models.Manufactory,
-#             BusinessUnit=models.BusinessUnit
-#             )
 
-
-# manager.add_command('shell', Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
-
-from flask_httpauth import HTTPBasicAuth
-
-auth = HTTPBasicAuth()
-
-@auth.verify_password
-def verify_password(username_or_token, password):
-    # first try to authenticate by token
-    user = models.User.verify_auth_token(username_or_token)
-    if not user:
-        # try to authenticate with username/password
-        user = models.User.query.filter_by(username = username_or_token).first()
-        if not user or not user.verify_password(password):
-            return False
-    g.user = user
-    return True
+#
+# from flask_httpauth import HTTPBasicAuth
+#
+# auth = HTTPBasicAuth()
+#
+# @auth.verify_password
+# def verify_password(username_or_token, password):
+#     # first try to authenticate by token
+#     user = models.User.verify_auth_token(username_or_token)
+#     if not user:
+#         # try to authenticate with username/password
+#         user = models.User.query.filter_by(username = username_or_token).first()
+#         if not user or not user.verify_password(password):
+#             return False
+#     g.user = user
+#     return True
 
 
 

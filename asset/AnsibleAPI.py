@@ -11,6 +11,10 @@ from ansible.executor.task_queue_manager import TaskQueueManager
 from ansible.executor.playbook_executor import PlaybookExecutor
 from ansible.plugins.callback import CallbackBase
 import ansible.constants as C
+from asset.utils import get_dir
+
+ansible_dir = get_dir('a_path')
+playbook_dir = get_dir('play_book_path')
 
 
 class ResultCallback(CallbackBase):
@@ -53,7 +57,8 @@ class AnsibleApi(object):
                                    'diff'])
 
         self.ops = self.Options(connection='smart',
-                                remote_user=None,
+                                remote_user='root',
+                                # remote_user=None,
                                 ack_pass=None,
                                 sudo_user=None,
                                 forks=5,
@@ -74,30 +79,31 @@ class AnsibleApi(object):
         self.loader = DataLoader()
         self.passwords = dict()
         self.results_callback = ResultCallback()
-        self.inventory = InventoryManager(loader=self.loader, sources=['/etc/ansible/hosts'])
+        self.inventory = InventoryManager(loader=self.loader, sources=['/usr/local/ansible/hosts'])
         self.variable_manager = VariableManager(loader=self.loader, inventory=self.inventory)
+
 
     def runansible(self, host_list, task_list):
 
         play_source = dict(
-            name="Ansible Play",
-            hosts=host_list,
-            gather_facts='no',
-            tasks=task_list
+                name="Ansible Play",
+                hosts=host_list,
+                gather_facts='no',
+                tasks=task_list
         )
         play = Play().load(play_source, variable_manager=self.variable_manager, loader=self.loader)
 
         tqm = None
         try:
             tqm = TaskQueueManager(
-                inventory=self.inventory,
-                variable_manager=self.variable_manager,
-                loader=self.loader,
-                options=self.ops,
-                passwords=self.passwords,
-                stdout_callback=self.results_callback,
-                run_additional_callbacks=C.DEFAULT_LOAD_CALLBACK_PLUGINS,
-                run_tree=False,
+                    inventory=self.inventory,
+                    variable_manager=self.variable_manager,
+                    loader=self.loader,
+                    options=self.ops,
+                    passwords=self.passwords,
+                    stdout_callback=self.results_callback,
+                    run_additional_callbacks=C.DEFAULT_LOAD_CALLBACK_PLUGINS,
+                    run_tree=False,
             )
             result = tqm.run(play)
         finally:
@@ -121,6 +127,7 @@ class AnsibleApi(object):
 
         # print(results_raw)
         return results_raw
+
     def playbookrun(self, playbook_path):
 
         self.variable_manager.extra_vars = {'customer': 'test', 'disabled': 'yes'}
@@ -134,16 +141,17 @@ class AnsibleApi(object):
 
 if __name__ == "__main__":
     a = AnsibleApi()
-    # host_list = ['39.106.51.169']
-    host_list = ['127.0.0.1']
+    host_list = ['39.106.51.169']
+    # host_list = ['127.0.0.1']
     tasks_list = [
         dict(action=dict(module='command', args='ls -l')),
         # dict(action=dict(module='shell', args='python sleep.py')),
         # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
     ]
-    data = a.runansible(host_list, tasks_list)
-    print(json.dumps(data))
+    # data = a.runansible(host_list, tasks_list)
+    # res = json.dumps(data)
+    # print(res.replace("\\",' '))
     # print(jsonify(data))
-    # a.playbookrun(playbook_path=['/etc/ansible/test.yml'])
-
-
+    test = playbook_dir + 'test.yml'
+    s = a.playbookrun(playbook_path=[test])
+    print(s)

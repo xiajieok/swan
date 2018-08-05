@@ -25,6 +25,7 @@
             <div class="col-sm-12">
                 <div style="margin: 10px 0px 10px 0">
                     <div class="col-md-5">
+                        <a>{{ yml }}</a>
                         <p>
                             <a>
                                 <button class="btn btn-success" data-toggle="modal" data-target="#modal-add">同步数据
@@ -41,33 +42,35 @@
 
                         <div class="form-group">
                             <label for="id_type">选择palybook:</label>
-                            <select name="asset_type" style="width:330px;" class="form-control" id="id_type">
+                            <select name="asset_type" style="width:330px;" class="form-control" id="id_playbook">
                                 <option value="" selected="">---------</option>
                             </select>
 
                         </div>
                         <div class="form-group">
-                            <input type="submit" id="command_submit" class="btn btn-primary"
-                                   style="width: 60pt; font-size: medium;" value="执行">
+                            <button id="command_submit" class="btn btn-primary"
+                                    style="width: 60pt; font-size: medium;" onclick="AnsibleRun()">执行
+                            </button>
+                        </div>
+                        <div class="box-header with-border">
+                            <h3 class="box-title">执行结果</h3>
+                        </div>
+                        <div class="box-body" id="cmd-res">
                         </div>
                     </div>
 
                     <div class="col-md-6" style="float: right">
                         <div class="form-group">
-                            <!-- /.form-group -->
-                            <form action="/setup/ansible/command/" method="post">
-                                <input type="hidden" name="csrfmiddlewaretoken"
-                                       value="vrqL8mzdoPn8f1y7D2MRvYoVtgbubhErX6FSoAsimOwXF8LQ4wT7LrjLxumCPf9H">
-                                <div class="form-group ">
-                                    <label>Ansible Command</label>
+                            <input type="hidden" name="csrfmiddlewaretoken"
+                                   value="vrqL8mzdoPn8f1y7D2MRvYoVtgbubhErX6FSoAsimOwXF8LQ4wT7LrjLxumCPf9H">
+                            <div class="form-group ">
+                                <label>Ansible Command</label>
                                     <textarea style="padding-bottom: 15px;" id="mcommand" name="mcommand" rows="11"
                                               class="form-control"
                                               placeholder="use enter spilt and command like: ansible web -a 'ls'"></textarea>
-                                </div>
-                                <input type="submit" id="command_submit" class="btn btn-primary"
-                                       style="width: 60pt; font-size: medium;" value="执行">
-                                <!-- /.form-group -->
-                            </form>
+                            </div>
+                            <input id="command_submit" class="btn btn-primary"
+                                   style="width: 60pt; font-size: medium;" value="执行">
                         </div>
                         <!-- /.col -->
                     </div>
@@ -80,11 +83,12 @@
 
 {% block js %}
     <script>
-         $(document).ready(function () {
-            $.getJSON("http://127.0.0.1:5000/api/idc", function (callback) {
+        $(document).ready(function () {
+            $.getJSON("http://127.0.0.1:5000/api/playbook", function (callback) {
+                console.log(callback);
                 for (var item in callback) {
-                    tmp = "<option>" + callback[item]['name'] + "</option>";
-                    $('#idc').append(tmp)
+                    tmp = "<option>" + callback[item] + "</option>";
+                    $('#id_playbook').append(tmp)
 
                 }
             });
@@ -103,5 +107,19 @@
                 }
             })
         });
+        function AnsibleRun(obj) {
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/playbook",
+                type: 'POST',
+                data: JSON.stringify({
+                    "hostname": $('#id_host').val(),
+                    "book": $('#id_playbook').val()
+                }),
+                success: function (data) {
+                    console.log(data)
+                    console.log('ok')
+                }
+            })
+        }
     </script>
 {% endblock %}

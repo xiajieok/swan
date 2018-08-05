@@ -14,3 +14,5 @@ resource.add_resource(views.BusinessUnit,"/business/<int:business_id>")
 resource.add_resource(views.AssetList,"/assets")
 resource.add_resource(views.Asset,"/assets/<int:asset_id>")
 
+#ansible
+resource.add_resource(views.Ansible,"/playbook")
