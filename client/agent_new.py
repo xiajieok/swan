@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 import os, re, platform, socket, time, json, threading
-import psutil,dmidecode
+import psutil, dmidecode
 import requests
 from subprocess import Popen, PIPE
 import logging
@@ -101,13 +101,17 @@ def post_data(url, data):
         print(msg)
     # logging.info(msg)
     return True
+
+
 def machine_info():
-    info=dmidecode.system()
-    info_keys=info.keys()
-    for i in range(len(info_keys)):
-        if info[info_keys[i]]['dmi_type'] == 1 :
-            Product_name = info[info_keys[i]]['data']['Product Name']
-            return Product_name
+    # info = dmidecode.profile()
+    # info_keys = info.keys()
+    # for i in range(len(info_keys)):
+    #     if info[info_keys[i]]['dmi_type'] == 1:
+    #         Product_name = info[info_keys[i]]['data']['Product Name']
+    #         return Product_name
+            return 'Dell'
+
 
 def asset_info():
     data_info = dict()
@@ -137,6 +141,8 @@ def asset_info():
     # data_info['agent_version'] = AGENT_VERSION
     print(data_info)
     return json.dumps(data_info)
+
+
 # def new_asset_info():
 #     data = {
 #
@@ -173,7 +179,7 @@ def asset_info():
 #     print('----------------------------------------------------------')
 #     if status == "new":
 #         # print(new_asset_info())
-#         url = "http://192.168.1.191:5000/api/assets"
+#         url = "http://192.168.1.194:5000/api/assets"
 #         data = new_asset_info()
 #         data['id'] = id
 #         print(data)
@@ -184,7 +190,7 @@ def asset_info():
 #         # 	os.environ["LANG"] = osenv
 #         return True
 #     else:
-#         url = "http://192.168.1.191:5000/api/assets/" + str(id)
+#         url = "http://192.168.1.194:5000/api/assets/" + str(id)
 #         res = requests.put(url, json.dumps(new_asset_info()))
 #         print(res)
 #         # if not pv:
@@ -214,7 +220,7 @@ def get_sys_mem():
     sys_mem["percent"] = mem.percent
     sys_mem["available"] = int(mem.available / 1024 / 1024 / 1024)
     sys_mem["used"] = int(mem.used / 1024 / 1024 / 1024)
-    sys_mem["free"] =int(mem.free / 1024 / 1024 / 1024)
+    sys_mem["free"] = int(mem.free / 1024 / 1024 / 1024)
     sys_mem["buffers"] = int(mem.buffers / 1024 / 1024 / 1024)
     sys_mem["cached"] = int(mem.cached / 1024 / 1024 / 1024)
     return sys_mem
@@ -241,7 +247,7 @@ def get_sys_disk():
     return sys_disk
 
 
-#函数获取各网卡发送、接收字节数
+# 函数获取各网卡发送、接收字节数
 def get_nic():
     key_info = psutil.net_io_counters(pernic=True).keys()  # 获取网卡名称
 
@@ -255,7 +261,7 @@ def get_nic():
     return key_info, recv, sent
 
 
-#函数计算每秒速率
+# 函数计算每秒速率
 def get_nic_rate(func):
     key_info, old_recv, old_sent = func()  # 上一秒收集的数据
     time.sleep(1)
@@ -287,7 +293,7 @@ def info_post():
         with open('.id', 'r') as f:
             id = f.read()
         # return 'old',id
-        url = "http://192.168.1.191:5000/api/assets/" + str(id)
+        url = "http://192.168.1.194:5000/api/assets/" + str(id)
 
         data = json.loads(asset_info())
         data.pop('sn')
@@ -298,7 +304,7 @@ def info_post():
         # 	os.environ["LANG"] = osenv
         return True
     else:
-        url = "http://192.168.1.191:5000/api/assets"
+        url = "http://192.168.1.194:5000/api/assets"
         res = requests.get(url).text
         id_list = json.loads(res)
         # print(type(msg),msg.keys())
@@ -306,8 +312,8 @@ def info_post():
             id = 1
         else:
             id = int(max(id_list)) + 1
-        print('This is new id',id)
-        with open('.id','w') as f:
+        print('This is new id', id)
+        with open('.id', 'w') as f:
             f.write(str(id))
         data = json.loads(asset_info())
         data['id'] = id
@@ -322,4 +328,3 @@ def info_post():
 if __name__ == "__main__":
     msg = info_post()
     print(msg)
-

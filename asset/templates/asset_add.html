@@ -114,14 +114,14 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $.getJSON("http://127.0.0.1:5000/api/idc", function (callback) {
+            $.getJSON("http://192.168.1.194:5000/api/idc", function (callback) {
                 for (var item in callback) {
                     console.log(callback[item]['name']);
                     tmp = "<option>" + callback[item]['name'] + "</option>";
                     $('#id_idc').append(tmp)
                 }
             });
-            $.getJSON("http://127.0.0.1:5000/api/business", function (callback) {
+            $.getJSON("http://192.168.1.194:5000/api/business", function (callback) {
                 for (var item in callback) {
                     console.log(callback[item]['name']);
                     tmp = "<option>" + callback[item]['name'] + "</option>";
@@ -132,7 +132,7 @@
         function Add(obj) {
             console.log('新增机器');
             $.ajax({
-                url: "http://127.0.0.1:5000/api/assets",
+                url: "http://192.168.1.194:5000/api/assets",
                 type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({

@@ -1,0 +1,128 @@
+{% extends 'ansible.html' %}
+{% block page_header %}
+    <h1>
+        服务管理
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="box">
+        <div class="row">
+            <div style="margin: 10px 0px 10px 10px">
+                {#                <div style="margin: 10px 0px 10px 0">#}
+                <div class="col-sm-2" style="margin: 0 0 10px  0">
+                    <a>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#modal-add">同步服务</button>
+
+                    </a>
+                </div>
+                {#                </div>#}
+                <a>{{ yml }}</a>
+                <div>
+                    <label for="id_type">选择主机:</label>
+                    <select name="asset_host" class="select2-dropdown" id="id_host">
+                        <option value="" selected="">---------</option>
+
+                    </select>
+
+                    <table class="table table-bordered table-hover dataTable"
+                           role="grid">
+
+                        <thead>
+                        <tr role="row">
+                            {#                            <th>ID</th>#}
+                            <th>服务</th>
+                            <th>状态</th>
+                            <th>端口</th>
+                            {#                            <th>更新时间</th>#}
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+
+                    </table>
+                    <button id="command_submit" class="btn btn-primary"
+                            style="width: 60pt; font-size: medium;" onclick="GetServieStatus(this)">执行
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="box-header with-border">
+            <h3 class="box-title">执行结果</h3>
+        </div>
+        <div class="box-body ">
+            <pre id="cmd-res" class="pre-code">
+
+            </pre>
+        </div>
+    </div>        <!-- nav-tabs-custom -->
+
+{% endblock %}
+
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://192.168.1.194:5000/api/ansible", function (callback) {
+                console.log(callback);
+                for (var item in callback) {
+                    tmp = "<option>" + callback[item] + "</option>";
+                    $('#id_playbook').append(tmp)
+
+                }
+            });
+            $.getJSON("http://192.168.1.194:5000/api/assets", function (callback) {
+                for (var item in callback) {
+                    console.log(item);
+                    tmp = "<option>" + callback[item]['hostname'] + "</option>";
+                    $('#id_host').append(tmp)
+                }
+            })
+        });
+        function AnsibleRun(obj) {
+            $.ajax({
+                url: "http://192.168.1.194:5000/api/ansible",
+                type: 'POST',
+                data: JSON.stringify({
+                    "type": "playbook",
+                    "hostname": $('#id_host').val(),
+                    "book": $('#id_playbook').val()
+                }),
+                success: function (callback) {
+                    $('#cmd-res').text(callback);
+                }
+            })
+        }
+        function GetServieStatus(obj) {
+            $.ajax({
+                url: "http://192.168.1.194:5000/api/ansible",
+                type: 'POST',
+                data: JSON.stringify({
+                    "type": "service",
+                    "hostname": $('#id_host').val(),
+                    "cmd": "cd /opt/docker && docker-compose ps"
+                }),
+                success: function (callback) {
+                    var obj = callback
+                    console.log(obj);
+                    for (var item in obj) {
+                        var state = obj[item].state;
+                        var port = obj[item].port;
+
+
+                        var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + state + "</td>" + "<td>" + port + "</td>" +  "<td id=" + item + ">" + " <button id=" + item + " " + 'class="fa fa-stop" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></button> <button class="fa fa-play" style="margin: 3px"></button> <button class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></button>' + "</td>" + "</tr>"
+                        $("tbody").append(html)
+                    }
+                }
+            })
+        }
+    </script>
+{% endblock %}

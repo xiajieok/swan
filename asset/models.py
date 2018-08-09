@@ -104,6 +104,18 @@ class Asset(db.Model):
     approved = Column(Boolean, default=False)
 
 
+class Service(db.Model):
+    """服务"""
+    __tablename__ = 'Service'
+    id = Column(String(64), primary_key=True)
+    name = Column(String(64))
+    host = Column(String(64))
+    state = Column(String(64))
+    port = Column(String(256))
+    create_date = Column(DateTime)
+    update_date = Column(DateTime)
+    memo = Column(String(256))
+
 class IDC(db.Model):
     """机房"""
     __tablename__ = 'IDC'

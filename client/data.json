@@ -2,7 +2,7 @@
   "cpu_physical": 1,
   "vendor": "QEMU",
   "cpu_num": 1,
-  "ip": "127.0.0.1",
+  "ip": "192.168.1.194",
   "hostname": "vultr.guest",
   "cpu_model": "Virtual CPU a7769a6388d5",
   "product": "pc-i440fx-2.10",

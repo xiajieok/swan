@@ -1578,6 +1578,10 @@ pre code {
   background-color: transparent;
   border-radius: 0;
 }
+pre {
+ white-space: pre-wrap;
+ word-wrap: break-word;
+}
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;

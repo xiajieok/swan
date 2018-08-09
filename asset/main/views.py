@@ -43,6 +43,11 @@ def ansible():
 
     return render_template('ansible.html')
 
+@main.route('/services')
+@login_required
+def services():
+
+    return render_template('services.html')
 
 @main.route('/user')
 @login_required

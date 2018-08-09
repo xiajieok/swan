@@ -15,7 +15,7 @@
         <a href="{{ url_for('main.asset') }}" class="btn btn-default">Ansible</a>
     </li>
     <li>
-        <a href="{{ url_for('main.idc') }}" class="btn btn-default">Shell</a>
+        <a href="{{ url_for('main.services') }}" class="btn btn-default">服务管理</a>
 
     </li>
 {% endblock %}
@@ -52,11 +52,7 @@
                                     style="width: 60pt; font-size: medium;" onclick="AnsibleRun()">执行
                             </button>
                         </div>
-                        <div class="box-header with-border">
-                            <h3 class="box-title">执行结果</h3>
-                        </div>
-                        <div class="box-body" id="cmd-res">
-                        </div>
+
                     </div>
 
                     <div class="col-md-6" style="float: right">
@@ -65,18 +61,28 @@
                                    value="vrqL8mzdoPn8f1y7D2MRvYoVtgbubhErX6FSoAsimOwXF8LQ4wT7LrjLxumCPf9H">
                             <div class="form-group ">
                                 <label>Ansible Command</label>
-                                    <textarea style="padding-bottom: 15px;" id="mcommand" name="mcommand" rows="11"
+                                    <textarea style="padding-bottom: 15px;" id="id_cmd" name="mcommand" rows="11"
                                               class="form-control"
                                               placeholder="use enter spilt and command like: ansible web -a 'ls'"></textarea>
                             </div>
-                            <input id="command_submit" class="btn btn-primary"
-                                   style="width: 60pt; font-size: medium;" value="执行">
+                            <button id="command_submit" class="btn btn-primary"
+                                    style="width: 60pt; font-size: medium;" onclick="AnsibleCMDRun(this)">执行
+                            </button>
                         </div>
                         <!-- /.col -->
                     </div>
                 </div>
             </div>
+
         </div>        <!-- nav-tabs-custom -->
+        <div class="box-header with-border">
+            <h3 class="box-title">执行结果</h3>
+        </div>
+        <div class="box-body ">
+            <pre id="cmd-res" class="pre-code">
+
+            </pre>
+        </div>
     </div>
 {% endblock %}
 
@@ -84,7 +90,7 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $.getJSON("http://127.0.0.1:5000/api/playbook", function (callback) {
+            $.getJSON("http://192.168.1.194:5000/api/ansible", function (callback) {
                 console.log(callback);
                 for (var item in callback) {
                     tmp = "<option>" + callback[item] + "</option>";
@@ -92,14 +98,7 @@
 
                 }
             });
-            $.getJSON("http://127.0.0.1:5000/api/business", function (callback) {
-                for (var item in callback) {
-                    tmp = "<option>" + callback[item]['name'] + "</option>";
-                    $('#busniss-select').append(tmp)
-
-                }
-            });
-            $.getJSON("http://127.0.0.1:5000/api/assets", function (callback) {
+            $.getJSON("http://192.168.1.194:5000/api/assets", function (callback) {
                 for (var item in callback) {
                     console.log(item);
                     tmp = "<option>" + callback[item]['hostname'] + "</option>";
@@ -109,15 +108,32 @@
         });
         function AnsibleRun(obj) {
             $.ajax({
-                url: "http://127.0.0.1:5000/api/playbook",
+                url: "http://192.168.1.194:5000/api/ansible",
                 type: 'POST',
                 data: JSON.stringify({
+                    "type": "playbook",
                     "hostname": $('#id_host').val(),
                     "book": $('#id_playbook').val()
                 }),
-                success: function (data) {
-                    console.log(data)
-                    console.log('ok')
+                success: function (callback) {
+                     $('#cmd-res').text(callback);
+                }
+            })
+        }
+        function AnsibleCMDRun(obj) {
+            $.ajax({
+                url: "http://192.168.1.194:5000/api/ansible",
+                type: 'POST',
+                data: JSON.stringify({
+                    "type": "cmd",
+                    "hostname": $('#id_host').val(),
+                    "cmd": $('#id_cmd').val()
+                }),
+                success: function (callback) {
+{#                    console.log(callback);#}
+                    $('#cmd-res').text('');
+                    $('#cmd-res').text(callback);
+
                 }
             })
         }

@@ -8,6 +8,7 @@ from asset.utils import auth
 from asset.utils import get_dir
 from asset.AnsibleAPI import AnsibleApi
 from asset.utils import get_dir
+import json
 
 ansible_dir = get_dir('a_path')
 playbook_dir = get_dir('play_book_path')
@@ -177,8 +178,63 @@ class BusinessUnit(Resource):
         return 200
 
 
+class ServiceList(Resource):
+    # decorators = [auth.login_required]
+
+    def get(self):
+        idc = models.Service.query.all()
+        res = {}
+        for i in idc:
+            res[i.id] = {'name': i.name, 'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo}
+        return jsonify(res)
+
+    def post(self):
+        json_data = request.get_json(force=True)
+        try:
+            service_id = models.Service.query.order_by(models.Service.id.desc()).first().id
+            new_id = int(service_id) + 1
+        except:
+            new_id = 1
+        print(new_id)
+        res = models.Service(id=new_id, name=json_data['name'], host=json_data['host'], state=json_data['state'],
+                             port=json_data['port'], memo=json_data['memo'])
+        db.session.add(res)
+        db.session.commit()
+        db.session.close()
+        return json_data, 200
+
+
+class Service(Resource):
+    # decorators = [auth.login_required]
+
+    def get(self, service_id):
+        idc = models.Service.query.filter_by(id=service_id)
+        res = {}
+        for i in idc:
+            res[i.id] = {'name': i.name, 'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo}
+        return jsonify(res)
+
+    def put(self, service_id):
+        json_data = request.get_json(force=True)
+        for i in json_data:
+            models.Service.query.filter_by(id=service_id).update({i: json_data[i]})
+        db.session.commit()
+        db.session.close()
+        return 200
+
+    def delete(self, service_id):
+        try:
+            idc = models.Service.query.filter_by(id=service_id).delete()
+            print(idc)
+            db.session.commit()
+            db.session.close()
+        except:
+            return "Not exists"
+        return 200
+
+
 class AssetList(Resource):
-    decorators = [auth.login_required]
+    # decorators = [auth.login_required]
 
     def get(self):
         # print(request.args)
@@ -242,7 +298,7 @@ class AssetList(Resource):
 
 
 class Asset(Resource):
-    decorators = [auth.login_required]
+    # decorators = [auth.login_required]
 
     def get(self, asset_id):
         asset = models.Asset.query.filter_by(id=asset_id).first()
@@ -297,11 +353,53 @@ class Ansible(Resource):
         print(json_data['hostname'])
         desc = models.Asset.query.filter_by(hostname=json_data['hostname']).first()
         print(desc.ip)
-        ansible = AnsibleApi()
-        test = playbook_dir + 'test.yml'
-        try:
-            s = ansible.playbookrun(playbook_path=[test])
-            print(s)
-        except:
-            return 500
-        return 200
+        g = AnsibleApi()
+        if json_data['type'] == 'playbook':
+            test = playbook_dir + 'test.yml'
+            try:
+                callback = g.playbookrun(playbook_path=[test])
+                if callback == 0:
+                    return 'Successful !!!'
+            except:
+                return "Faild !!!"
+        elif json_data['type'] == 'cmd':
+
+            tasks_list = [
+                dict(action=dict(module='shell', args=json_data['cmd'])),
+                # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
+            ]
+            res = g.runansible(desc.ip, tasks_list)
+            ss = json.loads(res)
+            try:
+                msg = jsonify(ss['success'][desc.ip]['stdout'])
+                # print('成功返回',msg)
+            except:
+                msg = jsonify(ss['failed'][desc.ip])
+            # res = ansible.runansible(desc.ip, tasks_list)['success'][desc.ip]
+            # res = jsonify(s)
+            # res = json.dumps(s,indent=4)
+            return msg
+        else:
+
+            tasks_list = [
+                dict(action=dict(module='shell', args=json_data['cmd'])),
+            ]
+            res = g.runansible(desc.ip, tasks_list)
+            res_dict = json.loads(res)['success'][desc.ip]['stdout']
+            tmp = res_dict.split('\n')
+            all = {}
+            msg_dict = {}
+
+            for i in tmp:
+                line = i.split()
+                # print(line)
+                if len(line) > 1:
+                    svc_name = line[0][7:-2]
+                    state = line[-2]
+                    port = line[-1]
+                    if len(svc_name) > 1:
+                        msg_dict[svc_name] = {}
+                        msg_dict[svc_name]['port'] = port
+                        msg_dict[svc_name]['state'] = state
+                        all.update(msg_dict)
+            return jsonify(all)

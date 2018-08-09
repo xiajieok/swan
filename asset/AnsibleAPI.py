@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-import json
+import json, datetime
 import shutil
 from collections import namedtuple
 from ansible.parsing.dataloader import DataLoader
@@ -13,16 +13,46 @@ from ansible.plugins.callback import CallbackBase
 import ansible.constants as C
 from asset.utils import get_dir
 
+from flask import jsonify
+
 ansible_dir = get_dir('a_path')
 playbook_dir = get_dir('play_book_path')
 
 
+class PlayLogger:
+    """Store log output in a single object.
+    We create a new object per Ansible run
+    """
+
+    def __init__(self):
+        self.log = ''
+        self.runtime = 0
+
+    def append(self, log_line):
+        """append to log"""
+        self.log += log_line + "\n\n"
+
+    def banner(self, msg):
+        """Output Trailing Stars"""
+        width = 78 - len(msg)
+        if width < 3:
+            width = 3
+        filler = "*" * width
+        return "\n%s %s " % (msg, filler)
+
+
 class ResultCallback(CallbackBase):
     def __init__(self, *args, **kwargs):
-        # super(ResultsCollector, self).__init__(*args, **kwargs)
+        super(ResultCallback, self).__init__(*args, **kwargs)
+        self.logger = PlayLogger()
+        self.start_time = datetime.datetime.now()
         self.host_ok = {}
         self.host_unreachable = {}
         self.host_failed = {}
+        self.playbook_on_start = {}
+
+        self.status_playbook = ''
+        self.status_no_hosts = False
 
     def v2_runner_on_unreachable(self, result):
         self.host_unreachable[result._host.get_name()] = result
@@ -82,7 +112,6 @@ class AnsibleApi(object):
         self.inventory = InventoryManager(loader=self.loader, sources=['/usr/local/ansible/hosts'])
         self.variable_manager = VariableManager(loader=self.loader, inventory=self.inventory)
 
-
     def runansible(self, host_list, task_list):
 
         play_source = dict(
@@ -117,41 +146,48 @@ class AnsibleApi(object):
         results_raw['unreachable'] = {}
 
         for host, result in self.results_callback.host_ok.items():
-            results_raw['success'][host] = json.dumps(result._result)
+            # results_raw['success'][host] = json.dumps(result._result)
+            results_raw['success'][host] = result._result
 
         for host, result in self.results_callback.host_failed.items():
             results_raw['failed'][host] = result._result['msg']
 
         for host, result in self.results_callback.host_unreachable.items():
             results_raw['unreachable'][host] = result._result['msg']
-
-        # print(results_raw)
-        return results_raw
+        print(results_raw)
+        res = json.dumps(results_raw, indent=4)
+        return res
 
     def playbookrun(self, playbook_path):
-
         self.variable_manager.extra_vars = {'customer': 'test', 'disabled': 'yes'}
         playbook = PlaybookExecutor(playbooks=playbook_path,
                                     inventory=self.inventory,
                                     variable_manager=self.variable_manager,
                                     loader=self.loader, options=self.ops, passwords=self.passwords)
+
         result = playbook.run()
+
         return result
 
 
 if __name__ == "__main__":
     a = AnsibleApi()
-    host_list = ['39.106.51.169']
-    # host_list = ['127.0.0.1']
+    host_list = ['192.168.1.208']
+    # host_list = ['192.168.1.194']
     tasks_list = [
-        dict(action=dict(module='command', args='ls -l')),
+        dict(action=dict(module='shell', args='cd /opt/docker  &&  docker-compose ps')),
         # dict(action=dict(module='shell', args='python sleep.py')),
         # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
     ]
-    # data = a.runansible(host_list, tasks_list)
-    # res = json.dumps(data)
+
+    # test = playbook_dir + 'test.yml'
+    # s = a.playbookrun(playbook_path=[test])
+    # print('res', s)
+
+
+    data = a.runansible(host_list, tasks_list)
+    # print(data)
+    # res = json.dumps(data, indent=4)
+    print(data)
     # print(res.replace("\\",' '))
     # print(jsonify(data))
-    test = playbook_dir + 'test.yml'
-    s = a.playbookrun(playbook_path=[test])
-    print(s)
