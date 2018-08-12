@@ -1,88 +1,87 @@
-{% extends 'asset.html' %}
-{% block page_header %}
-    <h1>
-        Ansible 管理
-        <small>Optional description</small>
-    </h1>
+{% extends 'base.html' %}
+{% block page_content_title %}
+    任务编排
+{% endblock %}
+
+{% block page_nav_tab %}
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="/">Home</a></li>
+        <li class="active">服务管理</li>
+        <li class="active">ansible管理</li>
     </ol>
 {% endblock %}
-{% block menu %}
-    <li>
+{% block page_content %}
+    <div class="row">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div style="margin: 10px 0px 10px 0">
+                            <div class="col-md-5">
+                                <a>{{ yml }}</a>
+                                <p>
+                                    <a>
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#modal-add">
+                                            同步数据
+                                        </button>
+                                    </a>
+                                </p>
+                                <div class="form-group">
+                                    <label for="id_type">选择主机:</label>
+                                    <select name="asset_host" style="width:330px;" class="form-control" id="id_host">
+                                        <option value="" selected="">---------</option>
 
-        <a href="{{ url_for('main.asset') }}" class="btn btn-default">Ansible</a>
-    </li>
-    <li>
-        <a href="{{ url_for('main.services') }}" class="btn btn-default">服务管理</a>
+                                    </select>
+                                </div>
 
-    </li>
-{% endblock %}
-{% block content %}
-    <div class="box">
-        <div class="row">
-            <div class="col-sm-12">
-                <div style="margin: 10px 0px 10px 0">
-                    <div class="col-md-5">
-                        <a>{{ yml }}</a>
-                        <p>
-                            <a>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#modal-add">同步数据
-                                </button>
-                            </a>
-                        </p>
-                        <div class="form-group">
-                            <label for="id_type">选择主机:</label>
-                            <select name="asset_host" style="width:330px;" class="form-control" id="id_host">
-                                <option value="" selected="">---------</option>
+                                <div class="form-group">
+                                    <label for="id_type">选择palybook:</label>
+                                    <select name="asset_type" style="width:330px;" class="form-control"
+                                            id="id_playbook">
+                                        <option value="" selected="">---------</option>
+                                    </select>
 
-                            </select>
-                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <button id="command_submit" class="btn btn-primary"
+                                            style="width: 60pt; font-size: medium;" onclick="AnsibleRun()">执行
+                                    </button>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="id_type">选择palybook:</label>
-                            <select name="asset_type" style="width:330px;" class="form-control" id="id_playbook">
-                                <option value="" selected="">---------</option>
-                            </select>
+                            </div>
 
-                        </div>
-                        <div class="form-group">
-                            <button id="command_submit" class="btn btn-primary"
-                                    style="width: 60pt; font-size: medium;" onclick="AnsibleRun()">执行
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6" style="float: right">
-                        <div class="form-group">
-                            <input type="hidden" name="csrfmiddlewaretoken"
-                                   value="vrqL8mzdoPn8f1y7D2MRvYoVtgbubhErX6FSoAsimOwXF8LQ4wT7LrjLxumCPf9H">
-                            <div class="form-group ">
-                                <label>Ansible Command</label>
+                            <div class="col-md-6" style="float: right">
+                                <div class="form-group">
+                                    <input type="hidden" name="csrfmiddlewaretoken"
+                                           value="vrqL8mzdoPn8f1y7D2MRvYoVtgbubhErX6FSoAsimOwXF8LQ4wT7LrjLxumCPf9H">
+                                    <div class="form-group ">
+                                        <label>Ansible Command</label>
                                     <textarea style="padding-bottom: 15px;" id="id_cmd" name="mcommand" rows="11"
                                               class="form-control"
                                               placeholder="use enter spilt and command like: ansible web -a 'ls'"></textarea>
+                                    </div>
+                                    <button id="command_submit" class="btn btn-primary"
+                                            style="width: 60pt; font-size: medium;" onclick="AnsibleCMDRun(this)">执行
+                                    </button>
+                                </div>
+                                <!-- /.col -->
                             </div>
-                            <button id="command_submit" class="btn btn-primary"
-                                    style="width: 60pt; font-size: medium;" onclick="AnsibleCMDRun(this)">执行
-                            </button>
                         </div>
-                        <!-- /.col -->
                     </div>
-                </div>
-            </div>
 
-        </div>        <!-- nav-tabs-custom -->
-        <div class="box-header with-border">
-            <h3 class="box-title">执行结果</h3>
-        </div>
-        <div class="box-body ">
+                </div>        <!-- nav-tabs-custom -->
+                <div class="box-header with-border">
+                    <h3 class="box-title">执行结果</h3>
+                </div>
+                <div class="box-body ">
             <pre id="cmd-res" class="pre-code">
 
             </pre>
+                </div>
+            </div>
         </div>
+
     </div>
 {% endblock %}
 
@@ -90,7 +89,7 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $.getJSON("http://192.168.1.194:5000/api/ansible", function (callback) {
+            $.getJSON("http://scm.joy.com/api/ansible", function (callback) {
                 console.log(callback);
                 for (var item in callback) {
                     tmp = "<option>" + callback[item] + "</option>";
@@ -98,7 +97,7 @@
 
                 }
             });
-            $.getJSON("http://192.168.1.194:5000/api/assets", function (callback) {
+            $.getJSON("http://scm.joy.com/api/assets", function (callback) {
                 for (var item in callback) {
                     console.log(item);
                     tmp = "<option>" + callback[item]['hostname'] + "</option>";
@@ -108,7 +107,7 @@
         });
         function AnsibleRun(obj) {
             $.ajax({
-                url: "http://192.168.1.194:5000/api/ansible",
+                url: "http://scm.joy.com/api/ansible",
                 type: 'POST',
                 data: JSON.stringify({
                     "type": "playbook",
@@ -116,13 +115,13 @@
                     "book": $('#id_playbook').val()
                 }),
                 success: function (callback) {
-                     $('#cmd-res').text(callback);
+                    $('#cmd-res').text(callback);
                 }
             })
         }
         function AnsibleCMDRun(obj) {
             $.ajax({
-                url: "http://192.168.1.194:5000/api/ansible",
+                url: "http://scm.joy.com/api/ansible",
                 type: 'POST',
                 data: JSON.stringify({
                     "type": "cmd",
@@ -130,7 +129,7 @@
                     "cmd": $('#id_cmd').val()
                 }),
                 success: function (callback) {
-{#                    console.log(callback);#}
+                    {#                    console.log(callback);#}
                     $('#cmd-res').text('');
                     $('#cmd-res').text(callback);
 

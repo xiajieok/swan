@@ -45,15 +45,22 @@
     margin: 0.8em 2em 0 2em;
 }
 
-#wechat:hover p {
-    animation: roll 0.1s infinite linear;
-    -webkit-animation: roll 0.1s infinite linear;
-    -moz-animation: roll 0.1s infinite linear;
+
+
+.pointer{
+    cursor: pointer;
 }
 
-#alipay:hover p {
-    animation: roll 0.1s infinite linear;
-    -webkit-animation: roll 0.1s infinite linear;
-    -moz-animation: roll 0.1s infinite linear;
+.bold{
+    font-weight: bold;
 }
 
+.asset-info-table >tbody>tr>td{
+    padding-top: 10px;
+}
+
+.logo-text{
+    margin-top:15px ;
+    margin-left:10px ;
+    color: #d0302e;
+}

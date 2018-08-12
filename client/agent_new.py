@@ -4,6 +4,8 @@ import os, re, platform, socket, time, json, threading
 import psutil, dmidecode
 import requests
 from subprocess import Popen, PIPE
+import fcntl
+import struct
 import logging
 
 AGENT_VERSION = "1.0"
@@ -12,6 +14,8 @@ server_ip = '192.168.47.130'
 
 
 def get_ip():
+    '''
+    #mac
     try:
         hostname = socket.getfqdn(socket.gethostname())
         ipaddr = socket.gethostbyname(hostname)
@@ -19,6 +23,17 @@ def get_ip():
         print(msg)
         ipaddr = ''
     return ipaddr
+    '''
+    '''
+    linux
+    '''
+    ifname = 'eth0'
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(
+            s.fileno(),
+            0x8915,  # SIOCGIFADDR
+            struct.pack('256s', ifname[:15])
+    )[20:24])
 
 
 def get_dmi():
@@ -67,6 +82,31 @@ def get_cpu_cores():
     return cpu_cores
 
 
+def get_svc():
+    cmd = 'cd /opt/docker && docker-compose ps'
+    res = os.popen(cmd).read().split('\n')
+    all = {}
+    ip = get_ip()
+    msg_dict = {}
+    msg_dict['host'] = ip
+    msg_dict['type'] = 'docker-compose'
+    msg_dict['svc'] = {}
+    for i in res:
+        line = i.split()
+        # print(line)
+        if len(line) > 1:
+            svc_name = line[0][7:-2]
+            state = line[-2]
+            port = line[-1]
+            if len(svc_name) > 1:
+                msg_dict['svc'][svc_name] = {}
+                msg_dict['svc'][svc_name]['port'] = port
+                msg_dict['svc'][svc_name]['state'] = state
+                all.update(msg_dict)
+    # print(all)
+    return json.dumps(all)
+
+
 def parser_cpu(stdout):
     groups = [i for i in stdout.split('\n\n')]
     group = groups[-2]
@@ -110,14 +150,14 @@ def machine_info():
     #     if info[info_keys[i]]['dmi_type'] == 1:
     #         Product_name = info[info_keys[i]]['data']['Product Name']
     #         return Product_name
-            return 'Dell'
+    return 'Dell'
 
 
 def asset_info():
     data_info = dict()
     data_info['idc'] = 'beijing'
     data_info['type'] = 'server'
-    data_info['status'] = 'stop'
+    data_info['status'] = 'RUN'
     data_info['memory'] = str(get_sys_mem())
     # data_info['memory'] = get_mem_total()
     data_info['disk'] = str(get_disk_info())
@@ -179,7 +219,7 @@ def asset_info():
 #     print('----------------------------------------------------------')
 #     if status == "new":
 #         # print(new_asset_info())
-#         url = "http://192.168.1.194:5000/api/assets"
+#         url = "http://scm.joy.com/api/assets"
 #         data = new_asset_info()
 #         data['id'] = id
 #         print(data)
@@ -190,7 +230,7 @@ def asset_info():
 #         # 	os.environ["LANG"] = osenv
 #         return True
 #     else:
-#         url = "http://192.168.1.194:5000/api/assets/" + str(id)
+#         url = "http://scm.joy.com/api/assets/" + str(id)
 #         res = requests.put(url, json.dumps(new_asset_info()))
 #         print(res)
 #         # if not pv:
@@ -293,18 +333,26 @@ def info_post():
         with open('.id', 'r') as f:
             id = f.read()
         # return 'old',id
-        url = "http://192.168.1.194:5000/api/assets/" + str(id)
+        url = "http://scm.joy.com/api/assets/" + str(id)
 
         data = json.loads(asset_info())
         data.pop('sn')
         data.pop('hostname')
         res = requests.put(url, json.dumps(data))
-        print(res.text)
+        print('update  sys')
+
+
+        url2 = "http://scm.joy.com/api/service" + str(get_ip())
+        data = json.loads(get_svc())
+        data['host'] = get_ip()
+        print(data)
+        res = requests.put(url2, json.dumps(data))
+        print('update svc')
         # if not pv:
         # 	os.environ["LANG"] = osenv
         return True
     else:
-        url = "http://192.168.1.194:5000/api/assets"
+        url = "http://scm.joy.com/api/assets"
         res = requests.get(url).text
         id_list = json.loads(res)
         # print(type(msg),msg.keys())
@@ -320,11 +368,27 @@ def info_post():
         print(data)
 
         res = requests.post(url, json.dumps(data))
+
+
+        url2 = "http://scm.joy.com/api/service"
+        data = json.loads(get_svc())
+        data['host'] = get_ip()
+        res = requests.post(url2, json.dumps(data))
         # if not pv:
         # 	os.environ["LANG"] = osenv
         return res.text
 
 
+def post_svc():
+    url2 = "http://scm.joy.com/api/service"
+    data = json.loads(get_svc())
+    data['host'] = get_ip()
+    res = requests.post(url2, json.dumps(data))
+    print(res)
+
+
 if __name__ == "__main__":
     msg = info_post()
     print(msg)
+    # res = post_svc()
+    # print(res)

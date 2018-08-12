@@ -2294,7 +2294,7 @@ a:focus {
   padding: 15px 5px;
   margin: 0 0 10px 10px;
   min-width: 80px;
-  height: 60px;
+  /*height: 60px;*/
   text-align: center;
   color: #666;
   border: 1px solid #ddd;

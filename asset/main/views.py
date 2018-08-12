@@ -40,14 +40,20 @@ def app():
 @main.route('/ansible')
 @login_required
 def ansible():
-
     return render_template('ansible.html')
+
+
+@main.route('/docker')
+@login_required
+def docker():
+    return render_template('ansible.html')
+
 
 @main.route('/services')
 @login_required
 def services():
-
     return render_template('services.html')
+
 
 @main.route('/user')
 @login_required

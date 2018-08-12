@@ -2,390 +2,913 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Starter</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/ionicons.min.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='AdminLte/css/AdminLTE.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='AdminLte/css/skin-yellow.min.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cow | Make CMDB Easier</title>
+    {% block base_header %}
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+        <!--Nifty Stylesheet [ REQUIRED ]-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/nifty.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/themes/type-c/theme-light.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/pace.min.css') }}">
+        <!--Plugins -->
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='plugins/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+
+    {% endblock %}
+    {% block header_css %}
+
+    {% endblock %}
 
 </head>
 <body class="hold-transition skin-black sidebar-mini">
-<div class="wrapper">
+<div id="container" class="effect mainnav-lg mainnav-fixed">
+    {% block page_container %}
+        <!--NAVBAR-->
+        <!--===================================================-->
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
 
-    <!-- Main Header -->
-    <header class="main-header">
-     <!-- Logo -->
-        <a href="index2.html" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>C</b>ow</span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Cow</b></span>
-        </a>
-
-        <nav class="navbar navbar-static-top">
-            <div class="container-fluid">
+                <!--Brand logo & name-->
+                <!--================================-->
                 <div class="navbar-header">
-                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                        <span class="sr-only">Toggle navigation</span>
+                    <a href="/" class="navbar-brand">
+                        <span class="brand-text logo-text">Swan </span>
                     </a>
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#navbar-collapse">
-                        <i class="fa fa-bars"></i>
-                    </button>
+
                 </div>
+                <!--================================-->
+                <!--End brand logo & name-->
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        {% block menu %}
-                        {% endblock %}
-                    </ul>
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                        </div>
-                    </form>
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Messages: style can be found in dropdown.less-->
 
-                        <li class="dropdown messages-menu">
-                            <!-- Menu toggle button -->
+                <!--Navbar Dropdown-->
+                <!--================================-->
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
 
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope-o"></i>
-                                <span class="label label-success">4</span>
+                        <!--Navigation toogle button-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="fa fa-navicon fa-lg"></i>
                             </a>
-                            <ul class="dropdown-menu">
-
-                                <li class="header">You have 4 messages</li>
-                                <li>
-                                    <!-- inner menu: contains the messages -->
-                                    <ul class="menu">
-                                        <li><!-- start message -->
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <!-- User Image -->
-                                                    <img src="{{ url_for('static', filename='imgs/user.png') }}"
-                                                         class="img-circle"
-                                                         alt="User Image">
-                                                </div>
-                                                <!-- Message title and timestamp -->
-                                                <h4>
-                                                    Support Team
-                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                                </h4>
-                                                <!-- The message -->
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <!-- end message -->
-                                    </ul>
-                                    <!-- /.menu -->
-                                </li>
-                                <li class="footer"><a href="#">See All Messages</a></li>
-                            </ul>
                         </li>
-                        <!-- /.messages-menu -->
-                        <!-- Tasks Menu -->
-                        <li class="dropdown tasks-menu">
-                            <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-flag-o"></i>
-                                <span class="label label-danger">9</span>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End Navigation toogle button-->
+
+
+                        <!--Messages Dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                <i class="fa fa-envelope fa-lg"></i>
+                                <span class="badge badge-header badge-warning">9</span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 9 tasks</li>
-                                <li>
-                                    <!-- Inner menu: contains the tasks -->
-                                    <ul class="menu">
-                                        <li><!-- Task item -->
-                                            <a href="#">
-                                                <!-- Task title and progress text -->
-                                                <h3>
-                                                    Design some buttons
-                                                    <small class="pull-right">20%</small>
-                                                </h3>
-                                                <!-- The progress bar -->
-                                                <div class="progress xs">
-                                                    <!-- Change the css width attribute to simulate progress -->
-                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%"
-                                                         role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                         aria-valuemax="100">
-                                                        <span class="sr-only">20% Complete</span>
+
+                            <!--Message dropdown menu-->
+                            <div class="dropdown-menu dropdown-menu-md with-arrow">
+                                <div class="pad-all bord-btm">
+                                    <p class="text-lg text-muted text-thin mar-no">You have 3 messages.</p>
+                                </div>
+                                <div class="nano scrollable">
+                                    <div class="nano-content">
+                                        <ul class="head-list">
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <img src="{{ url_for('static', filename='img/av2.png') }}"
+                                                             alt="Profile Picture"
+                                                             class="img-circle img-sm">
                                                     </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- end task item -->
-                                    </ul>
-                                </li>
-                                <li class="footer">
-                                    <a href="#">View all tasks</a>
-                                </li>
-                            </ul>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Andy sent you a message</div>
+                                                        <small class="text-muted">15 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <img src="{{ url_for('static', filename='img/av4.png') }}"
+                                                             alt="Profile Picture"
+                                                             class="img-circle img-sm">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Lucy sent you a message</div>
+                                                        <small class="text-muted">30 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!--Dropdown footer-->
+                                <div class="pad-all bord-top">
+                                    <a href="#" class="btn-link text-dark box-block">
+                                        <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Messages
+                                    </a>
+                                </div>
+                            </div>
                         </li>
-                        <!-- User Account Menu -->
-                        <li class="dropdown user user-menu">
-                            <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <!-- The user image in the navbar-->
-                                <img src="{{ url_for('static', filename='imgs/user.png') }}" class="user-image"
-                                     alt="User Image">
-                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">
-                                {% if current_user.is_authenticated %}
-                                    {{ current_user.username }}
-                                {% else %}
-                                    Stranger
-                                {% endif %}</span>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End message dropdown-->
+
+
+                        <!--Notification dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                <i class="fa fa-bell fa-lg"></i>
+                                <span class="badge badge-header badge-danger">5</span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <!-- The user image in the menu -->
-                                <li class="user-header">
-                                    <img src="{{ url_for('static', filename='imgs/user.png') }}" class="img-circle"
-                                         alt="User Image">
 
-                                    <p>
-                                        Alexander Pierce - Web Developer
-                                        <small>Member since Nov. 2012</small>
-                                    </p>
+                            <!--Notification dropdown menu-->
+                            <div class="dropdown-menu dropdown-menu-md with-arrow">
+                                <div class="pad-all bord-btm">
+                                    <p class="text-lg text-muted text-thin mar-no">You have 3 messages.</p>
+                                </div>
+                                <div class="nano scrollable">
+                                    <div class="nano-content">
+                                        <ul class="head-list">
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#">
+                                                    <div class="clearfix">
+                                                        <p class="pull-left">Progressbar</p>
+                                                        <p class="pull-right">70%</p>
+                                                    </div>
+                                                    <div class="progress progress-sm">
+                                                        <div style="width: 70%;" class="progress-bar">
+                                                            <span class="sr-only">70% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+														<span class="icon-wrap icon-circle bg-primary">
+															<i class="fa fa-comment fa-lg"></i>
+														</span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Circle Icon</div>
+                                                        <small class="text-muted">15 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <span class="badge badge-success pull-right">90%</span>
+                                                    <div class="media-left">
+														<span class="icon-wrap icon-circle bg-danger">
+															<i class="fa fa-hdd-o fa-lg"></i>
+														</span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Circle icon with badge</div>
+                                                        <small class="text-muted">50 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+														<span class="icon-wrap bg-info">
+															<i class="fa fa-file-word-o fa-lg"></i>
+														</span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Square Icon</div>
+                                                        <small class="text-muted">Last Update 8 hours ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <span class="label label-danger pull-right">New</span>
+                                                    <div class="media-left">
+														<span class="icon-wrap bg-purple">
+															<i class="fa fa-comment fa-lg"></i>
+														</span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Square icon with label</div>
+                                                        <small class="text-muted">Last Update 8 hours ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!--Dropdown footer-->
+                                <div class="pad-all bord-top">
+                                    <a href="#" class="btn-link text-dark box-block">
+                                        <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Notifications
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End notifications dropdown-->
+
+
+                        <!--Mega dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="mega-dropdown">
+                            <a href="#" class="mega-dropdown-toggle">
+                                <i class="fa fa-th-large fa-lg"></i>
+                            </a>
+                            <div class="dropdown-menu mega-dropdown-menu">
+                                <div class="clearfix">
+                                    <div class="col-sm-12 col-md-3">
+
+                                        <!--Mega menu widget-->
+                                        <div class="text-center bg-purple pad-all">
+                                            <h3 class="text-thin mar-no">Weekend shopping</h3>
+                                            <div class="pad-ver box-inline">
+												<span class="icon-wrap icon-wrap-lg icon-circle bg-trans-light">
+													<i class="fa fa-shopping-cart fa-4x"></i>
+												</span>
+                                            </div>
+                                            <p class="pad-btm">
+                                                Members get <span class="text-lg text-bold">50%</span> more points.
+                                                Lorem ipsum dolor sit amet!
+                                            </p>
+                                            <a href="#" class="btn btn-purple">Learn More...</a>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-4 col-md-3">
+
+                                        <!--Mega menu list-->
+                                        <ul class="list-unstyled">
+                                            <li class="dropdown-header">Pages</li>
+                                            <li><a href="#">Profile</a></li>
+                                            <li><a href="#">Search Result</a></li>
+                                            <li><a href="#">FAQ</a></li>
+                                            <li><a href="#">Sreen Lock</a></li>
+                                            <li><a href="#" class="disabled">Disabled</a></li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">Icons</li>
+                                            <li><a href="#"><span class="pull-right badge badge-purple">479</span> Font
+                                                Awesome</a></li>
+                                            <li><a href="#">Skycons</a></li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="col-sm-4 col-md-3">
+
+                                        <!--Mega menu list-->
+                                        <ul class="list-unstyled">
+                                            <li class="dropdown-header">Mailbox</li>
+                                            <li><a href="#"><span class="pull-right label label-danger">Hot</span>Indox</a>
+                                            </li>
+                                            <li><a href="#">Read Message</a></li>
+                                            <li><a href="#">Compose</a></li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">Featured</li>
+                                            <li><a href="#">Smart navigation</a></li>
+                                            <li><a href="#"><span class="pull-right badge badge-success">6</span>Exclusive
+                                                plugins</a></li>
+                                            <li><a href="#">Lot of themes</a></li>
+                                            <li><a href="#">Transition effects</a></li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="col-sm-4 col-md-3">
+
+                                        <!--Mega menu list-->
+                                        <ul class="list-unstyled">
+                                            <li class="dropdown-header">Components</li>
+                                            <li><a href="#">Tables</a></li>
+                                            <li><a href="#">Charts</a></li>
+                                            <li><a href="#">Forms</a></li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <form role="form" class="form">
+                                                    <div class="form-group">
+                                                        <label class="dropdown-header" for="demo-megamenu-input">Newsletter</label>
+                                                        <input id="demo-megamenu-input" type="email"
+                                                               placeholder="Enter email" class="form-control">
+                                                    </div>
+                                                    <button class="btn btn-primary btn-block" type="submit">Submit
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End mega dropdown-->
+
+                    </ul>
+                    <ul class="nav navbar-top-links pull-right">
+
+                        <!--Language selector-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="dropdown">
+                            <a class="lang-selector dropdown-toggle" href="#" data-toggle="dropdown">
+								<span class="lang-selected">
+									<img class="lang-flag"
+                                         src="{{ url_for('static', filename='img/flags/united-kingdom.png') }}"
+                                         alt="English">
+									<span class="lang-id">EN</span>
+									<span class="lang-name">English</span>
+								</span>
+                            </a>
+
+                            <!--Language selector menu-->
+                            <ul class="head-list dropdown-menu with-arrow">
+                                <li>
+                                    <!--English-->
+                                    <a href="#" class="active">
+                                        <img class="lang-flag"
+                                             src="{{ url_for('static', filename='img/flags/united-kingdom.png') }}"
+                                             alt="English">
+                                        <span class="lang-id">EN</span>
+                                        <span class="lang-name">English</span>
+                                    </a>
                                 </li>
-                                <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
-                                    </div>
-                                    <!-- /.row -->
+                                <li>
+                                    <!--France-->
+                                    <a href="#">
+                                        <img class="lang-flag"
+                                             src="{{ url_for('static', filename='img/flags/france.png') }}"
+                                             alt="France">
+                                        <span class="lang-id">FR</span>
+                                        <span class="lang-name">Fran&ccedil;ais</span>
+                                    </a>
                                 </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="{{ url_for("auth.logout") }}" class="btn btn-default btn-flat">Sign
-                                            out</a>
-                                    </div>
+                                <li>
+                                    <!--Germany-->
+                                    <a href="#">
+                                        <img class="lang-flag"
+                                             src="{{ url_for('static', filename='img/flags/germany.png') }}"
+                                             alt="Germany">
+                                        <span class="lang-id">DE</span>
+                                        <span class="lang-name">Deutsch</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <!--Italy-->
+                                    <a href="#">
+                                        <img class="lang-flag"
+                                             src="{{ url_for('static', filename='img/flags/italy.png') }}" alt="Italy">
+                                        <span class="lang-id">IT</span>
+                                        <span class="lang-name">Italiano</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <!--Spain-->
+                                    <a href="#">
+                                        <img class="lang-flag"
+                                             src="{{ url_for('static', filename='img/flags/spain.png') }}" alt="Spain">
+                                        <span class="lang-id">ES</span>
+                                        <span class="lang-name">Espa&ntilde;ol</span>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End language selector-->
+
+
+                        <!--User dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+								<span class="pull-right">
+									<img class="img-circle img-user media-object"
+                                         src="{{ url_for('static', filename='img/av1.png') }}"
+                                         alt="Profile Picture">
+								</span>
+                                <div class="username hidden-xs">{{ url_for("main.app") }}</div>
+                            </a>
+
+
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+
+                                <!-- Dropdown heading  -->
+                                <div class="pad-all bord-btm">
+                                    <p class="text-lg text-muted text-thin mar-btm">750Gb of 1,000Gb Used</p>
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar" style="width: 70%;">
+                                            <span class="sr-only">70%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- User dropdown menu -->
+                                <ul class="head-list">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-user fa-fw fa-lg"></i> Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="badge badge-danger pull-right">9</span>
+                                            <i class="fa fa-envelope fa-fw fa-lg"></i> Messages
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="label label-success pull-right">New</span>
+                                            <i class="fa fa-gear fa-fw fa-lg"></i> Settings
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <!-- Dropdown footer -->
+                                <div class="pad-all text-right">
+                                    <a href="pages-login.html" class="btn btn-primary">
+                                        <i class="fa fa-sign-out fa-fw"></i> Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End user dropdown-->
+
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-    </header>
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="{{ url_for('static', filename='imgs/user.png') }}" class="img-circle" alt="User Image">
                 </div>
-                <div class="pull-left info">
-                    {% if current_user.is_authenticated %}
-                        {{ current_user.username }}
-                    {% else %}
-                        Stranger
-                    {% endif %}
-                    <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-            </div>
-
-            <!-- search form (Optional) -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-                </div>
-            </form>
-            <!-- /.search form -->
-
-            <!-- Sidebar Menu -->
-            <ul class="sidebar-menu" id="mainnav-menu">
-                <li class="header">HEADER</li>
-                <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-                <li>
-                    <a href="{{ url_for("main.asset") }}"><i class="fa fa-bank"></i> 资产管理 </a>
-                </li>
-                <li>
-                    <a href="{{ url_for("main.app") }}"><i class="fa  fa-bars"></i> 应用管理 </a>
-                </li>
-                <li>
-                    <a href="{{ url_for("main.ansible") }}"><i class="fa fa-calendar-plus-o"></i> 任务编排 </a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa  fa-refresh"></i> 持续交付 </a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-tv"></i> 监控平台 </a>
-                </li>
-                <li>
-                    <a href="{{ url_for("main.user") }}"><i class="fa fa-users"></i> 用户管理 </a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-cogs"></i> 系统配置 </a>
-                </li>
-
-            </ul>
-            </li>
-
-            {#            </ul>#}
-            <!-- /.sidebar-menu -->
-        </section>
-        <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            {% block page_header %}
-                <h1>
-                    Page Header
-                    <small>Optional description</small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                    <li class="active">Here</li>
-                </ol>
-            {% endblock %}
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-            {% block content %}
-                This is content...
-                <!-- Your Page Content Here -->
-            {% endblock %}
-        </section>
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <!-- To the right -->
-        <div class="pull-right hidden-xs">
-            Anything you want
-        </div>
-        <!-- Default to the left -->
-        <strong>Copyright &copy; 2018 <a href="#">Company</a>.</strong> All rights reserved.
-    </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane active" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript;">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                                <span class="label label-danger pull-right">70%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
+                <!--================================-->
+                <!--End Navbar Dropdown-->
 
             </div>
-            <!-- /.tab-pane -->
-            <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-            <!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
+        </header>
+        <!--===================================================-->
+        <!--END NAVBAR-->
 
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
+        <div class="boxed">
 
-                        <p>
-                            Some information about this general settings option
-                        </p>
+            <!--CONTENT CONTAINER-->
+            <!--===================================================-->
+            <div id="content-container">
+
+                <!--Page Title-->
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <div id="page-title">
+                    <h1 class="page-header text-overflow">{% block page_content_title %}Your page
+                        title{% endblock %}</h1>
+
+                    <!--Searchbox-->
+                    <div class="searchbox">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search..">
+							<span class="input-group-btn">
+								<button class="text-muted" type="button"><i class="fa fa-search"></i></button>
+							</span>
+                        </div>
                     </div>
-                    <!-- /.form-group -->
-                </form>
+                </div>
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <!--End page title-->
+
+
+                <!--Breadcrumb-->
+                {% block page_nav_tab %}
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#">Library</a></li>
+                        <li class="active">Data</li>
+                    </ol>
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!--End breadcrumb-->
+                {% endblock %}
+
+
+
+                <!--Page content-->
+                <!--===================================================-->
+                <div id="page-content">
+                    {% block page_content %}
+
+                        <!-- QUICK TIPS -->
+                        <!-- ==================================================================== -->
+                        <h3>Your content here...</h3>
+                        <br>
+                        <a href="index.html" class="btn btn-dark">Back</a>
+                        <br><br><br>
+                        <h3>Quick Tips</h3>
+                        <p>You may remove all ID or Class names which contain <code>demo-</code>, they are only used for
+                            demonstration.</p>
+                        <br>
+
+                        <h4>Navigation</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td style="width:70ex">Expanded the navigation by default</td>
+                                    <td>Add <code>.mainnav-lg</code> to the <code>#container</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Fixed navigation</td>
+                                    <td>Add <code>.mainnav-fixed</code> to the <code>#container</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Create a ToggleButton for navigation</td>
+                                    <td>Add <code>.mainnav-toggle</code> to the button.</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button class="btn btn-lg btn-primary mainnav-toggle">Toggle Navigation</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>Aside</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td style="width:70ex">Make Aside visible by default</td>
+                                    <td>Add <code>.aside-in</code> to the <code>#container</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Fixed aside</td>
+                                    <td>Add <code>.aside-fixed</code> to the <code>#container</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Aside on the left side</td>
+                                    <td>Add <code>.aside-left</code> to the <code>#container</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Use the bright color theme</td>
+                                    <td>Add <code>.aside-bright</code> to the <code>#container</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Create a ToggleButton for aside</td>
+                                    <td>Add <code>.aside-toggle</code> to the button.</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button class="btn btn-success btn-lg aside-toggle">Toggle Aside</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4>Navbar</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td style="width:70ex">Fixed navbar</td>
+                                    <td>Add <code>.navbar-fixed</code> to the <code>#container</code>.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4>Footer</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td style="width:70ex">Fixed footer</td>
+                                    <td>Add <code>.footer-fixed</code> to the <code>#container</code>.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4>Color Themes</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td style="width:70ex">Apply a different color theme</td>
+                                    <td>You can change whole color theme of your website by adding a color theme
+                                        stylesheet into the <code>&lt;head></code>.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <pre>&lt;head><br>	...<br>	&lt;link href="path-to-the-color-theme.css" rel="stylesheet"><br>&lt;/head></pre>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4>Animation</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td style="width:70ex">Remove animation</td>
+                                    <td>Remove the class <code>.effect</code> from <code>#container</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Add different slide transitions to the Navigation and Aside</td>
+                                    <td>
+                                        Add <code>.effect</code> to the <code>#container</code> and then combined with
+                                        the class name of the transition function.
+                                        <br>
+                                        <br>
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <th style="width: 250px;">Transition function</th>
+                                                <th>Class name</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>easeInQuart</td>
+                                                <td><code>.easeInQuart</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>easeOutQuart</td>
+                                                <td><code>.easeOutQuart</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>easeInBack</td>
+                                                <td><code>.easeInBack</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>easeOutBack</td>
+                                                <td><code>.easeOutBack</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>easeInOutBack</td>
+                                                <td><code>.easeInOutBack</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>steps</td>
+                                                <td><code>.steps</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>jumping</td>
+                                                <td><code>.jumping</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td>rubber</td>
+                                                <td><code>.rubber</code></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ==================================================================== -->
+                        <!-- END QUICK TIPS -->
+
+
+                    {% endblock %}
+                </div>
+                <!--===================================================-->
+                <!--End page content-->
+
+
             </div>
-            <!-- /.tab-pane -->
+            <!--===================================================-->
+            <!--END CONTENT CONTAINER-->
+
+
+            <!--MAIN NAVIGATION-->
+            <!--===================================================-->
+            <nav id="mainnav-container">
+                <div id="mainnav">
+
+                    <!--Shortcut buttons-->
+                    <!--================================-->
+                    <div id="mainnav-shortcut">
+                        <ul class="list-unstyled">
+                            <li class="col-xs-4" data-content="Shortcut 1">
+                                <a class="shortcut-grid" href="#">
+                                    <i class="fa fa-car"></i>
+                                </a>
+                            </li>
+                            <li class="col-xs-4" data-content="Shortcut 2">
+                                <a class="shortcut-grid" href="#">
+                                    <i class="fa fa-taxi"></i>
+                                </a>
+                            </li>
+                            <li class="col-xs-4" data-content="Shortcut 3">
+                                <a class="shortcut-grid" href="#">
+                                    <i class="fa fa-bus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--================================-->
+                    <!--End shortcut buttons-->
+
+
+                    <!--Menu-->
+                    <!--================================-->
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <ul id="mainnav-menu" class="list-group">
+
+                                    <!--Category name-->
+                                    <li class="list-header">Link List</li>
+
+                                    <!--Menu list item-->
+                                    <li class="">
+                                        <a href="/">
+                                            <i class="fa fa-home"></i>
+                                            <span class="menu-title">首页</span>
+                                        </a>
+                                    </li>
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-bank"></i>
+											<span class="menu-title">
+												资产管理
+											</span>
+                                        </a>
+                                        <ul class="collapse">
+                                            <li><a href="{{ url_for("main.asset") }}">资产列表</a></li>
+                                            <li class=""><a href="{{ url_for("main.idc") }}">机房管理</a></li>
+
+
+                                        </ul>
+
+                                    </li>
+
+                                    <li class="">
+                                        <a href="{{ url_for("main.app") }}">
+                                            <i class="fa fa-car"></i>
+                                            <span class="menu-title">项目管理</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-calendar-plus-o"></i>
+											<span class="menu-title">
+												服务管理
+											</span>
+                                        </a>
+                                        <ul class="collapse">
+                                            <li><a href="{{ url_for("main.ansible") }}">ansible</a></li>
+                                            <li><a href="{{ url_for("main.docker") }}">容器管理</a></li>
+                                            <li><a href="{{ url_for("main.services") }}">系统服务</a></li>
+
+
+                                        </ul>
+
+                                    </li>
+
+                                    <li class="">
+                                        <a href="{{ url_for("main.index") }}">
+                                            <i class="fa fa-tv"></i>
+                                            <span class="menu-title">监控平台</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{ url_for("main.index") }}">
+                                            <i class="fa fa-users"></i>
+                                            <span class="menu-title">用户管理 </span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{ url_for("main.index") }}">
+                                            <i class="fa fa-cogs"></i>
+                                            <span class="menu-title">系统配置 </span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--================================-->
+                    <!--End menu-->
+
+                </div>
+            </nav>
+            <!--===================================================-->
+            <!--END MAIN NAVIGATION-->
+
+            <!--ASIDE-->
+            <!--===================================================-->
+            <aside id="aside-container">
+                <div id="aside">
+                    <div class="nano">
+                        <div class="nano-content">
+                            {% block aside_content %}
+                                put your aside contents here...
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!--===================================================-->
+            <!--END ASIDE-->
+
         </div>
-    </aside>
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
+
+
+
+        <!-- FOOTER -->
+        <!--===================================================-->
+        <footer id="footer">
+
+            <!-- Visible when footer positions are fixed -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="show-fixed pull-right">
+                <ul class="footer-list list-inline">
+                    <li>
+                        <p class="text-sm">SEO Proggres</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="text-sm">Online Tutorial</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="btn btn-sm btn-dark btn-active-success">Checkout</button>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- Visible when footer positions are static -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="hide-fixed pull-right pad-rgt">Currently v2.2.2</div>
+
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- Remove the class name "show-fixed" and "hide-fixed" to make the content always appears. -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+            <p class="pad-lft">&#0169; mknight.cn</p>
+
+
+        </footer>
+        <!--===================================================-->
+        <!-- END FOOTER -->
+
+
+        <!-- SCROLL TOP BUTTON -->
+        <!--===================================================-->
+        <button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
+        <!--===================================================-->
+
+
+    {% endblock %}
 </div>
-<!-- ./wrapper -->
+<!--===================================================-->
+<!-- END OF CONTAINER -->
+
 
 <!-- REQUIRED JS SCRIPTS -->
 
-<!-- jQuery 2.2.0 -->
-<script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+<!-- jQuery 2.1.1 -->
+<script src="{{ url_for('static', filename='js/jquery-2.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pace.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/fastclick.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/nifty.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-<script src="{{ url_for('static', filename='AdminLte/js/app.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+<!--Nifty Admin [ RECOMMENDED ]-->
 <script type="text/javascript">
 
     $(document).ready(function () {
 
         var active_node = $("#mainnav-menu a[href='{{ request.path }}']");
-        active_node.parent().parent().addClass("menu-open");
-        active_node.parent().parent().parent().addClass("active");
+        active_node.parent().addClass("active-link");
         if (active_node.parent().parent().hasClass("collapse")) {
             active_node.parent().parent().addClass("in");
         }

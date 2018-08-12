@@ -1,0 +1,10 @@
+#!/Users/jack/github/swan/v.3.5.4/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'framework==0.1.0','console_scripts','framework'
+__requires__ = 'framework==0.1.0'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('framework==0.1.0', 'console_scripts', 'framework')()
+    )

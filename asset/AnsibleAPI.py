@@ -158,8 +158,8 @@ class AnsibleApi(object):
         res = json.dumps(results_raw, indent=4)
         return res
 
-    def playbookrun(self, playbook_path):
-        self.variable_manager.extra_vars = {'customer': 'test', 'disabled': 'yes'}
+    def playbookrun(self, playbook_path,host):
+        self.variable_manager.extra_vars = {'customer': 'test', 'disabled': 'yes','host':host}
         playbook = PlaybookExecutor(playbooks=playbook_path,
                                     inventory=self.inventory,
                                     variable_manager=self.variable_manager,
@@ -172,22 +172,22 @@ class AnsibleApi(object):
 
 if __name__ == "__main__":
     a = AnsibleApi()
-    host_list = ['192.168.1.208']
-    # host_list = ['192.168.1.194']
+    host_list = ['all']
+    # host_list = ['scm.joy.com']
     tasks_list = [
         dict(action=dict(module='shell', args='cd /opt/docker  &&  docker-compose ps')),
         # dict(action=dict(module='shell', args='python sleep.py')),
         # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
     ]
 
-    # test = playbook_dir + 'test.yml'
-    # s = a.playbookrun(playbook_path=[test])
-    # print('res', s)
+    test = playbook_dir + 'test.yml'
+    s = a.playbookrun(playbook_path=[test],host='test')
+    print('res', s)
 
 
-    data = a.runansible(host_list, tasks_list)
+    # data = a.runansible(host_list, tasks_list)
     # print(data)
     # res = json.dumps(data, indent=4)
-    print(data)
+    # print(data)
     # print(res.replace("\\",' '))
     # print(jsonify(data))

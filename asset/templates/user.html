@@ -94,7 +94,7 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $.getJSON("http://192.168.1.194:5000/api/user", function (callback) {
+            $.getJSON("http://scm.joy.com/api/user", function (callback) {
                 for (var item in callback) {
                     var name = callback[item].username;
                     var memo = callback[item].email;
@@ -111,7 +111,7 @@
         function Edit(obj) {
             var id = $(obj).parent().attr('id')
             $.ajax({
-                url: "http://192.168.1.194:5000/api/assets/" + id,
+                url: "http://scm.joy.com/api/assets/" + id,
                 type: 'GET',
                 success: function (data) {
                     $("#modal-edit").modal();
@@ -129,7 +129,7 @@
 
         function Add(obj) {
             $.ajax({
-                url: "http://192.168.1.194:5000/api/user",
+                url: "http://scm.joy.com/api/user",
                 type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -150,7 +150,7 @@
                 var id = $(obj).parent().attr('id')
                 $('#del_asset').removeClass('hidden');
                 $.ajax({
-                    url: "http://192.168.1.194:5000/api/idc/" + id,
+                    url: "http://scm.joy.com/api/idc/" + id,
                     type: 'DELETE',
                     success: function (data) {
                         console.log('ok')
@@ -165,9 +165,9 @@
             var data = $(obj).val();
             var name = $(obj).attr('id')
             if (data == 'default') {
-                var url = "http://192.168.1.194:5000/api/assets"
+                var url = "http://scm.joy.com/api/assets"
             } else
-                var url = "http://192.168.1.194:5000/api/assets" + "?" + name + "=" + data
+                var url = "http://scm.joy.com/api/assets" + "?" + name + "=" + data
             $('table tbody').empty();
             $.getJSON(url, function (callback) {
                 var obj = callback

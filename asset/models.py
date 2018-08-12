@@ -21,12 +21,11 @@ class User(UserMixin, db.Model):
 
     # Set the name for table
     __tablename__ = 'user'
-    id = Column(String(64), primary_key=True)
+    id = Column(Integer(), primary_key=True,autoincrement=True)
     username = Column(String(255), unique=True, index=True)
     password_hash = Column(String(255))
     email = Column(String(255), unique=True)
 
-    # role_id = Column(Integer, ForeignKey('roles.id'))
 
     @property
     def password(self):
@@ -66,7 +65,7 @@ class User(UserMixin, db.Model):
 class Asset(db.Model):
     __tablename__ = 'Asset'
 
-    id = Column(String(64), primary_key=True)
+    id = Column(Integer(), primary_key=True,autoincrement=True)
     type = Column(String(64), default='server')
     hostname = Column(String(64), unique=True)
     sn = Column(String(64), unique=True)
@@ -85,7 +84,6 @@ class Asset(db.Model):
     cpu_num = Column(String(32))
     # 核
     cpu_physical = Column(String(32))
-    # put_zone = SmallIntegerField(blank=True, null=True, verbose_name='放置区域')
     business_unit = Column(String(64))
     # 厂商型号
     vendor = Column(String(64))
@@ -107,20 +105,23 @@ class Asset(db.Model):
 class Service(db.Model):
     """服务"""
     __tablename__ = 'Service'
-    id = Column(String(64), primary_key=True)
+    id = Column(Integer(), primary_key=True,autoincrement=True)
     name = Column(String(64))
+    type = Column(String(64))
+    role = Column(String(64))
+    stack = Column(String(64))
     host = Column(String(64))
     state = Column(String(64))
     port = Column(String(256))
-    create_date = Column(DateTime)
     update_date = Column(DateTime)
     memo = Column(String(256))
 
 class IDC(db.Model):
     """机房"""
     __tablename__ = 'IDC'
-    id = Column(String(64), primary_key=True)
+    id = Column(Integer(), primary_key=True,autoincrement=True)
     name = Column(String(64), default='阿里云')
+    create_date = Column(DateTime)
     memo = Column(String(256))
 
 
@@ -132,7 +133,7 @@ class IDC(db.Model):
 class Manufactory(db.Model):
     """厂商"""
     __tablename__ = 'Manufactory'
-    id = Column(String(64), primary_key=True)
+    id = Column(Integer(), primary_key=True,autoincrement=True)
     manufactory = Column(String(64))
     support_num = Column(String(32))
     memo = Column(String(256))
@@ -146,7 +147,7 @@ class Manufactory(db.Model):
 class BusinessUnit(db.Model):
     """业务线"""
     __tablename__ = 'BusinessUnit'
-    id = Column(String(64), primary_key=True)
+    id = Column(Integer(), primary_key=True,autoincrement=True)
     name = Column(String(64), default='健康')
     memo = Column(String(256))
 

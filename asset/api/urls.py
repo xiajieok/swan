@@ -18,3 +18,6 @@ resource.add_resource(views.Asset,"/assets/<int:asset_id>")
 
 #ansible
 resource.add_resource(views.Ansible,"/ansible")
+
+#Dashboard
+resource.add_resource(views.Dashboard,"/dashboard_data")

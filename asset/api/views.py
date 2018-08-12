@@ -9,11 +9,18 @@ from asset.utils import get_dir
 from asset.AnsibleAPI import AnsibleApi
 from asset.utils import get_dir
 import json
+from asset.main.dashboard import AssetDashboard
 
 ansible_dir = get_dir('a_path')
 playbook_dir = get_dir('play_book_path')
 
 parser = reqparse.RequestParser()
+
+
+class Dashboard(Resource):
+    def get(self):
+        dashboard_data = AssetDashboard(request)
+        return jsonify(dashboard_data.searilize_page())
 
 
 class UserList(Resource):
@@ -28,13 +35,8 @@ class UserList(Resource):
 
     def post(self):
         json_data = request.get_json(force=True)
-        try:
-            id = models.User.query.order_by(models.User.id.desc()).first().id
-            new_id = int(id) + 1
-        except:
-            new_id = 1
-        print('new_id', new_id)
-        res = models.User(id=new_id, username=json_data['username'], email=json_data['email'],
+
+        res = models.User(username=json_data['username'], email=json_data['email'],
                           password=json_data['password'])
         db.session.add(res)
         db.session.commit()
@@ -82,13 +84,7 @@ class IDCList(Resource):
 
     def post(self):
         json_data = request.get_json(force=True)
-        try:
-            idc_id = models.IDC.query.order_by(models.IDC.id.desc()).first().id
-            new_id = int(idc_id) + 1
-        except:
-            new_id = 1
-        print(new_id)
-        res = models.IDC(id=new_id, name=json_data['name'], memo=json_data['memo'])
+        res = models.IDC(name=json_data['name'], memo=json_data['memo'])
         db.session.add(res)
         db.session.commit()
         db.session.close()
@@ -136,13 +132,7 @@ class BusinessUnitList(Resource):
 
     def post(self):
         json_data = request.get_json(force=True)
-        try:
-            business_id = models.BusinessUnit.query.order_by(models.BusinessUnit.id.desc()).first().id
-            new_id = int(business_id) + 1
-        except:
-            new_id = 1
-        print(new_id)
-        res = models.BusinessUnit(id=new_id, name=json_data['name'], memo=json_data['memo'])
+        res = models.BusinessUnit(name=json_data['name'], memo=json_data['memo'])
         db.session.add(res)
         db.session.commit()
         db.session.close()
@@ -182,24 +172,28 @@ class ServiceList(Resource):
     # decorators = [auth.login_required]
 
     def get(self):
-        idc = models.Service.query.all()
+        svc = models.Service.query.all()
         res = {}
-        for i in idc:
-            res[i.id] = {'name': i.name, 'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo}
+        for i in svc:
+            res[i.id] = {'name': i.name, 'type': i.type, 'role': i.role, 'stack': i.stack,
+                         'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo,
+                         'update_date': i.update_date}
         return jsonify(res)
 
     def post(self):
         json_data = request.get_json(force=True)
-        try:
-            service_id = models.Service.query.order_by(models.Service.id.desc()).first().id
-            new_id = int(service_id) + 1
-        except:
-            new_id = 1
-        print(new_id)
-        res = models.Service(id=new_id, name=json_data['name'], host=json_data['host'], state=json_data['state'],
-                             port=json_data['port'], memo=json_data['memo'])
-        db.session.add(res)
-        db.session.commit()
+        # print(json_data)
+        host = json_data['host']
+        type = json_data['type']
+        svc = json_data['svc']
+        for k,v in svc.items():
+            name = k
+            port = v['port']
+            state = v['state']
+            res = models.Service(name=k, host=host, state=state,type=type,
+                             port=port)
+            db.session.add(res)
+            db.session.commit()
         db.session.close()
         return json_data, 200
 
@@ -214,18 +208,25 @@ class Service(Resource):
             res[i.id] = {'name': i.name, 'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo}
         return jsonify(res)
 
-    def put(self, service_id):
+    def put(self, host):
         json_data = request.get_json(force=True)
-        for i in json_data:
-            models.Service.query.filter_by(id=service_id).update({i: json_data[i]})
-        db.session.commit()
+        print(json_data)
+        type = json_data['type']
+        svc = json_data['svc']
+        for k,v in svc.items():
+            name = k
+            port = v['port']
+            state = v['state']
+            print(port,state)
+            models.Service.query.filter_by(host=host,name=name).update(port=port,state=state)
+            db.session.commit()
         db.session.close()
         return 200
 
     def delete(self, service_id):
         try:
             idc = models.Service.query.filter_by(id=service_id).delete()
-            print(idc)
+            self.x = print(idc)
             db.session.commit()
             db.session.close()
         except:
@@ -278,12 +279,9 @@ class AssetList(Resource):
     def post(self):
         json_data = request.get_json(force=True)
         print('提交到的数据', json_data)
-        try:
-            asset_id = models.Asset.query.order_by(models.Asset.id.desc()).first().id
-            new_id = int(asset_id) + 1
-        except:
-            new_id = 1
-        res = models.Asset(id=new_id, hostname=json_data['hostname'], sn=json_data['sn'], type=json_data['type'],
+
+        res = models.Asset(hostname=json_data['hostname'], ip=json_data['ip'], sn=json_data['sn'],
+                           type=json_data['type'],
                            os=json_data['os'], vendor=json_data['vendor'],
                            model=json_data['model'], cpu_processor=json_data['cpu_processor'],
                            cpu_model=json_data['cpu_model'],
@@ -350,14 +348,17 @@ class Ansible(Resource):
         # 根据获取到 主机名/playbook 执行操作
         json_data = request.get_json(force=True)
         print('提交到的数据', json_data)
-        print(json_data['hostname'])
-        desc = models.Asset.query.filter_by(hostname=json_data['hostname']).first()
+        print()
+        try:
+            desc = models.Asset.query.filter_by(hostname=json_data['hostname']).first()
+        except:
+            desc.ip = 'all'
         print(desc.ip)
         g = AnsibleApi()
         if json_data['type'] == 'playbook':
             test = playbook_dir + 'test.yml'
             try:
-                callback = g.playbookrun(playbook_path=[test])
+                callback = g.playbookrun(playbook_path=[test], host=json_data['hostname'])
                 if callback == 0:
                     return 'Successful !!!'
             except:
@@ -384,6 +385,7 @@ class Ansible(Resource):
             tasks_list = [
                 dict(action=dict(module='shell', args=json_data['cmd'])),
             ]
+
             res = g.runansible(desc.ip, tasks_list)
             res_dict = json.loads(res)['success'][desc.ip]['stdout']
             tmp = res_dict.split('\n')
