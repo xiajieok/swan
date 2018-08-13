@@ -21,3 +21,7 @@ resource.add_resource(views.Ansible,"/ansible")
 
 #Dashboard
 resource.add_resource(views.Dashboard,"/dashboard_data")
+
+#domain
+resource.add_resource(views.DomainList,"/domain")
+resource.add_resource(views.Domain,"/domain/<int:domain_id>")

@@ -156,7 +156,7 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $.getJSON("http://scm.joy.com/api/idc", function (callback) {
+            $.getJSON("http://192.168.1.194:5000/api/idc", function (callback) {
                 for (var item in callback) {
                     var name = callback[item].name;
                     var memo = callback[item].memo;
@@ -173,7 +173,7 @@
         function Detail(obj) {
             var id = $(obj).val()
             $.ajax({
-                url: "http://scm.joy.com/api/idc/" + id,
+                url: "http://192.168.1.194:5000/api/idc/" + id,
                 type: 'GET',
                 success: function (data) {
                     $("#modal-detail").modal();
@@ -189,7 +189,7 @@
         function Edit(obj) {
             var id = $(obj).attr('id')
             $.ajax({
-                url: "http://scm.joy.com/api/idc/" + id,
+                url: "http://192.168.1.194:5000/api/idc/" + id,
                 type: 'GET',
                 success: function (data) {
                     var obj = data[id]
@@ -205,7 +205,7 @@
             var id = $("#id_idc").text()
             console.log('put' + id)
             $.ajax({
-                url: "http://scm.joy.com/api/idc/" + id,
+                url: "http://192.168.1.194:5000/api/idc/" + id,
                 type: 'PUT',
                 data: JSON.stringify({
                     "name": $('#name').val(),
@@ -225,7 +225,7 @@
         function Add(obj) {
             {#$("#modal-edit").modal();#}
             $.ajax({
-                url: "http://scm.joy.com/api/idc",
+                url: "http://192.168.1.194:5000/api/idc",
                 type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -245,7 +245,7 @@
                 var id = $(obj).parent().attr('id')
                 $('#del_asset').removeClass('hidden');
                 $.ajax({
-                    url: "http://scm.joy.com/api/idc/" + id,
+                    url: "http://192.168.1.194:5000/api/idc/" + id,
                     type: 'DELETE',
                     success: function (data) {
                         console.log('ok')
@@ -260,9 +260,9 @@
             var data = $(obj).val();
             var name = $(obj).attr('id')
             if (data == 'default') {
-                var url = "http://scm.joy.com/api/assets"
+                var url = "http://192.168.1.194:5000/api/assets"
             } else
-                var url = "http://scm.joy.com/api/assets" + "?" + name + "=" + data
+                var url = "http://192.168.1.194:5000/api/assets" + "?" + name + "=" + data
             $('table tbody').empty();
             $.getJSON(url, function (callback) {
                 var obj = callback

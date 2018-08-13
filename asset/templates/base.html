@@ -331,11 +331,11 @@
                         <li class="dropdown">
                             <a class="lang-selector dropdown-toggle" href="#" data-toggle="dropdown">
 								<span class="lang-selected">
-									<img class="lang-flag"
-                                         src="{{ url_for('static', filename='img/flags/united-kingdom.png') }}"
-                                         alt="English">
-									<span class="lang-id">EN</span>
-									<span class="lang-name">English</span>
+{#									<img class="lang-flag"#}
+{#                                         src="{{ url_for('static', filename='img/flags/united-kingdom.png') }}"#}
+{#                                         alt="English">#}
+{#									<span class="lang-id">EN</span>#}
+{#									<span class="lang-name">English</span>#}
 								</span>
                             </a>
 
@@ -404,7 +404,7 @@
                                          src="{{ url_for('static', filename='img/av1.png') }}"
                                          alt="Profile Picture">
 								</span>
-                                <div class="username hidden-xs">{{ url_for("main.app") }}</div>
+                                <div class="username hidden-xs">{{ current_user.username }}</div>
                             </a>
 
 
@@ -707,19 +707,19 @@
                         <ul class="list-unstyled">
                             <li class="col-xs-4" data-content="Shortcut 1">
                                 <a class="shortcut-grid" href="#">
-                                    <i class="fa fa-car"></i>
+                                    <i class="fa fa-search"></i>
                                 </a>
                             </li>
-                            <li class="col-xs-4" data-content="Shortcut 2">
-                                <a class="shortcut-grid" href="#">
-                                    <i class="fa fa-taxi"></i>
-                                </a>
-                            </li>
-                            <li class="col-xs-4" data-content="Shortcut 3">
-                                <a class="shortcut-grid" href="#">
-                                    <i class="fa fa-bus"></i>
-                                </a>
-                            </li>
+{#                            <li class="col-xs-4" data-content="Shortcut 2">#}
+{#                                <a class="shortcut-grid" href="#">#}
+{#                                    <i class="fa fa-taxi"></i>#}
+{#                                </a>#}
+{#                            </li>#}
+{#                            <li class="col-xs-4" data-content="Shortcut 3">#}
+{#                                <a class="shortcut-grid" href="#">#}
+{#                                    <i class="fa fa-bus"></i>#}
+{#                                </a>#}
+{#                            </li>#}
                         </ul>
                     </div>
                     <!--================================-->
@@ -760,12 +760,17 @@
 
                                     </li>
 
-                                    <li class="">
-                                        <a href="{{ url_for("main.app") }}">
-                                            <i class="fa fa-car"></i>
-                                            <span class="menu-title">项目管理</span>
+
+                                    <a href="#">
+                                            <i class="fa fa-calendar-plus-o"></i>
+											<span class="menu-title">
+												项目管理
+											</span>
                                         </a>
-                                    </li>
+                                        <ul class="collapse">
+                                            <li><a href="{{ url_for("main.app") }}">产品管理</a></li>
+                                            <li><a href="{{ url_for("main.domain") }}">域名管理</a></li>
+                                        </ul>
                                     <li>
                                         <a href="#">
                                             <i class="fa fa-calendar-plus-o"></i>

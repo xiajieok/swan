@@ -51,7 +51,7 @@
     <script>
         // 第二个参数可以指定前面引入的主题
         $(document).ready(function () {
-                    $.getJSON("http://scm.joy.com/api/dashboard_data", function (callback) {
+                    $.getJSON("http://192.168.1.194:5000/api/dashboard_data", function (callback) {
                         console.log(callback)
 
                         DrawCharts(callback);

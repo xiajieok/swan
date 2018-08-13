@@ -173,7 +173,7 @@ class AnsibleApi(object):
 if __name__ == "__main__":
     a = AnsibleApi()
     host_list = ['all']
-    # host_list = ['scm.joy.com']
+    # host_list = ['192.168.1.194:5000']
     tasks_list = [
         dict(action=dict(module='shell', args='cd /opt/docker  &&  docker-compose ps')),
         # dict(action=dict(module='shell', args='python sleep.py')),

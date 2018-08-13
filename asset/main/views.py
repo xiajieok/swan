@@ -35,6 +35,10 @@ def idc():
 @login_required
 def app():
     return render_template('app.html')
+@main.route('/domain')
+@login_required
+def domain():
+    return render_template('domain.html')
 
 
 @main.route('/ansible')

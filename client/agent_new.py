@@ -6,6 +6,7 @@ import requests
 from subprocess import Popen, PIPE
 import fcntl
 import struct
+import datetime
 import logging
 
 AGENT_VERSION = "1.0"
@@ -62,7 +63,8 @@ def get_mem_total():
     p = Popen(cmd, stdout=PIPE, shell=True)
     data = p.communicate()[0]
     mem_total = data.split()[1]
-    memtotal = int(round(int(mem_total) / 1024.0 / 1024.0, 0))
+    memtotal = int(round(int(mem_total) / 1024.0 / 1024.0))
+    print(memtotal)
     return memtotal
 
 
@@ -83,10 +85,36 @@ def get_cpu_cores():
 
 
 def get_svc():
+    ip = get_ip()
+    # cmd_sys = "netstat -ntlp|awk 'NR>2 {print $7}'|awk -F '/' '{print $2}' |sort |uniq"
+    # res = os.popen(cmd_sys).read().split('\n')
+    #
+    # name = []
+    # all_sys = {}
+    # msg_dict = {}
+    # msg_dict['host'] = ip
+    # msg_dict['type'] = 'sys'
+    # msg_dict['svc'] = {}
+    # for i in res:
+    #     name.append(i)
+    # port = []
+    # cmd_sys = "netstat -ntlp|awk 'NR>2 {print $4}'|awk -F ':' '{print $4}'"
+    # res = os.popen(cmd_sys).read().split('\n')
+    # for i in res:
+    #     port.append(i)
+    #
+    # print(port, name)
+    #
+    # for i in name:
+    #     msg_dict['svc'][i] = {}
+    #     msg_dict['svc'][i]['port'] = port[name.index(i)]
+    #     msg_dict['svc'][i]['state'] = 'RUN'
+    #     all_sys.update(msg_dict)
+    # print('all-sys', all_sys)
     cmd = 'cd /opt/docker && docker-compose ps'
     res = os.popen(cmd).read().split('\n')
-    all = {}
-    ip = get_ip()
+    all_docker = {}
+
     msg_dict = {}
     msg_dict['host'] = ip
     msg_dict['type'] = 'docker-compose'
@@ -102,9 +130,10 @@ def get_svc():
                 msg_dict['svc'][svc_name] = {}
                 msg_dict['svc'][svc_name]['port'] = port
                 msg_dict['svc'][svc_name]['state'] = state
-                all.update(msg_dict)
-    # print(all)
-    return json.dumps(all)
+                all_docker.update(msg_dict)
+    # all = dict(all_sys.items() + all_docker.items())
+    print(all)
+    return json.dumps(all_docker)
 
 
 def parser_cpu(stdout):
@@ -183,60 +212,6 @@ def asset_info():
     return json.dumps(data_info)
 
 
-# def new_asset_info():
-#     data = {
-#
-#         # "vendor": "QEMU",
-#         "type": "server",
-#         "model": "Dell",
-#         "status": "stop",
-#         "ip": "192.168.1.3",
-#         "hostname": "vultr.1.gs1t",
-#         "cpu_model": "Virtual CPU a7769a6388d5",
-#         "cpu_physical": 2,
-#         "cpu_processor": 4,
-#         "cpu_num": 210,
-#         # "product": "pc-i440fx-2.10",
-#         # "token": "HPcWR7l4NJNJ",
-#         # "osver": "CentOS Linux 7.3.1611 x86_64",
-#         "sn": "ASDKJANSKDASJ",
-#         "idc": "Beijing",
-#         "memory": 10,
-#         "disk": "[]",
-#         # "agent_version": "1.0"
-#     }
-#     return data
-
-# def asset_info_post(status,id):
-#     print(status,id)
-#     # pversion = platform.python_version()
-#     # pv = re.search(r'2.6', pversion)
-#     # if not pv:
-#     # 	osenv = os.environ["LANG"]
-#     # 	os.environ["LANG"] = "us_EN.UTF8"
-#     # logging.info('Get the hardwave infos from host:')
-#     # logging.info(asset_info())
-#     print('----------------------------------------------------------')
-#     if status == "new":
-#         # print(new_asset_info())
-#         url = "http://scm.joy.com/api/assets"
-#         data = new_asset_info()
-#         data['id'] = id
-#         print(data)
-#
-#         res = requests.post(url, json.dumps(data))
-#         print(res)
-#         # if not pv:
-#         # 	os.environ["LANG"] = osenv
-#         return True
-#     else:
-#         url = "http://scm.joy.com/api/assets/" + str(id)
-#         res = requests.put(url, json.dumps(new_asset_info()))
-#         print(res)
-#         # if not pv:
-#         # 	os.environ["LANG"] = osenv
-#         return True
-
 def get_sys_cpu():
     sys_cpu = {}
     cpu_time = psutil.cpu_times_percent(interval=1)
@@ -256,13 +231,15 @@ def get_sys_cpu():
 def get_sys_mem():
     sys_mem = {}
     mem = psutil.virtual_memory()
-    sys_mem["total"] = int(mem.total / 1024 / 1024 / 1024)
+    print(mem.total)
+    sys_mem["total"] = round((mem.total / 1024 / 1024))
     sys_mem["percent"] = mem.percent
-    sys_mem["available"] = int(mem.available / 1024 / 1024 / 1024)
-    sys_mem["used"] = int(mem.used / 1024 / 1024 / 1024)
-    sys_mem["free"] = int(mem.free / 1024 / 1024 / 1024)
-    sys_mem["buffers"] = int(mem.buffers / 1024 / 1024 / 1024)
-    sys_mem["cached"] = int(mem.cached / 1024 / 1024 / 1024)
+    sys_mem["available"] = int(mem.available / 1024 / 1024)
+    sys_mem["used"] = int(mem.used / 1024 / 1024)
+    sys_mem["free"] = int(mem.free / 1024 / 1024)
+    sys_mem["buffers"] = int(mem.buffers / 1024 / 1024)
+    sys_mem["cached"] = int(mem.cached / 1024 / 1024)
+    print(sys_mem)
     return sys_mem
 
 
@@ -338,44 +315,43 @@ def info_post():
         data = json.loads(asset_info())
         data.pop('sn')
         data.pop('hostname')
+        print('系统信息',data)
         res = requests.put(url, json.dumps(data))
         print('update  sys')
 
-
-        url2 = "http://scm.joy.com/api/service" + str(get_ip())
+        url2 = "http://scm.joy.com/api/service" + '?host=' + str(get_ip())
         data = json.loads(get_svc())
         data['host'] = get_ip()
         print(data)
         res = requests.put(url2, json.dumps(data))
         print('update svc')
-        # if not pv:
-        # 	os.environ["LANG"] = osenv
         return True
     else:
         url = "http://scm.joy.com/api/assets"
-        res = requests.get(url).text
-        id_list = json.loads(res)
+        # res = requests.get(url).text
+        # id_list = json.loads(res)
         # print(type(msg),msg.keys())
-        if len(id_list) < 1:
-            id = 1
-        else:
-            id = int(max(id_list)) + 1
-        print('This is new id', id)
-        with open('.id', 'w') as f:
-            f.write(str(id))
+        # if len(id_list) < 1:
+        #     id = 1
+        # else:
+        #     id = int(max(id_list)) + 1
+        # print('This is new id', id)
+        # with open('.id', 'w') as f:
+        #     f.write(str(id))
         data = json.loads(asset_info())
-        data['id'] = id
+        # data['id'] = id
         print(data)
 
         res = requests.post(url, json.dumps(data))
+        id = res.text
+        with open('.id', 'w') as f:
+            f.write(str(id))
 
 
         url2 = "http://scm.joy.com/api/service"
         data = json.loads(get_svc())
         data['host'] = get_ip()
         res = requests.post(url2, json.dumps(data))
-        # if not pv:
-        # 	os.environ["LANG"] = osenv
         return res.text
 
 

@@ -78,7 +78,7 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $.getJSON("http://scm.joy.com/api/service", function (callback) {
+            $.getJSON("http://192.168.1.194:5000/api/service", function (callback) {
                 var obj = callback
                 console.log(obj);
                 for (var item in obj) {
@@ -91,7 +91,7 @@
                     $("tbody").append(html)
                 }
             });
-            $.getJSON("http://scm.joy.com/api/assets", function (callback) {
+            $.getJSON("http://192.168.1.194:5000/api/assets", function (callback) {
                 for (var item in callback) {
                     console.log(item);
                     tmp = "<option>" + callback[item]['hostname'] + "</option>";
@@ -101,7 +101,7 @@
         });
         function AnsibleRun(obj) {
             $.ajax({
-                url: "http://scm.joy.com/api/ansible",
+                url: "http://192.168.1.194:5000/api/ansible",
                 type: 'POST',
                 data: JSON.stringify({
                     "type": "playbook",
@@ -115,7 +115,7 @@
         }
         function GetServieStatus(obj) {
             $.ajax({
-                url: "http://scm.joy.com/api/ansible",
+                url: "http://192.168.1.194:5000/api/ansible",
                 type: 'POST',
                 data: JSON.stringify({
                     "type": "service",
