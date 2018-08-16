@@ -1,5 +1,9 @@
 *.pyc
-.idea
+/.idea
 /__pycache__
 /migrations
 /venev
+
+.idea
+/asset/__pycache__/*.pyc
+*.pyc

@@ -220,20 +220,35 @@ class BusinessUnit(Resource):
 class ServiceList(Resource):
     # decorators = [auth.login_required]
 
+
     def get(self):
-        svc = models.Service.query.all()
+
         res = {}
-        for i in svc:
-            res[i.id] = {'name': i.name, 'type': i.type, 'role': i.role, 'stack': i.stack,
-                         'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo,
-                         'update_date': i.update_date}
+
+        try:
+            data = request.args.to_dict()
+            for k, v in data.items():
+                if k == 'type':
+                    svc = models.Service.query.filter_by(type=v)
+            res = {}
+            for i in svc:
+                res[i.id] = {'name': i.name, 'type': i.type, 'role': i.role, 'stack': i.stack,
+                             'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo,
+                             'update_date': i.update_date}
+
+            return jsonify(res)
+        except:
+            svc = models.Service.query.all()
+            for i in svc:
+                res[i.id] = {'name': i.name, 'type': i.type, 'role': i.role, 'stack': i.stack,
+                             'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo,
+                             'update_date': i.update_date}
         return jsonify(res)
 
     def post(self):
         url = request.url
         print(url)
         if 'ip' in url:
-            host_ip = '192.168.1.232'
             json_data = request.get_json(force=True)
             logger.info(json_data)
             for sys_type in json_data.keys():
@@ -279,22 +294,22 @@ class ServiceList(Resource):
                 port = v['port']
                 print(name, state, port)
                 compose = models.Service(name=name, host=host, state=state, type='docker-compose',
-                                     port=port, update_date=datetime.now())
+                                         port=port, update_date=datetime.now())
                 db.session.add(compose)
                 db.session.commit()
             db.session.close()
         return 200
 
 
-
 class Service(Resource):
     # decorators = [auth.login_required]
 
     def get(self, service_id):
-        idc = models.Service.query.filter_by(id=service_id)
+        svc = models.Service.query.filter_by(id=service_id).first()
         res = {}
-        for i in idc:
-            res[i.id] = {'name': i.name, 'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo,
+        for i in svc:
+            res[i.id] = {'name': i.name, 'host': i.host, 'state': i.state, 'port': i.port, 'type': i.type,
+                         'memo': i.memo,
                          'update_date': i.update_date}
         return jsonify(res)
 

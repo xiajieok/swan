@@ -50,7 +50,7 @@ def ansible():
 @main.route('/docker')
 @login_required
 def docker():
-    return render_template('ansible.html')
+    return render_template('docker.html')
 
 
 @main.route('/services')

@@ -8,7 +8,7 @@
     <ol class="breadcrumb">
         <li><a href="/">Home</a></li>
         <li class="active">服务管理</li>
-        <li class="active">系统服务</li>
+        <li class="active">容器管理</li>
     </ol>
 {% endblock %}
 {% block page_content %}
@@ -44,7 +44,7 @@
                                     <th>状态</th>
                                     <th>端口</th>
                                     <th>更新时间</th>
-{#                                    <th>操作</th>#}
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -78,7 +78,7 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $.getJSON("http://192.168.1.194:5000/api/service?type=system", function (callback) {
+            $.getJSON("http://192.168.1.194:5000/api/service?type=docker-compose", function (callback) {
                 var obj = callback
                 console.log(obj);
                 for (var item in obj) {
@@ -87,7 +87,7 @@
                     var state = obj[item].state;
                     var port = obj[item].port;
                     var update_date = obj[item].update_date;
-                    var html = "<tr>" + "<td>" + host + "</td>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + port + "</td>" + "<td>" + update_date + "</td>"
+                    var html = "<tr>" + "<td>" + host + "</td>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + port + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + "<a " + 'class="btn btn-app"' + "><i class=" + '"fa fa-play"' + "></i></a>" + "<a " + 'class="btn btn-app"' + "><i class=" + '"fa fa-stop"' + "></i></a>" + "<a " + 'class="btn btn-app"' + "><i class=" + '"fa fa-repeat"' + "></i></a>"
                     $("tbody").append(html)
                 }
             });

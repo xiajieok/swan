@@ -7,6 +7,7 @@
 from asset import models
 import json
 from asset.ext import db
+from logger import logger
 
 
 class AssetDashboard(object):
@@ -22,7 +23,7 @@ class AssetDashboard(object):
         self.data['asset_categories'] = self.get_asset_categories()
         self.data['asset_status_list'] = self.get_asset_status_statistics()
         self.data['business_load'] = self.get_business_load()
-        # print('data',self.data)
+        logger.info(self.data)
         return self.data
 
     def get_business_load(self):
@@ -33,16 +34,27 @@ class AssetDashboard(object):
             'data': {'load': [], 'left': []}  # left是为了填充百分比用的
         }
         load_list = []
+        '''
+        1. 循环出所有业务线,获取list, 封装dataset['names']
+        2. 循环资产表,过滤属于当前循环业务的主机信息,获取内存平均值
+        '''
         for obj in models.BusinessUnit.query.all():
-            queryset = db.session.query(models.Asset).filter_by(business_unit=obj.name).all()
-            for i in queryset:
-                memory = eval(i.memory)
-                load_val = memory['percent']
-                load_list.append(load_val)
-            load_val = int(sum(load_list) / len(load_list))
             dataset['names'].append(obj.name)
-            dataset['data']['load'].append(load_val)
-            dataset['data']['left'].append(100 - load_val)
+            try:
+                queryset = db.session.query(models.Asset).filter_by(business_unit=obj.name).all()
+                for i in queryset:
+                    memory = eval(i.memory)
+                    load_val = memory['percent']
+                    load_list.append(load_val)
+
+                load_val = int(sum(load_list) / len(load_list))
+                load_list = []
+                dataset['data']['load'].append(load_val)
+                dataset['data']['left'].append(100 - load_val)
+
+            except:
+                pass
+                # dataset = {'data': {'left': [0, 0], 'load': [0, 0]}, 'names': ['']}
         return dataset
 
     def get_asset_status_statistics(self):

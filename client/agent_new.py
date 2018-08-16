@@ -28,13 +28,18 @@ def get_ip():
     '''
     linux
     '''
-    ifname = 'eth0'
+    iflist = ['eth0', 'em1', 'br0']
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    return socket.inet_ntoa(fcntl.ioctl(
-            s.fileno(),
-            0x8915,  # SIOCGIFADDR
-            struct.pack('256s', ifname[:15])
-    )[20:24])
+    for i in iflist:
+        try:
+            ip = socket.inet_ntoa(fcntl.ioctl(
+                    s.fileno(),
+                    0x8915,  # SIOCGIFADDR
+                    struct.pack('256s', i[:15])
+            )[20:24])
+        except:
+            pass
+    return ip
 
 
 def get_dmi():
@@ -83,7 +88,8 @@ def get_cpu_cores():
     print('cpu_cores', cpu_cores)
     return cpu_cores
 
-
+def get_compose():
+    pass
 def get_svc():
     ip = get_ip()
     sys_list = ['nginx', 'mysqld', 'docker', 'sshd']
@@ -106,7 +112,6 @@ def get_svc():
 
     cmd = 'cd /root/docker && docker-compose ps'
     res = os.popen(cmd).read().split('\n')
-    all_docker = {}
     msg_dict = {}
     docker_svc = {}
     for i in res:
@@ -305,15 +310,12 @@ def info_post():
         data = json.loads(asset_info())
         data.pop('sn')
         data.pop('hostname')
-        print(json.dumps(data))
         res = requests.put(url, json.dumps(data))
-        print('update  sys')
 
-        url2 = "http://192.168.1.194:5000/api/service" +"?ip=" + get_ip()
+        url2 = "http://192.168.1.194:5000/api/service" + "?ip=" + get_ip()
         data = json.loads(get_svc())
         data['host'] = get_ip()
         res = requests.post(url2, json.dumps(data))
-        print('update svc')
         return True
     else:
         url = "http://192.168.1.194:5000/api/assets"
@@ -325,15 +327,9 @@ def info_post():
         url2 = "http://192.168.1.194:5000/api/service"
         data = json.loads(get_svc())
         data['host'] = get_ip()
-        print(json.dumps(data))
         res = requests.post(url2, json.dumps(data))
         return res.text
 
 
-
-
 if __name__ == "__main__":
     msg = info_post()
-    print(msg)
-    # res = post_svc()
-    # print(res)
