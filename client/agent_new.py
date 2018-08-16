@@ -86,39 +86,29 @@ def get_cpu_cores():
 
 def get_svc():
     ip = get_ip()
-    # cmd_sys = "netstat -ntlp|awk 'NR>2 {print $7}'|awk -F '/' '{print $2}' |sort |uniq"
-    # res = os.popen(cmd_sys).read().split('\n')
-    #
-    # name = []
-    # all_sys = {}
-    # msg_dict = {}
-    # msg_dict['host'] = ip
-    # msg_dict['type'] = 'sys'
-    # msg_dict['svc'] = {}
-    # for i in res:
-    #     name.append(i)
-    # port = []
-    # cmd_sys = "netstat -ntlp|awk 'NR>2 {print $4}'|awk -F ':' '{print $4}'"
-    # res = os.popen(cmd_sys).read().split('\n')
-    # for i in res:
-    #     port.append(i)
-    #
-    # print(port, name)
-    #
-    # for i in name:
-    #     msg_dict['svc'][i] = {}
-    #     msg_dict['svc'][i]['port'] = port[name.index(i)]
-    #     msg_dict['svc'][i]['state'] = 'RUN'
-    #     all_sys.update(msg_dict)
-    # print('all-sys', all_sys)
-    cmd = 'cd /opt/docker && docker-compose ps'
+    sys_list = ['nginx', 'mysqld', 'docker', 'sshd']
+    all_sys = {}
+    sys_svc = {}
+    for sys in sys_list:
+        cmd_sys = "ps -C " + sys + " -o pid,cmd |awk 'NR >1'"
+        res = os.popen(cmd_sys).read().split('\n')
+        if len(res) > 1:
+            sys_svc[sys] = {}
+            sys_svc[sys]['state'] = 'Up'
+            sys_svc[sys]['port'] = 'null'
+        else:
+            sys_svc[sys] = {}
+            sys_svc[sys]['state'] = 'Stop'
+            sys_svc[sys]['port'] = 'null'
+
+        all_sys['system'] = sys_svc
+    print('system service', all_sys)
+
+    cmd = 'cd /root/docker && docker-compose ps'
     res = os.popen(cmd).read().split('\n')
     all_docker = {}
-
     msg_dict = {}
-    msg_dict['host'] = ip
-    msg_dict['type'] = 'docker-compose'
-    msg_dict['svc'] = {}
+    docker_svc = {}
     for i in res:
         line = i.split()
         # print(line)
@@ -127,13 +117,15 @@ def get_svc():
             state = line[-2]
             port = line[-1]
             if len(svc_name) > 1:
-                msg_dict['svc'][svc_name] = {}
-                msg_dict['svc'][svc_name]['port'] = port
-                msg_dict['svc'][svc_name]['state'] = state
-                all_docker.update(msg_dict)
-    # all = dict(all_sys.items() + all_docker.items())
-    print(all)
-    return json.dumps(all_docker)
+                docker_svc[svc_name] = {}
+                docker_svc[svc_name]['port'] = port
+                docker_svc[svc_name]['state'] = state
+                msg_dict['docker-compose'] = docker_svc
+    print('This is docker service', msg_dict)
+    all = dict(all_sys, **msg_dict)
+    print('All services', all)
+
+    return json.dumps(all)
 
 
 def parser_cpu(stdout):
@@ -239,7 +231,6 @@ def get_sys_mem():
     sys_mem["free"] = int(mem.free / 1024 / 1024)
     sys_mem["buffers"] = int(mem.buffers / 1024 / 1024)
     sys_mem["cached"] = int(mem.cached / 1024 / 1024)
-    print(sys_mem)
     return sys_mem
 
 
@@ -309,58 +300,36 @@ def info_post():
     if os.path.isfile('.id'):
         with open('.id', 'r') as f:
             id = f.read()
-        # return 'old',id
-        url = "http://scm.joy.com/api/assets/" + str(id)
+        url = "http://192.168.1.194:5000/api/assets/" + id
 
         data = json.loads(asset_info())
         data.pop('sn')
         data.pop('hostname')
-        print('系统信息',data)
+        print(json.dumps(data))
         res = requests.put(url, json.dumps(data))
         print('update  sys')
 
-        url2 = "http://scm.joy.com/api/service" + '?host=' + str(get_ip())
+        url2 = "http://192.168.1.194:5000/api/service" +"?ip=" + get_ip()
         data = json.loads(get_svc())
         data['host'] = get_ip()
-        print(data)
-        res = requests.put(url2, json.dumps(data))
+        res = requests.post(url2, json.dumps(data))
         print('update svc')
         return True
     else:
-        url = "http://scm.joy.com/api/assets"
-        # res = requests.get(url).text
-        # id_list = json.loads(res)
-        # print(type(msg),msg.keys())
-        # if len(id_list) < 1:
-        #     id = 1
-        # else:
-        #     id = int(max(id_list)) + 1
-        # print('This is new id', id)
-        # with open('.id', 'w') as f:
-        #     f.write(str(id))
+        url = "http://192.168.1.194:5000/api/assets"
         data = json.loads(asset_info())
-        # data['id'] = id
-        print(data)
-
         res = requests.post(url, json.dumps(data))
-        id = res.text
         with open('.id', 'w') as f:
-            f.write(str(id))
+            f.write(str(res.text))
 
-
-        url2 = "http://scm.joy.com/api/service"
+        url2 = "http://192.168.1.194:5000/api/service"
         data = json.loads(get_svc())
         data['host'] = get_ip()
+        print(json.dumps(data))
         res = requests.post(url2, json.dumps(data))
         return res.text
 
 
-def post_svc():
-    url2 = "http://scm.joy.com/api/service"
-    data = json.loads(get_svc())
-    data['host'] = get_ip()
-    res = requests.post(url2, json.dumps(data))
-    print(res)
 
 
 if __name__ == "__main__":

@@ -10,6 +10,7 @@ from asset.utils import get_dir
 from asset.utils import get_dir
 import json
 from asset.main.dashboard import AssetDashboard
+from logger import logger
 
 ansible_dir = get_dir('a_path')
 playbook_dir = get_dir('play_book_path')
@@ -79,12 +80,12 @@ class DomainList(Resource):
         domain = models.Domain.query.all()
         res = {}
         for i in domain:
-            res[i.id] = {'name': i.name,'url': i.url, 'ip': i.ip,'memo': i.memo}
+            res[i.id] = {'name': i.name, 'url': i.url, 'ip': i.ip, 'memo': i.memo}
         return jsonify(res)
 
     def post(self):
         json_data = request.get_json(force=True)
-        res = models.Domain(name=json_data['name'],url=json_data['url'],ip=json_data['ip'], memo=json_data['memo'])
+        res = models.Domain(name=json_data['name'], url=json_data['url'], ip=json_data['ip'], memo=json_data['memo'])
         db.session.add(res)
         db.session.commit()
         db.session.close()
@@ -98,7 +99,7 @@ class Domain(Resource):
         domain = models.Domain.query.filter_by(id=domain_id)
         res = {}
         for i in domain:
-            res[i.id] =  {'name': i.name,'url': i.url, 'ip': i.ip,'memo': i.memo}
+            res[i.id] = {'name': i.name, 'url': i.url, 'ip': i.ip, 'memo': i.memo}
         return jsonify(res)
 
     def put(self, domain_id):
@@ -229,21 +230,61 @@ class ServiceList(Resource):
         return jsonify(res)
 
     def post(self):
-        json_data = request.get_json(force=True)
-        # print(json_data)
-        host = json_data['host']
-        type = json_data['type']
-        svc = json_data['svc']
-        for k, v in svc.items():
-            name = k
-            port = v['port']
-            state = v['state']
-            res = models.Service(name=k, host=host, state=state, type=type,
-                                 port=port)
-            db.session.add(res)
-            db.session.commit()
-        db.session.close()
-        return json_data, 200
+        url = request.url
+        print(url)
+        if 'ip' in url:
+            host_ip = '192.168.1.232'
+            json_data = request.get_json(force=True)
+            logger.info(json_data)
+            for sys_type in json_data.keys():
+                if sys_type == 'system':
+                    svc_sys = json_data['system']
+                    for k, v in svc_sys.items():
+                        name = k
+                        state = v['state']
+                        port = v['port']
+                        models.Service.query.filter_by(name=name, host=host_ip).update(
+                                {"state": state, "update_date": datetime.now()})
+                        db.session.commit()
+
+                else:
+                    svc_compose = json_data['docker-compose']
+                    for k, v in svc_compose.items():
+                        name = k
+                        state = v['state']
+                        port = v['port']
+                        print(name)
+                        models.Service.query.filter_by(name=name, host=host_ip).update(
+                                {"state": state, "port": port, "update_date": datetime.now()})
+                        db.session.commit()
+            db.session.close()
+        else:
+            json_data = request.get_json(force=True)
+            logger.info(json_data)
+            host = json_data['host']
+            svc_sys = json_data['system']
+            for k, v in svc_sys.items():
+                name = k
+                state = v['state']
+                port = v['port']
+                sys = models.Service(name=name, host=host, state=state, type='system',
+                                     port=port, update_date=datetime.now())
+                db.session.add(sys)
+                db.session.commit()
+
+            svc_compose = json_data['docker-compose']
+            for k, v in svc_compose.items():
+                name = k
+                state = v['state']
+                port = v['port']
+                print(name, state, port)
+                compose = models.Service(name=name, host=host, state=state, type='docker-compose',
+                                     port=port, update_date=datetime.now())
+                db.session.add(compose)
+                db.session.commit()
+            db.session.close()
+        return 200
+
 
 
 class Service(Resource):
@@ -253,28 +294,13 @@ class Service(Resource):
         idc = models.Service.query.filter_by(id=service_id)
         res = {}
         for i in idc:
-            res[i.id] = {'name': i.name, 'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo}
+            res[i.id] = {'name': i.name, 'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo,
+                         'update_date': i.update_date}
         return jsonify(res)
-
-    def put(self, host):
-        json_data = request.get_json(force=True)
-        print(json_data)
-        type = json_data['type']
-        svc = json_data['svc']
-        for k, v in svc.items():
-            name = k
-            port = v['port']
-            state = v['state']
-            print(port, state)
-            models.Service.query.filter_by(host=host, name=name).update(port=port, state=state)
-            db.session.commit()
-        db.session.close()
-        return 200
 
     def delete(self, service_id):
         try:
             idc = models.Service.query.filter_by(id=service_id).delete()
-            self.x = print(idc)
             db.session.commit()
             db.session.close()
         except:
@@ -326,8 +352,7 @@ class AssetList(Resource):
 
     def post(self):
         json_data = request.get_json(force=True)
-        print('提交到的数据', json_data)
-
+        logger.info(json_data)
         res = models.Asset(hostname=json_data['hostname'], ip=json_data['ip'], sn=json_data['sn'],
                            type=json_data['type'],
                            os=json_data['os'], vendor=json_data['vendor'],
@@ -340,7 +365,12 @@ class AssetList(Resource):
         db.session.add(res)
         db.session.commit()
         db.session.close()
-        return json_data, 200
+        res = db.session.query(models.Asset).filter_by(ip=json_data['ip']).first()
+        id = res.id
+        db.session.close()
+        print('id', id)
+
+        return id
 
 
 class Asset(Resource):
@@ -362,7 +392,8 @@ class Asset(Resource):
 
     def put(self, asset_id):
         json_data = request.get_json(force=True)
-        print('更新操作')
+        logger.info(json_data)
+        logger.info(json_data)
         for i in json_data:
             models.Asset.query.filter_by(id=asset_id).update({i: json_data[i], "update_date": datetime.now()})
         db.session.commit()

@@ -1,15 +1,20 @@
 import os
-from flask import Flask
+from flask import g
 from asset import create_app, db
 from flask_script import Manager, Shell, Server
 from flask_migrate import Migrate, MigrateCommand
-app = create_app(os.getenv('FLASK_CONFIG') or 'default')
-# from config import DevelopmentConfig
-from flask_failsafe import failsafe
-# app = Flask(__name__)
 
-# app.config.from_object(DevelopmentConfig)
+import logging
 
+from flask_login import current_user
+
+app = create_app('development')
+manager = Manager(app)
+
+
+@app.before_request
+def before_request():
+    g.user = current_user
 
 
 manager = Manager(app)
