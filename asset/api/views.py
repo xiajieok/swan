@@ -248,8 +248,10 @@ class ServiceList(Resource):
     def post(self):
         url = request.url
         print(url)
+        json_data = request.get_json(force=True)
+        host_ip = json_data['host']
+
         if 'ip' in url:
-            json_data = request.get_json(force=True)
             logger.info(json_data)
             for sys_type in json_data.keys():
                 if sys_type == 'system':
@@ -274,7 +276,6 @@ class ServiceList(Resource):
                         db.session.commit()
             db.session.close()
         else:
-            json_data = request.get_json(force=True)
             logger.info(json_data)
             host = json_data['host']
             svc_sys = json_data['system']

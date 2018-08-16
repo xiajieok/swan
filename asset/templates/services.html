@@ -44,7 +44,7 @@
                                     <th>状态</th>
                                     <th>端口</th>
                                     <th>更新时间</th>
-{#                                    <th>操作</th>#}
+                                    {#                                    <th>操作</th>#}
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -84,7 +84,15 @@
                 for (var item in obj) {
                     var host = obj[item].host;
                     var name = obj[item].name;
-                    var state = obj[item].state;
+                    console.log(obj[item].state)
+                    if (obj[item].state == 'Up') {
+                        var state = '<img src="{{ url_for('static', filename='img/ok.png') }}" stytle="width: 20px;height: 20px;"'
+                    }
+                    else {
+
+                        var state = '<img src="{{ url_for('static', filename='img/red.png') }}" stytle="width: 20px;height: 20px;"'
+                    }
+                    ;
                     var port = obj[item].port;
                     var update_date = obj[item].update_date;
                     var html = "<tr>" + "<td>" + host + "</td>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + port + "</td>" + "<td>" + update_date + "</td>"

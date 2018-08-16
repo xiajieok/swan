@@ -83,11 +83,7 @@
                         <a id="disk"></a>
                     </p>
                     <hr>
-                    {#                    <p>#}
-                    {#                        磁盘使用率:#}
-                    {#                        <a id="used"></a>#}
-                    {#                    </p>#}
-                    {#                    <hr>#}
+
                     <p>
                         机房:
                         <a id="idc_info"></a>
@@ -284,13 +280,20 @@
                     var sn = obj[item].sn;
                     var idc = obj[item].idc;
                     var business = obj[item].business_unit;
-                    var status = obj[item].status;
+
+                    if (obj[item].status =='Up') {
+                        var status = '<img src="{{ url_for('static', filename='img/ok.png') }}" stytle="width: 20px;height: 20px;"'
+                    }
+                    else {
+                        var status = '<img src="{{ url_for('static', filename='img/red.png') }}" stytle="width: 20px;height: 20px;"'
+                    };
+
                     var update_date = obj[item].update_date;
 
                     var html = "<tr>" + "<td>" + item + "</td>" + "<td id=" + item + ">" + '<a href="#"><li style="list-style-type:none" onclick="return Detail(this)"' + "value=" + item + ">" + hostname + "</li></a>" + "</td>"
 
                             + "<td>" + business + "</td>"
-                            + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + "<td>" + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
+                            + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + '<td >'  + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
                     $("tbody").append(html)
 
                 }

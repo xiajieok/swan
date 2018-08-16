@@ -70,7 +70,7 @@ class AssetDashboard(object):
         names = []
         for i in queryset:
             s1 = {}
-            if i[0] == 'RUN':
+            if i[0] == 'Up':
                 s1['itemStyle'] = {
                     'normal': {'color': 'yellowgreen'}
                 }

@@ -88,8 +88,34 @@ def get_cpu_cores():
     print('cpu_cores', cpu_cores)
     return cpu_cores
 
+
 def get_compose():
-    pass
+    cmd_sys = "ps -ef |grep docker-compose|grep -v grep"
+    res = os.popen(cmd_sys).read().split('\n')
+    if len(res) > 1:
+        cmd = 'cd /root/docker && docker-compose ps'
+        res = os.popen(cmd).read().split('\n')
+        msg_dict = {}
+        docker_svc = {}
+        for i in res:
+            line = i.split()
+            # print(line)
+            if len(line) > 1:
+                svc_name = line[0][7:-2]
+                state = line[-2]
+                port = line[-1]
+                if len(svc_name) > 1:
+                    docker_svc[svc_name] = {}
+                    docker_svc[svc_name]['port'] = port
+                    docker_svc[svc_name]['state'] = state
+                    msg_dict['docker-compose'] = docker_svc
+        print('This is docker service', msg_dict)
+    else:
+        msg_dict = {}
+
+    return msg_dict
+
+
 def get_svc():
     ip = get_ip()
     sys_list = ['nginx', 'mysqld', 'docker', 'sshd']
@@ -109,24 +135,7 @@ def get_svc():
 
         all_sys['system'] = sys_svc
     print('system service', all_sys)
-
-    cmd = 'cd /root/docker && docker-compose ps'
-    res = os.popen(cmd).read().split('\n')
-    msg_dict = {}
-    docker_svc = {}
-    for i in res:
-        line = i.split()
-        # print(line)
-        if len(line) > 1:
-            svc_name = line[0][7:-2]
-            state = line[-2]
-            port = line[-1]
-            if len(svc_name) > 1:
-                docker_svc[svc_name] = {}
-                docker_svc[svc_name]['port'] = port
-                docker_svc[svc_name]['state'] = state
-                msg_dict['docker-compose'] = docker_svc
-    print('This is docker service', msg_dict)
+    msg_dict = get_compose()
     all = dict(all_sys, **msg_dict)
     print('All services', all)
 
@@ -183,7 +192,7 @@ def asset_info():
     data_info = dict()
     data_info['idc'] = 'beijing'
     data_info['type'] = 'server'
-    data_info['status'] = 'RUN'
+    data_info['status'] = 'Up'
     data_info['memory'] = str(get_sys_mem())
     # data_info['memory'] = get_mem_total()
     data_info['disk'] = str(get_disk_info())
@@ -315,6 +324,7 @@ def info_post():
         url2 = "http://192.168.1.194:5000/api/service" + "?ip=" + get_ip()
         data = json.loads(get_svc())
         data['host'] = get_ip()
+        print(data)
         res = requests.post(url2, json.dumps(data))
         return True
     else:

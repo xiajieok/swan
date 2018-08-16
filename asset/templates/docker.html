@@ -84,7 +84,12 @@
                 for (var item in obj) {
                     var host = obj[item].host;
                     var name = obj[item].name;
-                    var state = obj[item].state;
+                    if (obj[item].state =='Up') {
+                        var state = '<img src="{{ url_for('static', filename='img/ok.png') }}" stytle="width: 20px;height: 20px;"'
+                    }
+                    else {
+                        var state = '<img src="{{ url_for('static', filename='img/red.png') }}" stytle="width: 20px;height: 20px;"'
+                    };
                     var port = obj[item].port;
                     var update_date = obj[item].update_date;
                     var html = "<tr>" + "<td>" + host + "</td>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + port + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + "<a " + 'class="btn btn-app"' + "><i class=" + '"fa fa-play"' + "></i></a>" + "<a " + 'class="btn btn-app"' + "><i class=" + '"fa fa-stop"' + "></i></a>" + "<a " + 'class="btn btn-app"' + "><i class=" + '"fa fa-repeat"' + "></i></a>"
