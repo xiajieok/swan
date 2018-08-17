@@ -5,8 +5,7 @@ from asset import models
 from flask import jsonify, request, render_template
 from asset.ext import db
 from asset.utils import auth
-from asset.utils import get_dir
-# from asset.AnsibleAPI import AnsibleApi
+from asset.AnsibleAPI import AnsibleApi
 from asset.utils import get_dir
 import json
 from asset.main.dashboard import AssetDashboard
@@ -428,76 +427,88 @@ class Asset(Resource):
 
 
 class Ansible(Resource):
-    pass
-    # def get(self):
-    #     # 获取yaml文件
-    #     playbook_dir = get_dir('play_book_path')
-    #     list = os.listdir(playbook_dir)
-    #     books = {}
-    #     for i in list:
-    #         name = i[:-4]
-    #         value = i
-    #         books[name] = value
-    #     return jsonify(books)
-    #
-    # def post(self):
-    #     # 根据获取到 主机名/playbook 执行操作
-    #     json_data = request.get_json(force=True)
-    #     print('提交到的数据', json_data)
-    #     print()
-    #     try:
-    #         desc = models.Asset.query.filter_by(hostname=json_data['hostname']).first()
-    #     except:
-    #         desc.ip = 'all'
-    #     print(desc.ip)
-    #     g = AnsibleApi()
-    #     if json_data['type'] == 'playbook':
-    #         test = playbook_dir + 'test.yml'
-    #         try:
-    #             callback = g.playbookrun(playbook_path=[test], host=json_data['hostname'])
-    #             if callback == 0:
-    #                 return 'Successful !!!'
-    #         except:
-    #             return "Faild !!!"
-    #     elif json_data['type'] == 'cmd':
-    #
-    #         tasks_list = [
-    #             dict(action=dict(module='shell', args=json_data['cmd'])),
-    #             # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
-    #         ]
-    #         res = g.runansible(desc.ip, tasks_list)
-    #         ss = json.loads(res)
-    #         try:
-    #             msg = jsonify(ss['success'][desc.ip]['stdout'])
-    #             # print('成功返回',msg)
-    #         except:
-    #             msg = jsonify(ss['failed'][desc.ip])
-    #         # res = ansible.runansible(desc.ip, tasks_list)['success'][desc.ip]
-    #         # res = jsonify(s)
-    #         # res = json.dumps(s,indent=4)
-    #         return msg
-    #     else:
-    #
-    #         tasks_list = [
-    #             dict(action=dict(module='shell', args=json_data['cmd'])),
-    #         ]
-    #
-    #         res = g.runansible(desc.ip, tasks_list)
-    #         res_dict = json.loads(res)['success'][desc.ip]['stdout']
-    #         tmp = res_dict.split('\n')
-    #         all = {}
-    #         msg_dict = {}
-    #
-    #         for i in tmp:
-    #             line = i.split()
-    #             # print(line)
-    #             if len(line) > 1:
-    #                 svc_name = line[0][7:-2]
-    #                 state = line[-2]
-    #                 port = line[-1]
-    #                 if len(svc_name) > 1:
-    #                     msg_dict[svc_name] = {}
-    #                     msg_dict[svc_name]['port'] = port
-    #                     msg_dict[svc_name]['state'] = state
-    #                     all.update(msg_dict)
-    #         # return jsonify(all)
+    def get(self):
+        # 获取yaml文件
+        playbook_dir = get_dir('play_book_path')
+        list = os.listdir(playbook_dir)
+        books = {}
+        for i in list:
+            name = i[:-4]
+            value = i
+            books[name] = value
+        return jsonify(books)
+
+    def post(self):
+
+        # 根据获取到 主机名/playbook 执行操作
+        json_data = request.get_json(force=True)
+        logger.info(json_data)
+        g = AnsibleApi()
+        if json_data['type'] == 'playbook':
+            test = playbook_dir + 'test.yml'
+            try:
+                callback = g.playbookrun(playbook_path=[test], host=json_data['hostname'])
+                if callback == 0:
+                    return 'Successful !!!'
+            except:
+                return "Faild !!!"
+        elif json_data['type'] == 'cmd':
+
+            if 'ip' in json_data.keys():
+
+                desc = models.Asset.query.filter_by(ip=json_data['ip']).first()
+                host = desc.hostname
+                logger.info('docker 执行操作')
+
+            else:
+                host = json_data['hostname']
+                logger.info('一般shell操作')
+
+            # host_list = []
+            task_list = [
+                dict(action=dict(module='shell', args=json_data['args'])),
+                # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
+            ]
+            # host_list.append(host)
+            # logger.info(host_list)
+
+            res = g.runansible(host, task_list)
+            logger.info(res)
+            ss = json.loads(res)
+            if 'ip' in json_data.keys():
+                logger.info(json_data['ip'])
+                msg = jsonify(ss['success'][json_data['ip']]['stdout'])
+                # msg = jsonify(ss['success'][json_data['ip']]['stdout'])
+                logger.info(msg)
+            else:
+                res = models.Asset.query.filter_by(hostname=json_data['hostname']).first()
+                logger.info(res.ip)
+                msg = jsonify(ss['success'][res.ip]['stdout'])
+                # msg = jsonify(ss['success'][json_data['ip']]['stdout'])
+                logger.info(msg)
+            return msg
+        else:
+            host = 'venv'
+            tasks_list = [
+                dict(action=dict(module='shell', args=json_data['cmd'])),
+            ]
+
+            res = g.runansible(host, tasks_list)
+            res_dict = json.loads(res)['success'][host]['stdout']
+            tmp = res_dict.split('\n')
+            all = {}
+            msg_dict = {}
+
+            for i in tmp:
+                line = i.split()
+                # print(line)
+                if len(line) > 1:
+                    svc_name = line[0][7:-2]
+                    state = line[-2]
+                    port = line[-1]
+                    if len(svc_name) > 1:
+                        msg_dict[svc_name] = {}
+                        msg_dict[svc_name]['port'] = port
+                        msg_dict[svc_name]['state'] = state
+                        all.update(msg_dict)
+                        # return jsonify(all)

@@ -8,6 +8,7 @@ import fcntl
 import struct
 import datetime
 import logging
+import random
 
 AGENT_VERSION = "1.0"
 token = 'HPcWR7l4NJNJ'
@@ -42,9 +43,11 @@ def get_ip():
     return ip
 
 
-def get_dmi():
-    p = Popen('dmidecode', stdout=PIPE, shell=True)
+def get_sn():
+    p = Popen('/usr/sbin/dmidecode -s system-serial-number', stdout=PIPE, shell=True)
     stdout, stderr = p.communicate()
+    if 'Not Specified' in stdout :
+        stdout = random.randint(100000,200000)
     return stdout
 
 
@@ -93,7 +96,7 @@ def get_compose():
     cmd_sys = "ps -ef |grep docker-compose|grep -v grep"
     res = os.popen(cmd_sys).read().split('\n')
     if len(res) > 1:
-        cmd = 'cd /root/docker && docker-compose ps'
+        cmd = 'cd /root/docker && /usr/local/bin/docker-compose ps'
         res = os.popen(cmd).read().split('\n')
         msg_dict = {}
         docker_svc = {}
@@ -179,15 +182,15 @@ def post_data(url, data):
 
 
 def machine_info():
-    # info = dmidecode.profile()
-    # info_keys = info.keys()
-    # for i in range(len(info_keys)):
-    #     if info[info_keys[i]]['dmi_type'] == 1:
-    #         Product_name = info[info_keys[i]]['data']['Product Name']
-    #         return Product_name
-    return 'Dell'
-
-
+    cmd = "dmidecode -s  system-product-name"
+    p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
+    stdout, stderr = p.communicate()
+    return stdout
+def get_vendor():
+    cmd = "dmidecode -s  system-manufacturer"
+    p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
+    stdout, stderr = p.communicate()
+    return stdout
 def asset_info():
     data_info = dict()
     data_info['idc'] = 'beijing'
@@ -205,8 +208,8 @@ def asset_info():
     data_info['cpu_model'] = cpuinfo['model name']
 
     data_info['ip'] = get_ip()
-    data_info['sn'] = parser_dmi(get_dmi())['Serial Number']
-    data_info['vendor'] = parser_dmi(get_dmi())['Manufacturer']
+    data_info['sn'] = get_sn()
+    data_info['vendor'] = get_vendor()
     # data_info['model'] = parser_dmi(get_dmi())['Version']
     data_info['model'] = machine_info()
     data_info['os'] = platform.linux_distribution()[0] + " " + platform.linux_distribution()[

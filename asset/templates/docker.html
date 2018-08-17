@@ -80,25 +80,24 @@
         $(document).ready(function () {
             $.getJSON("http://192.168.1.194:5000/api/service?type=docker-compose", function (callback) {
                 var obj = callback
-                console.log(obj);
                 for (var item in obj) {
                     var host = obj[item].host;
                     var name = obj[item].name;
-                    if (obj[item].state =='Up') {
-                        var state = '<img src="{{ url_for('static', filename='img/ok.png') }}" stytle="width: 20px;height: 20px;"'
+                    if (obj[item].state == 'Up') {
+                        var state = '<img src="{{ url_for('static', filename='img/ok.png') }}" stytle="width: 20px;height: 20px;">'
                     }
                     else {
-                        var state = '<img src="{{ url_for('static', filename='img/red.png') }}" stytle="width: 20px;height: 20px;"'
-                    };
+                        var state = '<img src="{{ url_for('static', filename='img/red.png') }}" stytle="width: 20px;height: 20px;">'
+                    }
+                    ;
                     var port = obj[item].port;
                     var update_date = obj[item].update_date;
-                    var html = "<tr>" + "<td>" + host + "</td>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + port + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + "<a " + 'class="btn btn-app"' + "><i class=" + '"fa fa-play"' + "></i></a>" + "<a " + 'class="btn btn-app"' + "><i class=" + '"fa fa-stop"' + "></i></a>" + "<a " + 'class="btn btn-app"' + "><i class=" + '"fa fa-repeat"' + "></i></a>"
+                    var html = "<tr>" + "<td>" + host + "</td>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + port + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + "<a " + 'class="btn btn-app"  onclick="Start(this)"' + "><i class=" + '"fa fa-play"' + "></i></a>" + "<a " + 'class="btn btn-app" onclick="Stop(this)"' + "><i class=" + '"fa fa-stop"' + "></i></a>" + "<a " + 'class="btn btn-app" onclick="Restart(this)"' + "><i class=" + '"fa fa-repeat"' + "></i></a>"
                     $("tbody").append(html)
                 }
             });
             $.getJSON("http://192.168.1.194:5000/api/assets", function (callback) {
                 for (var item in callback) {
-                    console.log(item);
                     tmp = "<option>" + callback[item]['hostname'] + "</option>";
                     $('#id_host').append(tmp)
                 }
@@ -118,6 +117,66 @@
                 }
             })
         }
+        function Start(obj) {
+            if (confirm("确定启动该服务?")) {
+                $.ajax({
+                    url: "http://192.168.1.194:5000/api/ansible",
+                    type: 'POST',
+                    data: JSON.stringify({
+                        "type": "cmd",
+                        "ip": $(obj).parent().siblings().first().text(),
+                        "args": "cd /root/docker && docker-compose up -d " + $(obj).parent().siblings().eq(1).text()
+                    }),
+                    success: function (callback) {
+                        var html = '<img src="{{ url_for('static', filename='img/ok.png') }}" stytle="width: 20px;height: 20px;">'
+                        $(obj).parent().siblings().eq(2).html("");
+                        $(obj).parent().siblings().eq(2).append(html);
+                    }
+                })
+            }
+
+
+        }
+
+        function Stop(obj) {
+            if (confirm("确定停止该服务?")) {
+
+                $.ajax({
+                    url: "http://192.168.1.194:5000/api/ansible",
+                    type: 'POST',
+                    data: JSON.stringify({
+                        "type": "cmd",
+                        "ip": $(obj).parent().siblings().first().text(),
+                        "args": "cd /root/docker && docker-compose stop " + $(obj).parent().siblings().eq(1).text()
+                    }),
+                    success: function (callback) {
+                        var html = '<img src="{{ url_for('static', filename='img/red.png') }}" stytle="width: 20px;height: 20px;">'
+                        $(obj).parent().siblings().eq(2).html("");
+                        $(obj).parent().siblings().eq(2).append(html);
+                    }
+                })
+            }
+        }
+        function Restart(obj) {
+            if (confirm("确定重启该服务?")) {
+
+                var svc = $(obj).parent().siblings().eq(1).text();
+                $.ajax({
+                    url: "http://192.168.1.194:5000/api/ansible",
+                    type: 'POST',
+                    data: JSON.stringify({
+                        "type": "cmd",
+                        "ip": $(obj).parent().siblings().first().text(),
+                        "args": "cd /root/docker && docker-compose stop " + svc + " && cd /root/docker && docker-compose rm --force  " + svc + " && cd /root/docker && docker-compose up -d  " + svc
+                    }),
+                    success: function (callback) {
+                        var html = '<img src="{{ url_for('static', filename='img/ok.png') }}" stytle="width: 20px;height: 20px;">'
+                        $(obj).parent().siblings().eq(2).html("");
+                        $(obj).parent().siblings().eq(2).append(html);
+                    }
+                })
+            }
+        }
         function GetServieStatus(obj) {
             $.ajax({
                 url: "http://192.168.1.194:5000/api/ansible",
@@ -125,7 +184,6 @@
                 data: JSON.stringify({
                     "type": "service",
                     "hostname": $('#id_host').val(),
-                    {#                    "hostname": 'all',#}
                     "cmd": "cd /opt/docker && docker-compose ps"
                 }),
                 success: function (callback) {

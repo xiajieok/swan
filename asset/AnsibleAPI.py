@@ -17,7 +17,7 @@ from flask import jsonify
 
 ansible_dir = get_dir('a_path')
 playbook_dir = get_dir('play_book_path')
-
+from logger import logger as log
 
 class PlayLogger:
     """Store log output in a single object.
@@ -154,12 +154,13 @@ class AnsibleApi(object):
 
         for host, result in self.results_callback.host_unreachable.items():
             results_raw['unreachable'][host] = result._result['msg']
-        print(results_raw)
+
+        log.info(results_raw)
         res = json.dumps(results_raw, indent=4)
         return res
 
-    def playbookrun(self, playbook_path,host):
-        self.variable_manager.extra_vars = {'customer': 'test', 'disabled': 'yes','host':host}
+    def playbookrun(self, playbook_path, host):
+        self.variable_manager.extra_vars = {'customer': 'test', 'disabled': 'yes', 'host': host}
         playbook = PlaybookExecutor(playbooks=playbook_path,
                                     inventory=self.inventory,
                                     variable_manager=self.variable_manager,
@@ -171,23 +172,19 @@ class AnsibleApi(object):
 
 
 if __name__ == "__main__":
-    a = AnsibleApi()
-    host_list = ['all']
+    g = AnsibleApi()
+    host_list = ['docker-test']
     # host_list = ['192.168.1.194:5000']
-    tasks_list = [
-        dict(action=dict(module='shell', args='cd /opt/docker  &&  docker-compose ps')),
+    task_list = [
+        dict(action=dict(module='shell', args='cd /root/docker  &&  docker-compose ps')),
         # dict(action=dict(module='shell', args='python sleep.py')),
         # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
     ]
 
-    test = playbook_dir + 'test.yml'
-    s = a.playbookrun(playbook_path=[test],host='test')
-    print('res', s)
+    # test = playbook_dir + 'test.yml'
+    # s = a.playbookrun(playbook_path=[test],host='test')
+    # print('res', s)
 
 
-    # data = a.runansible(host_list, tasks_list)
-    # print(data)
-    # res = json.dumps(data, indent=4)
-    # print(data)
-    # print(res.replace("\\",' '))
-    # print(jsonify(data))
+    data = g.runansible(host_list, task_list)
+    print(data)
