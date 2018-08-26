@@ -160,7 +160,10 @@ class BusinessUnit(db.Model):
     id = Column(Integer(), primary_key=True, autoincrement=True)
     name = Column(String(64), default='健康')
     memo = Column(String(256))
-
-# def __init__(self, name, memo):
-#     self.name = name
-#     self.memo = memo
+class Vpn(db.Model):
+    """openvpn"""
+    __tablename__ = 'Vpn'
+    id = Column(Integer(), primary_key=True, autoincrement=True)
+    name = Column(String(64))
+    create_date = Column(DateTime)
+    memo = Column(String(256))

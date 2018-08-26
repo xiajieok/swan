@@ -118,6 +118,52 @@ class Domain(Resource):
         except:
             return "Not exists"
         return 200
+class VpnList(Resource):
+    # decorators = [auth.login_required]
+
+    def get(self):
+        vpn = models.Vpn.query.all()
+        res = {}
+        for i in vpn:
+            res[i.id] = {'name': i.name, 'create_date': i.create_date,  'memo': i.memo}
+        return jsonify(res)
+
+    def post(self):
+        json_data = request.get_json(force=True)
+        res = models.Vpn(name=json_data['name'], create_date=datetime.now(),  memo=json_data['memo'])
+        db.session.add(res)
+        db.session.commit()
+        db.session.close()
+        return json_data, 200
+
+
+class Vpn(Resource):
+    # decorators = [auth.login_required]
+
+    def get(self, vpn_id):
+        vpn = models.Vpn.query.filter_by(id=vpn_id)
+        res = {}
+        for i in vpn:
+            res[i.id] = {'name': i.name, 'create_date': i.create_date,  'memo': i.memo}
+        return jsonify(res)
+
+    def put(self, vpn_id):
+        json_data = request.get_json(force=True)
+        for i in json_data:
+            models.Vpn.query.filter_by(id=vpn_id).update({i: json_data[i]})
+        db.session.commit()
+        db.session.close()
+        return 200
+
+    def delete(self, vpn_id):
+        try:
+            idc = models.Vpn.query.filter_by(id=vpn_id).delete()
+            print(idc)
+            db.session.commit()
+            db.session.close()
+        except:
+            return "Not exists"
+        return 200
 
 
 class IDCList(Resource):

@@ -26,3 +26,7 @@ resource.add_resource(views.Dashboard, "/dashboard_data")
 # domain
 resource.add_resource(views.DomainList, "/domain")
 resource.add_resource(views.Domain, "/domain/<int:domain_id>")
+
+# vpn
+resource.add_resource(views.VpnList, "/vpn")
+resource.add_resource(views.Vpn, "/vpn/<int:vpn_id>")

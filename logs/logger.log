@@ -3776,3 +3776,71 @@
 [INFO]: 2018-08-17 15:30:36,309 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': ['server'], 'data': [{'name': 'server', 'value': 3}]}, 'business_load': {'names': ['joy', '虚拟机集群', 'api'], 'data': {'load': [20, 3], 'left': [80, 97]}}, 'asset_status_list': {'names': ['Stop', 'Up'], 'data': [{'name': 'Stop', 'value': 1}, {'name': 'Up', 'value': 2, 'itemStyle': {'normal': {'color': 'yellowgreen'}}}]}}
 [INFO]: 2018-08-17 15:31:18,779 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': ['server'], 'data': [{'name': 'server', 'value': 3}]}, 'business_load': {'names': ['joy', '虚拟机集群', 'api'], 'data': {'load': [20, 3], 'left': [80, 97]}}, 'asset_status_list': {'names': ['Stop', 'Up'], 'data': [{'name': 'Stop', 'value': 1}, {'name': 'Up', 'value': 2, 'itemStyle': {'normal': {'color': 'yellowgreen'}}}]}}
 [INFO]: 2018-08-17 15:32:16,277 - views.py - post - Thread-1 - {'book': 'test.yml', 'type': 'playbook', 'hostname': 'docker-test'}
+[INFO]: 2018-08-26 18:13:02,219 - views.py - post - Thread-1 - {'status': 'Up', 'disk': '[]', 'hostname': 'bogon', 'cpu_num': '1', 'model': 'Parallels Virtual Platform\n', 'cpu_physical': 1, 'ip': '192.168.1.232', 'os': 'CentOS Linux 7.5.1804 x86_64', 'sn': 'Parallels-70 0D 08 DF AF 5B 4D 1D BF AA 6B AA D2 A3 96 E6\n', 'idc': 'beijing', 'memory': "{'available': 604, 'used': 213, 'cached': 617, 'percent': 38.8, 'free': 157, 'total': 987.0, 'buffers': 0}", 'vendor': 'Parallels Software International Inc.\n', 'cpu_model': 'Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz', 'type': 'server', 'cpu_processor': 1}
+[INFO]: 2018-08-26 18:13:02,427 - views.py - post - Thread-1 - {'host': '192.168.1.232', 'system': {'docker': {'state': 'Stop', 'port': 'null'}, 'mysqld': {'state': 'Stop', 'port': 'null'}, 'nginx': {'state': 'Stop', 'port': 'null'}, 'sshd': {'state': 'Up', 'port': 'null'}}}
+[INFO]: 2018-08-26 18:13:47,149 - views.py - put - Thread-1 - {'status': 'Up', 'idc': None, 'hostname': 'bogon', 'model': 'Parallels Virtual Platform', 'type': 'server', 'business_unit': 'APP'}
+[INFO]: 2018-08-26 18:13:47,150 - views.py - put - Thread-1 - {'status': 'Up', 'idc': None, 'hostname': 'bogon', 'model': 'Parallels Virtual Platform', 'type': 'server', 'business_unit': 'APP'}
+[INFO]: 2018-08-26 18:14:26,572 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': ['server'], 'data': [{'value': 1, 'name': 'server'}]}, 'asset_status_list': {'names': ['Up'], 'data': [{'value': 1, 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'name': 'Up'}]}, 'business_load': {'names': ['APP'], 'data': {'load': [38], 'left': [62]}}}
+[INFO]: 2018-08-26 18:16:14,909 - views.py - post - Thread-1 - {'cmd': 'cd /opt/docker && docker-compose ps', 'type': 'service', 'hostname': 'bogon'}
+[INFO]: 2018-08-26 18:16:15,870 - AnsibleAPI.py - runansible - Thread-1 - {'success': {}, 'failed': {}, 'unreachable': {}}
+[INFO]: 2018-08-26 18:16:22,006 - views.py - post - Thread-1 - {'args': 'df -h', 'type': 'cmd', 'hostname': 'bogon'}
+[INFO]: 2018-08-26 18:16:22,008 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-08-26 18:16:22,017 - AnsibleAPI.py - runansible - Thread-1 - {'success': {}, 'failed': {}, 'unreachable': {}}
+[INFO]: 2018-08-26 18:16:22,017 - views.py - post - Thread-1 - {
+    "success": {},
+    "failed": {},
+    "unreachable": {}
+}
+[INFO]: 2018-08-26 18:16:22,022 - views.py - post - Thread-1 - 192.168.1.232
+[INFO]: 2018-08-26 18:18:50,427 - views.py - post - Thread-1 - {'args': 'df -h', 'type': 'cmd', 'hostname': 'bogon'}
+[INFO]: 2018-08-26 18:18:50,436 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-08-26 18:18:52,611 - AnsibleAPI.py - runansible - Thread-1 - {'success': {'192.168.1.232': {'stderr_lines': [], 'cmd': 'df -h', 'invocation': {'module_args': {'chdir': None, '_uses_shell': True, 'removes': None, 'warn': True, 'creates': None, '_raw_params': 'df -h', 'executable': None, 'stdin': None}}, 'start': '2018-08-26 06:18:52.497082', 'end': '2018-08-26 06:18:52.506773', 'stderr': '', '_ansible_no_log': False, 'changed': True, '_ansible_parsed': True, 'rc': 0, 'stdout': '文件系统                 容量  已用  可用 已用% 挂载点\n/dev/mapper/centos-root   41G  2.1G   39G    5% /\ndevtmpfs                 482M     0  482M    0% /dev\ntmpfs                    494M     0  494M    0% /dev/shm\ntmpfs                    494M  7.1M  487M    2% /run\ntmpfs                    494M     0  494M    0% /sys/fs/cgroup\n/dev/sda1               1014M  129M  886M   13% /boot\n/dev/mapper/centos-home   20G   33M   20G    1% /home\ntmpfs                     99M     0   99M    0% /run/user/0', 'stdout_lines': ['文件系统                 容量  已用  可用 已用% 挂载点', '/dev/mapper/centos-root   41G  2.1G   39G    5% /', 'devtmpfs                 482M     0  482M    0% /dev', 'tmpfs                    494M     0  494M    0% /dev/shm', 'tmpfs                    494M  7.1M  487M    2% /run', 'tmpfs                    494M     0  494M    0% /sys/fs/cgroup', '/dev/sda1               1014M  129M  886M   13% /boot', '/dev/mapper/centos-home   20G   33M   20G    1% /home', 'tmpfs                     99M     0   99M    0% /run/user/0'], 'delta': '0:00:00.009691'}}, 'failed': {}, 'unreachable': {}}
+[INFO]: 2018-08-26 18:18:52,613 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.232": {
+            "stderr_lines": [],
+            "cmd": "df -h",
+            "invocation": {
+                "module_args": {
+                    "chdir": null,
+                    "_uses_shell": true,
+                    "removes": null,
+                    "warn": true,
+                    "creates": null,
+                    "_raw_params": "df -h",
+                    "executable": null,
+                    "stdin": null
+                }
+            },
+            "start": "2018-08-26 06:18:52.497082",
+            "end": "2018-08-26 06:18:52.506773",
+            "stderr": "",
+            "_ansible_no_log": false,
+            "changed": true,
+            "_ansible_parsed": true,
+            "rc": 0,
+            "stdout": "\u6587\u4ef6\u7cfb\u7edf                 \u5bb9\u91cf  \u5df2\u7528  \u53ef\u7528 \u5df2\u7528% \u6302\u8f7d\u70b9\n/dev/mapper/centos-root   41G  2.1G   39G    5% /\ndevtmpfs                 482M     0  482M    0% /dev\ntmpfs                    494M     0  494M    0% /dev/shm\ntmpfs                    494M  7.1M  487M    2% /run\ntmpfs                    494M     0  494M    0% /sys/fs/cgroup\n/dev/sda1               1014M  129M  886M   13% /boot\n/dev/mapper/centos-home   20G   33M   20G    1% /home\ntmpfs                     99M     0   99M    0% /run/user/0",
+            "stdout_lines": [
+                "\u6587\u4ef6\u7cfb\u7edf                 \u5bb9\u91cf  \u5df2\u7528  \u53ef\u7528 \u5df2\u7528% \u6302\u8f7d\u70b9",
+                "/dev/mapper/centos-root   41G  2.1G   39G    5% /",
+                "devtmpfs                 482M     0  482M    0% /dev",
+                "tmpfs                    494M     0  494M    0% /dev/shm",
+                "tmpfs                    494M  7.1M  487M    2% /run",
+                "tmpfs                    494M     0  494M    0% /sys/fs/cgroup",
+                "/dev/sda1               1014M  129M  886M   13% /boot",
+                "/dev/mapper/centos-home   20G   33M   20G    1% /home",
+                "tmpfs                     99M     0   99M    0% /run/user/0"
+            ],
+            "delta": "0:00:00.009691"
+        }
+    },
+    "failed": {},
+    "unreachable": {}
+}
+[INFO]: 2018-08-26 18:18:52,619 - views.py - post - Thread-1 - 192.168.1.232
+[INFO]: 2018-08-26 18:18:52,619 - views.py - post - Thread-1 - <Response 569 bytes [200 OK]>
+[INFO]: 2018-08-26 19:29:55,603 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': ['server'], 'data': [{'value': 1, 'name': 'server'}]}, 'asset_status_list': {'names': ['Up'], 'data': [{'value': 1, 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'name': 'Up'}]}, 'business_load': {'names': ['APP'], 'data': {'load': [38], 'left': [62]}}}
+[INFO]: 2018-08-26 19:31:13,197 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': ['server'], 'data': [{'value': 1, 'name': 'server'}]}, 'asset_status_list': {'names': ['Up'], 'data': [{'value': 1, 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'name': 'Up'}]}, 'business_load': {'names': ['APP'], 'data': {'load': [38], 'left': [62]}}}
+[INFO]: 2018-08-26 19:31:21,042 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': ['server'], 'data': [{'value': 1, 'name': 'server'}]}, 'asset_status_list': {'names': ['Up'], 'data': [{'value': 1, 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'name': 'Up'}]}, 'business_load': {'names': ['APP'], 'data': {'load': [38], 'left': [62]}}}
+[INFO]: 2018-08-26 19:31:25,795 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': ['server'], 'data': [{'value': 1, 'name': 'server'}]}, 'asset_status_list': {'names': ['Up'], 'data': [{'value': 1, 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'name': 'Up'}]}, 'business_load': {'names': ['APP'], 'data': {'load': [38], 'left': [62]}}}
+[INFO]: 2018-08-26 22:26:56,795 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': ['server'], 'data': [{'value': 1, 'name': 'server'}]}, 'business_load': {'names': ['APP'], 'data': {'load': [38], 'left': [62]}}, 'asset_status_list': {'names': ['Up'], 'data': [{'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'value': 1, 'name': 'Up'}]}}

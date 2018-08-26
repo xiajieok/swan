@@ -103,6 +103,7 @@
                 }
             })
         });
+
         function AnsibleRun(obj) {
             $.ajax({
                 url: "http://192.168.1.194:5000/api/ansible",
@@ -117,6 +118,7 @@
                 }
             })
         }
+
         function Start(obj) {
             if (confirm("确定启动该服务?")) {
                 $.ajax({
@@ -157,6 +159,7 @@
                 })
             }
         }
+
         function Restart(obj) {
             if (confirm("确定重启该服务?")) {
 
@@ -177,6 +180,7 @@
                 })
             }
         }
+
         function GetServieStatus(obj) {
             $.ajax({
                 url: "http://192.168.1.194:5000/api/ansible",
