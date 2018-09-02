@@ -118,6 +118,8 @@ class Domain(Resource):
         except:
             return "Not exists"
         return 200
+
+
 class VpnList(Resource):
     # decorators = [auth.login_required]
 
@@ -125,12 +127,12 @@ class VpnList(Resource):
         vpn = models.Vpn.query.all()
         res = {}
         for i in vpn:
-            res[i.id] = {'name': i.name, 'create_date': i.create_date,  'memo': i.memo}
+            res[i.id] = {'name': i.name, 'create_date': i.create_date, 'memo': i.memo}
         return jsonify(res)
 
     def post(self):
         json_data = request.get_json(force=True)
-        res = models.Vpn(name=json_data['name'], create_date=datetime.now(),  memo=json_data['memo'])
+        res = models.Vpn(name=json_data['name'], create_date=datetime.now(), memo=json_data['memo'])
         db.session.add(res)
         db.session.commit()
         db.session.close()
@@ -144,7 +146,7 @@ class Vpn(Resource):
         vpn = models.Vpn.query.filter_by(id=vpn_id)
         res = {}
         for i in vpn:
-            res[i.id] = {'name': i.name, 'create_date': i.create_date,  'memo': i.memo}
+            res[i.id] = {'name': i.name, 'create_date': i.create_date, 'memo': i.memo}
         return jsonify(res)
 
     def put(self, vpn_id):
@@ -265,85 +267,54 @@ class BusinessUnit(Resource):
 class ServiceList(Resource):
     # decorators = [auth.login_required]
 
-
     def get(self):
-
         res = {}
 
-        try:
-            data = request.args.to_dict()
-            for k, v in data.items():
-                if k == 'type':
-                    svc = models.Service.query.filter_by(type=v)
-            res = {}
-            for i in svc:
-                res[i.id] = {'name': i.name, 'type': i.type, 'role': i.role, 'stack': i.stack,
-                             'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo,
-                             'update_date': i.update_date}
-
-            return jsonify(res)
-        except:
-            svc = models.Service.query.all()
-            for i in svc:
-                res[i.id] = {'name': i.name, 'type': i.type, 'role': i.role, 'stack': i.stack,
-                             'host': i.host, 'state': i.state, 'port': i.port, 'memo': i.memo,
-                             'update_date': i.update_date}
+        svc = models.Service.query.all()
+        for i in svc:
+            res[i.id] = {'name': i.svc_name, 'stack': i.stack, 'image': i.image, 'networks': i.networks,
+                         'volumes': i.volumes,
+                         'replicas': i.replicas, 'constraints': i.constraints, 'cpus': i.cpus, 'memory': i.memory,
+                         'state': i.state, 'ports': i.ports, 'memo': i.memo,
+                         'update_date': i.update_date}
         return jsonify(res)
 
     def post(self):
-        url = request.url
-        print(url)
         json_data = request.get_json(force=True)
-        host_ip = json_data['host']
-
-        if 'ip' in url:
-            logger.info(json_data)
-            for sys_type in json_data.keys():
-                if sys_type == 'system':
-                    svc_sys = json_data['system']
-                    for k, v in svc_sys.items():
-                        name = k
-                        state = v['state']
-                        port = v['port']
-                        models.Service.query.filter_by(name=name, host=host_ip).update(
-                                {"state": state, "update_date": datetime.now()})
-                        db.session.commit()
-
+        json_data = json.loads(json_data)
+        ss = {}
+        for k, v in json_data.items():
+            svc_name = k
+            for svc in v.items():
+                if svc[0] == 'deploy':
+                    deploy = svc[1]
+                    print(deploy)
+                    ss['replicas'] = deploy['replicas']
+                    ss['mode'] = deploy['mode']
+                    ss['constraints'] = deploy['placement']['constraints']
+                    ss['cpus'] = deploy['resources']['limits']['cpus']
+                    ss['memory'] = deploy['resources']['limits']['memory']
+                    pass
                 else:
-                    svc_compose = json_data['docker-compose']
-                    for k, v in svc_compose.items():
-                        name = k
-                        state = v['state']
-                        port = v['port']
-                        print(name)
-                        models.Service.query.filter_by(name=name, host=host_ip).update(
-                                {"state": state, "port": port, "update_date": datetime.now()})
-                        db.session.commit()
-            db.session.close()
-        else:
-            logger.info(json_data)
-            host = json_data['host']
-            svc_sys = json_data['system']
-            for k, v in svc_sys.items():
-                name = k
-                state = v['state']
-                port = v['port']
-                sys = models.Service(name=name, host=host, state=state, type='system',
-                                     port=port, update_date=datetime.now())
-                db.session.add(sys)
-                db.session.commit()
+                    ss[svc[0]] = svc[1]
+            if '192.168.1.232' in ss['image']:
+                ss['image'] = ss['image'][19:]
 
-            svc_compose = json_data['docker-compose']
-            for k, v in svc_compose.items():
-                name = k
-                state = v['state']
-                port = v['port']
-                print(name, state, port)
-                compose = models.Service(name=name, host=host, state=state, type='docker-compose',
-                                         port=port, update_date=datetime.now())
-                db.session.add(compose)
-                db.session.commit()
+            else:
+                ss['image'] = ss['image']
+            try:
+                ss['volumes'] = ",".join(ss['volumes'])
+            except:
+                ss['volumes'] = 'Null'
+            res = models.Service(svc_name=svc_name, stack='APP', image=ss['image'], ports=ss['ports'][0],
+                                 networks=ss['networks'][0],
+                                 replicas=ss['replicas'], constraints=ss['constraints'][0][5:], cpus=ss['cpus'],
+                                 memory=ss['memory'], volumes=ss['volumes'],
+                                 state=ss['state'], update_date=datetime.now())
+            db.session.add(res)
+            db.session.commit()
             db.session.close()
+            # print(res)
         return 200
 
 
@@ -353,15 +324,57 @@ class Service(Resource):
     def get(self, service_id):
         svc = models.Service.query.filter_by(id=service_id).first()
         res = {}
-        for i in svc:
-            res[i.id] = {'name': i.name, 'host': i.host, 'state': i.state, 'port': i.port, 'type': i.type,
-                         'memo': i.memo,
-                         'update_date': i.update_date}
+        res[svc.id] = {'name': svc.svc_name, 'stack': svc.stack, 'image': svc.image, 'networks': svc.networks,
+                       'volumes': svc.volumes,
+                       'replicas': svc.replicas, 'constraints': svc.constraints, 'cpus': svc.cpus, 'memory': svc.memory,
+                       'state': svc.state, 'ports': svc.ports, 'memo': svc.memo,
+                       'update_date': svc.update_date}
         return jsonify(res)
+
+    def put(self):
+        json_data = request.get_json(force=True)
+        json_data = json.loads(json_data)
+        ss = {}
+        for k, v in json_data.items():
+            svc_name = k
+            for svc in v.items():
+                if svc[0] == 'deploy':
+                    deploy = svc[1]
+                    ss['replicas'] = deploy['replicas']
+                    ss['mode'] = deploy['mode']
+                    ss['constraints'] = deploy['placement']['constraints']
+                    ss['cpus'] = deploy['resources']['limits']['cpus']
+                    ss['memory'] = deploy['resources']['limits']['memory']
+                    pass
+                else:
+                    ss[svc[0]] = svc[1]
+            print(ss)
+
+            if '192.168.1.232' in ss['image']:
+                ss['image'] = ss['image'][19:]
+            else:
+                ss['image'] = ss['image']
+            logger.info(ss)
+            try:
+                ss['volumes'] = ",".join(ss['volumes'])
+            except:
+                ss['volumes'] = 'Null'
+
+            res = models.Service.query.filter_by(svc_name=svc_name).update(
+                {'image': ss['image'], 'ports': ss['ports'][0],
+                 'networks': ss['networks'][0],
+                 'replicas': ss['replicas'], 'constraints': ss['constraints'][0][5:], 'cpus': ss['cpus'],
+                 'memory': ss['memory'], 'volumes': ss['volumes'],
+                 'state': ss['state'], 'update_date': datetime.now()})
+
+            db.session.commit()
+            db.session.close()
+            # print(res)
+        return 200
 
     def delete(self, service_id):
         try:
-            idc = models.Service.query.filter_by(id=service_id).delete()
+            svc = models.Service.query.filter_by(id=service_id).delete()
             db.session.commit()
             db.session.close()
         except:
@@ -429,7 +442,11 @@ class AssetList(Resource):
         res = db.session.query(models.Asset).filter_by(ip=json_data['ip']).first()
         id = res.id
         db.session.close()
-        print('id', id)
+        # update hosts
+        host_file = get_dir('hosts_path')
+        with open(host_file, 'a+') as f:
+            f.write('[' + json_data['hostname'] + ']' + '\n')
+            f.write(json_data['ip'])
 
         return id
 

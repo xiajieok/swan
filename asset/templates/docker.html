@@ -28,21 +28,22 @@
                         {#                </div>#}
                         <a>{{ yml }}</a>
                         <div>
-                            <label for="id_type">选择主机:</label>
-                            <select name="asset_host" class="select2-dropdown" id="id_host">
-                                <option value="" selected="">---------</option>
-
-                            </select>
 
                             <table class="table table-bordered table-hover dataTable"
                                    role="grid">
 
                                 <thead>
                                 <tr role="row">
-                                    <th>主机</th>
+                                    {#                                    <th>主机</th>#}
                                     <th>服务</th>
                                     <th>状态</th>
                                     <th>端口</th>
+                                    <th>节点</th>
+                                    <th>镜像</th>
+                                    <th>CPU</th>
+                                    <th>内存</th>
+                                    <th>数量</th>
+{#                                    <th>挂载卷</th>#}
                                     <th>更新时间</th>
                                     <th>操作</th>
                                 </tr>
@@ -77,22 +78,48 @@
 
 {% block js %}
     <script>
+        function fmtDate(inputTime) {
+            var date = new Date(inputTime);
+            {#var y = date.getFullYear();#}
+            var m = date.getMonth() + 1;
+            m = m < 10 ? ('0' + m) : m;
+            var d = date.getDate();
+            d = d < 10 ? ('0' + d) : d;
+            var h = date.getHours();
+            h = h < 10 ? ('0' + h) : h;
+            var minute = date.getMinutes();
+            {#var second = date.getSeconds();#}
+            minute = minute < 10 ? ('0' + minute) : minute;
+            {#second = second < 10 ? ('0' + second) : second;#}
+            return  m + '-' + d + ' ' + h + ':' + minute ;
+
+        }
+
         $(document).ready(function () {
-            $.getJSON("http://192.168.1.194:5000/api/service?type=docker-compose", function (callback) {
+            $.getJSON("http://192.168.1.194:5000/api/service", function (callback) {
                 var obj = callback
                 for (var item in obj) {
-                    var host = obj[item].host;
+                    {#var host = obj[item].host;#}
                     var name = obj[item].name;
-                    if (obj[item].state == 'Up') {
-                        var state = '<img src="{{ url_for('static', filename='img/ok.png') }}" stytle="width: 20px;height: 20px;">'
-                    }
-                    else {
-                        var state = '<img src="{{ url_for('static', filename='img/red.png') }}" stytle="width: 20px;height: 20px;">'
-                    }
-                    ;
-                    var port = obj[item].port;
+                    var state = obj[item].state;
+                    {#if (obj[item].state == 'Up') {#}
+                    {#    var state = '<img src="{{ url_for('static', filename='img/ok.png') }}" stytle="width: 20px;height: 20px;">'#}
+                    {#}#}
+                    {#else {#}
+                    {#    var state = '<img src="{{ url_for('static', filename='img/red.png') }}" stytle="width: 20px;height: 20px;">'#}
+                    {#}#}
+                    {#;#}
+                    var constraints = obj[item].constraints;
+                    var image = obj[item].image;
+                    var cpus = obj[item].cpus;
+                    var memory = obj[item].memory;
+                    var ports = obj[item].ports;
+                    var replicas = obj[item].replicas;
+                    var volumes = obj[item].volumes;
                     var update_date = obj[item].update_date;
-                    var html = "<tr>" + "<td>" + host + "</td>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + port + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + "<a " + 'class="btn btn-app"  onclick="Start(this)"' + "><i class=" + '"fa fa-play"' + "></i></a>" + "<a " + 'class="btn btn-app" onclick="Stop(this)"' + "><i class=" + '"fa fa-stop"' + "></i></a>" + "<a " + 'class="btn btn-app" onclick="Restart(this)"' + "><i class=" + '"fa fa-repeat"' + "></i></a>"
+                    var timestamp = Date.parse(update_date);
+                    var date = fmtDate(timestamp);
+                    var html = "<tr>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + ports + "</td>" + "<td>" + constraints + "</td>" + "<td>" + image + "</td>" + "<td>" + cpus + "</td>" + "<td>" + memory + "</td>" + "<td>" + replicas + "</td>" + "<td>" + date + "</td>" + "<td id=" + item + ">" + "<a " + 'class="btn btn-app"  onclick="Start(this)"' + "><i class=" + '"fa fa-play"' + "></i></a>" + "<a " + 'class="btn btn-app" onclick="Stop(this)"' + "><i class=" + '"fa fa-stop"' + "></i></a>" + "<a " + 'class="btn btn-app" onclick="Restart(this)"' + "><i class=" + '"fa fa-repeat"' + "></i></a>"
                     $("tbody").append(html)
                 }
             });

@@ -105,13 +105,18 @@ class Service(db.Model):
     """服务"""
     __tablename__ = 'Service'
     id = Column(Integer(), primary_key=True, autoincrement=True)
-    name = Column(String(64))
-    type = Column(String(64))
-    role = Column(String(64))
+    # hostname = Column(String(64))
     stack = Column(String(64))
-    host = Column(String(64))
+    svc_name = Column(String(64))
+    image = Column(String(64))
+    ports = Column(String(64))
+    networks = Column(String(64))
+    volumes = Column(String(256))
+    replicas = Column(String(64))
+    constraints = Column(String(64))
+    cpus = Column(String(64))
+    memory = Column(String(256))
     state = Column(String(64))
-    port = Column(String(256))
     update_date = Column(DateTime)
     memo = Column(String(256))
 

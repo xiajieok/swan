@@ -9,6 +9,7 @@ import struct
 import datetime
 import logging
 import random
+import yaml
 
 AGENT_VERSION = "1.0"
 token = 'HPcWR7l4NJNJ'
@@ -34,9 +35,9 @@ def get_ip():
     for i in iflist:
         try:
             ip = socket.inet_ntoa(fcntl.ioctl(
-                    s.fileno(),
-                    0x8915,  # SIOCGIFADDR
-                    struct.pack('256s', i[:15])
+                s.fileno(),
+                0x8915,  # SIOCGIFADDR
+                struct.pack('256s', i[:15])
             )[20:24])
         except:
             pass
@@ -46,8 +47,8 @@ def get_ip():
 def get_sn():
     p = Popen('/usr/sbin/dmidecode -s system-serial-number', stdout=PIPE, shell=True)
     stdout, stderr = p.communicate()
-    if 'Not Specified' in stdout :
-        stdout = random.randint(100000,200000)
+    if 'Not Specified' in stdout:
+        stdout = random.randint(100000, 200000)
     return stdout
 
 
@@ -72,7 +73,7 @@ def get_mem_total():
     data = p.communicate()[0]
     mem_total = data.split()[1]
     memtotal = int(round(int(mem_total) / 1024.0 / 1024.0))
-    print(memtotal)
+    # print(memtotal)
     return memtotal
 
 
@@ -88,61 +89,34 @@ def get_cpu_cores():
     num = os.popen(cmd).read().replace("\n", "")
     cpu_cores = {"physical": psutil.cpu_count(logical=False) if psutil.cpu_count(logical=False) else 0,
                  "logical": psutil.cpu_count(), "num": num}
-    print('cpu_cores', cpu_cores)
+    # print('cpu_cores', cpu_cores)
     return cpu_cores
 
 
-def get_compose():
-    cmd_sys = "ps -ef |grep docker-compose|grep -v grep"
-    res = os.popen(cmd_sys).read().split('\n')
-    if len(res) > 1:
-        cmd = 'cd /root/docker && /usr/local/bin/docker-compose ps'
-        res = os.popen(cmd).read().split('\n')
-        msg_dict = {}
-        docker_svc = {}
-        for i in res:
-            line = i.split()
-            # print(line)
-            if len(line) > 1:
-                svc_name = line[0][7:-2]
-                state = line[-2]
-                port = line[-1]
-                if len(svc_name) > 1:
-                    docker_svc[svc_name] = {}
-                    docker_svc[svc_name]['port'] = port
-                    docker_svc[svc_name]['state'] = state
-                    msg_dict['docker-compose'] = docker_svc
-        print('This is docker service', msg_dict)
-    else:
-        msg_dict = {}
-
-    return msg_dict
-
-
 def get_svc():
-    ip = get_ip()
-    sys_list = ['nginx', 'mysqld', 'docker', 'sshd']
-    all_sys = {}
-    sys_svc = {}
-    for sys in sys_list:
-        cmd_sys = "ps -C " + sys + " -o pid,cmd |awk 'NR >1'"
-        res = os.popen(cmd_sys).read().split('\n')
-        if len(res) > 1:
-            sys_svc[sys] = {}
-            sys_svc[sys]['state'] = 'Up'
-            sys_svc[sys]['port'] = 'null'
-        else:
-            sys_svc[sys] = {}
-            sys_svc[sys]['state'] = 'Stop'
-            sys_svc[sys]['port'] = 'null'
+    # 判断是否安装了docker，取出版本号
+    cmd_sys = "docker version |grep 'Version'|awk 'NR >1'|awk '{print $2}'"
+    version = os.popen(cmd_sys).read().split('\n')[0]
+    if version == '1.13.1':
+        # 如果版本是1.13.1，说明运行的是swarm，否则只是单纯的容器或者docker-compose
+        f = '/opt/docker/swarm/sys.yml'
+        filename = os.path.join(os.path.dirname(__file__), f).replace("\\", "/")
+        with open(filename, 'r') as f:
+            y = yaml.load(f)
+        cmd = "docker service ls|awk 'NR>1'"
+        res = os.popen(cmd).read().split('\n')
+        for i in res:
+            if len(i) > 0:
+                svc_name = i.split()[1][6:]
+                print(svc_name)
+                state = i.split()[3]
+                if svc_name != 'ner':
+                    y['services'][svc_name]['state'] = state
+    else:
+        y = {'no': 'no'}
+    msg_dict = y['services']
 
-        all_sys['system'] = sys_svc
-    print('system service', all_sys)
-    msg_dict = get_compose()
-    all = dict(all_sys, **msg_dict)
-    print('All services', all)
-
-    return json.dumps(all)
+    return json.dumps(msg_dict)
 
 
 def parser_cpu(stdout):
@@ -176,7 +150,8 @@ def post_data(url, data):
     # else:
     #     logging.info("Server return http status code: {0}".format(r.status_code))
     except Exception as msg:
-        print(msg)
+        # print(msg)
+        pass
     # logging.info(msg)
     return True
 
@@ -186,11 +161,15 @@ def machine_info():
     p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
     stdout, stderr = p.communicate()
     return stdout
+
+
 def get_vendor():
     cmd = "dmidecode -s  system-manufacturer"
     p = Popen(cmd, stdout=PIPE, stderr=PIPE, shell=True)
     stdout, stderr = p.communicate()
     return stdout
+
+
 def asset_info():
     data_info = dict()
     data_info['idc'] = 'beijing'
@@ -217,7 +196,7 @@ def asset_info():
     data_info['hostname'] = platform.node()
     # data_info['token'] = token
     # data_info['agent_version'] = AGENT_VERSION
-    print(data_info)
+    # print(data_info)
     return json.dumps(data_info)
 
 
@@ -240,7 +219,7 @@ def get_sys_cpu():
 def get_sys_mem():
     sys_mem = {}
     mem = psutil.virtual_memory()
-    print(mem.total)
+    # print(mem.total)
     sys_mem["total"] = round((mem.total / 1024 / 1024))
     sys_mem["percent"] = mem.percent
     sys_mem["available"] = int(mem.available / 1024 / 1024)
@@ -322,13 +301,11 @@ def info_post():
         data = json.loads(asset_info())
         data.pop('sn')
         data.pop('hostname')
-        res = requests.put(url, json.dumps(data))
+        requests.put(url, json.dumps(data))
+        url2 = "http://192.168.1.194:5000/api/service"
+        data = get_svc()
+        requests.put(url2, json.dumps(data))
 
-        url2 = "http://192.168.1.194:5000/api/service" + "?ip=" + get_ip()
-        data = json.loads(get_svc())
-        data['host'] = get_ip()
-        print(data)
-        res = requests.post(url2, json.dumps(data))
         return True
     else:
         url = "http://192.168.1.194:5000/api/assets"
@@ -338,8 +315,8 @@ def info_post():
             f.write(str(res.text))
 
         url2 = "http://192.168.1.194:5000/api/service"
-        data = json.loads(get_svc())
-        data['host'] = get_ip()
+        data = get_svc()
+        # data['host'] = get_ip()
         res = requests.post(url2, json.dumps(data))
         return res.text
 

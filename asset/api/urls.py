@@ -10,8 +10,11 @@ resource.add_resource(views.User, "/user/<int:user_id>")
 resource.add_resource(views.UserList, "/user")
 resource.add_resource(views.IDCList, "/idc")
 resource.add_resource(views.IDC, "/idc/<int:idc_id>")
+
+#service
 resource.add_resource(views.ServiceList, "/service")
-resource.add_resource(views.Service, "/service/<int:service_id>")
+resource.add_resource(views.Service, "/service")
+
 resource.add_resource(views.BusinessUnitList, "/business")
 resource.add_resource(views.BusinessUnit, "/business/<int:business_id>")
 resource.add_resource(views.AssetList, "/assets")

@@ -31,6 +31,8 @@ def get_dir(args):
         # print(a_path)
         play_book_path = config.get('config', 'playbook_path')
         # print(play_book_path)
+        hosts_path = config.get('config', 'hosts_path')
+        # print(play_book_path)
     if args:
         return vars()[args]
     else:
