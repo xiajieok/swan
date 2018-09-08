@@ -47,10 +47,16 @@ def ansible():
     return render_template('ansible.html')
 
 
-@main.route('/docker')
+@main.route('/swarm')
 @login_required
-def docker():
-    return render_template('docker.html')
+def swarm():
+    return render_template('swarm.html')
+
+@main.route('/swarm_edit')
+@login_required
+def swarm_edit():
+    return render_template('swarm_add.html')
+
 @main.route('/other')
 @login_required
 def other():

@@ -32,7 +32,7 @@ def get_dir(args):
         play_book_path = config.get('config', 'playbook_path')
         # print(play_book_path)
         hosts_path = config.get('config', 'hosts_path')
-        # print(play_book_path)
+        swarm_path = config.get('config', 'swarm_path')
     if args:
         return vars()[args]
     else:

@@ -115,7 +115,7 @@ def get_svc():
     else:
         y = {'no': 'no'}
     msg_dict = y['services']
-
+    print(msg_dict)
     return json.dumps(msg_dict)
 
 

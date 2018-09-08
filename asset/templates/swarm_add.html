@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% block page_content_title %}
+    任务编排
+{% endblock %}
+
+{% block page_nav_tab %}
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li class="active">Swarm</li>
+        <li class="active">编排</li>
+    </ol>
+{% endblock %}
+
+
+{% block page_content %}
+
+    <div class="row">
+        <div class="panel">
+            <div class="panel-body">
+
+                <div class="row">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Stack</label>
+
+                        <div class="col-ms-10" style="margin-left: 10px;">
+                            <input type="text" name="stack" value="sys01" id="id_stack"
+                                   style="width:450px;" required="" class="form-control" maxlength="200">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Service Name</label>
+
+                        <div class="col-ms-10" style="margin-left: 10px;">
+                            <input type="text" name="task" placeholder="joy-api" id="id_svc_name"
+                                   style="width:450px;" class="form-control" maxlength="200">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Image</label>
+
+                        <div class="col-ms-10" style="margin-left: 10px;">
+                            <select name="interval" style="width:450px;" class="form-control" id="id_image">
+                                <option value="" selected="">---------</option>
+                                <option value="">docker.io/nginx</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Ports</label>
+
+                        <div class="col-ms-10" style="margin-left: 10px;">
+                            <input type="text" name="task" placeholder="主机端口:容器端口" id="id_ports"
+                                   style="width:450px;" class="form-control" maxlength="200">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Networks</label>
+
+                        <div class="col-ms-10" style="margin-left: 10px;">
+                            <input type="text" name="task" placeholder="joy-api" id="id_networks"
+                                   style="width:450px;" class="form-control" maxlength="200">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Volumes</label>
+
+                        <div class="col-ms-10" style="margin-left: 10px;">
+                            <input type="text" name="args" placeholder="主机目录:容器目录" style="width:450px;"
+                                   class="form-control"
+                                   id="id_volumes">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Constraints</label>
+
+                        <div class="col-ms-10" style="margin-left: 10px;">
+                            <input type="text" name="args" placeholder="节点分配 [node.role == manager]"
+                                   style="width:450px;" class="form-control"
+                                   id="id_constraints">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Replicas</label>
+
+                        <div class="col-ms-10" style="margin-left: 10px;">
+                            <input type="text" name="args" placeholder="数量" style="width:450px;" class="form-control"
+                                   id="id_replicas">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">CPU</label>
+
+                        <div class="col-ms-10" style="margin-left: 10px;">
+                            <input type="text" name="queue" id="id_cpus" style="width:450px;"
+                                   class="form-control" maxlength="200">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Memory</label>
+
+                        <div class="col-ms-10" style="margin-left: 10px;">
+                            <input type="text" name="exchange" id="id_memory" style="width:450px;"
+                                   class="form-control" maxlength="200">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="box-footer" style="margin-left: 490px;width: 530px;">
+                            <button type="submit" class="btn btn-primary pull-left" style="width: 120px"
+                                    onclick="Add(this)">创建
+                            </button>&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>        <!-- nav-tabs-custom -->
+
+{% endblock %}
+
+
+{% block js %}
+    <script>
+        function Add(obj) {
+            if (confirm("确定添加该服务?")) {
+                console.log('新增服务');
+                $.ajax({
+                    url: "http://192.168.1.194:5000/api/yaml",
+                    type: "POST",
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        "stack": $('#id_stack').val(),
+                        "svc_name": $('#id_svc_name').val(),
+                        "image": $('#id_image option:selected').text(),
+                        "ports": $('#id_ports').val(),
+                        "networks": $('#id_networks').val(),
+                        "replicas": $('#id_replicas').val(),
+                        "constraints": $('#id_constraints').val(),
+                        "volumes": $('#id_volumes').val(),
+                        "cpus": $('#id_cpus').val(),
+                        "memory": $('#id_memory').val(),
+                        "state": $('#id_state').val(),
+                        "memo": $('#id_memo').val()
+                    }),
+                    success: function (data) {
+                        console.log(data)
+
+                    }
+                })
+            }
+        }
+    </script>
+{% endblock %}

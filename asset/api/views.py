@@ -10,9 +10,12 @@ from asset.utils import get_dir
 import json
 from asset.main.dashboard import AssetDashboard
 from logger import logger
+import yaml
+from sqlalchemy.sql import exists
 
 ansible_dir = get_dir('a_path')
 playbook_dir = get_dir('play_book_path')
+swarm_dir = get_dir('swarm_path')
 
 parser = reqparse.RequestParser()
 
@@ -264,6 +267,85 @@ class BusinessUnit(Resource):
         return 200
 
 
+class YamlList(Resource):
+    def get(self):
+        res = {}
+
+        svc = models.Yaml.query.all()
+        for i in svc:
+            res[i.id] = {'name': i.svc_name, 'stack': i.stack, 'image': i.image, 'networks': i.networks,
+                         'volumes': i.volumes,
+                         'replicas': i.replicas, 'constraints': i.constraints, 'cpus': i.cpus, 'memory': i.memory,
+                         'state': i.state, 'ports': i.ports, 'memo': i.memo,
+                         'update_date': datetime.now()}
+        return jsonify(res)
+
+    def post(self):
+        json_data = request.get_json(force=True)
+        if db.session.query(exists().where(models.Yaml.svc_name == json_data['svc_name'])).scalar() is not True:
+            res = models.Yaml(stack=json_data['stack'], svc_name=json_data['svc_name'], image=json_data['image'],
+                              ports=json_data['ports'], networks=json_data['networks'], volumes=json_data['volumes'],
+                              replicas=json_data['replicas'], constraints=json_data['constraints'], cpus=json_data['cpus'],
+                              memory=json_data['memory'], update_date=datetime.now())
+
+            db.session.add(res)
+            db.session.commit()
+            db.session.close()
+            # node = '[node.role == manager]'
+            swarm_file = get_dir('swarm_path') + json_data['svc_name'] + '.yml'
+            data = {
+                'version': '3.0',
+                'services': {
+                    json_data['svc_name']: {
+                        'image': json_data['image'],
+                        'ports': [json_data['ports']],
+                        'networks': [json_data['networks']],
+                        'volumes': [json_data['volumes']],
+                        'deploy': {
+                            'mode': 'replicated',
+                            'replicas': int(json_data['replicas']),
+                            'placement': {
+                                'constraints': [json_data['constraints']]
+                            },
+                            'resources': {
+                                'limits': {
+                                    'cpus': json_data['cpus'],
+                                    'memory': json_data['memory']
+                                }
+
+                            }
+                        }
+                    }
+                },
+                'networks': {
+                    json_data['networks']:
+                        {'driver': 'overlay'}
+                },
+
+            }
+            print(data)
+            f = open(swarm_file, 'w')
+            yaml.dump(data, f,default_flow_style=False,indent=2,encoding='utf-8',allow_unicode=True)
+            f.close()
+
+            # 传输swarm文件
+            g = AnsibleApi()
+            src_file = swarm_file
+
+            cmd = 'src=' + src_file + ' backup=yes dest=' + swarm_dir
+            task_list = [
+                dict(action=dict(module='copy', args=cmd)),
+                # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
+            ]
+            print(task_list)
+            res = g.runansible('localhost.localdomain', task_list)
+            print(res)
+        else:
+            json_data ='NO'
+
+        return json_data, 200
+
+
 class ServiceList(Resource):
     # decorators = [auth.login_required]
 
@@ -445,7 +527,7 @@ class AssetList(Resource):
         # update hosts
         host_file = get_dir('hosts_path')
         with open(host_file, 'a+') as f:
-            f.write('[' + json_data['hostname'] + ']' + '\n')
+            f.write('\n' + '[' + json_data['hostname'] + ']' + '\n')
             f.write(json_data['ip'])
 
         return id
@@ -515,7 +597,7 @@ class Ansible(Resource):
                     return 'Successful !!!'
             except:
                 return "Faild !!!"
-        elif json_data['type'] == 'cmd':
+        else:
 
             if 'ip' in json_data.keys():
 
@@ -526,52 +608,31 @@ class Ansible(Resource):
             else:
                 host = json_data['hostname']
                 logger.info('一般shell操作')
+                print('一般shell操作')
 
-            # host_list = []
             task_list = [
-                dict(action=dict(module='shell', args=json_data['args'])),
+                dict(action=dict(module='raw', args=json_data['args'])),
                 # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
             ]
-            # host_list.append(host)
-            # logger.info(host_list)
-
+            print(task_list)
             res = g.runansible(host, task_list)
+            print(res)
             logger.info(res)
             ss = json.loads(res)
-            if 'ip' in json_data.keys():
-                logger.info(json_data['ip'])
-                msg = jsonify(ss['success'][json_data['ip']]['stdout'])
-                # msg = jsonify(ss['success'][json_data['ip']]['stdout'])
-                logger.info(msg)
-            else:
-                res = models.Asset.query.filter_by(hostname=json_data['hostname']).first()
-                logger.info(res.ip)
-                msg = jsonify(ss['success'][res.ip]['stdout'])
-                # msg = jsonify(ss['success'][json_data['ip']]['stdout'])
-                logger.info(msg)
-            return msg
-        else:
-            host = 'venv'
-            tasks_list = [
-                dict(action=dict(module='shell', args=json_data['cmd'])),
-            ]
+            try:
+                if 'ip' in json_data.keys():
+                    logger.info(json_data['ip'])
+                    msg = jsonify(ss['success'][json_data['ip']]['stdout'])
+                    # msg = jsonify(ss['success'][json_data['ip']]['stdout'])
+                    logger.info(msg)
+                else:
+                    res = models.Asset.query.filter_by(hostname=host).first()
+                    print(res)
+                    logger.info(res.ip)
+                    msg = jsonify(ss['success'][res.ip]['stdout'])
 
-            res = g.runansible(host, tasks_list)
-            res_dict = json.loads(res)['success'][host]['stdout']
-            tmp = res_dict.split('\n')
-            all = {}
-            msg_dict = {}
-
-            for i in tmp:
-                line = i.split()
-                # print(line)
-                if len(line) > 1:
-                    svc_name = line[0][7:-2]
-                    state = line[-2]
-                    port = line[-1]
-                    if len(svc_name) > 1:
-                        msg_dict[svc_name] = {}
-                        msg_dict[svc_name]['port'] = port
-                        msg_dict[svc_name]['state'] = state
-                        all.update(msg_dict)
-                        # return jsonify(all)
+                    # msg = jsonify(ss['success'][json_data['ip']]['stdout'])
+                    logger.info(msg)
+                return msg
+            except:
+                return 'Error'

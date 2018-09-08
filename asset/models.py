@@ -120,6 +120,24 @@ class Service(db.Model):
     update_date = Column(DateTime)
     memo = Column(String(256))
 
+class Yaml(db.Model):
+    """服务"""
+    __tablename__ = 'Yaml'
+    id = Column(Integer(), primary_key=True, autoincrement=True)
+    # hostname = Column(String(64))
+    stack = Column(String(64))
+    svc_name = Column(String(64))
+    image = Column(String(64))
+    ports = Column(String(64))
+    networks = Column(String(64))
+    volumes = Column(String(256))
+    replicas = Column(String(64))
+    constraints = Column(String(64))
+    cpus = Column(String(64))
+    memory = Column(String(256))
+    state = Column(String(64))
+    update_date = Column(DateTime)
+    memo = Column(String(256))
 
 class IDC(db.Model):
     """机房"""

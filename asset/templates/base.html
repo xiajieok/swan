@@ -479,7 +479,7 @@
                     <div class="searchbox">
                         <div class="input-group custom-search-form">
                             <input type="text" class="form-control" placeholder="Search..">
-							<span class="input-group-btn">
+                            <span class="input-group-btn">
 								<button class="text-muted" type="button"><i class="fa fa-search"></i></button>
 							</span>
                         </div>
@@ -747,7 +747,7 @@
                                     <li>
                                         <a href="#">
                                             <i class="fa fa-bank"></i>
-											<span class="menu-title">
+                                            <span class="menu-title">
 												资产管理
 											</span>
                                         </a>
@@ -763,7 +763,7 @@
 
                                         <a href="#">
                                             <i class="fa fa-car"></i>
-											<span class="menu-title">
+                                            <span class="menu-title">
 												项目管理
 											</span>
                                         </a>
@@ -774,17 +774,26 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-calendar-plus-o"></i>
-											<span class="menu-title">
-												服务管理
+                                            <i class="fa fa-cloud"></i>
+                                            <span class="menu-title">
+												Ansible
 											</span>
                                         </a>
                                         <ul class="collapse">
                                             <li><a href="{{ url_for("main.ansible") }}">ansible</a></li>
-                                            <li><a href="{{ url_for("main.docker") }}">容器管理</a></li>
-                                            <li><a href="{{ url_for("main.services") }}">系统服务</a></li>
+                                        </ul>
 
-
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-th"></i>
+                                            <span class="menu-title">
+												Swarm
+											</span>
+                                        </a>
+                                        <ul class="collapse">
+                                            <li><a href="{{ url_for("main.swarm") }}">展示</a></li>
+                                            <li><a href="{{ url_for("main.swarm_edit") }}">编排</a></li>
                                         </ul>
 
                                     </li>
@@ -799,7 +808,7 @@
 
                                         <a href="#">
                                             <i class="fa fa-taxi"></i>
-											<span class="menu-title">
+                                            <span class="menu-title">
 												其他业务
 											</span>
                                         </a>
@@ -807,18 +816,18 @@
                                             <li><a href="{{ url_for("main.other") }}">vpn管理</a></li>
                                         </ul>
                                     </li>
-{#                                    <li class="">#}
-{#                                        <a href="{{ url_for("main.index") }}">#}
-{#                                            <i class="fa fa-users"></i>#}
-{#                                            <span class="menu-title">用户管理 </span>#}
-{#                                        </a>#}
-{#                                    </li>#}
-{#                                    <li class="">#}
-{#                                        <a href="{{ url_for("main.index") }}">#}
-{#                                            <i class="fa fa-cogs"></i>#}
-{#                                            <span class="menu-title">系统配置 </span>#}
-{#                                        </a>#}
-{#                                    </li>#}
+                                    {#                                    <li class="">#}
+                                    {#                                        <a href="{{ url_for("main.index") }}">#}
+                                    {#                                            <i class="fa fa-users"></i>#}
+                                    {#                                            <span class="menu-title">用户管理 </span>#}
+                                    {#                                        </a>#}
+                                    {#                                    </li>#}
+                                    {#                                    <li class="">#}
+                                    {#                                        <a href="{{ url_for("main.index") }}">#}
+                                    {#                                            <i class="fa fa-cogs"></i>#}
+                                    {#                                            <span class="menu-title">系统配置 </span>#}
+                                    {#                                        </a>#}
+                                    {#                                    </li>#}
 
                                 </ul>
 
@@ -884,7 +893,7 @@
 
             <!-- Visible when footer positions are static -->
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-            <div class="hide-fixed pull-right pad-rgt">Currently v2.2.2</div>
+            <div class="hide-fixed pull-right pad-rgt">Relase v0.1.1</div>
 
 
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
