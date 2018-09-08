@@ -99,8 +99,10 @@ def get_svc():
     version = os.popen(cmd_sys).read().split('\n')[0]
     if version == '1.13.1':
         # 如果版本是1.13.1，说明运行的是swarm，否则只是单纯的容器或者docker-compose
-        y = {}
-        y['services'] = {}
+        f = '/opt/docker/swarm/sys.yml'
+        filename = os.path.join(os.path.dirname(__file__), f).replace("\\", "/")
+        with open(filename, 'r') as f:
+            y = yaml.load(f)
         cmd = "docker service ls|awk 'NR>1'"
         res = os.popen(cmd).read().split('\n')
         for i in res:
@@ -108,7 +110,6 @@ def get_svc():
                 svc_name = i.split()[1][6:]
                 print(svc_name)
                 state = i.split()[3]
-                y['services'][svc_name] = {}
                 if svc_name != 'ner':
                     y['services'][svc_name]['state'] = state
     else:
@@ -301,10 +302,10 @@ def info_post():
         data.pop('sn')
         data.pop('hostname')
         requests.put(url, json.dumps(data))
-        url2 = "http://192.168.1.194:5000/api/yaml/53"
+        url2 = "http://192.168.1.194:5000/api/service"
         data = get_svc()
-        res = requests.put(url2, json.dumps(data))
-        print(res)
+        requests.put(url2, json.dumps(data))
+
         return True
     else:
         url = "http://192.168.1.194:5000/api/assets"

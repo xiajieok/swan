@@ -37,4 +37,4 @@ resource.add_resource(views.Vpn, "/vpn/<int:vpn_id>")
 #yaml
 
 resource.add_resource(views.YamlList, "/yaml")
-# resource.add_resource(views.Yaml, "/yaml/<int:yaml_id>")
+resource.add_resource(views.Yaml, "/yaml/<int:yaml_id>")

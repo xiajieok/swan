@@ -85,7 +85,7 @@
                         <label class="col-sm-2 control-label">Constraints</label>
 
                         <div class="col-ms-10" style="margin-left: 10px;">
-                            <input type="text" name="args" placeholder="节点分配 [node.role == manager]"
+                            <input type="text" name="args" placeholder="节点分配  node.role == manager"
                                    style="width:450px;" class="form-control"
                                    id="id_constraints">
                         </div>
@@ -158,7 +158,8 @@
                         "memo": $('#id_memo').val()
                     }),
                     success: function (data) {
-                        console.log(data)
+                        alert('创建成功');
+                        location.reload()
 
                     }
                 })

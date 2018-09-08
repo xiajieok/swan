@@ -31,9 +31,10 @@
                     <hr>
                     <p>
                         service_name:
-                        <input id="id_svc_name">
+                        <input type="text" name="svc_name" style="width:500px;height: 20px"
+                               maxlength="50" required="" placeholder="必填项"
+                               class="form-control" id="id_svc_name">
                     </p>
-
 
 
                 </div>
@@ -43,6 +44,49 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="edit">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="edit">服务管理</h3>
+                </div>
+                <div class="modal-body detail" style="margin: 10px">
+                    <p>
+                        <label for="id_new_svc">ID:</label>
+                        <a id="id_new_svc"></a>
+                    </p>
+                    <p>
+                        <label for="id_new_svc_name">Service Name:  </label>
+                        <a id="id_new_svc_name"></a>
+                    </p>
+
+                    <p>
+                        <label for="replicas">replicas:</label>
+                        <input type="text" name="replicas" style="width:500px;height: 20px"
+                               maxlength="50" required="" placeholder="必填项"
+                               class="form-control" id="id_new_replicas">
+
+                    </p>
+
+                    <p>
+                        <label>备注:</label>
+                        <textarea class="form-control" rows="3" style="width:500px;height: 60px"
+                                  placeholder="Enter ..." id="id_new_memo"></textarea>
+
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" style="width: 60pt" data-dismiss="modal"
+                            onclick="Update(this)">提交
+                    </button>
+                    <button type="submit" class="btn btn-primary" style="width: 60pt" data-dismiss="modal">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="row">
         <div class="panel">
@@ -139,13 +183,8 @@
                             <button class="btn btn-success" data-toggle="modal" data-target="#modal-rsync">同步服务
                             </button>
 
-                            <button class="btn btn-info" data-toggle="modal" data-target="#modal-add"
-                                    onclick="Add(this)">添加服务
-                            </button>
-
                         </div>
 
-                        {#                        <a>{{ yml }}</a>#}
                         <div>
 
                             <table class="table table-bordered table-hover dataTable"
@@ -161,9 +200,8 @@
                                     <th>CPU</th>
                                     <th>内存</th>
                                     <th>数量</th>
-                                    {#                                    <th>挂载卷</th>#}
                                     <th>更新时间</th>
-                                    {#                                    <th>操作</th>#}
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -207,7 +245,7 @@
         }
 
         $(document).ready(function () {
-            $.getJSON("http://192.168.1.194:5000/api/service", function (callback) {
+            $.getJSON("http://192.168.1.194:5000/api/yaml", function (callback) {
                 var obj = callback
                 for (var item in obj) {
                     {#var host = obj[item].host;#}
@@ -224,7 +262,10 @@
                     var timestamp = Date.parse(update_date);
                     var date = fmtDate(timestamp);
                     {#var html = "<tr>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + ports + "</td>" + "<td>" + constraints + "</td>" + "<td>" + image + "</td>" + "<td>" + cpus + "</td>" + "<td>" + memory + "</td>" + "<td>" + replicas + "</td>" + "<td>" + date + "</td>" + "<td id=" + item + ">" + "<a " + 'class="btn btn-app"  onclick="Start(this)"' + "><i class=" + '"fa fa-play"' + "></i></a>" + "<a " + 'class="btn btn-app" onclick="Stop(this)"' + "><i class=" + '"fa fa-stop"' + "></i></a>" + "<a " + 'class="btn btn-app" onclick="Restart(this)"' + "><i class=" + '"fa fa-repeat"' + "></i></a>"#}
-                    var html = "<tr>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + ports + "</td>" + "<td>" + constraints + "</td>" + "<td>" + image + "</td>" + "<td>" + cpus + "</td>" + "<td>" + memory + "</td>" + "<td>" + replicas + "</td>" + "<td>" + date + "</td>"
+                    var html = "<tr>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + ports + "</td>" +
+                        "<td>" + constraints + "</td>" + "<td>" + image + "</td>" + "<td>" + cpus + "</td>" +
+                        "<td>" + memory + "</td>" + "<td>" + replicas + "</td>" + "<td>" + date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
+
                     $("tbody").append(html)
                 }
             });
@@ -236,29 +277,39 @@
             })
         });
 
-        function Add(obj) {
-            console.log('新增机器');
+        function Edit(obj) {
+            var id = $(obj).attr('id')
+            console.log('edit' + id)
             $.ajax({
-                url: "http://192.168.1.194:5000/api/yaml",
-                type: "POST",
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    "stack": $('#id_stack').val(),
-                    "svc_name": $('#id_svc_name').val(),
-                    "image": $('#id_image').val(),
-                    "ports": $('#id_ports').val(),
-                    "replicas": $('#id_replicas').val(),
-                    "constraints": $('#id_constraints').val(),
-                    "cpus": $('#id_cpus').val(),
-                    "memory": $('#id_memory').val(),
-                    "state": $('#id_state').val(),
-                    "memo": $('#id_memo').val()
-                }),
+                url: "http://192.168.1.194:5000/api/yaml/" + id,
+                type: 'GET',
                 success: function (data) {
-                    $('#success').removeClass('hidden');
+                    var obj = data[id]
+                    console.log(obj)
+                    $('#id_new_svc').text(id);
+                    $('#id_new_svc_name').text(obj.svc_name);
+                    $('#id_new_replicas').val(obj.replicas);
+                    $('#id_new_memo').val(obj.memo);
 
                 }
+            });
+        }
+         function Update(obj) {
+            var id = $("#id_new_svc").text()
+            console.log('put' + id)
+            $.ajax({
+                url: "http://192.168.1.194:5000/api/yaml/" + id,
+                type: 'PUT',
+                data: JSON.stringify({
+                    "replicas" : $('#id_new_replicas').val(),
+                    "memo" : $('#id_new_memo').val()
+                }),
+                success: function (data) {
+                    console.log('ok')
+                    window.location.reload()
+                }
             })
+
 
         }
 
