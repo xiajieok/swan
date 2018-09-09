@@ -111,6 +111,15 @@ def get_svc():
                 y['services'][svc_name] = {}
                 if svc_name != 'ner':
                     y['services'][svc_name]['state'] = state
+                cmd = "docker service ps " + i.split()[1] + "  |grep Running"
+                svc_node_res = os.popen(cmd).read().split('\n')
+                nodes = []
+                for j in svc_node_res:
+                    # print(i)
+                    if len(j) > 0:
+                        node = j.split()[3]
+                        nodes.append(node)
+                y['services'][svc_name]['node'] = nodes
     else:
         y = {'no': 'no'}
     msg_dict = y['services']

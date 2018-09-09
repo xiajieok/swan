@@ -273,7 +273,7 @@ class YamlList(Resource):
 
         svc = models.Yaml.query.all()
         for i in svc:
-            res[i.id] = {'name': i.svc_name, 'stack': i.stack, 'image': i.image, 'networks': i.networks,
+            res[i.id] = {'name': i.svc_name, 'stack': i.stack, 'node': i.node, 'image': i.image, 'networks': i.networks,
                          'volumes': i.volumes,
                          'replicas': i.replicas, 'constraints': i.constraints, 'cpus': i.cpus, 'memory': i.memory,
                          'state': i.state, 'ports': i.ports, 'memo': i.memo,
@@ -282,26 +282,28 @@ class YamlList(Resource):
 
     def post(self):
         json_data = request.get_json(force=True)
+        print(json_data['volumes'].split(','))
         if db.session.query(exists().where(models.Yaml.svc_name == json_data['svc_name'])).scalar() is not True:
             res = models.Yaml(stack=json_data['stack'], svc_name=json_data['svc_name'], image=json_data['image'],
-                              ports=json_data['ports'], networks=json_data['networks'], volumes=json_data['volumes'],
+                              ports=json_data['ports'], networks=json_data['networks'],
+                              volumes=json_data['volumes'],
                               replicas=json_data['replicas'], constraints=json_data['constraints'],
                               cpus=json_data['cpus'],
                               memory=json_data['memory'], update_date=datetime.now())
-
+            logger.info(res)
+            logger.info(json_data['volumes'].split(','))
             db.session.add(res)
             db.session.commit()
             db.session.close()
-            # node = '[node.role == manager]'
             swarm_file = get_dir('swarm_path') + json_data['svc_name'] + '.yml'
             data = {
                 'version': '3.0',
                 'services': {
                     json_data['svc_name']: {
                         'image': json_data['image'],
-                        'ports': [json_data['ports']],
+                        'ports': json_data['ports'].split(','),
                         'networks': [json_data['networks']],
-                        'volumes': [json_data['volumes']],
+                        'volumes': json_data['volumes'].split(','),
                         'deploy': {
                             'mode': 'replicated',
                             'replicas': int(json_data['replicas']),
@@ -336,7 +338,6 @@ class YamlList(Resource):
             cmd = 'src=' + src_file + ' backup=yes dest=' + swarm_dir
             task_list = [
                 dict(action=dict(module='copy', args=cmd)),
-                # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
             ]
             print(task_list)
             res = g.runansible('localhost.localdomain', task_list)
@@ -351,7 +352,8 @@ class Yaml(Resource):
     def get(self, yaml_id):
         svc = models.Yaml.query.filter_by(id=yaml_id).first()
         res = {}
-        res[svc.id] = {'svc_name': svc.svc_name, 'stack': svc.stack, 'image': svc.image, 'networks': svc.networks,
+        res[svc.id] = {'svc_name': svc.svc_name, 'stack': svc.stack, 'node': svc.node, 'image': svc.image,
+                       'networks': svc.networks,
                        'volumes': svc.volumes, 'replicas': svc.replicas, 'constraints': svc.constraints,
                        'cpus': svc.cpus, 'memory': svc.memory,
                        'state': svc.state, 'ports': svc.ports, 'memo': svc.memo,
@@ -362,24 +364,107 @@ class Yaml(Resource):
 
         json_data = request.get_json(force=True)
         print(json_data)
-        svc = {}
         try:
             for i in json_data:
                 models.Yaml.query.filter_by(id=yaml_id).update(
                     {i: json_data[i], "update_date": datetime.now()})
                 db.session.commit()
                 db.session.close()
+                svc = models.Yaml.query.filter_by(id=yaml_id).first()
+                swarm_file = get_dir('swarm_path') + json_data['svc_name'] + '.yml'
+                data = {
+                    'version': '3.0',
+                    'services': {
+                        json_data['svc_name']: {
+                            'image': svc.image,
+                            'ports': svc.ports.split(','),
+                            'networks': [svc.networks],
+                            'volumes': svc.volumes.split(','),
+                            'deploy': {
+                                'mode': 'replicated',
+                                'replicas': int(svc.replicas),
+                                'placement': {
+                                    'constraints': [svc.constraints]
+                                },
+                                'resources': {
+                                    'limits': {
+                                        'cpus': svc.cpus,
+                                        'memory': svc.memory
+                                    }
+
+                                }
+                            }
+                        }
+                    },
+                    'networks': {
+                        svc.networks:
+                            {'driver': 'overlay'}
+                    },
+
+                }
+                f = open(swarm_file, 'w')
+                yaml.dump(data, f, default_flow_style=False, indent=2, encoding='utf-8', allow_unicode=True)
+                f.close()
+
+                # 传输swarm文件
+                g = AnsibleApi()
+                src_file = swarm_file
+
+                cmd = 'src=' + src_file + ' backup=yes dest=' + swarm_dir
+                task_list = [
+                    dict(action=dict(module='copy', args=cmd)),
+                ]
+                logger.info(task_list)
+                res = g.runansible('localhost.localdomain', task_list)
+                logger.info(res)
+                # update service
+                cmd = 'docker stack deploy -c  ' + swarm_file + '  ' + svc.stack
+                task_list = [
+                    dict(action=dict(module='raw', args=cmd)),
+                ]
+                logger.info(task_list)
+                res = g.runansible('localhost.localdomain', task_list)
+                logger.info(res)
+
         except:
             json_data = json.loads(json_data)
             for k, v in json_data.items():
+                node = v["node"]
                 try:
-                    models.Yaml.query.filter_by(svc_name=k).update({'state': v['state'], "update_date": datetime.now()})
+                    res = models.Yaml.query.filter_by(svc_name=k).update(
+                        {"state": v["state"], "node": ' '.join(node), "update_date": datetime.now()})
+                    print(res)
                     db.session.commit()
                     db.session.close()
                 except:
-                    print('NO')
-
+                    print('agent 执行失败')
         return 200
+
+    def delete(self, yaml_id):
+        try:
+
+            svc = models.Yaml.query.filter_by(id=yaml_id).first()
+            service = svc.stack + '_' + svc.svc_name
+            logger.info(service)
+            # from swarm delete service
+            g = AnsibleApi()
+            cmd = 'docker service rm ' + service
+            task_list = [
+                dict(action=dict(module='raw', args=cmd)),
+            ]
+            logger.info(task_list)
+            res = g.runansible('localhost.localdomain', task_list)
+            logger.info(res)
+
+            # from db delete service
+            svc = models.Yaml.query.filter_by(id=yaml_id).delete()
+            db.session.commit()
+            db.session.close()
+            msg = 'OK'
+
+        except:
+            msg = 'Error '
+        return msg
 
 
 class ServiceList(Resource):

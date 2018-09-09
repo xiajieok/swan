@@ -127,6 +127,7 @@ class Yaml(db.Model):
     # hostname = Column(String(64))
     stack = Column(String(64))
     svc_name = Column(String(64))
+    node = Column(String(256))
     image = Column(String(64))
     ports = Column(String(64))
     networks = Column(String(64))

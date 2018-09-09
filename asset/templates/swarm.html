@@ -15,28 +15,19 @@
 
 {% block page_content %}
 
-    <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-labelledby="detail">
+    <div class="modal fade" id="modal-wait" tabindex="-1" role="dialog" aria-labelledby="wait">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h3 class="modal-title" id="detail">添加服务</h3>
+                    <h3 class="modal-title" id="detail"></h3>
                 </div>
                 <div class="modal-body detail" style="margin: 10px">
-                    <span>
-                        Stack:
-                        <input id="stack" placeholder="sys01">
-                    </span>
-                    <hr>
-                    <p>
-                        service_name:
-                        <input type="text" name="svc_name" style="width:500px;height: 20px"
-                               maxlength="50" required="" placeholder="必填项"
-                               class="form-control" id="id_svc_name">
-                    </p>
 
-
+                <span>
+                    程序执行中，请稍候。。。
+                </span>
                 </div>
                 <div class="modal-footer">
 
@@ -58,7 +49,7 @@
                         <a id="id_new_svc"></a>
                     </p>
                     <p>
-                        <label for="id_new_svc_name">Service Name:  </label>
+                        <label for="id_new_svc_name">Service Name: </label>
                         <a id="id_new_svc_name"></a>
                     </p>
 
@@ -91,91 +82,6 @@
     <div class="row">
         <div class="panel">
             <div class="panel-body">
-                <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-labelledby="edit">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                        aria-hidden="true">&times;</span></button>
-                                <h3 class="modal-title" id="edit">详情管理</h3>
-                            </div>
-                            <div class="modal-body detail" style="margin: 10px">
-                                <p>
-                                    <label for="id_asset">ID:</label>
-                                    <a id="id_asset"></a>
-                                </p>
-                                <p>
-                                    <label for="id_hostname">主机名:</label>
-                                    <input type="text" name="hostname" style="width:500px;height: 20px"
-                                           maxlength="50" required="" placeholder="必填项"
-                                           class="form-control" id="id_hostname">
-                                </p>
-                                <p>
-                                    <label for="id_type">设备类型:</label>
-                                    <select name="asset_type" style="width:530px;" class="form-control" id="id_type">
-                                        <option value="" selected="">---------</option>
-                                        <option value="server">server</option>
-                                        <option value="route">route</option>
-                                        <option value="swtich">swtich</option>
-                                        <option value="other">other</option>
-                                    </select>
-
-                                </p>
-                                {#                    <p>#}
-                                {#                        <label for="id_hostname">SN:</label>#}
-                                {#                        <input type="text" name="hostname" style="width:500px;height: 20px"#}
-                                {#                               maxlength="50" required="" placeholder="必填项"#}
-                                {#                               class="form-control" id="id_sn">#}
-                                {#                    </p>#}
-                                <p>
-                                    <label for="id_business">产品线:</label>
-                                    <select name="asset_type" style="width:530px;" class="form-control"
-                                            id="id_business">
-                                        <option value="" selected="">---------</option>
-                                    </select>
-
-                                </p>
-                                <p>
-                                    <label for="id_idc">IDC:</label>
-                                    <select name="asset_type" style="width:530px;" class="form-control" id="id_idc">
-                                        <option value="" selected="">---------</option>
-                                    </select>
-                                </p>
-
-                                <p>
-                                    <label for="id_model">型号:</label>
-                                    <input type="text" name="id_model" style="width:500px;height: 20px"
-                                           maxlength="50" required="" placeholder="必填项"
-                                           class="form-control" id="id_model">
-                                </p>
-                                <p>
-                                    <label for="id_status">状态:</label>
-                                    <select name="asset_type" style="width:530px;" class="form-control" id="id_status">
-                                        <option value="" selected="">---------</option>
-                                        <option value="Up">Up</option>
-                                        <option value="Stop">Stop</option>
-                                        <option value="Backup">Backup</option>
-                                        <option value="Faild">Faild</option>
-                                    </select>
-                                </p>
-                                <p>
-                                    <label>备注:</label>
-                                    <textarea class="form-control" rows="3" style="width:500px;height: 60px"
-                                              placeholder="Enter ..."></textarea>
-
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary" style="width: 60pt" data-dismiss="modal"
-                                        onclick="Update(this)">提交
-                                </button>
-                                <button type="submit" class="btn btn-primary" style="width: 60pt" data-dismiss="modal">
-                                    返回
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="row">
                     <div style="margin: 10px 0px 10px 10px">
@@ -192,10 +98,11 @@
 
                                 <thead>
                                 <tr role="row">
+                                    <th>stack</th>
                                     <th>服务</th>
                                     <th>状态</th>
                                     <th>端口</th>
-                                    <th>节点</th>
+                                    <th width="50px">节点</th>
                                     <th>镜像</th>
                                     <th>CPU</th>
                                     <th>内存</th>
@@ -204,7 +111,7 @@
                                     <th>操作</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="width: 100px">
 
                                 </tbody>
 
@@ -248,10 +155,11 @@
             $.getJSON("http://192.168.1.194:5000/api/yaml", function (callback) {
                 var obj = callback
                 for (var item in obj) {
-                    {#var host = obj[item].host;#}
+                    var stack = obj[item].stack;
                     var name = obj[item].name;
                     var state = obj[item].state;
-                    var constraints = obj[item].constraints;
+                    var label = obj[item].constraints;
+                    var node = obj[item].node;
                     var image = obj[item].image;
                     var cpus = obj[item].cpus;
                     var memory = obj[item].memory;
@@ -261,10 +169,9 @@
                     var update_date = obj[item].update_date;
                     var timestamp = Date.parse(update_date);
                     var date = fmtDate(timestamp);
-                    {#var html = "<tr>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + ports + "</td>" + "<td>" + constraints + "</td>" + "<td>" + image + "</td>" + "<td>" + cpus + "</td>" + "<td>" + memory + "</td>" + "<td>" + replicas + "</td>" + "<td>" + date + "</td>" + "<td id=" + item + ">" + "<a " + 'class="btn btn-app"  onclick="Start(this)"' + "><i class=" + '"fa fa-play"' + "></i></a>" + "<a " + 'class="btn btn-app" onclick="Stop(this)"' + "><i class=" + '"fa fa-stop"' + "></i></a>" + "<a " + 'class="btn btn-app" onclick="Restart(this)"' + "><i class=" + '"fa fa-repeat"' + "></i></a>"#}
-                    var html = "<tr>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + ports + "</td>" +
-                        "<td>" + constraints + "</td>" + "<td>" + image + "</td>" + "<td>" + cpus + "</td>" +
-                        "<td>" + memory + "</td>" + "<td>" + replicas + "</td>" + "<td>" + date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
+                    var html = "<tr>" + "<td>" + stack + "</td>" + "<td>" + name + "</td>" + "<td>" + state + "</td>" + "<td>" + ports + "</td>" +
+                        "<td>" + node + "</td>" + "<td>" + image + "</td>" + "<td>" + cpus + "</td>" +
+                        "<td>" + memory + "</td>" + "<td>" + replicas + "</td>" + "<td>" + date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px" onclick="GetServieStatus(this)"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
 
                     $("tbody").append(html)
                 }
@@ -280,33 +187,38 @@
         function Edit(obj) {
             var id = $(obj).attr('id')
             console.log('edit' + id)
-            $.ajax({
-                url: "http://192.168.1.194:5000/api/yaml/" + id,
-                type: 'GET',
-                success: function (data) {
-                    var obj = data[id]
-                    console.log(obj)
-                    $('#id_new_svc').text(id);
-                    $('#id_new_svc_name').text(obj.svc_name);
-                    $('#id_new_replicas').val(obj.replicas);
-                    $('#id_new_memo').val(obj.memo);
+            if (confirm("确定要修改服务")) {
+                $.ajax({
+                    url: "http://192.168.1.194:5000/api/yaml/" + id,
+                    type: 'GET',
+                    success: function (data) {
+                        var obj = data[id]
+                        console.log(obj)
+                        $('#id_new_svc').text(id);
+                        $('#id_new_svc_name').text(obj.svc_name);
+                        $('#id_new_replicas').val(obj.replicas);
+                        $('#id_new_memo').val(obj.memo);
 
-                }
-            });
+                    }
+                });
+            }
         }
-         function Update(obj) {
+
+        function Update(obj) {
+            $('#modal-wait').modal();
             var id = $("#id_new_svc").text()
-            console.log('put' + id)
             $.ajax({
                 url: "http://192.168.1.194:5000/api/yaml/" + id,
                 type: 'PUT',
                 data: JSON.stringify({
-                    "replicas" : $('#id_new_replicas').val(),
-                    "memo" : $('#id_new_memo').val()
+                    "svc_name": $('#id_new_svc_name').text(),
+                    "replicas": $('#id_new_replicas').val(),
+                    "memo": $('#id_new_memo').val()
                 }),
                 success: function (data) {
                     console.log('ok')
-                    window.location.reload()
+                    $('#modal-wait').modal('hide');
+                    {#window.location.reload()#}
                 }
             })
 
@@ -349,21 +261,17 @@
 
         }
 
-        function Stop(obj) {
+        function Del(obj) {
             if (confirm("确定停止该服务?")) {
-
+                var id = $(obj).parent().attr('id')
+                console.log(id);
                 $.ajax({
-                    url: "http://192.168.1.194:5000/api/ansible",
-                    type: 'POST',
-                    data: JSON.stringify({
-                        "type": "cmd",
-                        "ip": $(obj).parent().siblings().first().text(),
-                        "args": "cd /root/docker && docker-compose stop " + $(obj).parent().siblings().eq(1).text()
-                    }),
+                    url: "http://192.168.1.194:5000/api/yaml/" + id,
+                    type: 'DELETE',
                     success: function (callback) {
-                        var html = '<img src="{{ url_for('static', filename='img/red.png') }}" stytle="width: 20px;height: 20px;">'
-                        $(obj).parent().siblings().eq(2).html("");
-                        $(obj).parent().siblings().eq(2).append(html);
+                        alert('停止服务成功');
+                        location.reload();
+
                     }
                 })
             }
@@ -390,16 +298,12 @@
             }
         }
 
-        function GetServieStatus() {
+        function GetServieStatus(obj) {
             if (confirm("确定同步服务?")) {
+                var id = $(obj).parent().attr('id')
                 $.ajax({
-                    url: "http://192.168.1.194:5000/api/ansible",
-                    type: 'POST',
-                    data: JSON.stringify({
-                        "type": "cmd",
-                        "hostname": "localhost.localdomain",
-                        "args": "/usr/bin/python /opt/docker/swarm/agent.py"
-                    }),
+                    url: "http://192.168.1.194:5000/api/yaml/" + id,
+                    type: 'PUT',
                     success: function () {
                         location.reload();
 
