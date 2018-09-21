@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% block page_content_title %}
+    任务编排
+{% endblock %}
+
+{% block page_nav_tab %}
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li class="active">服务管理</li>
+        <li class="active">SaltStack管理</li>
+    </ol>
+{% endblock %}
+{% block page_content %}
+    <div class="row">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div style="margin: 10px 0px 10px 0">
+                            <div class="col-md-5">
+                                <a>{{ yml }}</a>
+                                <p>
+                                    <a>
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#modal-add">
+                                            同步数据
+                                        </button>
+                                    </a>
+                                </p>
+                                <div class="form-group">
+                                    <label for="id_type">选择主机:</label>
+                                    <select name="asset_host" style="width:330px;" class="form-control" id="id_host">
+                                        <option value="" selected="">---------</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="id_type">选择palybook:</label>
+                                    <select name="asset_type" style="width:330px;" class="form-control"
+                                            id="id_playbook">
+                                        <option value="" selected="">---------</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <button id="command_submit" class="btn btn-primary"
+                                            style="width: 60pt; font-size: medium;" onclick="AnsibleRun()">执行
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6" style="float: right">
+                                <div class="form-group">
+                                    <input type="hidden" name="csrfmiddlewaretoken"
+                                           value="vrqL8mzdoPn8f1y7D2MRvYoVtgbubhErX6FSoAsimOwXF8LQ4wT7LrjLxumCPf9H">
+                                    <div class="form-group ">
+                                        <label>Ansible Command</label>
+                                        <textarea style="padding-bottom: 15px;" id="id_cmd" name="mcommand" rows="11"
+                                                  class="form-control"
+                                                  placeholder="use enter spilt and command like: ansible web -a 'ls'"></textarea>
+                                    </div>
+                                    <button id="command_submit" class="btn btn-primary"
+                                            style="width: 60pt; font-size: medium;" onclick="SaltCMDRun(this)">执行
+                                    </button>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>        <!-- nav-tabs-custom -->
+                <div class="box-header with-border">
+                    <h3 class="box-title">执行结果</h3>
+                </div>
+                <div class="box-body ">
+            <pre id="cmd-res" class="pre-code">
+
+            </pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://192.168.1.194:5000/api/ansible", function (callback) {
+                console.log(callback);
+                for (var item in callback) {
+                    tmp = "<option>" + callback[item] + "</option>";
+                    $('#id_playbook').append(tmp)
+
+                }
+            });
+            $.getJSON("http://192.168.1.194:5000/api/assets", function (callback) {
+                for (var item in callback) {
+                    console.log(item);
+                    tmp = "<option>" + callback[item]['hostname'] + "</option>";
+                    $('#id_host').append(tmp)
+                }
+            })
+        });
+
+        function AnsibleRun(obj) {
+            $.ajax({
+                url: "http://192.168.1.194:5000/api/ansible",
+                type: 'POST',
+                data: JSON.stringify({
+                    "type": "cmd",
+                    "hostname": $('#id_host').val(),
+                    "book": $('#id_playbook').val()
+                }),
+                success: function (callback) {
+                    $('#cmd-res').text(callback);
+                }
+            })
+        }
+
+        function SaltCMDRun(obj) {
+            $.ajax({
+                url: "http://192.168.1.194:5000/api/salt",
+                type: 'POST',
+                data: JSON.stringify({
+                    "type": "cmd",
+                    "hostname": $('#id_host').val(),
+                    "args": $('#id_cmd').val()
+                }),
+                success: function (callback) {
+                    console.log(callback);
+                    $('#cmd-res').text('');
+                    $('#cmd-res').text(callback['scm']);
+
+                }
+            })
+        }
+    </script>
+{% endblock %}

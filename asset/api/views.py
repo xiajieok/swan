@@ -6,8 +6,10 @@ from flask import jsonify, request, render_template
 from asset.ext import db
 from asset.utils import auth
 from asset.AnsibleAPI import AnsibleApi
-from asset.utils import get_dir
+from asset.SaltAPI import SaltAPI
+from asset.utils import get_dir, get_salt
 import json
+from subprocess import Popen, PIPE
 from asset.main.dashboard import AssetDashboard
 from logger import logger
 import yaml
@@ -16,8 +18,17 @@ from sqlalchemy.sql import exists
 ansible_dir = get_dir('a_path')
 playbook_dir = get_dir('play_book_path')
 swarm_dir = get_dir('swarm_path')
-
+salt_userename = get_salt('username')
+salt_password = get_salt('password')
+salt_url = get_salt('url')
+salt_dir = get_salt('dir')
 parser = reqparse.RequestParser()
+
+salt = SaltAPI(url=salt_url, username=salt_userename, password=salt_password)
+salt.salt_login()
+# json_data = request.get_json(force=True)
+# logger.info(json_data)
+# res = salt.cmd(json_data['hostname'], json_data['args'])['return'][0]
 
 
 class Dashboard(Resource):
@@ -296,6 +307,7 @@ class YamlList(Resource):
             db.session.commit()
             db.session.close()
             swarm_file = get_dir('swarm_path') + json_data['svc_name'] + '.yml'
+            src_file =  json_data['svc_name'] + '.yml'
             data = {
                 'version': '3.0',
                 'services': {
@@ -332,16 +344,25 @@ class YamlList(Resource):
             f.close()
 
             # 传输swarm文件
-            g = AnsibleApi()
-            src_file = swarm_file
+            cmd = "scp " + swarm_file + " root@192.168.1.232:/srv/salt/"
+            print(cmd)
+            p = Popen(cmd, stdout=PIPE, shell=True)
+            stdout, stderr = p.communicate()
 
-            cmd = 'src=' + src_file + ' backup=yes dest=' + swarm_dir
-            task_list = [
-                dict(action=dict(module='copy', args=cmd)),
-            ]
-            print(task_list)
-            res = g.runansible('localhost.localdomain', task_list)
-            print(res)
+            # return 200
+
+
+            # cmd = 'src=' + src_file + ' backup=yes dest=' + swarm_dir
+
+            # args = "cp /srv/salt/" + swarm_file + " /opt/docker/swarm/"
+
+            args = 'salt ' + 'scm ' + 'cp.get_file salt://' + src_file + ' ' + get_dir('swarm_dest_path')
+            print(args)
+            # res = g.runansible('localhost.localdomain', task_list)
+            res = salt.cmd('scm', args)['return'][0]
+            return res
+            # res = salt.cmd(json_data['hostname'], json_data['args'])['return'][0]
+
         else:
             json_data = 'NO'
 
@@ -689,6 +710,20 @@ class Asset(Resource):
         except:
             return "Not exists"
         return 200
+
+
+class Salt(Resource):
+    def get(self):
+        pass
+
+    def post(self):
+        salt = SaltAPI(url=salt_url, username=salt_userename, password=salt_password)
+        salt.salt_login()
+        json_data = request.get_json(force=True)
+        logger.info(json_data)
+        res = salt.cmd(json_data['hostname'], json_data['args'])['return'][0]
+        return res
+
 
 
 class Ansible(Resource):

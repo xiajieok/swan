@@ -33,6 +33,22 @@ def get_dir(args):
         # print(play_book_path)
         hosts_path = config.get('config', 'hosts_path')
         swarm_path = config.get('config', 'swarm_path')
+        swarm_dest_path = config.get('config', 'swarm_dest_path')
+    if args:
+        return vars()[args]
+    else:
+        return 'NO'
+
+
+def get_salt(args):
+    dirs = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    config = cf.RawConfigParser()
+    with open(dirs + '/cmdb.ini', 'r') as cfgfile:
+        config.read_file(cfgfile)
+        username = config.get('salt', 'username')
+        password = config.get('salt', 'password')
+        url = config.get('salt', 'url')
+        dir = config.get('salt', 'dir')
     if args:
         return vars()[args]
     else:

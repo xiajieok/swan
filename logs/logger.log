@@ -5696,3 +5696,34 @@
 [INFO]: 2018-09-16 23:58:55,615 - AnsibleAPI.py - runansible - MainThread - {'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}, 'success': {}, 'unreachable': {}}
 [INFO]: 2018-09-16 23:59:13,527 - AnsibleAPI.py - runansible - MainThread - {'unreachable': {}, 'success': {}, 'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}}
 [INFO]: 2018-09-17 00:00:21,130 - AnsibleAPI.py - runansible - MainThread - {'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}, 'unreachable': {}, 'success': {}}
+[INFO]: 2018-09-21 16:15:00,034 - dashboard.py - searilize_page - Thread-1 - {'business_load': {'data': {'load': [64], 'left': [36]}, 'names': ['web']}, 'asset_status_list': {'data': [{'value': 2, 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'name': 'Up'}], 'names': ['Up']}, 'asset_categories': {'data': [{'value': 2, 'name': 'server'}], 'names': ['server']}}
+[INFO]: 2018-09-21 16:15:23,984 - dashboard.py - searilize_page - Thread-1 - {'business_load': {'data': {'load': [64], 'left': [36]}, 'names': ['web']}, 'asset_status_list': {'data': [{'value': 2, 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'name': 'Up'}], 'names': ['Up']}, 'asset_categories': {'data': [{'value': 2, 'name': 'server'}], 'names': ['server']}}
+[INFO]: 2018-09-21 16:15:48,418 - dashboard.py - searilize_page - Thread-1 - {'business_load': {'data': {'load': [64], 'left': [36]}, 'names': ['web']}, 'asset_status_list': {'data': [{'value': 2, 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'name': 'Up'}], 'names': ['Up']}, 'asset_categories': {'data': [{'value': 2, 'name': 'server'}], 'names': ['server']}}
+[INFO]: 2018-09-21 16:21:47,910 - views.py - post - Thread-1 - {'status': 'Up', 'cpu_physical': 2, 'memory': "{'available': 3017, 'used': 7263, 'cached': 2427, 'percent': 61.4, 'free': 558, 'total': 7822.0, 'buffers': 31}", 'model': 'KVM\n', 'cpu_num': '2', 'vendor': 'Red Hat\n', 'idc': 'beijing', 'cpu_processor': 2, 'sn': 123274, 'disk': '[]', 'os': 'CentOS Linux 7.5.1804 x86_64', 'ip': '192.168.1.232', 'cpu_model': 'Intel Core Processor (Broadwell, IBRS)', 'hostname': 'scm', 'type': 'server'}
+[INFO]: 2018-09-21 16:22:18,964 - dashboard.py - searilize_page - Thread-1 - {'business_load': {'data': {'load': [64], 'left': [36]}, 'names': ['web']}, 'asset_status_list': {'data': [{'value': 3, 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'name': 'Up'}], 'names': ['Up']}, 'asset_categories': {'data': [{'value': 3, 'name': 'server'}], 'names': ['server']}}
+[INFO]: 2018-09-21 17:11:46,447 - views.py - post - Thread-1 - {'type': 'cmd', 'args': 'docker service ls', 'hostname': 'scm'}
+[INFO]: 2018-09-21 17:12:00,593 - views.py - post - Thread-1 - {'type': 'cmd', 'args': 'docker info\n', 'hostname': 'scm'}
+[INFO]: 2018-09-21 17:12:24,607 - views.py - post - Thread-1 - {'type': 'cmd', 'args': 'salt-key', 'hostname': 'scm'}
+[INFO]: 2018-09-21 17:19:25,606 - views.py - post - Thread-1 - <Yaml (transient 4376789568)>
+[INFO]: 2018-09-21 17:19:25,607 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-21 17:19:36,689 - AnsibleAPI.py - runansible - Thread-1 - {'success': {}, 'failed': {}, 'unreachable': {'192.168.1.249': 'Failed to connect to the host via ssh: OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/Users/medivh/.ansible/cp/445d0a1ce2" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.249 [192.168.1.249] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: connect to address 192.168.1.249 port 22: Operation timed out\r\nssh: connect to host 192.168.1.249 port 22: Operation timed out\r\n'}}
+[INFO]: 2018-09-21 17:24:20,105 - views.py - post - Thread-1 - <Yaml (transient 4376790744)>
+[INFO]: 2018-09-21 17:24:20,106 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-21 17:59:38,460 - views.py - post - Thread-1 - <Yaml (transient 4376790688)>
+[INFO]: 2018-09-21 17:59:38,461 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-21 18:01:20,099 - views.py - post - Thread-1 - <Yaml (transient 4376809424)>
+[INFO]: 2018-09-21 18:01:20,100 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-21 18:02:23,081 - views.py - post - Thread-1 - <Yaml (transient 4376815600)>
+[INFO]: 2018-09-21 18:02:23,082 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-21 18:07:25,587 - views.py - post - Thread-1 - <Yaml (transient 4376817224)>
+[INFO]: 2018-09-21 18:07:25,588 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-21 18:09:54,963 - views.py - post - Thread-1 - <Yaml (transient 4375733640)>
+[INFO]: 2018-09-21 18:09:54,964 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-21 18:10:52,736 - views.py - post - Thread-1 - <Yaml (transient 4376789400)>
+[INFO]: 2018-09-21 18:10:52,737 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-21 18:12:00,445 - views.py - post - Thread-1 - <Yaml (transient 4376790688)>
+[INFO]: 2018-09-21 18:12:00,445 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-21 18:12:52,032 - views.py - post - Thread-1 - <Yaml (transient 4377838200)>
+[INFO]: 2018-09-21 18:12:52,033 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-21 18:16:05,055 - views.py - post - Thread-1 - <Yaml (transient 4375765400)>
+[INFO]: 2018-09-21 18:16:05,055 - views.py - post - Thread-1 - ['/opt:/opt']

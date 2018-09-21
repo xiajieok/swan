@@ -46,6 +46,10 @@ def domain():
 def ansible():
     return render_template('ansible.html')
 
+@main.route('/salt')
+@login_required
+def salt():
+    return render_template('salt.html')
 
 @main.route('/swarm')
 @login_required
