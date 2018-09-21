@@ -38,3 +38,8 @@ resource.add_resource(views.Vpn, "/vpn/<int:vpn_id>")
 
 resource.add_resource(views.YamlList, "/yaml")
 resource.add_resource(views.Yaml, "/yaml/<int:yaml_id>")
+
+
+# grafana
+resource.add_resource(views.Alarm, "/alarm")
+# resource.add_resource(views.Alarm, "/alarm/<int:alarm_id>")

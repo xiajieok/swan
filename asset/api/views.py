@@ -756,3 +756,56 @@ class Ansible(Resource):
                 return msg
             except:
                 return 'Error'
+
+
+class Alarm(Resource):
+    # decorators = [auth.login_required]
+
+    def post(self):
+        json_data = request.get_json(force=True)
+        # json_data = json.loads(json_data)
+        print(json_data)
+        if json_data['state'] == 'alerting':
+            n = json_data['evalMatches']
+            ss = n[0]['metric']
+            old_value = n[0]['value']
+            print(old_value)
+
+            data = ss.replace('Memory ', " ").replace('{host: ', " ").replace('container: ', "").strip()[:-1].split()
+
+            host = data[0][:-1]
+            print(host)
+            container = data[1]
+            print(container)
+            full_name = container.split('.')[0]
+            print(full_name)
+            svc_name = full_name.split('_')[1]
+            threshold_value = 2
+            g = AnsibleApi()
+
+            obj = db.session.query(models.Yaml).filter_by(svc_name=svc_name).first()
+            print(obj)
+            new_num = int(obj.replicas) + 1
+            print(new_num)
+            cmd = 'docker service scale  ' + full_name + '=' + str(new_num)
+            print(cmd)
+            cmd1 = "`docker service scale  sys01_joy-api=3`"
+
+            task_list = [
+                dict(action=dict(module='raw', args=cmd1)),
+            ]
+            print(task_list)
+
+            if old_value > threshold_value:
+                print('Add new machine')
+                res = g.runansible('master', task_list)
+                print(res)
+            else:
+                cmd = 'docker service scale %s=%d ' + full_name + '=' + obj.replicas
+                print(cmd)
+                task_list = [
+                    dict(action=dict(module='shell', args=cmd1)),
+                ]
+                print(task_list)
+                print('Dell new machine')
+        return 200

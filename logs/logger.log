@@ -4592,3 +4592,1107 @@
     }
 }
 [INFO]: 2018-09-09 22:32:08,156 - views.py - put - Thread-1 - {'memory': "{'available': 631, 'used': 193, 'cached': 187, 'percent': 36.1, 'free': 606, 'total': 987.0, 'buffers': 0}", 'type': 'server', 'os': 'CentOS Linux 7.5.1804 x86_64', 'ip': '192.168.1.249', 'disk': '[]', 'cpu_physical': 1, 'status': 'Up', 'model': 'Parallels Virtual Platform\n', 'vendor': 'Parallels Software International Inc.\n', 'cpu_processor': 1, 'cpu_num': '1', 'idc': 'beijing', 'cpu_model': 'Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz'}
+[INFO]: 2018-09-10 09:58:51,003 - views.py - post - Thread-1 - <Yaml (transient 4384028264)>
+[INFO]: 2018-09-10 09:58:51,003 - views.py - post - Thread-1 - ['/opt:/opt', '/tmp:/tmp']
+[INFO]: 2018-09-10 09:58:54,151 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'state': 'file', 'group': 'root', 'invocation': {'module_args': {'selevel': None, 'owner': None, 'group': None, 'remote_src': None, 'regexp': None, 'content': None, 'mode': None, 'serole': None, 'src': '/root/.ansible/tmp/ansible-tmp-1536544731.860437-50997684277343/source', 'setype': None, 'checksum': '8c3b47a0c63de9924fba981dbc95d3f48327bd70', 'unsafe_writes': None, 'force': True, 'seuser': None, 'directory_mode': None, 'local_follow': None, 'backup': True, 'original_basename': 'joy-ss.yml', 'delimiter': None, 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'follow': False, 'attributes': None, 'validate': None}}, 'diff': [], 'mode': '0644', 'changed': True, '_ansible_no_log': False, 'gid': 0, 'owner': 'root', 'md5sum': '998990a907fb1f426b6810d327c6841e', '_ansible_parsed': True, 'uid': 0, 'src': '/root/.ansible/tmp/ansible-tmp-1536544731.860437-50997684277343/source', 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'size': 390, 'checksum': '8c3b47a0c63de9924fba981dbc95d3f48327bd70'}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:00:52,794 - views.py - put - Thread-1 - [{'action': {'args': 'src=/usr/local/ansible/swarm/joy-ss.yml backup=yes dest=/usr/local/ansible/swarm/', 'module': 'copy'}}]
+[INFO]: 2018-09-10 10:00:55,502 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'state': 'file', 'uid': 0, 'checksum': '6f3d25511da7e032f298e847534d2266441ffb0c', 'invocation': {'module_args': {'selevel': None, 'owner': None, 'group': None, 'remote_src': None, 'regexp': None, 'content': None, 'mode': None, 'serole': None, 'src': '/root/.ansible/tmp/ansible-tmp-1536544853.119509-151767175572109/source', 'setype': None, 'checksum': '6f3d25511da7e032f298e847534d2266441ffb0c', 'unsafe_writes': None, 'force': True, 'seuser': None, 'directory_mode': None, 'local_follow': None, 'backup': True, 'original_basename': 'joy-ss.yml', 'delimiter': None, 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'follow': False, 'attributes': None, 'validate': None}}, 'diff': [], 'mode': '0644', 'changed': True, '_ansible_no_log': False, 'gid': 0, 'owner': 'root', 'md5sum': 'c6ae828bfa0270ba1c747ea9f6e9ab07', '_ansible_parsed': True, 'backup_file': '/usr/local/ansible/swarm/joy-ss.yml.29125.2018-09-09@12:11:20~', 'src': '/root/.ansible/tmp/ansible-tmp-1536544853.119509-151767175572109/source', 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'size': 390, 'group': 'root'}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:00:55,503 - views.py - put - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "state": "file",
+            "uid": 0,
+            "checksum": "6f3d25511da7e032f298e847534d2266441ffb0c",
+            "invocation": {
+                "module_args": {
+                    "selevel": null,
+                    "owner": null,
+                    "group": null,
+                    "remote_src": null,
+                    "regexp": null,
+                    "content": null,
+                    "mode": null,
+                    "serole": null,
+                    "src": "/root/.ansible/tmp/ansible-tmp-1536544853.119509-151767175572109/source",
+                    "setype": null,
+                    "checksum": "6f3d25511da7e032f298e847534d2266441ffb0c",
+                    "unsafe_writes": null,
+                    "force": true,
+                    "seuser": null,
+                    "directory_mode": null,
+                    "local_follow": null,
+                    "backup": true,
+                    "original_basename": "joy-ss.yml",
+                    "delimiter": null,
+                    "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+                    "follow": false,
+                    "attributes": null,
+                    "validate": null
+                }
+            },
+            "diff": [],
+            "mode": "0644",
+            "changed": true,
+            "_ansible_no_log": false,
+            "gid": 0,
+            "owner": "root",
+            "md5sum": "c6ae828bfa0270ba1c747ea9f6e9ab07",
+            "_ansible_parsed": true,
+            "backup_file": "/usr/local/ansible/swarm/joy-ss.yml.29125.2018-09-09@12:11:20~",
+            "src": "/root/.ansible/tmp/ansible-tmp-1536544853.119509-151767175572109/source",
+            "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+            "size": 390,
+            "group": "root"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:00:55,504 - views.py - put - Thread-1 - [{'action': {'args': 'docker stack deploy -c  /usr/local/ansible/swarm/joy-ss.yml  sys01', 'module': 'raw'}}]
+[INFO]: 2018-09-10 10:00:57,222 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {'192.168.1.249': {'state': 'file', 'uid': 0, 'checksum': '6f3d25511da7e032f298e847534d2266441ffb0c', 'invocation': {'module_args': {'selevel': None, 'owner': None, 'group': None, 'remote_src': None, 'regexp': None, 'content': None, 'mode': None, 'serole': None, 'src': '/root/.ansible/tmp/ansible-tmp-1536544853.119509-151767175572109/source', 'setype': None, 'checksum': '6f3d25511da7e032f298e847534d2266441ffb0c', 'unsafe_writes': None, 'force': True, 'seuser': None, 'directory_mode': None, 'local_follow': None, 'backup': True, 'original_basename': 'joy-ss.yml', 'delimiter': None, 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'follow': False, 'attributes': None, 'validate': None}}, 'diff': [], 'mode': '0644', 'changed': True, '_ansible_no_log': False, 'gid': 0, 'owner': 'root', 'md5sum': 'c6ae828bfa0270ba1c747ea9f6e9ab07', '_ansible_parsed': True, 'backup_file': '/usr/local/ansible/swarm/joy-ss.yml.29125.2018-09-09@12:11:20~', 'src': '/root/.ansible/tmp/ansible-tmp-1536544853.119509-151767175572109/source', 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'size': 390, 'group': 'root'}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:00:57,223 - views.py - put - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {
+        "192.168.1.249": {
+            "state": "file",
+            "uid": 0,
+            "checksum": "6f3d25511da7e032f298e847534d2266441ffb0c",
+            "invocation": {
+                "module_args": {
+                    "selevel": null,
+                    "owner": null,
+                    "group": null,
+                    "remote_src": null,
+                    "regexp": null,
+                    "content": null,
+                    "mode": null,
+                    "serole": null,
+                    "src": "/root/.ansible/tmp/ansible-tmp-1536544853.119509-151767175572109/source",
+                    "setype": null,
+                    "checksum": "6f3d25511da7e032f298e847534d2266441ffb0c",
+                    "unsafe_writes": null,
+                    "force": true,
+                    "seuser": null,
+                    "directory_mode": null,
+                    "local_follow": null,
+                    "backup": true,
+                    "original_basename": "joy-ss.yml",
+                    "delimiter": null,
+                    "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+                    "follow": false,
+                    "attributes": null,
+                    "validate": null
+                }
+            },
+            "diff": [],
+            "mode": "0644",
+            "changed": true,
+            "_ansible_no_log": false,
+            "gid": 0,
+            "owner": "root",
+            "md5sum": "c6ae828bfa0270ba1c747ea9f6e9ab07",
+            "_ansible_parsed": true,
+            "backup_file": "/usr/local/ansible/swarm/joy-ss.yml.29125.2018-09-09@12:11:20~",
+            "src": "/root/.ansible/tmp/ansible-tmp-1536544853.119509-151767175572109/source",
+            "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+            "size": 390,
+            "group": "root"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:00:57,240 - views.py - put - Thread-1 - [{'action': {'args': 'src=/usr/local/ansible/swarm/joy-ss.yml backup=yes dest=/usr/local/ansible/swarm/', 'module': 'copy'}}]
+[INFO]: 2018-09-10 10:00:58,492 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'state': 'file', 'group': 'root', 'diff': {'before': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}, 'after': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}}, 'mode': '0644', 'invocation': {'module_args': {'selevel': None, 'serole': None, 'remote_src': None, 'validate': None, 'recurse': False, 'mode': None, 'regexp': None, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'src': 'joy-ss.yml', 'diff_peek': None, 'setype': None, 'group': None, 'unsafe_writes': None, 'force': False, 'seuser': None, 'directory_mode': None, 'state': 'file', 'owner': None, 'backup': 'yes', 'original_basename': 'joy-ss.yml', 'delimiter': None, 'dest': '/usr/local/ansible/swarm/', 'follow': True, 'attributes': None, 'content': None}}, '_ansible_no_log': False, 'gid': 0, 'owner': 'root', '_ansible_parsed': True, 'uid': 0, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'size': 390, 'changed': False, 'checksum': '6f3d25511da7e032f298e847534d2266441ffb0c'}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:00:58,493 - views.py - put - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "state": "file",
+            "group": "root",
+            "diff": {
+                "before": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                },
+                "after": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                }
+            },
+            "mode": "0644",
+            "invocation": {
+                "module_args": {
+                    "selevel": null,
+                    "serole": null,
+                    "remote_src": null,
+                    "validate": null,
+                    "recurse": false,
+                    "mode": null,
+                    "regexp": null,
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml",
+                    "src": "joy-ss.yml",
+                    "diff_peek": null,
+                    "setype": null,
+                    "group": null,
+                    "unsafe_writes": null,
+                    "force": false,
+                    "seuser": null,
+                    "directory_mode": null,
+                    "state": "file",
+                    "owner": null,
+                    "backup": "yes",
+                    "original_basename": "joy-ss.yml",
+                    "delimiter": null,
+                    "dest": "/usr/local/ansible/swarm/",
+                    "follow": true,
+                    "attributes": null,
+                    "content": null
+                }
+            },
+            "_ansible_no_log": false,
+            "gid": 0,
+            "owner": "root",
+            "_ansible_parsed": true,
+            "uid": 0,
+            "path": "/usr/local/ansible/swarm/joy-ss.yml",
+            "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+            "size": 390,
+            "changed": false,
+            "checksum": "6f3d25511da7e032f298e847534d2266441ffb0c"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:00:58,494 - views.py - put - Thread-1 - [{'action': {'args': 'docker stack deploy -c  /usr/local/ansible/swarm/joy-ss.yml  sys01', 'module': 'raw'}}]
+[INFO]: 2018-09-10 10:00:59,852 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {'192.168.1.249': {'state': 'file', 'group': 'root', 'diff': {'before': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}, 'after': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}}, 'mode': '0644', 'invocation': {'module_args': {'selevel': None, 'serole': None, 'remote_src': None, 'validate': None, 'recurse': False, 'mode': None, 'regexp': None, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'src': 'joy-ss.yml', 'diff_peek': None, 'setype': None, 'group': None, 'unsafe_writes': None, 'force': False, 'seuser': None, 'directory_mode': None, 'state': 'file', 'owner': None, 'backup': 'yes', 'original_basename': 'joy-ss.yml', 'delimiter': None, 'dest': '/usr/local/ansible/swarm/', 'follow': True, 'attributes': None, 'content': None}}, '_ansible_no_log': False, 'gid': 0, 'owner': 'root', '_ansible_parsed': True, 'uid': 0, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'size': 390, 'changed': False, 'checksum': '6f3d25511da7e032f298e847534d2266441ffb0c'}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:00:59,854 - views.py - put - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {
+        "192.168.1.249": {
+            "state": "file",
+            "group": "root",
+            "diff": {
+                "before": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                },
+                "after": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                }
+            },
+            "mode": "0644",
+            "invocation": {
+                "module_args": {
+                    "selevel": null,
+                    "serole": null,
+                    "remote_src": null,
+                    "validate": null,
+                    "recurse": false,
+                    "mode": null,
+                    "regexp": null,
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml",
+                    "src": "joy-ss.yml",
+                    "diff_peek": null,
+                    "setype": null,
+                    "group": null,
+                    "unsafe_writes": null,
+                    "force": false,
+                    "seuser": null,
+                    "directory_mode": null,
+                    "state": "file",
+                    "owner": null,
+                    "backup": "yes",
+                    "original_basename": "joy-ss.yml",
+                    "delimiter": null,
+                    "dest": "/usr/local/ansible/swarm/",
+                    "follow": true,
+                    "attributes": null,
+                    "content": null
+                }
+            },
+            "_ansible_no_log": false,
+            "gid": 0,
+            "owner": "root",
+            "_ansible_parsed": true,
+            "uid": 0,
+            "path": "/usr/local/ansible/swarm/joy-ss.yml",
+            "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+            "size": 390,
+            "changed": false,
+            "checksum": "6f3d25511da7e032f298e847534d2266441ffb0c"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:00:59,871 - views.py - put - Thread-1 - [{'action': {'args': 'src=/usr/local/ansible/swarm/joy-ss.yml backup=yes dest=/usr/local/ansible/swarm/', 'module': 'copy'}}]
+[INFO]: 2018-09-10 10:01:01,122 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'state': 'file', 'group': 'root', 'diff': {'before': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}, 'after': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}}, 'mode': '0644', 'invocation': {'module_args': {'selevel': None, 'serole': None, 'remote_src': None, 'validate': None, 'recurse': False, 'mode': None, 'regexp': None, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'src': 'joy-ss.yml', 'diff_peek': None, 'setype': None, 'group': None, 'unsafe_writes': None, 'force': False, 'seuser': None, 'directory_mode': None, 'state': 'file', 'owner': None, 'backup': 'yes', 'original_basename': 'joy-ss.yml', 'delimiter': None, 'dest': '/usr/local/ansible/swarm/', 'follow': True, 'attributes': None, 'content': None}}, '_ansible_no_log': False, 'gid': 0, 'owner': 'root', '_ansible_parsed': True, 'uid': 0, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'size': 390, 'changed': False, 'checksum': '6f3d25511da7e032f298e847534d2266441ffb0c'}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:01:01,123 - views.py - put - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "state": "file",
+            "group": "root",
+            "diff": {
+                "before": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                },
+                "after": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                }
+            },
+            "mode": "0644",
+            "invocation": {
+                "module_args": {
+                    "selevel": null,
+                    "serole": null,
+                    "remote_src": null,
+                    "validate": null,
+                    "recurse": false,
+                    "mode": null,
+                    "regexp": null,
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml",
+                    "src": "joy-ss.yml",
+                    "diff_peek": null,
+                    "setype": null,
+                    "group": null,
+                    "unsafe_writes": null,
+                    "force": false,
+                    "seuser": null,
+                    "directory_mode": null,
+                    "state": "file",
+                    "owner": null,
+                    "backup": "yes",
+                    "original_basename": "joy-ss.yml",
+                    "delimiter": null,
+                    "dest": "/usr/local/ansible/swarm/",
+                    "follow": true,
+                    "attributes": null,
+                    "content": null
+                }
+            },
+            "_ansible_no_log": false,
+            "gid": 0,
+            "owner": "root",
+            "_ansible_parsed": true,
+            "uid": 0,
+            "path": "/usr/local/ansible/swarm/joy-ss.yml",
+            "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+            "size": 390,
+            "changed": false,
+            "checksum": "6f3d25511da7e032f298e847534d2266441ffb0c"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:01:01,123 - views.py - put - Thread-1 - [{'action': {'args': 'docker stack deploy -c  /usr/local/ansible/swarm/joy-ss.yml  sys01', 'module': 'raw'}}]
+[INFO]: 2018-09-10 10:01:02,906 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {'192.168.1.249': {'state': 'file', 'group': 'root', 'diff': {'before': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}, 'after': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}}, 'mode': '0644', 'invocation': {'module_args': {'selevel': None, 'serole': None, 'remote_src': None, 'validate': None, 'recurse': False, 'mode': None, 'regexp': None, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'src': 'joy-ss.yml', 'diff_peek': None, 'setype': None, 'group': None, 'unsafe_writes': None, 'force': False, 'seuser': None, 'directory_mode': None, 'state': 'file', 'owner': None, 'backup': 'yes', 'original_basename': 'joy-ss.yml', 'delimiter': None, 'dest': '/usr/local/ansible/swarm/', 'follow': True, 'attributes': None, 'content': None}}, '_ansible_no_log': False, 'gid': 0, 'owner': 'root', '_ansible_parsed': True, 'uid': 0, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'size': 390, 'changed': False, 'checksum': '6f3d25511da7e032f298e847534d2266441ffb0c'}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:01:02,908 - views.py - put - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {
+        "192.168.1.249": {
+            "state": "file",
+            "group": "root",
+            "diff": {
+                "before": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                },
+                "after": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                }
+            },
+            "mode": "0644",
+            "invocation": {
+                "module_args": {
+                    "selevel": null,
+                    "serole": null,
+                    "remote_src": null,
+                    "validate": null,
+                    "recurse": false,
+                    "mode": null,
+                    "regexp": null,
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml",
+                    "src": "joy-ss.yml",
+                    "diff_peek": null,
+                    "setype": null,
+                    "group": null,
+                    "unsafe_writes": null,
+                    "force": false,
+                    "seuser": null,
+                    "directory_mode": null,
+                    "state": "file",
+                    "owner": null,
+                    "backup": "yes",
+                    "original_basename": "joy-ss.yml",
+                    "delimiter": null,
+                    "dest": "/usr/local/ansible/swarm/",
+                    "follow": true,
+                    "attributes": null,
+                    "content": null
+                }
+            },
+            "_ansible_no_log": false,
+            "gid": 0,
+            "owner": "root",
+            "_ansible_parsed": true,
+            "uid": 0,
+            "path": "/usr/local/ansible/swarm/joy-ss.yml",
+            "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+            "size": 390,
+            "changed": false,
+            "checksum": "6f3d25511da7e032f298e847534d2266441ffb0c"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:03:02,808 - views.py - put - Thread-1 - [{'action': {'args': 'src=/usr/local/ansible/swarm/joy-ss.yml backup=yes dest=/usr/local/ansible/swarm/', 'module': 'copy'}}]
+[INFO]: 2018-09-10 10:03:05,568 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'state': 'file', 'uid': 0, 'checksum': '8c3b47a0c63de9924fba981dbc95d3f48327bd70', 'invocation': {'module_args': {'selevel': None, 'owner': None, 'group': None, 'remote_src': None, 'regexp': None, 'content': None, 'mode': None, 'serole': None, 'src': '/root/.ansible/tmp/ansible-tmp-1536544983.232507-229590264745901/source', 'setype': None, 'checksum': '8c3b47a0c63de9924fba981dbc95d3f48327bd70', 'unsafe_writes': None, 'force': True, 'seuser': None, 'directory_mode': None, 'local_follow': None, 'backup': True, 'original_basename': 'joy-ss.yml', 'delimiter': None, 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'follow': False, 'attributes': None, 'validate': None}}, 'diff': [], 'mode': '0644', 'changed': True, '_ansible_no_log': False, 'gid': 0, 'owner': 'root', 'md5sum': '998990a907fb1f426b6810d327c6841e', '_ansible_parsed': True, 'backup_file': '/usr/local/ansible/swarm/joy-ss.yml.30048.2018-09-09@12:13:41~', 'src': '/root/.ansible/tmp/ansible-tmp-1536544983.232507-229590264745901/source', 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'size': 390, 'group': 'root'}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:03:05,569 - views.py - put - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "state": "file",
+            "uid": 0,
+            "checksum": "8c3b47a0c63de9924fba981dbc95d3f48327bd70",
+            "invocation": {
+                "module_args": {
+                    "selevel": null,
+                    "owner": null,
+                    "group": null,
+                    "remote_src": null,
+                    "regexp": null,
+                    "content": null,
+                    "mode": null,
+                    "serole": null,
+                    "src": "/root/.ansible/tmp/ansible-tmp-1536544983.232507-229590264745901/source",
+                    "setype": null,
+                    "checksum": "8c3b47a0c63de9924fba981dbc95d3f48327bd70",
+                    "unsafe_writes": null,
+                    "force": true,
+                    "seuser": null,
+                    "directory_mode": null,
+                    "local_follow": null,
+                    "backup": true,
+                    "original_basename": "joy-ss.yml",
+                    "delimiter": null,
+                    "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+                    "follow": false,
+                    "attributes": null,
+                    "validate": null
+                }
+            },
+            "diff": [],
+            "mode": "0644",
+            "changed": true,
+            "_ansible_no_log": false,
+            "gid": 0,
+            "owner": "root",
+            "md5sum": "998990a907fb1f426b6810d327c6841e",
+            "_ansible_parsed": true,
+            "backup_file": "/usr/local/ansible/swarm/joy-ss.yml.30048.2018-09-09@12:13:41~",
+            "src": "/root/.ansible/tmp/ansible-tmp-1536544983.232507-229590264745901/source",
+            "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+            "size": 390,
+            "group": "root"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:03:05,570 - views.py - put - Thread-1 - [{'action': {'args': 'docker stack deploy -c  /usr/local/ansible/swarm/joy-ss.yml  sys01', 'module': 'raw'}}]
+[INFO]: 2018-09-10 10:03:07,643 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'stdout_lines': ['Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)'], 'rc': 0, 'stdout': 'Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 20648\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n', 'changed': True, '_ansible_no_log': False}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:03:07,644 - views.py - put - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "stdout_lines": [
+                "Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)"
+            ],
+            "rc": 0,
+            "stdout": "Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 20648\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n",
+            "changed": true,
+            "_ansible_no_log": false
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:03:07,669 - views.py - put - Thread-1 - [{'action': {'args': 'src=/usr/local/ansible/swarm/joy-ss.yml backup=yes dest=/usr/local/ansible/swarm/', 'module': 'copy'}}]
+[INFO]: 2018-09-10 10:03:08,938 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'state': 'file', 'group': 'root', 'diff': {'before': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}, 'after': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}}, 'mode': '0644', 'invocation': {'module_args': {'selevel': None, 'serole': None, 'remote_src': None, 'validate': None, 'recurse': False, 'mode': None, 'regexp': None, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'src': 'joy-ss.yml', 'diff_peek': None, 'setype': None, 'group': None, 'unsafe_writes': None, 'force': False, 'seuser': None, 'directory_mode': None, 'state': 'file', 'owner': None, 'backup': 'yes', 'original_basename': 'joy-ss.yml', 'delimiter': None, 'dest': '/usr/local/ansible/swarm/', 'follow': True, 'attributes': None, 'content': None}}, '_ansible_no_log': False, 'gid': 0, 'owner': 'root', '_ansible_parsed': True, 'uid': 0, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'size': 390, 'changed': False, 'checksum': '8c3b47a0c63de9924fba981dbc95d3f48327bd70'}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:03:08,939 - views.py - put - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "state": "file",
+            "group": "root",
+            "diff": {
+                "before": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                },
+                "after": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                }
+            },
+            "mode": "0644",
+            "invocation": {
+                "module_args": {
+                    "selevel": null,
+                    "serole": null,
+                    "remote_src": null,
+                    "validate": null,
+                    "recurse": false,
+                    "mode": null,
+                    "regexp": null,
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml",
+                    "src": "joy-ss.yml",
+                    "diff_peek": null,
+                    "setype": null,
+                    "group": null,
+                    "unsafe_writes": null,
+                    "force": false,
+                    "seuser": null,
+                    "directory_mode": null,
+                    "state": "file",
+                    "owner": null,
+                    "backup": "yes",
+                    "original_basename": "joy-ss.yml",
+                    "delimiter": null,
+                    "dest": "/usr/local/ansible/swarm/",
+                    "follow": true,
+                    "attributes": null,
+                    "content": null
+                }
+            },
+            "_ansible_no_log": false,
+            "gid": 0,
+            "owner": "root",
+            "_ansible_parsed": true,
+            "uid": 0,
+            "path": "/usr/local/ansible/swarm/joy-ss.yml",
+            "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+            "size": 390,
+            "changed": false,
+            "checksum": "8c3b47a0c63de9924fba981dbc95d3f48327bd70"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:03:08,940 - views.py - put - Thread-1 - [{'action': {'args': 'docker stack deploy -c  /usr/local/ansible/swarm/joy-ss.yml  sys01', 'module': 'raw'}}]
+[INFO]: 2018-09-10 10:03:10,399 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'stdout_lines': ['Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)'], 'rc': 0, 'stdout': 'Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 20648\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n', 'changed': True, '_ansible_no_log': False}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:03:10,401 - views.py - put - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "stdout_lines": [
+                "Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)"
+            ],
+            "rc": 0,
+            "stdout": "Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 20648\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n",
+            "changed": true,
+            "_ansible_no_log": false
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:03:10,425 - views.py - put - Thread-1 - [{'action': {'args': 'src=/usr/local/ansible/swarm/joy-ss.yml backup=yes dest=/usr/local/ansible/swarm/', 'module': 'copy'}}]
+[INFO]: 2018-09-10 10:03:11,668 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'state': 'file', 'group': 'root', 'diff': {'before': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}, 'after': {'path': '/usr/local/ansible/swarm/joy-ss.yml'}}, 'mode': '0644', 'invocation': {'module_args': {'selevel': None, 'serole': None, 'remote_src': None, 'validate': None, 'recurse': False, 'mode': None, 'regexp': None, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'src': 'joy-ss.yml', 'diff_peek': None, 'setype': None, 'group': None, 'unsafe_writes': None, 'force': False, 'seuser': None, 'directory_mode': None, 'state': 'file', 'owner': None, 'backup': 'yes', 'original_basename': 'joy-ss.yml', 'delimiter': None, 'dest': '/usr/local/ansible/swarm/', 'follow': True, 'attributes': None, 'content': None}}, '_ansible_no_log': False, 'gid': 0, 'owner': 'root', '_ansible_parsed': True, 'uid': 0, 'path': '/usr/local/ansible/swarm/joy-ss.yml', 'dest': '/usr/local/ansible/swarm/joy-ss.yml', 'size': 390, 'changed': False, 'checksum': '8c3b47a0c63de9924fba981dbc95d3f48327bd70'}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:03:11,669 - views.py - put - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "state": "file",
+            "group": "root",
+            "diff": {
+                "before": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                },
+                "after": {
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml"
+                }
+            },
+            "mode": "0644",
+            "invocation": {
+                "module_args": {
+                    "selevel": null,
+                    "serole": null,
+                    "remote_src": null,
+                    "validate": null,
+                    "recurse": false,
+                    "mode": null,
+                    "regexp": null,
+                    "path": "/usr/local/ansible/swarm/joy-ss.yml",
+                    "src": "joy-ss.yml",
+                    "diff_peek": null,
+                    "setype": null,
+                    "group": null,
+                    "unsafe_writes": null,
+                    "force": false,
+                    "seuser": null,
+                    "directory_mode": null,
+                    "state": "file",
+                    "owner": null,
+                    "backup": "yes",
+                    "original_basename": "joy-ss.yml",
+                    "delimiter": null,
+                    "dest": "/usr/local/ansible/swarm/",
+                    "follow": true,
+                    "attributes": null,
+                    "content": null
+                }
+            },
+            "_ansible_no_log": false,
+            "gid": 0,
+            "owner": "root",
+            "_ansible_parsed": true,
+            "uid": 0,
+            "path": "/usr/local/ansible/swarm/joy-ss.yml",
+            "dest": "/usr/local/ansible/swarm/joy-ss.yml",
+            "size": 390,
+            "changed": false,
+            "checksum": "8c3b47a0c63de9924fba981dbc95d3f48327bd70"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:03:11,670 - views.py - put - Thread-1 - [{'action': {'args': 'docker stack deploy -c  /usr/local/ansible/swarm/joy-ss.yml  sys01', 'module': 'raw'}}]
+[INFO]: 2018-09-10 10:03:13,268 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'stdout_lines': ['Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)'], 'rc': 0, 'stdout': 'Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 20648\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n', 'changed': True, '_ansible_no_log': False}}, 'unreachable': {}}
+[INFO]: 2018-09-10 10:03:13,269 - views.py - put - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "stdout_lines": [
+                "Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)"
+            ],
+            "rc": 0,
+            "stdout": "Updating service sys01_joy-ss (id: jglpdgzmmac9ox5mdaverjrgd)\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 20648\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n",
+            "changed": true,
+            "_ansible_no_log": false
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-10 10:03:45,581 - views.py - put - Thread-1 - {'status': 'Up', 'cpu_model': 'Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz', 'os': 'CentOS Linux 7.5.1804 x86_64', 'disk': '[]', 'ip': '192.168.1.249', 'model': 'Parallels Virtual Platform\n', 'memory': "{'available': 608, 'used': 209, 'cached': 205, 'percent': 38.3, 'free': 573, 'total': 987.0, 'buffers': 0}", 'vendor': 'Parallels Software International Inc.\n', 'idc': 'beijing', 'cpu_num': '1', 'type': 'server', 'cpu_physical': 1, 'cpu_processor': 1}
+[INFO]: 2018-09-16 21:26:58,048 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': [], 'data': []}, 'business_load': {'names': [], 'data': {'left': [], 'load': []}}, 'asset_status_list': {'names': [], 'data': []}}
+[INFO]: 2018-09-16 21:27:13,620 - views.py - put - Thread-1 - {'memory': "{'available': 656, 'used': 918, 'cached': 711, 'percent': 64.2, 'free': 204, 'total': 1834.0, 'buffers': 0}", 'disk': '[]', 'model': 'Parallels Virtual Platform\n', 'os': 'CentOS Linux 7.5.1804 x86_64', 'cpu_model': 'Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz', 'cpu_num': '1', 'vendor': 'Parallels Software International Inc.\n', 'cpu_processor': 2, 'status': 'Up', 'ip': '192.168.1.249', 'type': 'server', 'idc': 'beijing', 'cpu_physical': 2}
+[INFO]: 2018-09-16 21:27:16,705 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': [], 'data': []}, 'business_load': {'names': [], 'data': {'left': [], 'load': []}}, 'asset_status_list': {'names': [], 'data': []}}
+[INFO]: 2018-09-16 21:27:34,440 - views.py - post - Thread-1 - {'hostname': 'master', 'memory': "{'available': 656, 'used': 918, 'cached': 717, 'percent': 64.2, 'free': 198, 'total': 1834.0, 'buffers': 0}", 'disk': '[]', 'model': 'Parallels Virtual Platform\n', 'sn': 'Parallels-70 0D 08 DF AF 5B 4D 1D BF AA 6B AA D2 A3 96 E6\n', 'os': 'CentOS Linux 7.5.1804 x86_64', 'cpu_model': 'Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz', 'cpu_num': '1', 'vendor': 'Parallels Software International Inc.\n', 'cpu_processor': 2, 'status': 'Up', 'ip': '192.168.1.249', 'type': 'server', 'idc': 'beijing', 'cpu_physical': 2}
+[INFO]: 2018-09-16 21:28:06,098 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': ['server'], 'data': [{'name': 'server', 'value': 1}]}, 'business_load': {'names': [], 'data': {'left': [], 'load': []}}, 'asset_status_list': {'names': ['Up'], 'data': [{'name': 'Up', 'value': 1, 'itemStyle': {'normal': {'color': 'yellowgreen'}}}]}}
+[INFO]: 2018-09-16 21:28:38,823 - views.py - put - Thread-1 - {'hostname': 'master', 'business_unit': '', 'model': 'Parallels Virtual Platform', 'type': 'server', 'idc': '北京', 'status': 'Up'}
+[INFO]: 2018-09-16 21:28:58,161 - views.py - put - Thread-1 - {'hostname': 'master', 'business_unit': 'web', 'model': 'Parallels Virtual Platform', 'type': 'server', 'idc': '北京', 'status': 'Up'}
+[INFO]: 2018-09-16 21:29:21,923 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'uname -a'}
+[INFO]: 2018-09-16 21:29:21,990 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 21:29:24,065 - AnsibleAPI.py - runansible - Thread-1 - {'success': {'192.168.1.249': {'stdout': 'Linux master 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/Users/medivh/.ansible/cp/445d0a1ce2" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.249 [192.168.1.249] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 10000 ms remain after connect\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa type 1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519 type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519-cert type -1\r\ndebug1: Enabling compatibility mode for protocol 2.0\r\ndebug1: Local version string SSH-2.0-OpenSSH_6.9\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.1.249:22 as \'root\'\r\ndebug3: hostkeys_foreach: reading file "/Users/medivh/.ssh/known_hosts"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:61\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.249\r\ndebug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: kex_parse_kexinit: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-dss-cert-v01@openssh.com,ssh-rsa-cert-v00@openssh.com,ssh-dss-cert-v00@openssh.com,ssh-ed25519,ssh-rsa,ssh-dss\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug2: kex_parse_kexinit: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug1: kex: server->client chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: kex: client->server chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:FbUKq4c58+W7gEu2NnOYOlTnf+DET8DgcNVkE3W5O38\r\ndebug3: hostkeys_foreach: reading file "/Users/medivh/.ssh/known_hosts"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:61\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.249\r\ndebug1: Host \'192.168.1.249\' is known and matches the ECDSA host key.\r\ndebug1: Found key in /Users/medivh/.ssh/known_hosts:61\r\ndebug2: set_newkeys: mode 1\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug2: set_newkeys: mode 0\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug1: SSH2_MSG_SERVICE_REQUEST sent\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug2: key: /Users/medivh/.ssh/id_rsa (0x7fb90ae01a80),\r\ndebug2: key: /Users/medivh/.ssh/id_dsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ecdsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ed25519 (0x0),\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Offering RSA public key: /Users/medivh/.ssh/id_rsa\r\ndebug3: send_pubkey_test\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug1: Server accepts key: pkalg ssh-rsa blen 279\r\ndebug2: input_userauth_pk_ok: fp SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug3: sign_and_send_pubkey: RSA SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug1: Enabling compression at level 6.\r\ndebug1: Authentication succeeded (publickey).\r\nAuthenticated to 192.168.1.249 ([192.168.1.249]:22).\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /Users/medivh/.ansible/cp/445d0a1ce2.Wzp2P9ICiu3S7MPX\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 0: new [/Users/medivh/.ansible/cp/445d0a1ce2]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 5\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: ssh_packet_set_tos: set IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 28742\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 6\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: process_mux_master_hello: channel 1 slave version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: process_mux_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 28744\r\ndebug3: mux_client_request_session: session request sent\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 82\r\ndebug2: process_mux_new_session: channel 1: request tty 1, X 0, agent 0, subsys 0, term "xterm-256color", cmd "uname -a", env 1\r\ndebug3: process_mux_new_session: got fds stdin 7, stdout 8, stderr 9\r\ndebug2: fd 8 setting O_NONBLOCK\r\ndebug2: fd 9 setting O_NONBLOCK\r\ndebug1: channel 2: new [client-session]\r\ndebug2: process_mux_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug2: channel 2: request pty-req confirm 1\r\ndebug1: Sending environment.\r\ndebug1: Sending env LC_CTYPE = zh_CN.UTF-8\r\ndebug2: channel 2: request env confirm 0\r\ndebug1: Sending command: uname -a\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: PTY allocation request accepted on channel 2\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 0\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug2: channel 2: close_read\r\ndebug2: channel 2: input open -> closed\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: obuf empty\r\ndebug2: channel 2: close_write\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: send close\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: channel 1: close_read\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #2 client-session (t4 r0 i3/0 o3/0 fd -1/-1 cc -1)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: channel 1: close_write\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug3: channel 1: status: The following connections are open:\r\n\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\n', '_ansible_no_log': False, 'rc': 0, 'stdout_lines': ['Linux master 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux'], 'changed': True}}, 'unreachable': {}, 'failed': {}}
+[INFO]: 2018-09-16 21:29:24,075 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.249": {
+            "stdout": "Linux master 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/Users/medivh/.ansible/cp/445d0a1ce2\" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.249 [192.168.1.249] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 10000 ms remain after connect\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa type 1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519 type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519-cert type -1\r\ndebug1: Enabling compatibility mode for protocol 2.0\r\ndebug1: Local version string SSH-2.0-OpenSSH_6.9\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.1.249:22 as 'root'\r\ndebug3: hostkeys_foreach: reading file \"/Users/medivh/.ssh/known_hosts\"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:61\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.249\r\ndebug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: kex_parse_kexinit: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-dss-cert-v01@openssh.com,ssh-rsa-cert-v00@openssh.com,ssh-dss-cert-v00@openssh.com,ssh-ed25519,ssh-rsa,ssh-dss\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug2: kex_parse_kexinit: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug1: kex: server->client chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: kex: client->server chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:FbUKq4c58+W7gEu2NnOYOlTnf+DET8DgcNVkE3W5O38\r\ndebug3: hostkeys_foreach: reading file \"/Users/medivh/.ssh/known_hosts\"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:61\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.249\r\ndebug1: Host '192.168.1.249' is known and matches the ECDSA host key.\r\ndebug1: Found key in /Users/medivh/.ssh/known_hosts:61\r\ndebug2: set_newkeys: mode 1\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug2: set_newkeys: mode 0\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug1: SSH2_MSG_SERVICE_REQUEST sent\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug2: key: /Users/medivh/.ssh/id_rsa (0x7fb90ae01a80),\r\ndebug2: key: /Users/medivh/.ssh/id_dsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ecdsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ed25519 (0x0),\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Offering RSA public key: /Users/medivh/.ssh/id_rsa\r\ndebug3: send_pubkey_test\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug1: Server accepts key: pkalg ssh-rsa blen 279\r\ndebug2: input_userauth_pk_ok: fp SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug3: sign_and_send_pubkey: RSA SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug1: Enabling compression at level 6.\r\ndebug1: Authentication succeeded (publickey).\r\nAuthenticated to 192.168.1.249 ([192.168.1.249]:22).\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /Users/medivh/.ansible/cp/445d0a1ce2.Wzp2P9ICiu3S7MPX\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 0: new [/Users/medivh/.ansible/cp/445d0a1ce2]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 5\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: ssh_packet_set_tos: set IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 28742\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 6\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: process_mux_master_hello: channel 1 slave version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: process_mux_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 28744\r\ndebug3: mux_client_request_session: session request sent\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 82\r\ndebug2: process_mux_new_session: channel 1: request tty 1, X 0, agent 0, subsys 0, term \"xterm-256color\", cmd \"uname -a\", env 1\r\ndebug3: process_mux_new_session: got fds stdin 7, stdout 8, stderr 9\r\ndebug2: fd 8 setting O_NONBLOCK\r\ndebug2: fd 9 setting O_NONBLOCK\r\ndebug1: channel 2: new [client-session]\r\ndebug2: process_mux_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug2: channel 2: request pty-req confirm 1\r\ndebug1: Sending environment.\r\ndebug1: Sending env LC_CTYPE = zh_CN.UTF-8\r\ndebug2: channel 2: request env confirm 0\r\ndebug1: Sending command: uname -a\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: PTY allocation request accepted on channel 2\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 0\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug2: channel 2: close_read\r\ndebug2: channel 2: input open -> closed\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: obuf empty\r\ndebug2: channel 2: close_write\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: send close\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: channel 1: close_read\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #2 client-session (t4 r0 i3/0 o3/0 fd -1/-1 cc -1)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: channel 1: close_write\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug3: channel 1: status: The following connections are open:\r\n\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\n",
+            "_ansible_no_log": false,
+            "rc": 0,
+            "stdout_lines": [
+                "Linux master 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux"
+            ],
+            "changed": true
+        }
+    },
+    "unreachable": {},
+    "failed": {}
+}
+[INFO]: 2018-09-16 21:29:24,089 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 21:29:24,090 - views.py - post - Thread-1 - <Response 108 bytes [200 OK]>
+[INFO]: 2018-09-16 21:29:31,113 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'ifconfig'}
+[INFO]: 2018-09-16 21:29:31,119 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 21:29:31,523 - AnsibleAPI.py - runansible - Thread-1 - {'success': {'192.168.1.249': {'stdout': 'docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500\r\n        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0\r\n        ether 02:42:f9:58:a7:fd  txqueuelen 0  (Ethernet)\r\n        RX packets 0  bytes 0 (0.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 0  bytes 0 (0.0 B)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\ndocker_gwbridge: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet 172.18.0.1  netmask 255.255.0.0  broadcast 0.0.0.0\r\n        inet6 fe80::42:14ff:fe47:f41e  prefixlen 64  scopeid 0x20<link>\r\n        ether 02:42:14:47:f4:1e  txqueuelen 0  (Ethernet)\r\n        RX packets 2178228  bytes 389479838 (371.4 MiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 2178228  bytes 389479838 (371.4 MiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\neth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet 192.168.1.249  netmask 255.255.255.0  broadcast 192.168.1.255\r\n        inet6 fe80::1e85:c4eb:b690:dbfc  prefixlen 64  scopeid 0x20<link>\r\n        ether 00:1c:42:23:49:8e  txqueuelen 1000  (Ethernet)\r\n        RX packets 6926153  bytes 3035435267 (2.8 GiB)\r\n        RX errors 0  dropped 2  overruns 0  frame 0\r\n        TX packets 4937289  bytes 2459434217 (2.2 GiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nlo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536\r\n        inet 127.0.0.1  netmask 255.0.0.0\r\n        inet6 ::1  prefixlen 128  scopeid 0x10<host>\r\n        loop  txqueuelen 1000  (Local Loopback)\r\n        RX packets 2178228  bytes 389479838 (371.4 MiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 2178228  bytes 389479838 (371.4 MiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nveth5d6cba7: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::98f2:79ff:fe93:4054  prefixlen 64  scopeid 0x20<link>\r\n        ether 9a:f2:79:93:40:54  txqueuelen 0  (Ethernet)\r\n        RX packets 8  bytes 648 (648.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 41  bytes 3154 (3.0 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nvetha6d524b: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::e86d:a9ff:fef9:3502  prefixlen 64  scopeid 0x20<link>\r\n        ether ea:6d:a9:f9:35:02  txqueuelen 0  (Ethernet)\r\n        RX packets 55682  bytes 375176836 (357.7 MiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 50684  bytes 3498442 (3.3 MiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nvethc9de33b: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::2866:1bff:feb1:cd1b  prefixlen 64  scopeid 0x20<link>\r\n        ether 2a:66:1b:b1:cd:1b  txqueuelen 0  (Ethernet)\r\n        RX packets 2078159  bytes 1897086624 (1.7 GiB)\r\n        RX errors 0  dropped 132  overruns 0  frame 0\r\n        TX packets 3392366  bytes 257455535 (245.5 MiB)\r\n        TX errors 0  dropped 13 overruns 0  carrier 0  collisions 0\r\n\r\nvethd4294f4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::10eb:32ff:fe31:4595  prefixlen 64  scopeid 0x20<link>\r\n        ether 12:eb:32:31:45:95  txqueuelen 0  (Ethernet)\r\n        RX packets 25  bytes 2219 (2.1 KiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 56  bytes 9339 (9.1 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 28744\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n', '_ansible_no_log': False, 'rc': 0, 'stdout_lines': ['docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500', '        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0', '        ether 02:42:f9:58:a7:fd  txqueuelen 0  (Ethernet)', '        RX packets 0  bytes 0 (0.0 B)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 0  bytes 0 (0.0 B)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'docker_gwbridge: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet 172.18.0.1  netmask 255.255.0.0  broadcast 0.0.0.0', '        inet6 fe80::42:14ff:fe47:f41e  prefixlen 64  scopeid 0x20<link>', '        ether 02:42:14:47:f4:1e  txqueuelen 0  (Ethernet)', '        RX packets 2178228  bytes 389479838 (371.4 MiB)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 2178228  bytes 389479838 (371.4 MiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet 192.168.1.249  netmask 255.255.255.0  broadcast 192.168.1.255', '        inet6 fe80::1e85:c4eb:b690:dbfc  prefixlen 64  scopeid 0x20<link>', '        ether 00:1c:42:23:49:8e  txqueuelen 1000  (Ethernet)', '        RX packets 6926153  bytes 3035435267 (2.8 GiB)', '        RX errors 0  dropped 2  overruns 0  frame 0', '        TX packets 4937289  bytes 2459434217 (2.2 GiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536', '        inet 127.0.0.1  netmask 255.0.0.0', '        inet6 ::1  prefixlen 128  scopeid 0x10<host>', '        loop  txqueuelen 1000  (Local Loopback)', '        RX packets 2178228  bytes 389479838 (371.4 MiB)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 2178228  bytes 389479838 (371.4 MiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'veth5d6cba7: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet6 fe80::98f2:79ff:fe93:4054  prefixlen 64  scopeid 0x20<link>', '        ether 9a:f2:79:93:40:54  txqueuelen 0  (Ethernet)', '        RX packets 8  bytes 648 (648.0 B)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 41  bytes 3154 (3.0 KiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'vetha6d524b: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet6 fe80::e86d:a9ff:fef9:3502  prefixlen 64  scopeid 0x20<link>', '        ether ea:6d:a9:f9:35:02  txqueuelen 0  (Ethernet)', '        RX packets 55682  bytes 375176836 (357.7 MiB)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 50684  bytes 3498442 (3.3 MiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'vethc9de33b: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet6 fe80::2866:1bff:feb1:cd1b  prefixlen 64  scopeid 0x20<link>', '        ether 2a:66:1b:b1:cd:1b  txqueuelen 0  (Ethernet)', '        RX packets 2078159  bytes 1897086624 (1.7 GiB)', '        RX errors 0  dropped 132  overruns 0  frame 0', '        TX packets 3392366  bytes 257455535 (245.5 MiB)', '        TX errors 0  dropped 13 overruns 0  carrier 0  collisions 0', '', 'vethd4294f4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet6 fe80::10eb:32ff:fe31:4595  prefixlen 64  scopeid 0x20<link>', '        ether 12:eb:32:31:45:95  txqueuelen 0  (Ethernet)', '        RX packets 25  bytes 2219 (2.1 KiB)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 56  bytes 9339 (9.1 KiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', ''], 'changed': True}}, 'unreachable': {}, 'failed': {}}
+[INFO]: 2018-09-16 21:29:31,532 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.249": {
+            "stdout": "docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500\r\n        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0\r\n        ether 02:42:f9:58:a7:fd  txqueuelen 0  (Ethernet)\r\n        RX packets 0  bytes 0 (0.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 0  bytes 0 (0.0 B)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\ndocker_gwbridge: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet 172.18.0.1  netmask 255.255.0.0  broadcast 0.0.0.0\r\n        inet6 fe80::42:14ff:fe47:f41e  prefixlen 64  scopeid 0x20<link>\r\n        ether 02:42:14:47:f4:1e  txqueuelen 0  (Ethernet)\r\n        RX packets 2178228  bytes 389479838 (371.4 MiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 2178228  bytes 389479838 (371.4 MiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\neth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet 192.168.1.249  netmask 255.255.255.0  broadcast 192.168.1.255\r\n        inet6 fe80::1e85:c4eb:b690:dbfc  prefixlen 64  scopeid 0x20<link>\r\n        ether 00:1c:42:23:49:8e  txqueuelen 1000  (Ethernet)\r\n        RX packets 6926153  bytes 3035435267 (2.8 GiB)\r\n        RX errors 0  dropped 2  overruns 0  frame 0\r\n        TX packets 4937289  bytes 2459434217 (2.2 GiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nlo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536\r\n        inet 127.0.0.1  netmask 255.0.0.0\r\n        inet6 ::1  prefixlen 128  scopeid 0x10<host>\r\n        loop  txqueuelen 1000  (Local Loopback)\r\n        RX packets 2178228  bytes 389479838 (371.4 MiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 2178228  bytes 389479838 (371.4 MiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nveth5d6cba7: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::98f2:79ff:fe93:4054  prefixlen 64  scopeid 0x20<link>\r\n        ether 9a:f2:79:93:40:54  txqueuelen 0  (Ethernet)\r\n        RX packets 8  bytes 648 (648.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 41  bytes 3154 (3.0 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nvetha6d524b: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::e86d:a9ff:fef9:3502  prefixlen 64  scopeid 0x20<link>\r\n        ether ea:6d:a9:f9:35:02  txqueuelen 0  (Ethernet)\r\n        RX packets 55682  bytes 375176836 (357.7 MiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 50684  bytes 3498442 (3.3 MiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nvethc9de33b: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::2866:1bff:feb1:cd1b  prefixlen 64  scopeid 0x20<link>\r\n        ether 2a:66:1b:b1:cd:1b  txqueuelen 0  (Ethernet)\r\n        RX packets 2078159  bytes 1897086624 (1.7 GiB)\r\n        RX errors 0  dropped 132  overruns 0  frame 0\r\n        TX packets 3392366  bytes 257455535 (245.5 MiB)\r\n        TX errors 0  dropped 13 overruns 0  carrier 0  collisions 0\r\n\r\nvethd4294f4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::10eb:32ff:fe31:4595  prefixlen 64  scopeid 0x20<link>\r\n        ether 12:eb:32:31:45:95  txqueuelen 0  (Ethernet)\r\n        RX packets 25  bytes 2219 (2.1 KiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 56  bytes 9339 (9.1 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 28744\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n",
+            "_ansible_no_log": false,
+            "rc": 0,
+            "stdout_lines": [
+                "docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500",
+                "        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0",
+                "        ether 02:42:f9:58:a7:fd  txqueuelen 0  (Ethernet)",
+                "        RX packets 0  bytes 0 (0.0 B)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 0  bytes 0 (0.0 B)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "docker_gwbridge: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet 172.18.0.1  netmask 255.255.0.0  broadcast 0.0.0.0",
+                "        inet6 fe80::42:14ff:fe47:f41e  prefixlen 64  scopeid 0x20<link>",
+                "        ether 02:42:14:47:f4:1e  txqueuelen 0  (Ethernet)",
+                "        RX packets 2178228  bytes 389479838 (371.4 MiB)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 2178228  bytes 389479838 (371.4 MiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet 192.168.1.249  netmask 255.255.255.0  broadcast 192.168.1.255",
+                "        inet6 fe80::1e85:c4eb:b690:dbfc  prefixlen 64  scopeid 0x20<link>",
+                "        ether 00:1c:42:23:49:8e  txqueuelen 1000  (Ethernet)",
+                "        RX packets 6926153  bytes 3035435267 (2.8 GiB)",
+                "        RX errors 0  dropped 2  overruns 0  frame 0",
+                "        TX packets 4937289  bytes 2459434217 (2.2 GiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536",
+                "        inet 127.0.0.1  netmask 255.0.0.0",
+                "        inet6 ::1  prefixlen 128  scopeid 0x10<host>",
+                "        loop  txqueuelen 1000  (Local Loopback)",
+                "        RX packets 2178228  bytes 389479838 (371.4 MiB)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 2178228  bytes 389479838 (371.4 MiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "veth5d6cba7: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet6 fe80::98f2:79ff:fe93:4054  prefixlen 64  scopeid 0x20<link>",
+                "        ether 9a:f2:79:93:40:54  txqueuelen 0  (Ethernet)",
+                "        RX packets 8  bytes 648 (648.0 B)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 41  bytes 3154 (3.0 KiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "vetha6d524b: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet6 fe80::e86d:a9ff:fef9:3502  prefixlen 64  scopeid 0x20<link>",
+                "        ether ea:6d:a9:f9:35:02  txqueuelen 0  (Ethernet)",
+                "        RX packets 55682  bytes 375176836 (357.7 MiB)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 50684  bytes 3498442 (3.3 MiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "vethc9de33b: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet6 fe80::2866:1bff:feb1:cd1b  prefixlen 64  scopeid 0x20<link>",
+                "        ether 2a:66:1b:b1:cd:1b  txqueuelen 0  (Ethernet)",
+                "        RX packets 2078159  bytes 1897086624 (1.7 GiB)",
+                "        RX errors 0  dropped 132  overruns 0  frame 0",
+                "        TX packets 3392366  bytes 257455535 (245.5 MiB)",
+                "        TX errors 0  dropped 13 overruns 0  carrier 0  collisions 0",
+                "",
+                "vethd4294f4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet6 fe80::10eb:32ff:fe31:4595  prefixlen 64  scopeid 0x20<link>",
+                "        ether 12:eb:32:31:45:95  txqueuelen 0  (Ethernet)",
+                "        RX packets 25  bytes 2219 (2.1 KiB)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 56  bytes 9339 (9.1 KiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                ""
+            ],
+            "changed": true
+        }
+    },
+    "unreachable": {},
+    "failed": {}
+}
+[INFO]: 2018-09-16 21:29:31,544 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 21:29:31,544 - views.py - post - Thread-1 - <Response 3655 bytes [200 OK]>
+[INFO]: 2018-09-16 21:29:44,222 - views.py - post - Thread-1 - {'hostname': 'slave-01', 'memory': "{'available': 520, 'used': 293, 'cached': 352, 'percent': 47.3, 'free': 341, 'total': 987.0, 'buffers': 0}", 'disk': '[]', 'model': 'Parallels Virtual Platform\n', 'sn': 'Parallels-70 0D 08 DF AF 5B 4D 1D BF AA 6B AA D2 A3 96 E6\n', 'os': 'CentOS Linux 7.5.1804 x86_64', 'cpu_model': 'Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz', 'cpu_num': '1', 'vendor': 'Parallels Software International Inc.\n', 'cpu_processor': 1, 'status': 'Up', 'ip': '192.168.1.248', 'type': 'server', 'idc': 'beijing', 'cpu_physical': 1}
+[INFO]: 2018-09-16 21:30:23,857 - views.py - post - Thread-1 - {'hostname': 'slave-01', 'memory': "{'available': 520, 'used': 293, 'cached': 358, 'percent': 47.3, 'free': 335, 'total': 987.0, 'buffers': 0}", 'disk': '[]', 'model': 'Parallels Virtual Platform\n', 'sn': 'Parallels-70 0D 08 DF AF 5B 4D 1D BF AA 6B AA D2 A3 96 E6\n', 'os': 'CentOS Linux 7.5.1804 x86_64', 'cpu_model': 'Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz', 'cpu_num': '1', 'vendor': 'Parallels Software International Inc.\n', 'cpu_processor': 1, 'status': 'Up', 'ip': '192.168.1.248', 'type': 'server', 'idc': 'beijing', 'cpu_physical': 1}
+[INFO]: 2018-09-16 21:30:40,176 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'slave-01', 'args': 'ifconfig'}
+[INFO]: 2018-09-16 21:30:40,184 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 21:30:41,712 - AnsibleAPI.py - runansible - Thread-1 - {'success': {'192.168.1.248': {'stdout': 'docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500\r\n        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0\r\n        inet6 fe80::42:ceff:fe77:6708  prefixlen 64  scopeid 0x20<link>\r\n        ether 02:42:ce:77:67:08  txqueuelen 0  (Ethernet)\r\n        RX packets 16  bytes 1124 (1.0 KiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 4  bytes 300 (300.0 B)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\ndocker_gwbridge: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet 172.18.0.1  netmask 255.255.0.0  broadcast 0.0.0.0\r\n        inet6 fe80::42:b5ff:feee:f0fc  prefixlen 64  scopeid 0x20<link>\r\n        ether 02:42:b5:ee:f0:fc  txqueuelen 0  (Ethernet)\r\n        RX packets 3303  bytes 374650 (365.8 KiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 3303  bytes 374650 (365.8 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\neth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet 192.168.1.248  netmask 255.255.255.0  broadcast 192.168.1.255\r\n        inet6 fe80::a128:e6f2:bba3:8834  prefixlen 64  scopeid 0x20<link>\r\n        inet6 fe80::1e85:c4eb:b690:dbfc  prefixlen 64  scopeid 0x20<link>\r\n        ether 00:1c:42:1d:c9:47  txqueuelen 1000  (Ethernet)\r\n        RX packets 2777124  bytes 557130974 (531.3 MiB)\r\n        RX errors 0  dropped 2  overruns 0  frame 0\r\n        TX packets 2647992  bytes 2511160923 (2.3 GiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nlo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536\r\n        inet 127.0.0.1  netmask 255.0.0.0\r\n        inet6 ::1  prefixlen 128  scopeid 0x10<host>\r\n        loop  txqueuelen 1000  (Local Loopback)\r\n        RX packets 3303  bytes 374650 (365.8 KiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 3303  bytes 374650 (365.8 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nveth043ec21: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::8c01:5cff:fe5d:1901  prefixlen 64  scopeid 0x20<link>\r\n        ether 8e:01:5c:5d:19:01  txqueuelen 0  (Ethernet)\r\n        RX packets 11  bytes 774 (774.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 192  bytes 15152 (14.7 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nveth0760fbd: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::e0a0:ff:fe65:cc7b  prefixlen 64  scopeid 0x20<link>\r\n        ether e2:a0:00:65:cc:7b  txqueuelen 0  (Ethernet)\r\n        RX packets 8  bytes 648 (648.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 22  bytes 1728 (1.6 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nveth6a80491: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::c002:91ff:fe3b:5cc6  prefixlen 64  scopeid 0x20<link>\r\n        ether c2:02:91:3b:5c:c6  txqueuelen 0  (Ethernet)\r\n        RX packets 8  bytes 648 (648.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 65  bytes 5226 (5.1 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nveth73e165c: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::6c66:2ff:fe31:3ca4  prefixlen 64  scopeid 0x20<link>\r\n        ether 6e:66:02:31:3c:a4  txqueuelen 0  (Ethernet)\r\n        RX packets 8  bytes 648 (648.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 25  bytes 1986 (1.9 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nvetha07b4c5: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::d803:20ff:fe77:f9af  prefixlen 64  scopeid 0x20<link>\r\n        ether da:03:20:77:f9:af  txqueuelen 0  (Ethernet)\r\n        RX packets 25111  bytes 358534917 (341.9 MiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 13917  bytes 1057982 (1.0 MiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/Users/medivh/.ansible/cp/0cf1244bf9" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.248 [192.168.1.248] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 10000 ms remain after connect\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa type 1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519 type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519-cert type -1\r\ndebug1: Enabling compatibility mode for protocol 2.0\r\ndebug1: Local version string SSH-2.0-OpenSSH_6.9\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.1.248:22 as \'root\'\r\ndebug3: hostkeys_foreach: reading file "/Users/medivh/.ssh/known_hosts"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:66\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.248\r\ndebug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: kex_parse_kexinit: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-dss-cert-v01@openssh.com,ssh-rsa-cert-v00@openssh.com,ssh-dss-cert-v00@openssh.com,ssh-ed25519,ssh-rsa,ssh-dss\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug2: kex_parse_kexinit: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug1: kex: server->client chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: kex: client->server chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:FbUKq4c58+W7gEu2NnOYOlTnf+DET8DgcNVkE3W5O38\r\ndebug3: hostkeys_foreach: reading file "/Users/medivh/.ssh/known_hosts"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:66\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.248\r\ndebug1: Host \'192.168.1.248\' is known and matches the ECDSA host key.\r\ndebug1: Found key in /Users/medivh/.ssh/known_hosts:66\r\ndebug2: set_newkeys: mode 1\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug2: set_newkeys: mode 0\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug1: SSH2_MSG_SERVICE_REQUEST sent\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug2: key: /Users/medivh/.ssh/id_rsa (0x7fd5d0f0ca40),\r\ndebug2: key: /Users/medivh/.ssh/id_dsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ecdsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ed25519 (0x0),\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Offering RSA public key: /Users/medivh/.ssh/id_rsa\r\ndebug3: send_pubkey_test\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug1: Server accepts key: pkalg ssh-rsa blen 279\r\ndebug2: input_userauth_pk_ok: fp SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug3: sign_and_send_pubkey: RSA SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug1: Enabling compression at level 6.\r\ndebug1: Authentication succeeded (publickey).\r\nAuthenticated to 192.168.1.248 ([192.168.1.248]:22).\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /Users/medivh/.ansible/cp/0cf1244bf9.vbZYiRyf79TxugtT\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 0: new [/Users/medivh/.ansible/cp/0cf1244bf9]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 5\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: ssh_packet_set_tos: set IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 28757\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 6\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: process_mux_master_hello: channel 1 slave version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: process_mux_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 28759\r\ndebug3: mux_client_request_session: session request sent\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 82\r\ndebug2: process_mux_new_session: channel 1: request tty 1, X 0, agent 0, subsys 0, term "xterm-256color", cmd "ifconfig", env 1\r\ndebug3: process_mux_new_session: got fds stdin 7, stdout 8, stderr 9\r\ndebug2: fd 8 setting O_NONBLOCK\r\ndebug2: fd 9 setting O_NONBLOCK\r\ndebug1: channel 2: new [client-session]\r\ndebug2: process_mux_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug2: channel 2: request pty-req confirm 1\r\ndebug1: Sending environment.\r\ndebug1: Sending env LC_CTYPE = zh_CN.UTF-8\r\ndebug2: channel 2: request env confirm 0\r\ndebug1: Sending command: ifconfig\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: PTY allocation request accepted on channel 2\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 0\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug2: channel 2: close_read\r\ndebug2: channel 2: input open -> closed\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug2: channel 2: obuf empty\r\ndebug2: channel 2: close_write\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: send close\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: channel 1: close_read\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #2 client-session (t4 r0 i3/0 o3/0 fd -1/-1 cc -1)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: channel 1: close_write\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug3: channel 1: status: The following connections are open:\r\n\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.248 closed.\r\n', '_ansible_no_log': False, 'rc': 0, 'stdout_lines': ['docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500', '        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0', '        inet6 fe80::42:ceff:fe77:6708  prefixlen 64  scopeid 0x20<link>', '        ether 02:42:ce:77:67:08  txqueuelen 0  (Ethernet)', '        RX packets 16  bytes 1124 (1.0 KiB)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 4  bytes 300 (300.0 B)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'docker_gwbridge: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet 172.18.0.1  netmask 255.255.0.0  broadcast 0.0.0.0', '        inet6 fe80::42:b5ff:feee:f0fc  prefixlen 64  scopeid 0x20<link>', '        ether 02:42:b5:ee:f0:fc  txqueuelen 0  (Ethernet)', '        RX packets 3303  bytes 374650 (365.8 KiB)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 3303  bytes 374650 (365.8 KiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet 192.168.1.248  netmask 255.255.255.0  broadcast 192.168.1.255', '        inet6 fe80::a128:e6f2:bba3:8834  prefixlen 64  scopeid 0x20<link>', '        inet6 fe80::1e85:c4eb:b690:dbfc  prefixlen 64  scopeid 0x20<link>', '        ether 00:1c:42:1d:c9:47  txqueuelen 1000  (Ethernet)', '        RX packets 2777124  bytes 557130974 (531.3 MiB)', '        RX errors 0  dropped 2  overruns 0  frame 0', '        TX packets 2647992  bytes 2511160923 (2.3 GiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536', '        inet 127.0.0.1  netmask 255.0.0.0', '        inet6 ::1  prefixlen 128  scopeid 0x10<host>', '        loop  txqueuelen 1000  (Local Loopback)', '        RX packets 3303  bytes 374650 (365.8 KiB)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 3303  bytes 374650 (365.8 KiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'veth043ec21: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet6 fe80::8c01:5cff:fe5d:1901  prefixlen 64  scopeid 0x20<link>', '        ether 8e:01:5c:5d:19:01  txqueuelen 0  (Ethernet)', '        RX packets 11  bytes 774 (774.0 B)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 192  bytes 15152 (14.7 KiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'veth0760fbd: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet6 fe80::e0a0:ff:fe65:cc7b  prefixlen 64  scopeid 0x20<link>', '        ether e2:a0:00:65:cc:7b  txqueuelen 0  (Ethernet)', '        RX packets 8  bytes 648 (648.0 B)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 22  bytes 1728 (1.6 KiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'veth6a80491: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet6 fe80::c002:91ff:fe3b:5cc6  prefixlen 64  scopeid 0x20<link>', '        ether c2:02:91:3b:5c:c6  txqueuelen 0  (Ethernet)', '        RX packets 8  bytes 648 (648.0 B)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 65  bytes 5226 (5.1 KiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'veth73e165c: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet6 fe80::6c66:2ff:fe31:3ca4  prefixlen 64  scopeid 0x20<link>', '        ether 6e:66:02:31:3c:a4  txqueuelen 0  (Ethernet)', '        RX packets 8  bytes 648 (648.0 B)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 25  bytes 1986 (1.9 KiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', '', 'vetha07b4c5: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500', '        inet6 fe80::d803:20ff:fe77:f9af  prefixlen 64  scopeid 0x20<link>', '        ether da:03:20:77:f9:af  txqueuelen 0  (Ethernet)', '        RX packets 25111  bytes 358534917 (341.9 MiB)', '        RX errors 0  dropped 0  overruns 0  frame 0', '        TX packets 13917  bytes 1057982 (1.0 MiB)', '        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0', ''], 'changed': True}}, 'unreachable': {}, 'failed': {}}
+[INFO]: 2018-09-16 21:30:41,726 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.248": {
+            "stdout": "docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500\r\n        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0\r\n        inet6 fe80::42:ceff:fe77:6708  prefixlen 64  scopeid 0x20<link>\r\n        ether 02:42:ce:77:67:08  txqueuelen 0  (Ethernet)\r\n        RX packets 16  bytes 1124 (1.0 KiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 4  bytes 300 (300.0 B)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\ndocker_gwbridge: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet 172.18.0.1  netmask 255.255.0.0  broadcast 0.0.0.0\r\n        inet6 fe80::42:b5ff:feee:f0fc  prefixlen 64  scopeid 0x20<link>\r\n        ether 02:42:b5:ee:f0:fc  txqueuelen 0  (Ethernet)\r\n        RX packets 3303  bytes 374650 (365.8 KiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 3303  bytes 374650 (365.8 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\neth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet 192.168.1.248  netmask 255.255.255.0  broadcast 192.168.1.255\r\n        inet6 fe80::a128:e6f2:bba3:8834  prefixlen 64  scopeid 0x20<link>\r\n        inet6 fe80::1e85:c4eb:b690:dbfc  prefixlen 64  scopeid 0x20<link>\r\n        ether 00:1c:42:1d:c9:47  txqueuelen 1000  (Ethernet)\r\n        RX packets 2777124  bytes 557130974 (531.3 MiB)\r\n        RX errors 0  dropped 2  overruns 0  frame 0\r\n        TX packets 2647992  bytes 2511160923 (2.3 GiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nlo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536\r\n        inet 127.0.0.1  netmask 255.0.0.0\r\n        inet6 ::1  prefixlen 128  scopeid 0x10<host>\r\n        loop  txqueuelen 1000  (Local Loopback)\r\n        RX packets 3303  bytes 374650 (365.8 KiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 3303  bytes 374650 (365.8 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nveth043ec21: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::8c01:5cff:fe5d:1901  prefixlen 64  scopeid 0x20<link>\r\n        ether 8e:01:5c:5d:19:01  txqueuelen 0  (Ethernet)\r\n        RX packets 11  bytes 774 (774.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 192  bytes 15152 (14.7 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nveth0760fbd: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::e0a0:ff:fe65:cc7b  prefixlen 64  scopeid 0x20<link>\r\n        ether e2:a0:00:65:cc:7b  txqueuelen 0  (Ethernet)\r\n        RX packets 8  bytes 648 (648.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 22  bytes 1728 (1.6 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nveth6a80491: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::c002:91ff:fe3b:5cc6  prefixlen 64  scopeid 0x20<link>\r\n        ether c2:02:91:3b:5c:c6  txqueuelen 0  (Ethernet)\r\n        RX packets 8  bytes 648 (648.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 65  bytes 5226 (5.1 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nveth73e165c: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::6c66:2ff:fe31:3ca4  prefixlen 64  scopeid 0x20<link>\r\n        ether 6e:66:02:31:3c:a4  txqueuelen 0  (Ethernet)\r\n        RX packets 8  bytes 648 (648.0 B)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 25  bytes 1986 (1.9 KiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\nvetha07b4c5: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500\r\n        inet6 fe80::d803:20ff:fe77:f9af  prefixlen 64  scopeid 0x20<link>\r\n        ether da:03:20:77:f9:af  txqueuelen 0  (Ethernet)\r\n        RX packets 25111  bytes 358534917 (341.9 MiB)\r\n        RX errors 0  dropped 0  overruns 0  frame 0\r\n        TX packets 13917  bytes 1057982 (1.0 MiB)\r\n        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\r\n\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/Users/medivh/.ansible/cp/0cf1244bf9\" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.248 [192.168.1.248] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 10000 ms remain after connect\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa type 1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519 type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519-cert type -1\r\ndebug1: Enabling compatibility mode for protocol 2.0\r\ndebug1: Local version string SSH-2.0-OpenSSH_6.9\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.1.248:22 as 'root'\r\ndebug3: hostkeys_foreach: reading file \"/Users/medivh/.ssh/known_hosts\"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:66\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.248\r\ndebug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: kex_parse_kexinit: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-dss-cert-v01@openssh.com,ssh-rsa-cert-v00@openssh.com,ssh-dss-cert-v00@openssh.com,ssh-ed25519,ssh-rsa,ssh-dss\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug2: kex_parse_kexinit: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug1: kex: server->client chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: kex: client->server chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:FbUKq4c58+W7gEu2NnOYOlTnf+DET8DgcNVkE3W5O38\r\ndebug3: hostkeys_foreach: reading file \"/Users/medivh/.ssh/known_hosts\"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:66\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.248\r\ndebug1: Host '192.168.1.248' is known and matches the ECDSA host key.\r\ndebug1: Found key in /Users/medivh/.ssh/known_hosts:66\r\ndebug2: set_newkeys: mode 1\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug2: set_newkeys: mode 0\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug1: SSH2_MSG_SERVICE_REQUEST sent\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug2: key: /Users/medivh/.ssh/id_rsa (0x7fd5d0f0ca40),\r\ndebug2: key: /Users/medivh/.ssh/id_dsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ecdsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ed25519 (0x0),\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Offering RSA public key: /Users/medivh/.ssh/id_rsa\r\ndebug3: send_pubkey_test\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug1: Server accepts key: pkalg ssh-rsa blen 279\r\ndebug2: input_userauth_pk_ok: fp SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug3: sign_and_send_pubkey: RSA SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug1: Enabling compression at level 6.\r\ndebug1: Authentication succeeded (publickey).\r\nAuthenticated to 192.168.1.248 ([192.168.1.248]:22).\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /Users/medivh/.ansible/cp/0cf1244bf9.vbZYiRyf79TxugtT\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 0: new [/Users/medivh/.ansible/cp/0cf1244bf9]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 5\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: ssh_packet_set_tos: set IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 28757\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 6\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: process_mux_master_hello: channel 1 slave version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: process_mux_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 28759\r\ndebug3: mux_client_request_session: session request sent\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 82\r\ndebug2: process_mux_new_session: channel 1: request tty 1, X 0, agent 0, subsys 0, term \"xterm-256color\", cmd \"ifconfig\", env 1\r\ndebug3: process_mux_new_session: got fds stdin 7, stdout 8, stderr 9\r\ndebug2: fd 8 setting O_NONBLOCK\r\ndebug2: fd 9 setting O_NONBLOCK\r\ndebug1: channel 2: new [client-session]\r\ndebug2: process_mux_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug2: channel 2: request pty-req confirm 1\r\ndebug1: Sending environment.\r\ndebug1: Sending env LC_CTYPE = zh_CN.UTF-8\r\ndebug2: channel 2: request env confirm 0\r\ndebug1: Sending command: ifconfig\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: PTY allocation request accepted on channel 2\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 0\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug2: channel 2: close_read\r\ndebug2: channel 2: input open -> closed\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug2: channel 2: obuf empty\r\ndebug2: channel 2: close_write\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: send close\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: channel 1: close_read\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #2 client-session (t4 r0 i3/0 o3/0 fd -1/-1 cc -1)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: channel 1: close_write\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug3: channel 1: status: The following connections are open:\r\n\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.248 closed.\r\n",
+            "_ansible_no_log": false,
+            "rc": 0,
+            "stdout_lines": [
+                "docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500",
+                "        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0",
+                "        inet6 fe80::42:ceff:fe77:6708  prefixlen 64  scopeid 0x20<link>",
+                "        ether 02:42:ce:77:67:08  txqueuelen 0  (Ethernet)",
+                "        RX packets 16  bytes 1124 (1.0 KiB)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 4  bytes 300 (300.0 B)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "docker_gwbridge: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet 172.18.0.1  netmask 255.255.0.0  broadcast 0.0.0.0",
+                "        inet6 fe80::42:b5ff:feee:f0fc  prefixlen 64  scopeid 0x20<link>",
+                "        ether 02:42:b5:ee:f0:fc  txqueuelen 0  (Ethernet)",
+                "        RX packets 3303  bytes 374650 (365.8 KiB)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 3303  bytes 374650 (365.8 KiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet 192.168.1.248  netmask 255.255.255.0  broadcast 192.168.1.255",
+                "        inet6 fe80::a128:e6f2:bba3:8834  prefixlen 64  scopeid 0x20<link>",
+                "        inet6 fe80::1e85:c4eb:b690:dbfc  prefixlen 64  scopeid 0x20<link>",
+                "        ether 00:1c:42:1d:c9:47  txqueuelen 1000  (Ethernet)",
+                "        RX packets 2777124  bytes 557130974 (531.3 MiB)",
+                "        RX errors 0  dropped 2  overruns 0  frame 0",
+                "        TX packets 2647992  bytes 2511160923 (2.3 GiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536",
+                "        inet 127.0.0.1  netmask 255.0.0.0",
+                "        inet6 ::1  prefixlen 128  scopeid 0x10<host>",
+                "        loop  txqueuelen 1000  (Local Loopback)",
+                "        RX packets 3303  bytes 374650 (365.8 KiB)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 3303  bytes 374650 (365.8 KiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "veth043ec21: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet6 fe80::8c01:5cff:fe5d:1901  prefixlen 64  scopeid 0x20<link>",
+                "        ether 8e:01:5c:5d:19:01  txqueuelen 0  (Ethernet)",
+                "        RX packets 11  bytes 774 (774.0 B)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 192  bytes 15152 (14.7 KiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "veth0760fbd: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet6 fe80::e0a0:ff:fe65:cc7b  prefixlen 64  scopeid 0x20<link>",
+                "        ether e2:a0:00:65:cc:7b  txqueuelen 0  (Ethernet)",
+                "        RX packets 8  bytes 648 (648.0 B)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 22  bytes 1728 (1.6 KiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "veth6a80491: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet6 fe80::c002:91ff:fe3b:5cc6  prefixlen 64  scopeid 0x20<link>",
+                "        ether c2:02:91:3b:5c:c6  txqueuelen 0  (Ethernet)",
+                "        RX packets 8  bytes 648 (648.0 B)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 65  bytes 5226 (5.1 KiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "veth73e165c: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet6 fe80::6c66:2ff:fe31:3ca4  prefixlen 64  scopeid 0x20<link>",
+                "        ether 6e:66:02:31:3c:a4  txqueuelen 0  (Ethernet)",
+                "        RX packets 8  bytes 648 (648.0 B)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 25  bytes 1986 (1.9 KiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                "",
+                "vetha07b4c5: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500",
+                "        inet6 fe80::d803:20ff:fe77:f9af  prefixlen 64  scopeid 0x20<link>",
+                "        ether da:03:20:77:f9:af  txqueuelen 0  (Ethernet)",
+                "        RX packets 25111  bytes 358534917 (341.9 MiB)",
+                "        RX errors 0  dropped 0  overruns 0  frame 0",
+                "        TX packets 13917  bytes 1057982 (1.0 MiB)",
+                "        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0",
+                ""
+            ],
+            "changed": true
+        }
+    },
+    "unreachable": {},
+    "failed": {}
+}
+[INFO]: 2018-09-16 21:30:41,738 - views.py - post - Thread-1 - 192.168.1.248
+[INFO]: 2018-09-16 21:30:41,740 - views.py - post - Thread-1 - <Response 4193 bytes [200 OK]>
+[INFO]: 2018-09-16 21:30:47,730 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'names': ['server'], 'data': [{'name': 'server', 'value': 2}]}, 'business_load': {'names': ['web'], 'data': {'left': [36], 'load': [64]}}, 'asset_status_list': {'names': ['Up'], 'data': [{'name': 'Up', 'value': 2, 'itemStyle': {'normal': {'color': 'yellowgreen'}}}]}}
+[INFO]: 2018-09-16 23:05:23,291 - views.py - post - Thread-1 - <Yaml (transient 4375775048)>
+[INFO]: 2018-09-16 23:05:23,291 - views.py - post - Thread-1 - ['/opt:/opt']
+[INFO]: 2018-09-16 23:05:26,726 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'changed': True, 'invocation': {'module_args': {'group': None, 'delimiter': None, 'src': '/root/.ansible/tmp/ansible-tmp-1537110324.220589-228539257807595/source', 'regexp': None, 'original_basename': 'joy-api.yml', 'validate': None, 'setype': None, 'dest': '/usr/local/ansible/swarm/joy-api.yml', 'seuser': None, 'content': None, 'force': True, 'remote_src': None, 'serole': None, 'checksum': '40c0b1dc5e9b64e0c08fead8541686840ecc1a0d', 'unsafe_writes': None, 'backup': True, 'owner': None, 'directory_mode': None, 'mode': None, 'local_follow': None, 'selevel': None, 'attributes': None, 'follow': False}}, 'dest': '/usr/local/ansible/swarm/joy-api.yml', 'checksum': '40c0b1dc5e9b64e0c08fead8541686840ecc1a0d', 'group': 'root', 'src': '/root/.ansible/tmp/ansible-tmp-1537110324.220589-228539257807595/source', 'owner': 'root', 'uid': 0, 'mode': '0644', 'md5sum': '0593a49e35fbf2025fdf353ee59cbb74', 'gid': 0, 'size': 375, '_ansible_parsed': True, 'state': 'file', 'diff': [], 'backup_file': '/usr/local/ansible/swarm/joy-api.yml.24592.2018-09-16@11:05:26~', '_ansible_no_log': False}}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:41:26,021 - AnsibleAPI.py - runansible - Thread-1 - {'success': {}, 'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: scalesys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:43:24,214 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}, 'unreachable': {}, 'success': {}}
+[INFO]: 2018-09-16 23:46:43,997 - AnsibleAPI.py - runansible - Thread-1 - {'unreachable': {}, 'success': {}, 'failed': {'192.168.1.249': 'non-zero return code'}}
+[INFO]: 2018-09-16 23:48:45,052 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}, 'unreachable': {}, 'success': {}}
+[INFO]: 2018-09-16 23:50:51,198 - views.py - post - Thread-1 - {'type': 'cmd', 'args': 'docker service scale  sys01_joy-api=2', 'hostname': 'master'}
+[INFO]: 2018-09-16 23:50:51,270 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:50:53,531 - AnsibleAPI.py - runansible - Thread-1 - {'success': {}, 'failed': {'192.168.1.249': 'non-zero return code'}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:50:53,533 - views.py - post - Thread-1 - {
+    "success": {},
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:50:53,548 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:54:43,801 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'unreachable': {}, 'success': {}}
+[INFO]: 2018-09-16 23:55:27,404 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': '`docker service scale  sys01_joy-api=2`'}
+[INFO]: 2018-09-16 23:55:27,477 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:28,434 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:28,434 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:28,509 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:55:33,706 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'date'}
+[INFO]: 2018-09-16 23:55:33,713 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:34,124 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'rc': 0, 'stdout': 'Sun Sep 16 11:55:34 EDT 2018\r\n', 'changed': True, '_ansible_no_log': False, 'stdout_lines': ['Sun Sep 16 11:55:34 EDT 2018'], 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 31504\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n'}}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:34,126 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "rc": 0,
+            "stdout": "Sun Sep 16 11:55:34 EDT 2018\r\n",
+            "changed": true,
+            "_ansible_no_log": false,
+            "stdout_lines": [
+                "Sun Sep 16 11:55:34 EDT 2018"
+            ],
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 31504\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:34,138 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:55:34,138 - views.py - post - Thread-1 - <Response 35 bytes [200 OK]>
+[INFO]: 2018-09-16 23:55:36,896 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': '`docker service scale  sys01_joy-api=3'}
+[INFO]: 2018-09-16 23:55:36,901 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:37,251 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:37,251 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:37,268 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:55:41,558 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': '`docker service scale  sys01_joy-api=3`'}
+[INFO]: 2018-09-16 23:55:41,566 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:41,979 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:41,981 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:41,988 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:55:46,490 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'date'}
+[INFO]: 2018-09-16 23:55:46,499 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:46,984 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'rc': 0, 'stdout': 'Sun Sep 16 11:55:46 EDT 2018\r\n', 'changed': True, '_ansible_no_log': False, 'stdout_lines': ['Sun Sep 16 11:55:46 EDT 2018'], 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 31504\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n'}}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:46,985 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "rc": 0,
+            "stdout": "Sun Sep 16 11:55:46 EDT 2018\r\n",
+            "changed": true,
+            "_ansible_no_log": false,
+            "stdout_lines": [
+                "Sun Sep 16 11:55:46 EDT 2018"
+            ],
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 31504\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:46,993 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:55:46,994 - views.py - post - Thread-1 - <Response 35 bytes [200 OK]>
+[INFO]: 2018-09-16 23:55:51,066 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': '`docker service scale  sys01_joy-api=3`'}
+[INFO]: 2018-09-16 23:55:51,072 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:51,410 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:51,411 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:51,430 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:55:56,635 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': "'docker service scale  sys01_joy-api=3'"}
+[INFO]: 2018-09-16 23:55:56,640 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:56,979 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:56,980 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:56,992 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:55:58,531 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': "'docker service scale  sys01_joy-api=3'"}
+[INFO]: 2018-09-16 23:55:58,537 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:58,802 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:58,803 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:58,811 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:55:58,819 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': "'docker service scale  sys01_joy-api=3'"}
+[INFO]: 2018-09-16 23:55:58,830 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:59,103 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:59,104 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:59,110 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:55:59,115 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': "'docker service scale  sys01_joy-api=3'"}
+[INFO]: 2018-09-16 23:55:59,124 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:59,441 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:59,443 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:59,452 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:55:59,460 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': "'docker service scale  sys01_joy-api=3'"}
+[INFO]: 2018-09-16 23:55:59,472 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:55:59,762 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:55:59,763 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:55:59,769 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:56:13,442 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': '"docker service scale  sys01_joy-api=3"'}
+[INFO]: 2018-09-16 23:56:13,449 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:56:13,814 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:56:13,815 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:56:13,824 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:56:22,604 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker service ls'}
+[INFO]: 2018-09-16 23:56:22,612 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:56:23,074 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'rc': 0, 'stdout': 'ID            NAME              MODE        REPLICAS  IMAGE\r\n0kvtwv9b444z  portainer         replicated  1/1       portainer/portainer:latest\r\niwgx57rnwsb2  sys01_joy-api     replicated  2/2       docker.io/nginx:latest\r\nsul4d6p1smkg  sys01_api         replicated  2/2       nginx:latest\r\nwy3nc53j5qwo  sys01_web         replicated  2/2       tomcat:latest\r\nyke5nw2a6k9r  monitor_cadvisor  global      2/2       google/cadvisor:v0.24.1\r\n', 'changed': True, '_ansible_no_log': False, 'stdout_lines': ['ID            NAME              MODE        REPLICAS  IMAGE', '0kvtwv9b444z  portainer         replicated  1/1       portainer/portainer:latest', 'iwgx57rnwsb2  sys01_joy-api     replicated  2/2       docker.io/nginx:latest', 'sul4d6p1smkg  sys01_api         replicated  2/2       nginx:latest', 'wy3nc53j5qwo  sys01_web         replicated  2/2       tomcat:latest', 'yke5nw2a6k9r  monitor_cadvisor  global      2/2       google/cadvisor:v0.24.1'], 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 31504\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n'}}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:56:23,077 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "rc": 0,
+            "stdout": "ID            NAME              MODE        REPLICAS  IMAGE\r\n0kvtwv9b444z  portainer         replicated  1/1       portainer/portainer:latest\r\niwgx57rnwsb2  sys01_joy-api     replicated  2/2       docker.io/nginx:latest\r\nsul4d6p1smkg  sys01_api         replicated  2/2       nginx:latest\r\nwy3nc53j5qwo  sys01_web         replicated  2/2       tomcat:latest\r\nyke5nw2a6k9r  monitor_cadvisor  global      2/2       google/cadvisor:v0.24.1\r\n",
+            "changed": true,
+            "_ansible_no_log": false,
+            "stdout_lines": [
+                "ID            NAME              MODE        REPLICAS  IMAGE",
+                "0kvtwv9b444z  portainer         replicated  1/1       portainer/portainer:latest",
+                "iwgx57rnwsb2  sys01_joy-api     replicated  2/2       docker.io/nginx:latest",
+                "sul4d6p1smkg  sys01_api         replicated  2/2       nginx:latest",
+                "wy3nc53j5qwo  sys01_web         replicated  2/2       tomcat:latest",
+                "yke5nw2a6k9r  monitor_cadvisor  global      2/2       google/cadvisor:v0.24.1"
+            ],
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 31504\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:56:23,087 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:56:23,088 - views.py - post - Thread-1 - <Response 452 bytes [200 OK]>
+[INFO]: 2018-09-16 23:56:32,767 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker service scale'}
+[INFO]: 2018-09-16 23:56:32,774 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:56:33,196 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:56:33,199 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:56:33,213 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:56:45,279 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker node ls'}
+[INFO]: 2018-09-16 23:56:45,285 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:56:45,713 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'rc': 0, 'stdout': 'ID                           HOSTNAME               STATUS  AVAILABILITY  MANAGER STATUS\r\njryly0cs817ocpzjzpb9jhqsb    localhost.localdomain  Ready   Active        \r\nv1w5eyin9j3hscz7jh2hjck7v *  localhost.localdomain  Ready   Active        Leader\r\n', 'changed': True, '_ansible_no_log': False, 'stdout_lines': ['ID                           HOSTNAME               STATUS  AVAILABILITY  MANAGER STATUS', 'jryly0cs817ocpzjzpb9jhqsb    localhost.localdomain  Ready   Active        ', 'v1w5eyin9j3hscz7jh2hjck7v *  localhost.localdomain  Ready   Active        Leader'], 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 31504\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n'}}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:56:45,713 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "rc": 0,
+            "stdout": "ID                           HOSTNAME               STATUS  AVAILABILITY  MANAGER STATUS\r\njryly0cs817ocpzjzpb9jhqsb    localhost.localdomain  Ready   Active        \r\nv1w5eyin9j3hscz7jh2hjck7v *  localhost.localdomain  Ready   Active        Leader\r\n",
+            "changed": true,
+            "_ansible_no_log": false,
+            "stdout_lines": [
+                "ID                           HOSTNAME               STATUS  AVAILABILITY  MANAGER STATUS",
+                "jryly0cs817ocpzjzpb9jhqsb    localhost.localdomain  Ready   Active        ",
+                "v1w5eyin9j3hscz7jh2hjck7v *  localhost.localdomain  Ready   Active        Leader"
+            ],
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 31504\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:56:45,730 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:56:45,732 - views.py - post - Thread-1 - <Response 257 bytes [200 OK]>
+[INFO]: 2018-09-16 23:56:51,894 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker service ls'}
+[INFO]: 2018-09-16 23:56:51,900 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:56:52,291 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.249': {'rc': 0, 'stdout': 'ID            NAME              MODE        REPLICAS  IMAGE\r\n0kvtwv9b444z  portainer         replicated  1/1       portainer/portainer:latest\r\niwgx57rnwsb2  sys01_joy-api     replicated  2/2       docker.io/nginx:latest\r\nsul4d6p1smkg  sys01_api         replicated  2/2       nginx:latest\r\nwy3nc53j5qwo  sys01_web         replicated  2/2       tomcat:latest\r\nyke5nw2a6k9r  monitor_cadvisor  global      2/2       google/cadvisor:v0.24.1\r\n', 'changed': True, '_ansible_no_log': False, 'stdout_lines': ['ID            NAME              MODE        REPLICAS  IMAGE', '0kvtwv9b444z  portainer         replicated  1/1       portainer/portainer:latest', 'iwgx57rnwsb2  sys01_joy-api     replicated  2/2       docker.io/nginx:latest', 'sul4d6p1smkg  sys01_api         replicated  2/2       nginx:latest', 'wy3nc53j5qwo  sys01_web         replicated  2/2       tomcat:latest', 'yke5nw2a6k9r  monitor_cadvisor  global      2/2       google/cadvisor:v0.24.1'], 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 31504\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n'}}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:56:52,294 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.249": {
+            "rc": 0,
+            "stdout": "ID            NAME              MODE        REPLICAS  IMAGE\r\n0kvtwv9b444z  portainer         replicated  1/1       portainer/portainer:latest\r\niwgx57rnwsb2  sys01_joy-api     replicated  2/2       docker.io/nginx:latest\r\nsul4d6p1smkg  sys01_api         replicated  2/2       nginx:latest\r\nwy3nc53j5qwo  sys01_web         replicated  2/2       tomcat:latest\r\nyke5nw2a6k9r  monitor_cadvisor  global      2/2       google/cadvisor:v0.24.1\r\n",
+            "changed": true,
+            "_ansible_no_log": false,
+            "stdout_lines": [
+                "ID            NAME              MODE        REPLICAS  IMAGE",
+                "0kvtwv9b444z  portainer         replicated  1/1       portainer/portainer:latest",
+                "iwgx57rnwsb2  sys01_joy-api     replicated  2/2       docker.io/nginx:latest",
+                "sul4d6p1smkg  sys01_api         replicated  2/2       nginx:latest",
+                "wy3nc53j5qwo  sys01_web         replicated  2/2       tomcat:latest",
+                "yke5nw2a6k9r  monitor_cadvisor  global      2/2       google/cadvisor:v0.24.1"
+            ],
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 31504\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.249 closed.\r\n"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:56:52,303 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:56:52,303 - views.py - post - Thread-1 - <Response 452 bytes [200 OK]>
+[INFO]: 2018-09-16 23:57:04,029 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': "docker service scale  'sys01_joy-api=3'"}
+[INFO]: 2018-09-16 23:57:04,035 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:57:04,504 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:57:04,506 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:57:04,515 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:57:10,728 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker service scale  "sys01_joy-api=3"'}
+[INFO]: 2018-09-16 23:57:10,735 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:57:11,207 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:57:11,211 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:57:11,221 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:57:16,295 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker service scale  `sys01_joy-api=3`'}
+[INFO]: 2018-09-16 23:57:16,302 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:57:16,735 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:57:16,738 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:57:16,747 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:57:55,509 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker service scale  sys01_joy-api=3'}
+[INFO]: 2018-09-16 23:57:55,514 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-09-16 23:57:56,194 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {'192.168.1.249': 'non-zero return code'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:57:56,198 - views.py - post - Thread-1 - {
+    "failed": {
+        "192.168.1.249": "non-zero return code"
+    },
+    "success": {},
+    "unreachable": {}
+}
+[INFO]: 2018-09-16 23:57:56,219 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-09-16 23:58:41,948 - AnsibleAPI.py - runansible - Thread-1 - {'success': {}, 'failed': {'192.168.1.249': 'non-zero return code'}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:58:47,223 - AnsibleAPI.py - runansible - MainThread - {'unreachable': {}, 'success': {}, 'failed': {'192.168.1.249': 'non-zero return code'}}
+[INFO]: 2018-09-16 23:58:55,615 - AnsibleAPI.py - runansible - MainThread - {'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}, 'success': {}, 'unreachable': {}}
+[INFO]: 2018-09-16 23:59:13,527 - AnsibleAPI.py - runansible - MainThread - {'unreachable': {}, 'success': {}, 'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}}
+[INFO]: 2018-09-17 00:00:21,130 - AnsibleAPI.py - runansible - MainThread - {'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}, 'unreachable': {}, 'success': {}}

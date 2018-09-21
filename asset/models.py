@@ -22,9 +22,9 @@ class User(UserMixin, db.Model):
     # Set the name for table
     __tablename__ = 'user'
     id = Column(Integer(), primary_key=True, autoincrement=True)
-    username = Column(String(255), unique=True, index=True)
-    password_hash = Column(String(255))
-    email = Column(String(255), unique=True)
+    username = Column(String(128), unique=True, index=True)
+    password_hash = Column(String(256))
+    email = Column(String(64), unique=True)
 
     @property
     def password(self):

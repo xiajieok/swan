@@ -173,18 +173,23 @@ class AnsibleApi(object):
 
 if __name__ == "__main__":
     g = AnsibleApi()
-    host_list = ['docker-test']
+    host_list = ['master']
     # host_list = ['192.168.1.194:5000']
-    task_list = [
-        dict(action=dict(module='shell', args='cd /root/docker  &&  docker-compose ps')),
+    # task_list = [
+    #     dict(action=dict(module='shell', args='cd /root/docker  &&  docker-compose ps')),
         # dict(action=dict(module='shell', args='python sleep.py')),
         # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
-    ]
+    # ]
 
     # test = playbook_dir + 'test.yml'
     # s = a.playbookrun(playbook_path=[test],host='test')
     # print('res', s)
+    cmd1 = "docker service scale  sys01_joy-api=3"
 
+    task_list = [
+        dict(action=dict(module='command', args=cmd1)),
+    ]
+    print(task_list)
 
     data = g.runansible(host_list, task_list)
     print(data)
