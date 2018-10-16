@@ -5696,3 +5696,1573 @@
 [INFO]: 2018-09-16 23:58:55,615 - AnsibleAPI.py - runansible - MainThread - {'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}, 'success': {}, 'unreachable': {}}
 [INFO]: 2018-09-16 23:59:13,527 - AnsibleAPI.py - runansible - MainThread - {'unreachable': {}, 'success': {}, 'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}}
 [INFO]: 2018-09-17 00:00:21,130 - AnsibleAPI.py - runansible - MainThread - {'failed': {'192.168.1.249': 'Unsupported parameters for (command) module: sys01_joy-api Supported parameters include: _raw_params, _uses_shell, chdir, creates, executable, removes, stdin, warn'}, 'unreachable': {}, 'success': {}}
+[INFO]: 2018-10-15 18:40:02,640 - dashboard.py - searilize_page - Thread-1 - {'business_load': {'names': ['web'], 'data': {'left': [36], 'load': [64]}}, 'asset_status_list': {'names': ['Up'], 'data': [{'value': 3, 'name': 'Up', 'itemStyle': {'normal': {'color': 'yellowgreen'}}}]}, 'asset_categories': {'names': ['server'], 'data': [{'name': 'server', 'value': 3}]}}
+[INFO]: 2018-10-16 10:59:07,197 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'uname -a'}
+[INFO]: 2018-10-16 10:59:07,323 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 10:59:08,317 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.232': {'stdout_lines': ['Linux scm 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux'], 'rc': 0, 'changed': True, 'stdout': 'Linux scm 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 81586\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.232 closed.\r\n', '_ansible_no_log': False}}, 'unreachable': {}}
+[INFO]: 2018-10-16 10:59:08,318 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.232": {
+            "stdout_lines": [
+                "Linux scm 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux"
+            ],
+            "rc": 0,
+            "changed": true,
+            "stdout": "Linux scm 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 81586\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.232 closed.\r\n",
+            "_ansible_no_log": false
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 10:59:08,354 - views.py - post - Thread-1 - 192.168.1.232
+[INFO]: 2018-10-16 10:59:08,354 - views.py - post - Thread-1 - <Response 105 bytes [200 OK]>
+[INFO]: 2018-10-16 10:59:30,029 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'docker node ls'}
+[INFO]: 2018-10-16 10:59:30,047 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 10:59:30,832 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.232': {'stdout_lines': ['ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS', 'e9fpxvqsrv6q648t9ehqhd2cd *  scm       Ready   Active        Leader'], 'rc': 0, 'changed': True, 'stdout': 'ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS\r\ne9fpxvqsrv6q648t9ehqhd2cd *  scm       Ready   Active        Leader\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 81586\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.232 closed.\r\n', '_ansible_no_log': False}}, 'unreachable': {}}
+[INFO]: 2018-10-16 10:59:30,833 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.232": {
+            "stdout_lines": [
+                "ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS",
+                "e9fpxvqsrv6q648t9ehqhd2cd *  scm       Ready   Active        Leader"
+            ],
+            "rc": 0,
+            "changed": true,
+            "stdout": "ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS\r\ne9fpxvqsrv6q648t9ehqhd2cd *  scm       Ready   Active        Leader\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 81586\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.232 closed.\r\n",
+            "_ansible_no_log": false
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 10:59:30,848 - views.py - post - Thread-1 - 192.168.1.232
+[INFO]: 2018-10-16 10:59:30,849 - views.py - post - Thread-1 - <Response 153 bytes [200 OK]>
+[INFO]: 2018-10-16 10:59:50,128 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker node ls'}
+[INFO]: 2018-10-16 10:59:50,137 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:00:00,452 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {}, 'unreachable': {'192.168.1.249': 'Failed to connect to the host via ssh: OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/Users/medivh/.ansible/cp/445d0a1ce2" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.249 [192.168.1.249] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: connect to address 192.168.1.249 port 22: Operation timed out\r\nssh: connect to host 192.168.1.249 port 22: Operation timed out\r\n'}}
+[INFO]: 2018-10-16 11:00:00,453 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {},
+    "unreachable": {
+        "192.168.1.249": "Failed to connect to the host via ssh: OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/Users/medivh/.ansible/cp/445d0a1ce2\" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.249 [192.168.1.249] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: connect to address 192.168.1.249 port 22: Operation timed out\r\nssh: connect to host 192.168.1.249 port 22: Operation timed out\r\n"
+    }
+}
+[INFO]: 2018-10-16 11:00:00,462 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-10-16 11:00:43,533 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker node ls'}
+[INFO]: 2018-10-16 11:00:43,546 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:00:45,689 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.236': {'stdout_lines': ['ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS', 'lzhye3rkdo2umzw4rmpfeswct    node-3    Ready   Active        ', 'ry47182me4wpypx45gbctjcbs    node-4    Ready   Active        ', 'tue280uwyyqbcxpf78223yqt7    node-2    Ready   Active        Reachable', 'xjm8zkeksddkhzxvlthqzexfn    node-1    Ready   Active        ', 'y8jlicg60tjk5wruce5ka6seo *  master    Ready   Active        Leader'], 'rc': 0, 'changed': True, 'stdout': 'ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS\r\nlzhye3rkdo2umzw4rmpfeswct    node-3    Ready   Active        \r\nry47182me4wpypx45gbctjcbs    node-4    Ready   Active        \r\ntue280uwyyqbcxpf78223yqt7    node-2    Ready   Active        Reachable\r\nxjm8zkeksddkhzxvlthqzexfn    node-1    Ready   Active        \r\ny8jlicg60tjk5wruce5ka6seo *  master    Ready   Active        Leader\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/Users/medivh/.ansible/cp/a4a87f5bc7" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.236 [192.168.1.236] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9990 ms remain after connect\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa type 1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519 type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519-cert type -1\r\ndebug1: Enabling compatibility mode for protocol 2.0\r\ndebug1: Local version string SSH-2.0-OpenSSH_6.9\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.1.236:22 as \'root\'\r\ndebug3: hostkeys_foreach: reading file "/Users/medivh/.ssh/known_hosts"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:56\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.236\r\ndebug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: kex_parse_kexinit: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-dss-cert-v01@openssh.com,ssh-rsa-cert-v00@openssh.com,ssh-dss-cert-v00@openssh.com,ssh-ed25519,ssh-rsa,ssh-dss\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug2: kex_parse_kexinit: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug1: kex: server->client chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: kex: client->server chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:bCwg7Y8sTpv6BPfPFheZM8+V0J64+vxY5z8DzBjHWko\r\ndebug3: hostkeys_foreach: reading file "/Users/medivh/.ssh/known_hosts"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:56\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.236\r\ndebug1: Host \'192.168.1.236\' is known and matches the ECDSA host key.\r\ndebug1: Found key in /Users/medivh/.ssh/known_hosts:56\r\ndebug2: set_newkeys: mode 1\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug2: set_newkeys: mode 0\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug1: SSH2_MSG_SERVICE_REQUEST sent\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug2: key: /Users/medivh/.ssh/id_rsa (0x7fbc4be000c0),\r\ndebug2: key: /Users/medivh/.ssh/id_dsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ecdsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ed25519 (0x0),\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Offering RSA public key: /Users/medivh/.ssh/id_rsa\r\ndebug3: send_pubkey_test\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug1: Server accepts key: pkalg ssh-rsa blen 279\r\ndebug2: input_userauth_pk_ok: fp SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug3: sign_and_send_pubkey: RSA SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug1: Enabling compression at level 6.\r\ndebug1: Authentication succeeded (publickey).\r\nAuthenticated to 192.168.1.236 ([192.168.1.236]:22).\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /Users/medivh/.ansible/cp/a4a87f5bc7.JinoW5rNFTU2VTL5\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 0: new [/Users/medivh/.ansible/cp/a4a87f5bc7]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 5\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: ssh_packet_set_tos: set IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 81694\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 6\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: process_mux_master_hello: channel 1 slave version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: process_mux_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 81696\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 88\r\ndebug3: mux_client_request_session: session request sent\r\ndebug2: process_mux_new_session: channel 1: request tty 1, X 0, agent 0, subsys 0, term "xterm-256color", cmd "docker node ls", env 1\r\ndebug3: process_mux_new_session: got fds stdin 7, stdout 8, stderr 9\r\ndebug2: fd 8 setting O_NONBLOCK\r\ndebug2: fd 9 setting O_NONBLOCK\r\ndebug1: channel 2: new [client-session]\r\ndebug2: process_mux_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug2: channel 2: request pty-req confirm 1\r\ndebug1: Sending environment.\r\ndebug1: Sending env LC_CTYPE = zh_CN.UTF-8\r\ndebug2: channel 2: request env confirm 0\r\ndebug1: Sending command: docker node ls\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: PTY allocation request accepted on channel 2\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 0\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug2: channel 2: close_read\r\ndebug2: channel 2: input open -> closed\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: obuf empty\r\ndebug2: channel 2: close_write\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: send close\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: channel 1: close_read\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #2 client-session (t4 r0 i3/0 o3/0 fd -1/-1 cc -1)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: channel 1: close_write\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug3: channel 1: status: The following connections are open:\r\n\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.236 closed.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\n', '_ansible_no_log': False}}, 'unreachable': {}}
+[INFO]: 2018-10-16 11:00:45,722 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.236": {
+            "stdout_lines": [
+                "ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS",
+                "lzhye3rkdo2umzw4rmpfeswct    node-3    Ready   Active        ",
+                "ry47182me4wpypx45gbctjcbs    node-4    Ready   Active        ",
+                "tue280uwyyqbcxpf78223yqt7    node-2    Ready   Active        Reachable",
+                "xjm8zkeksddkhzxvlthqzexfn    node-1    Ready   Active        ",
+                "y8jlicg60tjk5wruce5ka6seo *  master    Ready   Active        Leader"
+            ],
+            "rc": 0,
+            "changed": true,
+            "stdout": "ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS\r\nlzhye3rkdo2umzw4rmpfeswct    node-3    Ready   Active        \r\nry47182me4wpypx45gbctjcbs    node-4    Ready   Active        \r\ntue280uwyyqbcxpf78223yqt7    node-2    Ready   Active        Reachable\r\nxjm8zkeksddkhzxvlthqzexfn    node-1    Ready   Active        \r\ny8jlicg60tjk5wruce5ka6seo *  master    Ready   Active        Leader\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/Users/medivh/.ansible/cp/a4a87f5bc7\" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.236 [192.168.1.236] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9990 ms remain after connect\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa type 1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519 type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519-cert type -1\r\ndebug1: Enabling compatibility mode for protocol 2.0\r\ndebug1: Local version string SSH-2.0-OpenSSH_6.9\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.1.236:22 as 'root'\r\ndebug3: hostkeys_foreach: reading file \"/Users/medivh/.ssh/known_hosts\"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:56\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.236\r\ndebug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: kex_parse_kexinit: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-dss-cert-v01@openssh.com,ssh-rsa-cert-v00@openssh.com,ssh-dss-cert-v00@openssh.com,ssh-ed25519,ssh-rsa,ssh-dss\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug2: kex_parse_kexinit: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug1: kex: server->client chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: kex: client->server chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:bCwg7Y8sTpv6BPfPFheZM8+V0J64+vxY5z8DzBjHWko\r\ndebug3: hostkeys_foreach: reading file \"/Users/medivh/.ssh/known_hosts\"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:56\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.236\r\ndebug1: Host '192.168.1.236' is known and matches the ECDSA host key.\r\ndebug1: Found key in /Users/medivh/.ssh/known_hosts:56\r\ndebug2: set_newkeys: mode 1\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug2: set_newkeys: mode 0\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug1: SSH2_MSG_SERVICE_REQUEST sent\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug2: key: /Users/medivh/.ssh/id_rsa (0x7fbc4be000c0),\r\ndebug2: key: /Users/medivh/.ssh/id_dsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ecdsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ed25519 (0x0),\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Offering RSA public key: /Users/medivh/.ssh/id_rsa\r\ndebug3: send_pubkey_test\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug1: Server accepts key: pkalg ssh-rsa blen 279\r\ndebug2: input_userauth_pk_ok: fp SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug3: sign_and_send_pubkey: RSA SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug1: Enabling compression at level 6.\r\ndebug1: Authentication succeeded (publickey).\r\nAuthenticated to 192.168.1.236 ([192.168.1.236]:22).\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /Users/medivh/.ansible/cp/a4a87f5bc7.JinoW5rNFTU2VTL5\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 0: new [/Users/medivh/.ansible/cp/a4a87f5bc7]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 5\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: ssh_packet_set_tos: set IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 81694\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 6\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: process_mux_master_hello: channel 1 slave version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: process_mux_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 81696\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 88\r\ndebug3: mux_client_request_session: session request sent\r\ndebug2: process_mux_new_session: channel 1: request tty 1, X 0, agent 0, subsys 0, term \"xterm-256color\", cmd \"docker node ls\", env 1\r\ndebug3: process_mux_new_session: got fds stdin 7, stdout 8, stderr 9\r\ndebug2: fd 8 setting O_NONBLOCK\r\ndebug2: fd 9 setting O_NONBLOCK\r\ndebug1: channel 2: new [client-session]\r\ndebug2: process_mux_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug2: channel 2: request pty-req confirm 1\r\ndebug1: Sending environment.\r\ndebug1: Sending env LC_CTYPE = zh_CN.UTF-8\r\ndebug2: channel 2: request env confirm 0\r\ndebug1: Sending command: docker node ls\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: PTY allocation request accepted on channel 2\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 0\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug2: channel 2: close_read\r\ndebug2: channel 2: input open -> closed\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: obuf empty\r\ndebug2: channel 2: close_write\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: send close\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: channel 1: close_read\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #2 client-session (t4 r0 i3/0 o3/0 fd -1/-1 cc -1)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: channel 1: close_write\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug3: channel 1: status: The following connections are open:\r\n\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.236 closed.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\n",
+            "_ansible_no_log": false
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 11:00:45,750 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-10-16 11:01:15,284 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'hostname'}
+[INFO]: 2018-10-16 11:01:15,294 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:01:15,695 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.236': {'stdout_lines': ['master'], 'rc': 0, 'changed': True, 'stdout': 'master\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 81696\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.236 closed.\r\n', '_ansible_no_log': False}}, 'unreachable': {}}
+[INFO]: 2018-10-16 11:01:15,695 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.236": {
+            "stdout_lines": [
+                "master"
+            ],
+            "rc": 0,
+            "changed": true,
+            "stdout": "master\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 81696\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.236 closed.\r\n",
+            "_ansible_no_log": false
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 11:01:15,720 - views.py - post - Thread-1 - 192.168.1.249
+[INFO]: 2018-10-16 11:01:31,358 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'hostname'}
+[INFO]: 2018-10-16 11:01:31,365 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:01:32,925 - AnsibleAPI.py - runansible - Thread-1 - {'failed': {}, 'success': {'192.168.1.232': {'stdout_lines': ['scm'], 'rc': 0, 'changed': True, 'stdout': 'scm\r\n', 'stderr': 'OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/Users/medivh/.ansible/cp/5e53e252a9" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.232 [192.168.1.232] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9999 ms remain after connect\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa type 1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519 type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519-cert type -1\r\ndebug1: Enabling compatibility mode for protocol 2.0\r\ndebug1: Local version string SSH-2.0-OpenSSH_6.9\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.1.232:22 as \'root\'\r\ndebug3: hostkeys_foreach: reading file "/Users/medivh/.ssh/known_hosts"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:58\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.232\r\ndebug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: kex_parse_kexinit: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-dss-cert-v01@openssh.com,ssh-rsa-cert-v00@openssh.com,ssh-dss-cert-v00@openssh.com,ssh-ed25519,ssh-rsa,ssh-dss\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug2: kex_parse_kexinit: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug1: kex: server->client chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: kex: client->server chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:Vd+1nvvv7WLCZk8BK9xWBpfPgfoJetdpmq5I3z4kbuw\r\ndebug3: hostkeys_foreach: reading file "/Users/medivh/.ssh/known_hosts"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:58\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.232\r\ndebug1: Host \'192.168.1.232\' is known and matches the ECDSA host key.\r\ndebug1: Found key in /Users/medivh/.ssh/known_hosts:58\r\ndebug2: set_newkeys: mode 1\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug2: set_newkeys: mode 0\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug1: SSH2_MSG_SERVICE_REQUEST sent\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug2: key: /Users/medivh/.ssh/id_rsa (0x7ff471d01470),\r\ndebug2: key: /Users/medivh/.ssh/id_dsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ecdsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ed25519 (0x0),\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Offering RSA public key: /Users/medivh/.ssh/id_rsa\r\ndebug3: send_pubkey_test\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug1: Server accepts key: pkalg ssh-rsa blen 279\r\ndebug2: input_userauth_pk_ok: fp SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug3: sign_and_send_pubkey: RSA SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug1: Enabling compression at level 6.\r\ndebug1: Authentication succeeded (publickey).\r\nAuthenticated to 192.168.1.232 ([192.168.1.232]:22).\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /Users/medivh/.ansible/cp/5e53e252a9.ngJSCrao08N0d9JY\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 0: new [/Users/medivh/.ansible/cp/5e53e252a9]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 5\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: ssh_packet_set_tos: set IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 81717\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 6\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: process_mux_master_hello: channel 1 slave version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: process_mux_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 81719\r\ndebug3: mux_client_request_session: session request sent\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 82\r\ndebug2: process_mux_new_session: channel 1: request tty 1, X 0, agent 0, subsys 0, term "xterm-256color", cmd "hostname", env 1\r\ndebug3: process_mux_new_session: got fds stdin 7, stdout 8, stderr 9\r\ndebug2: fd 8 setting O_NONBLOCK\r\ndebug2: fd 9 setting O_NONBLOCK\r\ndebug1: channel 2: new [client-session]\r\ndebug2: process_mux_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug2: channel 2: request pty-req confirm 1\r\ndebug1: Sending environment.\r\ndebug1: Sending env LC_CTYPE = zh_CN.UTF-8\r\ndebug2: channel 2: request env confirm 0\r\ndebug1: Sending command: hostname\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: PTY allocation request accepted on channel 2\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 0\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug2: channel 2: close_read\r\ndebug2: channel 2: input open -> closed\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug2: channel 2: obuf empty\r\ndebug2: channel 2: close_write\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: send close\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: channel 1: close_read\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #2 client-session (t4 r0 i3/0 o3/0 fd -1/-1 cc -1)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: channel 1: close_write\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: channel 1: status: The following connections are open:\r\n\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.232 closed.\r\n', '_ansible_no_log': False}}, 'unreachable': {}}
+[INFO]: 2018-10-16 11:01:32,935 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.232": {
+            "stdout_lines": [
+                "scm"
+            ],
+            "rc": 0,
+            "changed": true,
+            "stdout": "scm\r\n",
+            "stderr": "OpenSSH_6.9p1, LibreSSL 2.1.8\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug1: /etc/ssh/ssh_config line 56: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/Users/medivh/.ansible/cp/5e53e252a9\" does not exist\r\ndebug2: ssh_connect: needpriv 0\r\ndebug1: Connecting to 192.168.1.232 [192.168.1.232] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9999 ms remain after connect\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa type 1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_rsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_dsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ecdsa-cert type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519 type -1\r\ndebug1: key_load_public: No such file or directory\r\ndebug1: identity file /Users/medivh/.ssh/id_ed25519-cert type -1\r\ndebug1: Enabling compatibility mode for protocol 2.0\r\ndebug1: Local version string SSH-2.0-OpenSSH_6.9\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_7.4\r\ndebug1: match: OpenSSH_7.4 pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.1.232:22 as 'root'\r\ndebug3: hostkeys_foreach: reading file \"/Users/medivh/.ssh/known_hosts\"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:58\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.232\r\ndebug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: kex_parse_kexinit: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-dss-cert-v01@openssh.com,ssh-rsa-cert-v00@openssh.com,ssh-dss-cert-v00@openssh.com,ssh-ed25519,ssh-rsa,ssh-dss\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,arcfour256,arcfour128,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-md5-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: zlib@openssh.com,zlib,none\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug2: kex_parse_kexinit: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1\r\ndebug2: kex_parse_kexinit: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: none,zlib@openssh.com\r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: \r\ndebug2: kex_parse_kexinit: first_kex_follows 0 \r\ndebug2: kex_parse_kexinit: reserved 0 \r\ndebug1: kex: server->client chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: kex: client->server chacha20-poly1305@openssh.com <implicit> zlib@openssh.com\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug1: Server host key: ecdsa-sha2-nistp256 SHA256:Vd+1nvvv7WLCZk8BK9xWBpfPgfoJetdpmq5I3z4kbuw\r\ndebug3: hostkeys_foreach: reading file \"/Users/medivh/.ssh/known_hosts\"\r\ndebug3: record_hostkey: found key type ECDSA in file /Users/medivh/.ssh/known_hosts:58\r\ndebug3: load_hostkeys: loaded 1 keys from 192.168.1.232\r\ndebug1: Host '192.168.1.232' is known and matches the ECDSA host key.\r\ndebug1: Found key in /Users/medivh/.ssh/known_hosts:58\r\ndebug2: set_newkeys: mode 1\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug2: set_newkeys: mode 0\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug1: SSH2_MSG_SERVICE_REQUEST sent\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug2: key: /Users/medivh/.ssh/id_rsa (0x7ff471d01470),\r\ndebug2: key: /Users/medivh/.ssh/id_dsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ecdsa (0x0),\r\ndebug2: key: /Users/medivh/.ssh/id_ed25519 (0x0),\r\ndebug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: start over, passed a different list publickey,gssapi-keyex,gssapi-with-mic,password\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-with-mic\r\ndebug3: remaining preferred: gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup gssapi-keyex\r\ndebug3: remaining preferred: hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Offering RSA public key: /Users/medivh/.ssh/id_rsa\r\ndebug3: send_pubkey_test\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug1: Server accepts key: pkalg ssh-rsa blen 279\r\ndebug2: input_userauth_pk_ok: fp SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug3: sign_and_send_pubkey: RSA SHA256:4t1Fd6HGqCci3zleuN4E+I3MSsJsZLltX4BSNk/U1vE\r\ndebug1: Enabling compression at level 6.\r\ndebug1: Authentication succeeded (publickey).\r\nAuthenticated to 192.168.1.232 ([192.168.1.232]:22).\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /Users/medivh/.ansible/cp/5e53e252a9.ngJSCrao08N0d9JY\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 0: new [/Users/medivh/.ansible/cp/5e53e252a9]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 5\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: ssh_packet_set_tos: set IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 81717\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug3: fd 6 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 6\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: process_mux_master_hello: channel 1 slave version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: process_mux_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 81719\r\ndebug3: mux_client_request_session: session request sent\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 82\r\ndebug2: process_mux_new_session: channel 1: request tty 1, X 0, agent 0, subsys 0, term \"xterm-256color\", cmd \"hostname\", env 1\r\ndebug3: process_mux_new_session: got fds stdin 7, stdout 8, stderr 9\r\ndebug2: fd 8 setting O_NONBLOCK\r\ndebug2: fd 9 setting O_NONBLOCK\r\ndebug1: channel 2: new [client-session]\r\ndebug2: process_mux_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug2: channel 2: request pty-req confirm 1\r\ndebug1: Sending environment.\r\ndebug1: Sending env LC_CTYPE = zh_CN.UTF-8\r\ndebug2: channel 2: request env confirm 0\r\ndebug1: Sending command: hostname\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: PTY allocation request accepted on channel 2\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 0\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug2: channel 2: close_read\r\ndebug2: channel 2: input open -> closed\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug2: channel 2: obuf empty\r\ndebug2: channel 2: close_write\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: send close\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: channel 1: close_read\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #2 client-session (t4 r0 i3/0 o3/0 fd -1/-1 cc -1)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: channel 1: close_write\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: channel 1: status: The following connections are open:\r\n\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\nShared connection to 192.168.1.232 closed.\r\n",
+            "_ansible_no_log": false
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 11:01:32,960 - views.py - post - Thread-1 - 192.168.1.232
+[INFO]: 2018-10-16 11:01:32,962 - views.py - post - Thread-1 - <Response 10 bytes [200 OK]>
+[INFO]: 2018-10-16 11:02:35,181 - views.py - post - Thread-1 - {'args': 'date', 'type': 'cmd', 'hostname': 'scm'}
+[INFO]: 2018-10-16 11:02:35,250 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:02:37,359 - views.py - post - Thread-1 - None
+[INFO]: 2018-10-16 11:19:18,930 - views.py - post - Thread-1 - {'hostname': 'scm', 'type': 'cmd', 'args': 'date'}
+[INFO]: 2018-10-16 11:19:18,991 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:19:22,069 - views.py - post - Thread-1 - None
+[INFO]: 2018-10-16 11:19:55,521 - views.py - post - Thread-1 - {'args': 'date', 'type': 'cmd', 'hostname': 'scm'}
+[INFO]: 2018-10-16 11:19:55,572 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:19:57,295 - views.py - post - Thread-1 - None
+[INFO]: 2018-10-16 11:20:59,886 - views.py - post - Thread-1 - {'args': 'date', 'hostname': 'scm', 'type': 'cmd'}
+[INFO]: 2018-10-16 11:20:59,964 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:21:02,937 - views.py - post - Thread-1 - None
+[INFO]: 2018-10-16 11:21:22,130 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'date'}
+[INFO]: 2018-10-16 11:21:22,181 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:21:23,988 - views.py - post - Thread-1 - None
+[INFO]: 2018-10-16 11:22:06,210 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'date'}
+[INFO]: 2018-10-16 11:22:06,265 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:22:07,883 - views.py - post - Thread-1 - None
+[INFO]: 2018-10-16 11:22:59,837 - views.py - post - Thread-1 - {'hostname': 'scm', 'type': 'cmd', 'args': 'date'}
+[INFO]: 2018-10-16 11:22:59,901 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:23:01,799 - views.py - post - Thread-1 - None
+[INFO]: 2018-10-16 11:23:52,956 - views.py - post - Thread-1 - {'hostname': 'scm', 'type': 'cmd', 'args': 'date'}
+[INFO]: 2018-10-16 11:23:53,026 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:23:54,781 - views.py - post - Thread-1 - None
+[INFO]: 2018-10-16 11:24:54,068 - views.py - post - Thread-1 - {'hostname': 'scm', 'args': 'date', 'type': 'cmd'}
+[INFO]: 2018-10-16 11:24:54,129 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:24:57,359 - views.py - post - Thread-1 - <asset.AnsibleAPI.ResultCallback object at 0x104c85da0>
+[INFO]: 2018-10-16 11:25:23,998 - views.py - post - Thread-1 - {'hostname': 'scm', 'type': 'cmd', 'args': 'date'}
+[INFO]: 2018-10-16 11:25:24,048 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:39:24,125 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'date'}
+[INFO]: 2018-10-16 11:39:24,185 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:39:27,050 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.232": {
+            "changed": true,
+            "end": "2018-10-16 11:39:26.811306",
+            "stderr_lines": [],
+            "rc": 0,
+            "cmd": "date",
+            "_ansible_no_log": false,
+            "invocation": {
+                "module_args": {
+                    "_uses_shell": true,
+                    "removes": null,
+                    "chdir": null,
+                    "stdin": null,
+                    "_raw_params": "date",
+                    "creates": null,
+                    "warn": true,
+                    "executable": null
+                }
+            },
+            "stderr": "",
+            "stdout": "2018\u5e74 10\u6708 16\u65e5 \u661f\u671f\u4e8c 11:39:26 CST",
+            "delta": "0:00:00.038337",
+            "stdout_lines": [
+                "2018\u5e74 10\u6708 16\u65e5 \u661f\u671f\u4e8c 11:39:26 CST"
+            ],
+            "start": "2018-10-16 11:39:26.772969",
+            "_ansible_parsed": true
+        }
+    },
+    "failed": {},
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 11:40:51,669 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'docker service ls'}
+[INFO]: 2018-10-16 11:40:51,680 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:40:54,091 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.232": {
+            "changed": true,
+            "end": "2018-10-16 11:40:53.872073",
+            "stderr_lines": [],
+            "rc": 0,
+            "cmd": "docker service ls",
+            "_ansible_no_log": false,
+            "invocation": {
+                "module_args": {
+                    "_uses_shell": true,
+                    "removes": null,
+                    "chdir": null,
+                    "stdin": null,
+                    "_raw_params": "docker service ls",
+                    "creates": null,
+                    "warn": true,
+                    "executable": null
+                }
+            },
+            "stderr": "",
+            "stdout": "ID            NAME       MODE        REPLICAS  IMAGE\nwucitugk3cr8  portainer  replicated  1/1       portainer/portainer:latest",
+            "delta": "0:00:00.087996",
+            "stdout_lines": [
+                "ID            NAME       MODE        REPLICAS  IMAGE",
+                "wucitugk3cr8  portainer  replicated  1/1       portainer/portainer:latest"
+            ],
+            "start": "2018-10-16 11:40:53.784077",
+            "_ansible_parsed": true
+        }
+    },
+    "failed": {},
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 11:41:14,094 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker service ls'}
+[INFO]: 2018-10-16 11:41:14,103 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:41:16,598 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.236": {
+            "changed": true,
+            "end": "2018-10-16 11:41:16.441904",
+            "stderr_lines": [],
+            "rc": 0,
+            "cmd": "docker service ls",
+            "_ansible_no_log": false,
+            "invocation": {
+                "module_args": {
+                    "_uses_shell": true,
+                    "removes": null,
+                    "chdir": null,
+                    "stdin": null,
+                    "_raw_params": "docker service ls",
+                    "creates": null,
+                    "warn": true,
+                    "executable": null
+                }
+            },
+            "stderr": "",
+            "stdout": "ID            NAME                      MODE        REPLICAS  IMAGE\n1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest\n2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest\n5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest\n859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest\nc4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest\ncih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest\nh7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest\ni881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest\nibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest\nk3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest\nkqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest\nm8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest\nmwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest\nn9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest\nokda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest\nptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest\nrplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest\nt65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest\nt7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1\nu37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest\nu6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest\nupqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest\nvantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest\nwwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest",
+            "delta": "0:00:00.189076",
+            "stdout_lines": [
+                "ID            NAME                      MODE        REPLICAS  IMAGE",
+                "1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest",
+                "2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest",
+                "5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest",
+                "859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest",
+                "c4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest",
+                "cih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest",
+                "h7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest",
+                "i881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest",
+                "ibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest",
+                "k3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest",
+                "kqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest",
+                "m8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest",
+                "mwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest",
+                "n9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest",
+                "okda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest",
+                "ptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest",
+                "rplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest",
+                "t65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest",
+                "t7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1",
+                "u37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest",
+                "u6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest",
+                "upqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest",
+                "vantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest",
+                "wwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest"
+            ],
+            "start": "2018-10-16 11:41:16.252828",
+            "_ansible_parsed": true
+        }
+    },
+    "failed": {},
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 11:42:09,184 - views.py - post - Thread-1 - {'hostname': 'master', 'type': 'cmd', 'args': 'docker service ls'}
+[INFO]: 2018-10-16 11:42:09,241 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:42:11,009 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.236": {
+            "stdout": "ID            NAME                      MODE        REPLICAS  IMAGE\n1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest\n2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest\n5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest\n859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest\nc4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest\ncih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest\nh7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest\ni881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest\nibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest\nk3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest\nkqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest\nm8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest\nmwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest\nn9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest\nokda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest\nptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest\nrplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest\nt65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest\nt7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1\nu37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest\nu6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest\nupqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest\nvantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest\nwwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest",
+            "stderr": "",
+            "stdout_lines": [
+                "ID            NAME                      MODE        REPLICAS  IMAGE",
+                "1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest",
+                "2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest",
+                "5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest",
+                "859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest",
+                "c4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest",
+                "cih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest",
+                "h7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest",
+                "i881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest",
+                "ibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest",
+                "k3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest",
+                "kqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest",
+                "m8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest",
+                "mwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest",
+                "n9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest",
+                "okda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest",
+                "ptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest",
+                "rplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest",
+                "t65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest",
+                "t7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1",
+                "u37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest",
+                "u6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest",
+                "upqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest",
+                "vantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest",
+                "wwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest"
+            ],
+            "start": "2018-10-16 11:42:10.699543",
+            "cmd": "docker service ls",
+            "invocation": {
+                "module_args": {
+                    "executable": null,
+                    "creates": null,
+                    "_uses_shell": true,
+                    "stdin": null,
+                    "warn": true,
+                    "removes": null,
+                    "_raw_params": "docker service ls",
+                    "chdir": null
+                }
+            },
+            "stderr_lines": [],
+            "delta": "0:00:00.157566",
+            "rc": 0,
+            "end": "2018-10-16 11:42:10.857109",
+            "changed": true,
+            "_ansible_no_log": false,
+            "_ansible_parsed": true
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 11:45:16,141 - views.py - post - Thread-1 - {'args': 'docker service ls', 'hostname': 'master', 'type': 'cmd'}
+[INFO]: 2018-10-16 11:45:16,204 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:45:19,087 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.236": {
+            "delta": "0:00:00.159585",
+            "stderr": "",
+            "stderr_lines": [],
+            "stdout_lines": [
+                "ID            NAME                      MODE        REPLICAS  IMAGE",
+                "1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest",
+                "2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest",
+                "5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest",
+                "859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest",
+                "c4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest",
+                "cih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest",
+                "h7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest",
+                "i881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest",
+                "ibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest",
+                "k3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest",
+                "kqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest",
+                "m8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest",
+                "mwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest",
+                "n9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest",
+                "okda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest",
+                "ptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest",
+                "rplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest",
+                "t65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest",
+                "t7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1",
+                "u37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest",
+                "u6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest",
+                "upqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest",
+                "vantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest",
+                "wwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest"
+            ],
+            "changed": true,
+            "rc": 0,
+            "stdout": "ID            NAME                      MODE        REPLICAS  IMAGE\n1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest\n2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest\n5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest\n859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest\nc4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest\ncih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest\nh7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest\ni881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest\nibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest\nk3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest\nkqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest\nm8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest\nmwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest\nn9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest\nokda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest\nptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest\nrplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest\nt65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest\nt7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1\nu37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest\nu6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest\nupqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest\nvantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest\nwwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest",
+            "cmd": "docker service ls",
+            "start": "2018-10-16 11:45:18.739876",
+            "_ansible_no_log": false,
+            "invocation": {
+                "module_args": {
+                    "chdir": null,
+                    "stdin": null,
+                    "creates": null,
+                    "warn": true,
+                    "_uses_shell": true,
+                    "executable": null,
+                    "removes": null,
+                    "_raw_params": "docker service ls"
+                }
+            },
+            "end": "2018-10-16 11:45:18.899461",
+            "_ansible_parsed": true
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 11:45:38,964 - views.py - post - Thread-1 - {'hostname': 'master', 'args': 'docker service ls', 'type': 'cmd'}
+[INFO]: 2018-10-16 11:45:39,013 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:45:40,567 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "success": {
+        "192.168.1.236": {
+            "_ansible_no_log": false,
+            "delta": "0:00:00.159483",
+            "end": "2018-10-16 11:45:40.421092",
+            "start": "2018-10-16 11:45:40.261609",
+            "stdout_lines": [
+                "ID            NAME                      MODE        REPLICAS  IMAGE",
+                "1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest",
+                "2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest",
+                "5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest",
+                "859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest",
+                "c4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest",
+                "cih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest",
+                "h7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest",
+                "i881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest",
+                "ibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest",
+                "k3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest",
+                "kqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest",
+                "m8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest",
+                "mwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest",
+                "n9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest",
+                "okda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest",
+                "ptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest",
+                "rplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest",
+                "t65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest",
+                "t7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1",
+                "u37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest",
+                "u6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest",
+                "upqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest",
+                "vantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest",
+                "wwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest"
+            ],
+            "cmd": "docker service ls",
+            "rc": 0,
+            "stdout": "ID            NAME                      MODE        REPLICAS  IMAGE\n1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest\n2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest\n5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest\n859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest\nc4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest\ncih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest\nh7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest\ni881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest\nibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest\nk3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest\nkqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest\nm8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest\nmwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest\nn9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest\nokda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest\nptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest\nrplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest\nt65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest\nt7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1\nu37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest\nu6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest\nupqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest\nvantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest\nwwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest",
+            "stderr": "",
+            "changed": true,
+            "invocation": {
+                "module_args": {
+                    "removes": null,
+                    "chdir": null,
+                    "warn": true,
+                    "_uses_shell": true,
+                    "creates": null,
+                    "stdin": null,
+                    "executable": null,
+                    "_raw_params": "docker service ls"
+                }
+            },
+            "stderr_lines": [],
+            "_ansible_parsed": true
+        }
+    },
+    "failed": {}
+}
+[INFO]: 2018-10-16 11:46:01,442 - views.py - post - Thread-1 - {'args': 'docker service ls', 'type': 'cmd', 'hostname': 'master'}
+[INFO]: 2018-10-16 11:46:01,500 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:46:03,571 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.236": {
+            "invocation": {
+                "module_args": {
+                    "_uses_shell": true,
+                    "_raw_params": "docker service ls",
+                    "chdir": null,
+                    "removes": null,
+                    "creates": null,
+                    "executable": null,
+                    "stdin": null,
+                    "warn": true
+                }
+            },
+            "start": "2018-10-16 11:46:03.220316",
+            "stdout": "ID            NAME                      MODE        REPLICAS  IMAGE\n1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest\n2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest\n5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest\n859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest\nc4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest\ncih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest\nh7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest\ni881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest\nibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest\nk3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest\nkqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest\nm8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest\nmwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest\nn9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest\nokda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest\nptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest\nrplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest\nt65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest\nt7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1\nu37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest\nu6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest\nupqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest\nvantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest\nwwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest",
+            "changed": true,
+            "_ansible_parsed": true,
+            "_ansible_no_log": false,
+            "end": "2018-10-16 11:46:03.368238",
+            "rc": 0,
+            "cmd": "docker service ls",
+            "stderr": "",
+            "stdout_lines": [
+                "ID            NAME                      MODE        REPLICAS  IMAGE",
+                "1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest",
+                "2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest",
+                "5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest",
+                "859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest",
+                "c4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest",
+                "cih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest",
+                "h7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest",
+                "i881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest",
+                "ibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest",
+                "k3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest",
+                "kqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest",
+                "m8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest",
+                "mwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest",
+                "n9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest",
+                "okda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest",
+                "ptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest",
+                "rplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest",
+                "t65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest",
+                "t7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1",
+                "u37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest",
+                "u6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest",
+                "upqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest",
+                "vantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest",
+                "wwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest"
+            ],
+            "delta": "0:00:00.147922",
+            "stderr_lines": []
+        }
+    },
+    "failed": {},
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 11:46:36,369 - views.py - post - Thread-1 - {'hostname': 'master', 'type': 'cmd', 'args': 'docker service ls'}
+[INFO]: 2018-10-16 11:46:36,467 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:46:39,415 - views.py - post - Thread-1 - {
+    "failed": {},
+    "unreachable": {},
+    "success": {
+        "192.168.1.236": {
+            "_ansible_parsed": true,
+            "delta": "0:00:00.150945",
+            "cmd": "docker service ls",
+            "rc": 0,
+            "invocation": {
+                "module_args": {
+                    "stdin": null,
+                    "warn": true,
+                    "removes": null,
+                    "creates": null,
+                    "_uses_shell": true,
+                    "executable": null,
+                    "chdir": null,
+                    "_raw_params": "docker service ls"
+                }
+            },
+            "_ansible_no_log": false,
+            "stdout_lines": [
+                "ID            NAME                      MODE        REPLICAS  IMAGE",
+                "1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest",
+                "2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest",
+                "5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest",
+                "859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest",
+                "c4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest",
+                "cih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest",
+                "h7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest",
+                "i881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest",
+                "ibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest",
+                "k3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest",
+                "kqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest",
+                "m8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest",
+                "mwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest",
+                "n9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest",
+                "okda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest",
+                "ptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest",
+                "rplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest",
+                "t65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest",
+                "t7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1",
+                "u37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest",
+                "u6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest",
+                "upqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest",
+                "vantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest",
+                "wwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest"
+            ],
+            "end": "2018-10-16 11:46:39.185666",
+            "stderr_lines": [],
+            "stdout": "ID            NAME                      MODE        REPLICAS  IMAGE\n1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest\n2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest\n5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest\n859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest\nc4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest\ncih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest\nh7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest\ni881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest\nibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest\nk3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest\nkqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest\nm8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest\nmwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest\nn9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest\nokda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest\nptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest\nrplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest\nt65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest\nt7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1\nu37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest\nu6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest\nupqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest\nvantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest\nwwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest",
+            "changed": true,
+            "stderr": "",
+            "start": "2018-10-16 11:46:39.034721"
+        }
+    }
+}
+[INFO]: 2018-10-16 11:47:14,646 - views.py - post - Thread-1 - {'args': 'docker service ls', 'type': 'cmd', 'hostname': 'master'}
+[INFO]: 2018-10-16 11:47:14,694 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:47:16,345 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.236": {
+            "start": "2018-10-16 11:47:15.980074",
+            "delta": "0:00:00.157045",
+            "_ansible_parsed": true,
+            "rc": 0,
+            "stderr_lines": [],
+            "changed": true,
+            "stderr": "",
+            "stdout": "ID            NAME                      MODE        REPLICAS  IMAGE\n1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest\n2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest\n5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest\n859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest\nc4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest\ncih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest\nh7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest\ni881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest\nibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest\nk3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest\nkqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest\nm8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest\nmwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest\nn9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest\nokda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest\nptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest\nrplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest\nt65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest\nt7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1\nu37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest\nu6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest\nupqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest\nvantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest\nwwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest",
+            "invocation": {
+                "module_args": {
+                    "chdir": null,
+                    "_raw_params": "docker service ls",
+                    "_uses_shell": true,
+                    "removes": null,
+                    "executable": null,
+                    "warn": true,
+                    "stdin": null,
+                    "creates": null
+                }
+            },
+            "stdout_lines": [
+                "ID            NAME                      MODE        REPLICAS  IMAGE",
+                "1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest",
+                "2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest",
+                "5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest",
+                "859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest",
+                "c4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest",
+                "cih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest",
+                "h7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest",
+                "i881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest",
+                "ibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest",
+                "k3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest",
+                "kqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest",
+                "m8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest",
+                "mwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest",
+                "n9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest",
+                "okda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest",
+                "ptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest",
+                "rplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest",
+                "t65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest",
+                "t7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1",
+                "u37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest",
+                "u6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest",
+                "upqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest",
+                "vantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest",
+                "wwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest"
+            ],
+            "_ansible_no_log": false,
+            "end": "2018-10-16 11:47:16.137119",
+            "cmd": "docker service ls"
+        }
+    },
+    "unreachable": {},
+    "failed": {}
+}
+[INFO]: 2018-10-16 11:48:02,247 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker service ls'}
+[INFO]: 2018-10-16 11:48:02,350 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:48:04,298 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "success": {
+        "192.168.1.236": {
+            "rc": 0,
+            "cmd": "docker service ls",
+            "stdout": "ID            NAME                      MODE        REPLICAS  IMAGE\n1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest\n2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest\n5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest\n859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest\nc4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest\ncih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest\nh7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest\ni881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest\nibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest\nk3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest\nkqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest\nm8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest\nmwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest\nn9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest\nokda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest\nptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest\nrplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest\nt65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest\nt7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1\nu37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest\nu6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest\nupqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest\nvantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest\nwwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest",
+            "changed": true,
+            "_ansible_no_log": false,
+            "end": "2018-10-16 11:48:04.160488",
+            "stderr_lines": [],
+            "stderr": "",
+            "delta": "0:00:00.161994",
+            "invocation": {
+                "module_args": {
+                    "warn": true,
+                    "_uses_shell": true,
+                    "stdin": null,
+                    "_raw_params": "docker service ls",
+                    "creates": null,
+                    "executable": null,
+                    "chdir": null,
+                    "removes": null
+                }
+            },
+            "start": "2018-10-16 11:48:03.998494",
+            "stdout_lines": [
+                "ID            NAME                      MODE        REPLICAS  IMAGE",
+                "1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest",
+                "2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest",
+                "5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest",
+                "859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest",
+                "c4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest",
+                "cih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest",
+                "h7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest",
+                "i881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest",
+                "ibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest",
+                "k3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest",
+                "kqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest",
+                "m8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest",
+                "mwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest",
+                "n9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest",
+                "okda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest",
+                "ptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest",
+                "rplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest",
+                "t65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest",
+                "t7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1",
+                "u37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest",
+                "u6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest",
+                "upqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest",
+                "vantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest",
+                "wwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest"
+            ],
+            "_ansible_parsed": true
+        }
+    },
+    "failed": {}
+}
+[INFO]: 2018-10-16 11:48:22,544 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker service ls'}
+[INFO]: 2018-10-16 11:48:22,550 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:48:23,788 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "success": {
+        "192.168.1.236": {
+            "rc": 0,
+            "cmd": "docker service ls",
+            "stdout": "ID            NAME                      MODE        REPLICAS  IMAGE\n1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest\n2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest\n5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest\n859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest\nc4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest\ncih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest\nh7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest\ni881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest\nibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest\nk3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest\nkqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest\nm8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest\nmwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest\nn9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest\nokda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest\nptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest\nrplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest\nt65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest\nt7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1\nu37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest\nu6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest\nupqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest\nvantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest\nwwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest",
+            "changed": true,
+            "_ansible_no_log": false,
+            "end": "2018-10-16 11:48:23.645568",
+            "stderr_lines": [],
+            "stderr": "",
+            "delta": "0:00:00.156358",
+            "invocation": {
+                "module_args": {
+                    "warn": true,
+                    "_uses_shell": true,
+                    "stdin": null,
+                    "_raw_params": "docker service ls",
+                    "creates": null,
+                    "executable": null,
+                    "chdir": null,
+                    "removes": null
+                }
+            },
+            "start": "2018-10-16 11:48:23.489210",
+            "stdout_lines": [
+                "ID            NAME                      MODE        REPLICAS  IMAGE",
+                "1ngqkbz7uww9  sys01_market              replicated  2/2       192.168.1.232:5000/base/market:latest",
+                "2drnj52zqq6z  portainer                 replicated  1/1       portainer/portainer:latest",
+                "5281zugbncf5  sys01_epay-service        replicated  2/2       192.168.1.232:5000/base/epay-service:latest",
+                "859lc5lxwlza  sys01_pool-service        replicated  2/2       192.168.1.232:5000/base/pool-service:latest",
+                "c4uoxqe6dexn  sys01_joyshebao-gateway   replicated  2/2       192.168.1.232:5000/base/gateway:latest",
+                "cih58xg4yzls  sys01_epay-api            replicated  2/2       192.168.1.232:5000/base/epay-api:latest",
+                "h7o3oc0bbjj2  sys01_wechat              replicated  2/2       192.168.1.232:5000/base/wechat:latest",
+                "i881nqp3oi9e  sys01_calculator-service  replicated  2/2       192.168.1.232:5000/base/calculator-service:latest",
+                "ibbk9cntjxw3  sys01_consumer-service    replicated  2/2       192.168.1.232:5000/base/consumer-service:latest",
+                "k3kmn8e0s5s7  sys01_calculator-api      replicated  2/2       192.168.1.232:5000/base/calculator-api:latest",
+                "kqtbq8wozi7s  sys01_data-sync           replicated  1/1       192.168.1.232:5000/base/data-sync:latest",
+                "m8xz6a0m62ne  sys01_notice              replicated  2/2       192.168.1.232:5000/base/notice:latest",
+                "mwmeyhhl9oji  sys01_hystrix-turbine     replicated  1/1       192.168.1.232:5000/base/hystrix-turbine:latest",
+                "n9127v1ikxvk  sys01_consult-api         replicated  2/2       192.168.1.232:5000/base/consult-api:latest",
+                "okda443seqaj  sys01_epay-timer          replicated  1/1       192.168.1.232:5000/base/epay-timer:latest",
+                "ptcbp7gg9wtu  sys01_spider-api          replicated  2/2       192.168.1.232:5000/base/spider-api:latest",
+                "rplh22lf9mk2  sys01_DiscoveryServer1    replicated  1/1       192.168.1.232:5000/base/discovery-1:latest",
+                "t65e7zwb5ani  sys01_joy-config-server   replicated  2/2       192.168.1.232:5000/base/joy-config:latest",
+                "t7o24eqjjirm  sys01_cadvisor            global      5/5       google/cadvisor:v0.24.1",
+                "u37xhemx54we  sys01_consult-service     replicated  2/2       192.168.1.232:5000/base/consult-service:latest",
+                "u6z7t0xqb7hj  sys01_DiscoveryServer2    replicated  1/1       192.168.1.232:5000/base/discovery-2:latest",
+                "upqhwqg0eye2  sys01_epay-bank           replicated  2/2       192.168.1.232:5000/base/epay-bank:latest",
+                "vantnpctzfy3  sys01_consumer-api        replicated  2/2       192.168.1.232:5000/base/consumer-api:latest",
+                "wwqpme235ytc  sys01_admin-server        replicated  1/1       192.168.1.232:5000/base/admin-server:latest"
+            ],
+            "_ansible_parsed": true
+        }
+    },
+    "failed": {}
+}
+[INFO]: 2018-10-16 11:49:15,203 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker service inspect sys01_market'}
+[INFO]: 2018-10-16 11:49:15,210 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:49:16,661 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "success": {
+        "192.168.1.236": {
+            "rc": 0,
+            "cmd": "docker service inspect sys01_market",
+            "stdout": "[\n    {\n        \"ID\": \"1ngqkbz7uww94xxfber7461kw\",\n        \"Version\": {\n            \"Index\": 170615\n        },\n        \"CreatedAt\": \"2018-09-25T09:15:11.886787265Z\",\n        \"UpdatedAt\": \"2018-09-25T09:26:16.205368521Z\",\n        \"Spec\": {\n            \"Name\": \"sys01_market\",\n            \"Labels\": {\n                \"com.docker.stack.namespace\": \"sys01\"\n            },\n            \"TaskTemplate\": {\n                \"ContainerSpec\": {\n                    \"Image\": \"192.168.1.232:5000/base/market:latest\",\n                    \"Labels\": {\n                        \"com.docker.stack.namespace\": \"sys01\"\n                    },\n                    \"Mounts\": [\n                        {\n                            \"Type\": \"bind\",\n                            \"Source\": \"/opt/docker/market/logs\",\n                            \"Target\": \"/var/log\"\n                        },\n                        {\n                            \"Type\": \"bind\",\n                            \"Source\": \"/opt/docker/market/src\",\n                            \"Target\": \"/opt/market\"\n                        }\n                    ]\n                },\n                \"Resources\": {\n                    \"Limits\": {\n                        \"NanoCPUs\": 250000000,\n                        \"MemoryBytes\": 1073741824\n                    }\n                },\n                \"Placement\": {\n                    \"Constraints\": [\n                        \"node.labels.epay == true\"\n                    ]\n                },\n                \"ForceUpdate\": 1\n            },\n            \"Mode\": {\n                \"Replicated\": {\n                    \"Replicas\": 2\n                }\n            },\n            \"UpdateConfig\": {\n                \"Parallelism\": 1,\n                \"Delay\": 30000000000,\n                \"FailureAction\": \"pause\",\n                \"MaxFailureRatio\": 0\n            },\n            \"Networks\": [\n                {\n                    \"Target\": \"z3gsjqn36ql81lxwz4p0guxbu\",\n                    \"Aliases\": [\n                        \"market\"\n                    ]\n                }\n            ],\n            \"EndpointSpec\": {\n                \"Mode\": \"vip\",\n                \"Ports\": [\n                    {\n                        \"Protocol\": \"tcp\",\n                        \"TargetPort\": 8080,\n                        \"PublishedPort\": 11120,\n                        \"PublishMode\": \"ingress\"\n                    }\n                ]\n            }\n        },\n        \"PreviousSpec\": {\n            \"Name\": \"sys01_market\",\n            \"Labels\": {\n                \"com.docker.stack.namespace\": \"sys01\"\n            },\n            \"TaskTemplate\": {\n                \"ContainerSpec\": {\n                    \"Image\": \"192.168.1.232:5000/base/market:latest\",\n                    \"Labels\": {\n                        \"com.docker.stack.namespace\": \"sys01\"\n                    },\n                    \"Mounts\": [\n                        {\n                            \"Type\": \"bind\",\n                            \"Source\": \"/opt/docker/market/src\",\n                            \"Target\": \"/opt/market\"\n                        },\n                        {\n                            \"Type\": \"bind\",\n                            \"Source\": \"/opt/docker/market/logs\",\n                            \"Target\": \"/var/log\"\n                        }\n                    ]\n                },\n                \"Resources\": {\n                    \"Limits\": {\n                        \"NanoCPUs\": 250000000,\n                        \"MemoryBytes\": 1073741824\n                    }\n                },\n                \"Placement\": {\n                    \"Constraints\": [\n                        \"node.labels.epay == true\"\n                    ]\n                },\n                \"ForceUpdate\": 0\n            },\n            \"Mode\": {\n                \"Replicated\": {\n                    \"Replicas\": 2\n                }\n            },\n            \"Networks\": [\n                {\n                    \"Target\": \"z3gsjqn36ql81lxwz4p0guxbu\",\n                    \"Aliases\": [\n                        \"market\"\n                    ]\n                }\n            ],\n            \"EndpointSpec\": {\n                \"Mode\": \"vip\",\n                \"Ports\": [\n                    {\n                        \"Protocol\": \"tcp\",\n                        \"TargetPort\": 8080,\n                        \"PublishedPort\": 11120,\n                        \"PublishMode\": \"ingress\"\n                    }\n                ]\n            }\n        },\n        \"Endpoint\": {\n            \"Spec\": {\n                \"Mode\": \"vip\",\n                \"Ports\": [\n                    {\n                        \"Protocol\": \"tcp\",\n                        \"TargetPort\": 8080,\n                        \"PublishedPort\": 11120,\n                        \"PublishMode\": \"ingress\"\n                    }\n                ]\n            },\n            \"Ports\": [\n                {\n                    \"Protocol\": \"tcp\",\n                    \"TargetPort\": 8080,\n                    \"PublishedPort\": 11120,\n                    \"PublishMode\": \"ingress\"\n                }\n            ],\n            \"VirtualIPs\": [\n                {\n                    \"NetworkID\": \"3jpet7jxltrn0qgyyjch5zl8d\",\n                    \"Addr\": \"10.255.0.30/16\"\n                },\n                {\n                    \"NetworkID\": \"z3gsjqn36ql81lxwz4p0guxbu\",\n                    \"Addr\": \"10.0.0.19/24\"\n                }\n            ]\n        },\n        \"UpdateStatus\": {\n            \"State\": \"completed\",\n            \"StartedAt\": \"2018-09-25T09:24:25.808896831Z\",\n            \"CompletedAt\": \"2018-09-25T09:26:16.205326824Z\",\n            \"Message\": \"update completed\"\n        }\n    }\n]",
+            "changed": true,
+            "_ansible_no_log": false,
+            "end": "2018-10-16 11:49:16.324761",
+            "stderr_lines": [],
+            "stderr": "",
+            "delta": "0:00:00.073944",
+            "invocation": {
+                "module_args": {
+                    "warn": true,
+                    "_uses_shell": true,
+                    "stdin": null,
+                    "_raw_params": "docker service inspect sys01_market",
+                    "creates": null,
+                    "executable": null,
+                    "chdir": null,
+                    "removes": null
+                }
+            },
+            "start": "2018-10-16 11:49:16.250817",
+            "stdout_lines": [
+                "[",
+                "    {",
+                "        \"ID\": \"1ngqkbz7uww94xxfber7461kw\",",
+                "        \"Version\": {",
+                "            \"Index\": 170615",
+                "        },",
+                "        \"CreatedAt\": \"2018-09-25T09:15:11.886787265Z\",",
+                "        \"UpdatedAt\": \"2018-09-25T09:26:16.205368521Z\",",
+                "        \"Spec\": {",
+                "            \"Name\": \"sys01_market\",",
+                "            \"Labels\": {",
+                "                \"com.docker.stack.namespace\": \"sys01\"",
+                "            },",
+                "            \"TaskTemplate\": {",
+                "                \"ContainerSpec\": {",
+                "                    \"Image\": \"192.168.1.232:5000/base/market:latest\",",
+                "                    \"Labels\": {",
+                "                        \"com.docker.stack.namespace\": \"sys01\"",
+                "                    },",
+                "                    \"Mounts\": [",
+                "                        {",
+                "                            \"Type\": \"bind\",",
+                "                            \"Source\": \"/opt/docker/market/logs\",",
+                "                            \"Target\": \"/var/log\"",
+                "                        },",
+                "                        {",
+                "                            \"Type\": \"bind\",",
+                "                            \"Source\": \"/opt/docker/market/src\",",
+                "                            \"Target\": \"/opt/market\"",
+                "                        }",
+                "                    ]",
+                "                },",
+                "                \"Resources\": {",
+                "                    \"Limits\": {",
+                "                        \"NanoCPUs\": 250000000,",
+                "                        \"MemoryBytes\": 1073741824",
+                "                    }",
+                "                },",
+                "                \"Placement\": {",
+                "                    \"Constraints\": [",
+                "                        \"node.labels.epay == true\"",
+                "                    ]",
+                "                },",
+                "                \"ForceUpdate\": 1",
+                "            },",
+                "            \"Mode\": {",
+                "                \"Replicated\": {",
+                "                    \"Replicas\": 2",
+                "                }",
+                "            },",
+                "            \"UpdateConfig\": {",
+                "                \"Parallelism\": 1,",
+                "                \"Delay\": 30000000000,",
+                "                \"FailureAction\": \"pause\",",
+                "                \"MaxFailureRatio\": 0",
+                "            },",
+                "            \"Networks\": [",
+                "                {",
+                "                    \"Target\": \"z3gsjqn36ql81lxwz4p0guxbu\",",
+                "                    \"Aliases\": [",
+                "                        \"market\"",
+                "                    ]",
+                "                }",
+                "            ],",
+                "            \"EndpointSpec\": {",
+                "                \"Mode\": \"vip\",",
+                "                \"Ports\": [",
+                "                    {",
+                "                        \"Protocol\": \"tcp\",",
+                "                        \"TargetPort\": 8080,",
+                "                        \"PublishedPort\": 11120,",
+                "                        \"PublishMode\": \"ingress\"",
+                "                    }",
+                "                ]",
+                "            }",
+                "        },",
+                "        \"PreviousSpec\": {",
+                "            \"Name\": \"sys01_market\",",
+                "            \"Labels\": {",
+                "                \"com.docker.stack.namespace\": \"sys01\"",
+                "            },",
+                "            \"TaskTemplate\": {",
+                "                \"ContainerSpec\": {",
+                "                    \"Image\": \"192.168.1.232:5000/base/market:latest\",",
+                "                    \"Labels\": {",
+                "                        \"com.docker.stack.namespace\": \"sys01\"",
+                "                    },",
+                "                    \"Mounts\": [",
+                "                        {",
+                "                            \"Type\": \"bind\",",
+                "                            \"Source\": \"/opt/docker/market/src\",",
+                "                            \"Target\": \"/opt/market\"",
+                "                        },",
+                "                        {",
+                "                            \"Type\": \"bind\",",
+                "                            \"Source\": \"/opt/docker/market/logs\",",
+                "                            \"Target\": \"/var/log\"",
+                "                        }",
+                "                    ]",
+                "                },",
+                "                \"Resources\": {",
+                "                    \"Limits\": {",
+                "                        \"NanoCPUs\": 250000000,",
+                "                        \"MemoryBytes\": 1073741824",
+                "                    }",
+                "                },",
+                "                \"Placement\": {",
+                "                    \"Constraints\": [",
+                "                        \"node.labels.epay == true\"",
+                "                    ]",
+                "                },",
+                "                \"ForceUpdate\": 0",
+                "            },",
+                "            \"Mode\": {",
+                "                \"Replicated\": {",
+                "                    \"Replicas\": 2",
+                "                }",
+                "            },",
+                "            \"Networks\": [",
+                "                {",
+                "                    \"Target\": \"z3gsjqn36ql81lxwz4p0guxbu\",",
+                "                    \"Aliases\": [",
+                "                        \"market\"",
+                "                    ]",
+                "                }",
+                "            ],",
+                "            \"EndpointSpec\": {",
+                "                \"Mode\": \"vip\",",
+                "                \"Ports\": [",
+                "                    {",
+                "                        \"Protocol\": \"tcp\",",
+                "                        \"TargetPort\": 8080,",
+                "                        \"PublishedPort\": 11120,",
+                "                        \"PublishMode\": \"ingress\"",
+                "                    }",
+                "                ]",
+                "            }",
+                "        },",
+                "        \"Endpoint\": {",
+                "            \"Spec\": {",
+                "                \"Mode\": \"vip\",",
+                "                \"Ports\": [",
+                "                    {",
+                "                        \"Protocol\": \"tcp\",",
+                "                        \"TargetPort\": 8080,",
+                "                        \"PublishedPort\": 11120,",
+                "                        \"PublishMode\": \"ingress\"",
+                "                    }",
+                "                ]",
+                "            },",
+                "            \"Ports\": [",
+                "                {",
+                "                    \"Protocol\": \"tcp\",",
+                "                    \"TargetPort\": 8080,",
+                "                    \"PublishedPort\": 11120,",
+                "                    \"PublishMode\": \"ingress\"",
+                "                }",
+                "            ],",
+                "            \"VirtualIPs\": [",
+                "                {",
+                "                    \"NetworkID\": \"3jpet7jxltrn0qgyyjch5zl8d\",",
+                "                    \"Addr\": \"10.255.0.30/16\"",
+                "                },",
+                "                {",
+                "                    \"NetworkID\": \"z3gsjqn36ql81lxwz4p0guxbu\",",
+                "                    \"Addr\": \"10.0.0.19/24\"",
+                "                }",
+                "            ]",
+                "        },",
+                "        \"UpdateStatus\": {",
+                "            \"State\": \"completed\",",
+                "            \"StartedAt\": \"2018-09-25T09:24:25.808896831Z\",",
+                "            \"CompletedAt\": \"2018-09-25T09:26:16.205326824Z\",",
+                "            \"Message\": \"update completed\"",
+                "        }",
+                "    }",
+                "]"
+            ],
+            "_ansible_parsed": true
+        }
+    },
+    "failed": {}
+}
+[INFO]: 2018-10-16 11:52:55,040 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'python /root/new_file.py'}
+[INFO]: 2018-10-16 11:52:55,057 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:52:57,858 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "success": {
+        "192.168.1.232": {
+            "rc": 0,
+            "cmd": "python /root/new_file.py",
+            "stdout": "",
+            "changed": true,
+            "_ansible_no_log": false,
+            "end": "2018-10-16 11:52:57.568833",
+            "stderr_lines": [],
+            "stderr": "",
+            "delta": "0:00:00.063330",
+            "invocation": {
+                "module_args": {
+                    "warn": true,
+                    "_uses_shell": true,
+                    "stdin": null,
+                    "_raw_params": "python /root/new_file.py",
+                    "creates": null,
+                    "executable": null,
+                    "chdir": null,
+                    "removes": null
+                }
+            },
+            "start": "2018-10-16 11:52:57.505503",
+            "stdout_lines": [],
+            "_ansible_parsed": true
+        }
+    },
+    "failed": {}
+}
+[INFO]: 2018-10-16 11:53:08,598 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'll'}
+[INFO]: 2018-10-16 11:53:08,609 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:53:09,892 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "success": {},
+    "failed": {}
+}
+[INFO]: 2018-10-16 11:53:14,140 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'ls '}
+[INFO]: 2018-10-16 11:53:14,148 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:53:15,394 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "success": {
+        "192.168.1.232": {
+            "rc": 0,
+            "cmd": "ls",
+            "stdout": "anaconda-ks.cfg\ndocker\nhah.txt\nimkefu_shebao.sql\njoyshebao_apptest.sql\njoyshebao_web.dump\njoyshebao_wxtest.sql\nlogs\nnew_file.py\nnew_file.sh\nnotice.sql\nportainer\nrmq_bk_gc.log\nrmq_srv_gc.log\nstore\nx.txt",
+            "changed": true,
+            "_ansible_no_log": false,
+            "end": "2018-10-16 11:53:15.148072",
+            "stderr_lines": [],
+            "stderr": "",
+            "delta": "0:00:00.042674",
+            "invocation": {
+                "module_args": {
+                    "warn": true,
+                    "_uses_shell": true,
+                    "stdin": null,
+                    "_raw_params": "ls",
+                    "creates": null,
+                    "executable": null,
+                    "chdir": null,
+                    "removes": null
+                }
+            },
+            "start": "2018-10-16 11:53:15.105398",
+            "stdout_lines": [
+                "anaconda-ks.cfg",
+                "docker",
+                "hah.txt",
+                "imkefu_shebao.sql",
+                "joyshebao_apptest.sql",
+                "joyshebao_web.dump",
+                "joyshebao_wxtest.sql",
+                "logs",
+                "new_file.py",
+                "new_file.sh",
+                "notice.sql",
+                "portainer",
+                "rmq_bk_gc.log",
+                "rmq_srv_gc.log",
+                "store",
+                "x.txt"
+            ],
+            "_ansible_parsed": true
+        }
+    },
+    "failed": {}
+}
+[INFO]: 2018-10-16 11:53:26,439 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'scm', 'args': 'stat x.txt'}
+[INFO]: 2018-10-16 11:53:26,451 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 11:53:28,139 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "success": {
+        "192.168.1.232": {
+            "rc": 0,
+            "cmd": "stat x.txt",
+            "stdout": "  \u6587\u4ef6\uff1a\"x.txt\"\n  \u5927\u5c0f\uff1a30        \t\u5757\uff1a8          IO \u5757\uff1a4096   \u666e\u901a\u6587\u4ef6\n\u8bbe\u5907\uff1afd00h/64768d\tInode\uff1a72220173    \u786c\u94fe\u63a5\uff1a1\n\u6743\u9650\uff1a(0644/-rw-r--r--)  Uid\uff1a(    0/    root)   Gid\uff1a(    0/    root)\n\u6700\u8fd1\u8bbf\u95ee\uff1a2018-10-16 10:58:40.655449952 +0800\n\u6700\u8fd1\u66f4\u6539\uff1a2018-10-16 11:52:57.565726456 +0800\n\u6700\u8fd1\u6539\u52a8\uff1a2018-10-16 11:52:57.565726456 +0800\n\u521b\u5efa\u65f6\u95f4\uff1a-",
+            "changed": true,
+            "_ansible_no_log": false,
+            "end": "2018-10-16 11:53:27.905535",
+            "stderr_lines": [],
+            "stderr": "",
+            "delta": "0:00:00.056187",
+            "invocation": {
+                "module_args": {
+                    "warn": true,
+                    "_uses_shell": true,
+                    "stdin": null,
+                    "_raw_params": "stat x.txt",
+                    "creates": null,
+                    "executable": null,
+                    "chdir": null,
+                    "removes": null
+                }
+            },
+            "start": "2018-10-16 11:53:27.849348",
+            "stdout_lines": [
+                "  \u6587\u4ef6\uff1a\"x.txt\"",
+                "  \u5927\u5c0f\uff1a30        \t\u5757\uff1a8          IO \u5757\uff1a4096   \u666e\u901a\u6587\u4ef6",
+                "\u8bbe\u5907\uff1afd00h/64768d\tInode\uff1a72220173    \u786c\u94fe\u63a5\uff1a1",
+                "\u6743\u9650\uff1a(0644/-rw-r--r--)  Uid\uff1a(    0/    root)   Gid\uff1a(    0/    root)",
+                "\u6700\u8fd1\u8bbf\u95ee\uff1a2018-10-16 10:58:40.655449952 +0800",
+                "\u6700\u8fd1\u66f4\u6539\uff1a2018-10-16 11:52:57.565726456 +0800",
+                "\u6700\u8fd1\u6539\u52a8\uff1a2018-10-16 11:52:57.565726456 +0800",
+                "\u521b\u5efa\u65f6\u95f4\uff1a-"
+            ],
+            "_ansible_parsed": true
+        }
+    },
+    "failed": {}
+}
+[INFO]: 2018-10-16 11:56:29,227 - views.py - post - Thread-1 - {'type': 'cmd', 'args': 'ls -l', 'hostname': 'scm'}
+[INFO]: 2018-10-16 11:56:29,324 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 12:00:16,541 - views.py - post - Thread-1 - {'args': 'ls -l', 'hostname': 'scm', 'type': 'cmd'}
+[INFO]: 2018-10-16 12:00:16,602 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 12:00:19,644 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.232": {
+            "stderr_lines": [],
+            "changed": true,
+            "end": "2018-10-16 12:00:19.425989",
+            "start": "2018-10-16 12:00:19.382214",
+            "stdout": "\u603b\u7528\u91cf 2559296\n-rw-------. 1 root root       1259 8\u6708  15 17:45 anaconda-ks.cfg\ndrwxr-xr-x. 3 root root        116 8\u6708  21 18:21 docker\n-rw-r--r--. 1 root root          0 8\u6708  17 15:32 hah.txt\n-rw-r--r--  1 root root  308781824 8\u6708  30 18:02 imkefu_shebao.sql\n-rw-r--r--  1 root root 1427210409 8\u6708  29 08:55 joyshebao_apptest.sql\n-rw-r--r--  1 root root  883258663 8\u6708  28 17:16 joyshebao_web.dump\n-rw-r--r--  1 root root      11174 8\u6708  30 15:51 joyshebao_wxtest.sql\ndrwxr-xr-x  4 root root         45 9\u6708  25 16:14 logs\n-rwxr-xr-x  1 root root         65 10\u6708 16 10:28 new_file.py\n-rwxr-xr-x  1 root root         23 10\u6708 16 10:26 new_file.sh\n-rw-r--r--  1 root root    1270709 8\u6708  30 16:17 notice.sql\ndrwxr-xr-x. 2 root root         32 8\u6708  17 18:38 portainer\n-rw-r--r--  1 root root     145669 10\u6708 16 11:19 rmq_bk_gc.log\n-rw-r--r--  1 root root       4197 10\u6708 16 11:53 rmq_srv_gc.log\ndrwxr-xr-x  6 root root        101 9\u6708  25 16:38 store\n-rw-r--r--  1 root root         30 10\u6708 16 11:52 x.txt",
+            "invocation": {
+                "module_args": {
+                    "_raw_params": "ls -l",
+                    "warn": true,
+                    "removes": null,
+                    "chdir": null,
+                    "stdin": null,
+                    "_uses_shell": true,
+                    "executable": null,
+                    "creates": null
+                }
+            },
+            "cmd": "ls -l",
+            "_ansible_parsed": true,
+            "delta": "0:00:00.043775",
+            "_ansible_no_log": false,
+            "stderr": "",
+            "stdout_lines": [
+                "\u603b\u7528\u91cf 2559296",
+                "-rw-------. 1 root root       1259 8\u6708  15 17:45 anaconda-ks.cfg",
+                "drwxr-xr-x. 3 root root        116 8\u6708  21 18:21 docker",
+                "-rw-r--r--. 1 root root          0 8\u6708  17 15:32 hah.txt",
+                "-rw-r--r--  1 root root  308781824 8\u6708  30 18:02 imkefu_shebao.sql",
+                "-rw-r--r--  1 root root 1427210409 8\u6708  29 08:55 joyshebao_apptest.sql",
+                "-rw-r--r--  1 root root  883258663 8\u6708  28 17:16 joyshebao_web.dump",
+                "-rw-r--r--  1 root root      11174 8\u6708  30 15:51 joyshebao_wxtest.sql",
+                "drwxr-xr-x  4 root root         45 9\u6708  25 16:14 logs",
+                "-rwxr-xr-x  1 root root         65 10\u6708 16 10:28 new_file.py",
+                "-rwxr-xr-x  1 root root         23 10\u6708 16 10:26 new_file.sh",
+                "-rw-r--r--  1 root root    1270709 8\u6708  30 16:17 notice.sql",
+                "drwxr-xr-x. 2 root root         32 8\u6708  17 18:38 portainer",
+                "-rw-r--r--  1 root root     145669 10\u6708 16 11:19 rmq_bk_gc.log",
+                "-rw-r--r--  1 root root       4197 10\u6708 16 11:53 rmq_srv_gc.log",
+                "drwxr-xr-x  6 root root        101 9\u6708  25 16:38 store",
+                "-rw-r--r--  1 root root         30 10\u6708 16 11:52 x.txt"
+            ],
+            "rc": 0
+        }
+    },
+    "failed": {},
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 13:47:46,695 - views.py - post - Thread-1 - {'type': 'cmd', 'args': 'date', 'hostname': 'scm'}
+[INFO]: 2018-10-16 13:47:46,784 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 13:47:50,414 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.232": {
+            "cmd": "date",
+            "invocation": {
+                "module_args": {
+                    "creates": null,
+                    "chdir": null,
+                    "warn": true,
+                    "stdin": null,
+                    "_raw_params": "date",
+                    "executable": null,
+                    "_uses_shell": true,
+                    "removes": null
+                }
+            },
+            "changed": true,
+            "rc": 0,
+            "_ansible_parsed": true,
+            "stderr": "",
+            "stdout_lines": [
+                "2018\u5e74 10\u6708 16\u65e5 \u661f\u671f\u4e8c 13:47:50 CST"
+            ],
+            "end": "2018-10-16 13:47:50.196066",
+            "start": "2018-10-16 13:47:50.143012",
+            "stderr_lines": [],
+            "delta": "0:00:00.053054",
+            "_ansible_no_log": false,
+            "stdout": "2018\u5e74 10\u6708 16\u65e5 \u661f\u671f\u4e8c 13:47:50 CST"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 13:47:50,509 - views.py - post - Thread-1 - 192.168.1.232
+[INFO]: 2018-10-16 13:47:50,509 - views.py - post - Thread-1 - <Response 69 bytes [200 OK]>
+[INFO]: 2018-10-16 13:49:01,908 - views.py - post - Thread-1 - {'type': 'cmd', 'args': 'docker service ls', 'hostname': 'scm'}
+[INFO]: 2018-10-16 13:49:01,919 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 13:49:04,542 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.232": {
+            "cmd": "docker service ls",
+            "invocation": {
+                "module_args": {
+                    "creates": null,
+                    "chdir": null,
+                    "warn": true,
+                    "stdin": null,
+                    "_raw_params": "docker service ls",
+                    "executable": null,
+                    "_uses_shell": true,
+                    "removes": null
+                }
+            },
+            "changed": true,
+            "rc": 0,
+            "_ansible_parsed": true,
+            "stderr": "",
+            "stdout_lines": [
+                "ID            NAME       MODE        REPLICAS  IMAGE",
+                "wucitugk3cr8  portainer  replicated  1/1       portainer/portainer:latest"
+            ],
+            "end": "2018-10-16 13:49:04.249310",
+            "start": "2018-10-16 13:49:04.158532",
+            "stderr_lines": [],
+            "delta": "0:00:00.090778",
+            "_ansible_no_log": false,
+            "stdout": "ID            NAME       MODE        REPLICAS  IMAGE\nwucitugk3cr8  portainer  replicated  1/1       portainer/portainer:latest"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 13:49:04,549 - views.py - post - Thread-1 - 192.168.1.232
+[INFO]: 2018-10-16 13:49:04,549 - views.py - post - Thread-1 - <Response 141 bytes [200 OK]>
+[INFO]: 2018-10-16 13:52:07,587 - views.py - post - Thread-1 - {'type': 'cmd', 'args': 'docker ps', 'hostname': 'scm'}
+[INFO]: 2018-10-16 13:52:07,598 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 13:52:09,898 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.232": {
+            "cmd": "docker ps",
+            "invocation": {
+                "module_args": {
+                    "creates": null,
+                    "chdir": null,
+                    "warn": true,
+                    "stdin": null,
+                    "_raw_params": "docker ps",
+                    "executable": null,
+                    "_uses_shell": true,
+                    "removes": null
+                }
+            },
+            "changed": true,
+            "rc": 0,
+            "_ansible_parsed": true,
+            "stderr": "",
+            "stdout_lines": [
+                "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES",
+                "3ba1a6595903        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.6remtyx4v30uiac7ljbaept0y",
+                "7867fc9c8f38        vmware/harbor-db:v1.2.2                                                                       \"docker-entrypoint...\"   7 weeks ago         Up 4 weeks          3306/tcp            harbor-db"
+            ],
+            "end": "2018-10-16 13:52:09.696174",
+            "start": "2018-10-16 13:52:09.605980",
+            "stderr_lines": [],
+            "delta": "0:00:00.090194",
+            "_ansible_no_log": false,
+            "stdout": "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES\n3ba1a6595903        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.6remtyx4v30uiac7ljbaept0y\n7867fc9c8f38        vmware/harbor-db:v1.2.2                                                                       \"docker-entrypoint...\"   7 weeks ago         Up 4 weeks          3306/tcp            harbor-db"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 13:52:09,908 - views.py - post - Thread-1 - 192.168.1.232
+[INFO]: 2018-10-16 13:52:09,908 - views.py - post - Thread-1 - <Response 675 bytes [200 OK]>
+[INFO]: 2018-10-16 13:52:16,769 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'data': [{'name': 'server', 'value': 3}], 'names': ['server']}, 'asset_status_list': {'data': [{'name': 'Up', 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'value': 3}], 'names': ['Up']}, 'business_load': {'data': {'load': [64], 'left': [36]}, 'names': ['web']}}
+[INFO]: 2018-10-16 13:52:22,904 - dashboard.py - searilize_page - Thread-1 - {'asset_categories': {'data': [{'name': 'server', 'value': 3}], 'names': ['server']}, 'asset_status_list': {'data': [{'name': 'Up', 'itemStyle': {'normal': {'color': 'yellowgreen'}}, 'value': 3}], 'names': ['Up']}, 'business_load': {'data': {'load': [64], 'left': [36]}, 'names': ['web']}}
+[INFO]: 2018-10-16 13:52:48,985 - views.py - post - Thread-1 - {'type': 'cmd', 'args': 'docker ps', 'hostname': 'scm'}
+[INFO]: 2018-10-16 13:52:48,992 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 13:52:50,255 - views.py - post - Thread-1 - {
+    "failed": {},
+    "success": {
+        "192.168.1.232": {
+            "cmd": "docker ps",
+            "invocation": {
+                "module_args": {
+                    "creates": null,
+                    "chdir": null,
+                    "warn": true,
+                    "stdin": null,
+                    "_raw_params": "docker ps",
+                    "executable": null,
+                    "_uses_shell": true,
+                    "removes": null
+                }
+            },
+            "changed": true,
+            "rc": 0,
+            "_ansible_parsed": true,
+            "stderr": "",
+            "stdout_lines": [
+                "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES",
+                "3ba1a6595903        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.6remtyx4v30uiac7ljbaept0y",
+                "7867fc9c8f38        vmware/harbor-db:v1.2.2                                                                       \"docker-entrypoint...\"   7 weeks ago         Up 4 weeks          3306/tcp            harbor-db"
+            ],
+            "end": "2018-10-16 13:52:49.974806",
+            "start": "2018-10-16 13:52:49.891733",
+            "stderr_lines": [],
+            "delta": "0:00:00.083073",
+            "_ansible_no_log": false,
+            "stdout": "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES\n3ba1a6595903        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.6remtyx4v30uiac7ljbaept0y\n7867fc9c8f38        vmware/harbor-db:v1.2.2                                                                       \"docker-entrypoint...\"   7 weeks ago         Up 4 weeks          3306/tcp            harbor-db"
+        }
+    },
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 13:52:50,268 - views.py - post - Thread-1 - 192.168.1.232
+[INFO]: 2018-10-16 13:52:50,270 - views.py - post - Thread-1 - <Response 675 bytes [200 OK]>
+[INFO]: 2018-10-16 13:53:44,047 - views.py - post - Thread-1 - {'type': 'cmd', 'args': 'docker ps', 'hostname': 'scm'}
+[INFO]: 2018-10-16 13:53:44,111 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 13:53:45,849 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "success": {
+        "192.168.1.232": {
+            "_ansible_no_log": false,
+            "stdout_lines": [
+                "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES",
+                "3ba1a6595903        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.6remtyx4v30uiac7ljbaept0y",
+                "7867fc9c8f38        vmware/harbor-db:v1.2.2                                                                       \"docker-entrypoint...\"   7 weeks ago         Up 4 weeks          3306/tcp            harbor-db"
+            ],
+            "cmd": "docker ps",
+            "stderr_lines": [],
+            "changed": true,
+            "_ansible_parsed": true,
+            "delta": "0:00:00.091802",
+            "start": "2018-10-16 13:53:45.538744",
+            "stderr": "",
+            "rc": 0,
+            "stdout": "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES\n3ba1a6595903        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.6remtyx4v30uiac7ljbaept0y\n7867fc9c8f38        vmware/harbor-db:v1.2.2                                                                       \"docker-entrypoint...\"   7 weeks ago         Up 4 weeks          3306/tcp            harbor-db",
+            "end": "2018-10-16 13:53:45.630546",
+            "invocation": {
+                "module_args": {
+                    "stdin": null,
+                    "_uses_shell": true,
+                    "_raw_params": "docker ps",
+                    "creates": null,
+                    "executable": null,
+                    "chdir": null,
+                    "warn": true,
+                    "removes": null
+                }
+            }
+        }
+    },
+    "failed": {}
+}
+[INFO]: 2018-10-16 13:53:45,938 - views.py - post - Thread-1 - 192.168.1.232
+[INFO]: 2018-10-16 13:53:45,938 - views.py - post - Thread-1 - <Response 675 bytes [200 OK]>
+[INFO]: 2018-10-16 13:54:23,539 - views.py - post - Thread-1 - {'args': 'docker ps', 'type': 'cmd', 'hostname': 'scm'}
+[INFO]: 2018-10-16 13:54:23,604 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 13:54:25,273 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.232": {
+            "cmd": "docker ps",
+            "changed": true,
+            "end": "2018-10-16 13:54:25.060445",
+            "stderr": "",
+            "_ansible_parsed": true,
+            "delta": "0:00:00.084380",
+            "invocation": {
+                "module_args": {
+                    "chdir": null,
+                    "_raw_params": "docker ps",
+                    "_uses_shell": true,
+                    "removes": null,
+                    "executable": null,
+                    "warn": true,
+                    "stdin": null,
+                    "creates": null
+                }
+            },
+            "stdout_lines": [
+                "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES",
+                "3ba1a6595903        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.6remtyx4v30uiac7ljbaept0y",
+                "7867fc9c8f38        vmware/harbor-db:v1.2.2                                                                       \"docker-entrypoint...\"   7 weeks ago         Up 4 weeks          3306/tcp            harbor-db"
+            ],
+            "stderr_lines": [],
+            "_ansible_no_log": false,
+            "rc": 0,
+            "stdout": "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES\n3ba1a6595903        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.6remtyx4v30uiac7ljbaept0y\n7867fc9c8f38        vmware/harbor-db:v1.2.2                                                                       \"docker-entrypoint...\"   7 weeks ago         Up 4 weeks          3306/tcp            harbor-db",
+            "start": "2018-10-16 13:54:24.976065"
+        }
+    },
+    "failed": {},
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 13:54:56,739 - views.py - post - Thread-1 - {'args': 'docker ps', 'type': 'cmd', 'hostname': 'master'}
+[INFO]: 2018-10-16 13:54:56,749 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 13:54:59,055 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.236": {
+            "cmd": "docker ps",
+            "changed": true,
+            "end": "2018-10-16 13:54:58.867270",
+            "stderr": "",
+            "_ansible_parsed": true,
+            "delta": "0:00:00.094465",
+            "invocation": {
+                "module_args": {
+                    "chdir": null,
+                    "_raw_params": "docker ps",
+                    "_uses_shell": true,
+                    "removes": null,
+                    "executable": null,
+                    "warn": true,
+                    "stdin": null,
+                    "creates": null
+                }
+            },
+            "stdout_lines": [
+                "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES",
+                "a8d37dac444a        192.168.1.232:5000/base/gateway:latest                                                        \"java -jar joysheb...\"   2 weeks ago         Up 2 weeks          8080/tcp            sys01_joyshebao-gateway.1.8ud7ifsc53ytthc590hgy6h5r",
+                "5f9052fb240b        192.168.1.232:5000/base/calculator-service:latest                                             \"java -jar calcula...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-service.2.btppapvy80w2e88mosikdaxnf",
+                "84b81d1e8fa3        192.168.1.232:5000/base/discovery-1:latest                                                    \"java -jar discove...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_DiscoveryServer1.1.jy23p9axke3x5hozel20cefwm",
+                "9725b7bffddb        192.168.1.232:5000/base/joy-config:latest                                                     \"java -jar /opt/co...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_joy-config-server.1.asfe0h2p7ax88i8ignjj59556",
+                "d6fdc6b3d023        192.168.1.232:5000/base/hystrix-turbine:latest                                                \"java -jar joy-hys...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_hystrix-turbine.1.xf34553mbwhobds72qfcpwxus",
+                "8f808e3a7ff5        192.168.1.232:5000/base/admin-server:latest                                                   \"java -jar joy-adm...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_admin-server.1.38mccjslerssm27zr95u5nhn2",
+                "b53d729fdfcb        192.168.1.232:5000/base/consult-api:latest                                                    \"java -jar consult...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_consult-api.1.g660drp5n2fhg6ggqde7o3izs",
+                "8c417210397d        192.168.1.232:5000/base/calculator-api:latest                                                 \"java -jar /opt/ca...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-api.1.68a4fldw8ijddo06a31vs9e0x",
+                "4522755a15ba        192.168.1.232:5000/base/calculator-service:latest                                             \"java -jar calcula...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-service.1.1es0hjyn0xbl42xaovyppuwc5",
+                "0fd752e27f4b        192.168.1.232:5000/base/consult-service:latest                                                \"java -jar consult...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_consult-service.1.ypknb4q463ermt6ukgbf7020s",
+                "5405d73aa556        google/cadvisor@sha256:902449e23fc2cab1ca9788e2610b0928f27ee91e503f3326c7a463fa17d11dd9       \"/usr/bin/cadvisor...\"   4 weeks ago         Up 4 weeks          8080/tcp            sys01_cadvisor.y8jlicg60tjk5wruce5ka6seo.j2edl4mwcwhyc3g07enuk1w70",
+                "2bb2e18ce24d        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.tuuayncgr14fcgiif822y5dy5"
+            ],
+            "stderr_lines": [],
+            "_ansible_no_log": false,
+            "rc": 0,
+            "stdout": "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES\na8d37dac444a        192.168.1.232:5000/base/gateway:latest                                                        \"java -jar joysheb...\"   2 weeks ago         Up 2 weeks          8080/tcp            sys01_joyshebao-gateway.1.8ud7ifsc53ytthc590hgy6h5r\n5f9052fb240b        192.168.1.232:5000/base/calculator-service:latest                                             \"java -jar calcula...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-service.2.btppapvy80w2e88mosikdaxnf\n84b81d1e8fa3        192.168.1.232:5000/base/discovery-1:latest                                                    \"java -jar discove...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_DiscoveryServer1.1.jy23p9axke3x5hozel20cefwm\n9725b7bffddb        192.168.1.232:5000/base/joy-config:latest                                                     \"java -jar /opt/co...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_joy-config-server.1.asfe0h2p7ax88i8ignjj59556\nd6fdc6b3d023        192.168.1.232:5000/base/hystrix-turbine:latest                                                \"java -jar joy-hys...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_hystrix-turbine.1.xf34553mbwhobds72qfcpwxus\n8f808e3a7ff5        192.168.1.232:5000/base/admin-server:latest                                                   \"java -jar joy-adm...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_admin-server.1.38mccjslerssm27zr95u5nhn2\nb53d729fdfcb        192.168.1.232:5000/base/consult-api:latest                                                    \"java -jar consult...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_consult-api.1.g660drp5n2fhg6ggqde7o3izs\n8c417210397d        192.168.1.232:5000/base/calculator-api:latest                                                 \"java -jar /opt/ca...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-api.1.68a4fldw8ijddo06a31vs9e0x\n4522755a15ba        192.168.1.232:5000/base/calculator-service:latest                                             \"java -jar calcula...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-service.1.1es0hjyn0xbl42xaovyppuwc5\n0fd752e27f4b        192.168.1.232:5000/base/consult-service:latest                                                \"java -jar consult...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_consult-service.1.ypknb4q463ermt6ukgbf7020s\n5405d73aa556        google/cadvisor@sha256:902449e23fc2cab1ca9788e2610b0928f27ee91e503f3326c7a463fa17d11dd9       \"/usr/bin/cadvisor...\"   4 weeks ago         Up 4 weeks          8080/tcp            sys01_cadvisor.y8jlicg60tjk5wruce5ka6seo.j2edl4mwcwhyc3g07enuk1w70\n2bb2e18ce24d        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.tuuayncgr14fcgiif822y5dy5",
+            "start": "2018-10-16 13:54:58.772805"
+        }
+    },
+    "failed": {},
+    "unreachable": {}
+}
+[INFO]: 2018-10-16 13:57:30,562 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'docker ps'}
+[INFO]: 2018-10-16 13:57:30,622 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 13:57:30,622 - views.py - post - Thread-1 - [{'register': 'shell_out', 'action': {'module': 'shell', 'args': 'docker ps'}}]
+[INFO]: 2018-10-16 13:57:33,738 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "failed": {},
+    "success": {
+        "192.168.1.236": {
+            "delta": "0:00:00.125177",
+            "rc": 0,
+            "start": "2018-10-16 13:57:33.472055",
+            "stdout": "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES\na8d37dac444a        192.168.1.232:5000/base/gateway:latest                                                        \"java -jar joysheb...\"   2 weeks ago         Up 2 weeks          8080/tcp            sys01_joyshebao-gateway.1.8ud7ifsc53ytthc590hgy6h5r\n5f9052fb240b        192.168.1.232:5000/base/calculator-service:latest                                             \"java -jar calcula...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-service.2.btppapvy80w2e88mosikdaxnf\n84b81d1e8fa3        192.168.1.232:5000/base/discovery-1:latest                                                    \"java -jar discove...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_DiscoveryServer1.1.jy23p9axke3x5hozel20cefwm\n9725b7bffddb        192.168.1.232:5000/base/joy-config:latest                                                     \"java -jar /opt/co...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_joy-config-server.1.asfe0h2p7ax88i8ignjj59556\nd6fdc6b3d023        192.168.1.232:5000/base/hystrix-turbine:latest                                                \"java -jar joy-hys...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_hystrix-turbine.1.xf34553mbwhobds72qfcpwxus\n8f808e3a7ff5        192.168.1.232:5000/base/admin-server:latest                                                   \"java -jar joy-adm...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_admin-server.1.38mccjslerssm27zr95u5nhn2\nb53d729fdfcb        192.168.1.232:5000/base/consult-api:latest                                                    \"java -jar consult...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_consult-api.1.g660drp5n2fhg6ggqde7o3izs\n8c417210397d        192.168.1.232:5000/base/calculator-api:latest                                                 \"java -jar /opt/ca...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-api.1.68a4fldw8ijddo06a31vs9e0x\n4522755a15ba        192.168.1.232:5000/base/calculator-service:latest                                             \"java -jar calcula...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-service.1.1es0hjyn0xbl42xaovyppuwc5\n0fd752e27f4b        192.168.1.232:5000/base/consult-service:latest                                                \"java -jar consult...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_consult-service.1.ypknb4q463ermt6ukgbf7020s\n5405d73aa556        google/cadvisor@sha256:902449e23fc2cab1ca9788e2610b0928f27ee91e503f3326c7a463fa17d11dd9       \"/usr/bin/cadvisor...\"   4 weeks ago         Up 4 weeks          8080/tcp            sys01_cadvisor.y8jlicg60tjk5wruce5ka6seo.j2edl4mwcwhyc3g07enuk1w70\n2bb2e18ce24d        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.tuuayncgr14fcgiif822y5dy5",
+            "cmd": "docker ps",
+            "invocation": {
+                "module_args": {
+                    "removes": null,
+                    "executable": null,
+                    "chdir": null,
+                    "stdin": null,
+                    "_raw_params": "docker ps",
+                    "warn": true,
+                    "_uses_shell": true,
+                    "creates": null
+                }
+            },
+            "stderr": "",
+            "end": "2018-10-16 13:57:33.597232",
+            "_ansible_no_log": false,
+            "stdout_lines": [
+                "CONTAINER ID        IMAGE                                                                                         COMMAND                  CREATED             STATUS              PORTS               NAMES",
+                "a8d37dac444a        192.168.1.232:5000/base/gateway:latest                                                        \"java -jar joysheb...\"   2 weeks ago         Up 2 weeks          8080/tcp            sys01_joyshebao-gateway.1.8ud7ifsc53ytthc590hgy6h5r",
+                "5f9052fb240b        192.168.1.232:5000/base/calculator-service:latest                                             \"java -jar calcula...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-service.2.btppapvy80w2e88mosikdaxnf",
+                "84b81d1e8fa3        192.168.1.232:5000/base/discovery-1:latest                                                    \"java -jar discove...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_DiscoveryServer1.1.jy23p9axke3x5hozel20cefwm",
+                "9725b7bffddb        192.168.1.232:5000/base/joy-config:latest                                                     \"java -jar /opt/co...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_joy-config-server.1.asfe0h2p7ax88i8ignjj59556",
+                "d6fdc6b3d023        192.168.1.232:5000/base/hystrix-turbine:latest                                                \"java -jar joy-hys...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_hystrix-turbine.1.xf34553mbwhobds72qfcpwxus",
+                "8f808e3a7ff5        192.168.1.232:5000/base/admin-server:latest                                                   \"java -jar joy-adm...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_admin-server.1.38mccjslerssm27zr95u5nhn2",
+                "b53d729fdfcb        192.168.1.232:5000/base/consult-api:latest                                                    \"java -jar consult...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_consult-api.1.g660drp5n2fhg6ggqde7o3izs",
+                "8c417210397d        192.168.1.232:5000/base/calculator-api:latest                                                 \"java -jar /opt/ca...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-api.1.68a4fldw8ijddo06a31vs9e0x",
+                "4522755a15ba        192.168.1.232:5000/base/calculator-service:latest                                             \"java -jar calcula...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_calculator-service.1.1es0hjyn0xbl42xaovyppuwc5",
+                "0fd752e27f4b        192.168.1.232:5000/base/consult-service:latest                                                \"java -jar consult...\"   3 weeks ago         Up 3 weeks          8080/tcp            sys01_consult-service.1.ypknb4q463ermt6ukgbf7020s",
+                "5405d73aa556        google/cadvisor@sha256:902449e23fc2cab1ca9788e2610b0928f27ee91e503f3326c7a463fa17d11dd9       \"/usr/bin/cadvisor...\"   4 weeks ago         Up 4 weeks          8080/tcp            sys01_cadvisor.y8jlicg60tjk5wruce5ka6seo.j2edl4mwcwhyc3g07enuk1w70",
+                "2bb2e18ce24d        portainer/portainer@sha256:ab096b92ed177b47adfa8a9a99e304d36596efa557b9627c066cee164cc39910   \"/portainer -H uni...\"   4 weeks ago         Up 4 weeks          9000/tcp            portainer.1.tuuayncgr14fcgiif822y5dy5"
+            ],
+            "stderr_lines": [],
+            "_ansible_parsed": true,
+            "changed": true
+        }
+    }
+}
+[INFO]: 2018-10-16 13:57:45,915 - views.py - post - Thread-1 - {'type': 'cmd', 'hostname': 'master', 'args': 'hostname'}
+[INFO]: 2018-10-16 13:57:45,932 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 13:57:45,932 - views.py - post - Thread-1 - [{'register': 'shell_out', 'action': {'module': 'shell', 'args': 'hostname'}}]
+[INFO]: 2018-10-16 13:57:47,193 - views.py - post - Thread-1 - {
+    "unreachable": {},
+    "failed": {},
+    "success": {
+        "192.168.1.236": {
+            "delta": "0:00:00.037036",
+            "rc": 0,
+            "start": "2018-10-16 13:57:46.916900",
+            "stdout": "master",
+            "cmd": "hostname",
+            "invocation": {
+                "module_args": {
+                    "removes": null,
+                    "executable": null,
+                    "chdir": null,
+                    "stdin": null,
+                    "_raw_params": "hostname",
+                    "warn": true,
+                    "_uses_shell": true,
+                    "creates": null
+                }
+            },
+            "stderr": "",
+            "end": "2018-10-16 13:57:46.953936",
+            "_ansible_no_log": false,
+            "stdout_lines": [
+                "master"
+            ],
+            "stderr_lines": [],
+            "_ansible_parsed": true,
+            "changed": true
+        }
+    }
+}
+[INFO]: 2018-10-16 14:12:11,584 - views.py - post - Thread-1 - {'hostname': 'scm', 'type': 'cmd', 'args': 'python new_file.py'}
+[INFO]: 2018-10-16 14:12:11,659 - views.py - post - Thread-1 - 一般shell操作
+[INFO]: 2018-10-16 14:12:11,660 - views.py - post - Thread-1 - [{'action': {'args': 'python new_file.py', 'module': 'shell'}}]
+[INFO]: 2018-10-16 14:12:14,768 - views.py - post - Thread-1 - {
+    "success": {
+        "192.168.1.232": {
+            "stdout": "",
+            "_ansible_parsed": true,
+            "cmd": "python new_file.py",
+            "rc": 0,
+            "stderr": "",
+            "invocation": {
+                "module_args": {
+                    "creates": null,
+                    "removes": null,
+                    "_raw_params": "python new_file.py",
+                    "chdir": null,
+                    "stdin": null,
+                    "executable": null,
+                    "warn": true,
+                    "_uses_shell": true
+                }
+            },
+            "start": "2018-10-16 14:12:14.424265",
+            "_ansible_no_log": false,
+            "changed": true,
+            "stdout_lines": [],
+            "delta": "0:00:00.058699",
+            "stderr_lines": [],
+            "end": "2018-10-16 14:12:14.482964"
+        }
+    },
+    "failed": {},
+    "unreachable": {}
+}

@@ -728,34 +728,15 @@ class Ansible(Resource):
             else:
                 host = json_data['hostname']
                 logger.info('一般shell操作')
-                print('一般shell操作')
 
             task_list = [
-                dict(action=dict(module='raw', args=json_data['args'])),
+                dict(action=dict(module='shell', args=json_data['args'])),
                 # dict(action=dict(module='synchronize', args='src=/home/op/test dest=/home/op/ delete=yes')),
             ]
-            print(task_list)
+            logger.info(task_list)
             res = g.runansible(host, task_list)
-            print(res)
             logger.info(res)
-            ss = json.loads(res)
-            try:
-                if 'ip' in json_data.keys():
-                    logger.info(json_data['ip'])
-                    msg = jsonify(ss['success'][json_data['ip']]['stdout'])
-                    # msg = jsonify(ss['success'][json_data['ip']]['stdout'])
-                    logger.info(msg)
-                else:
-                    res = models.Asset.query.filter_by(hostname=host).first()
-                    print(res)
-                    logger.info(res.ip)
-                    msg = jsonify(ss['success'][res.ip]['stdout'])
-
-                    # msg = jsonify(ss['success'][json_data['ip']]['stdout'])
-                    logger.info(msg)
-                return msg
-            except:
-                return 'Error'
+            return res
 
 
 class Alarm(Resource):
